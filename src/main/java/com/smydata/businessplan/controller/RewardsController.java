@@ -1,0 +1,83 @@
+package com.smydata.businessplan.controller;
+
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.smydata.businessplan.service.RewardsService;
+import com.smydata.registration.model.Registration;
+import com.smydata.registration.model.Rewards;
+
+@RestController
+@RequestMapping("/api")
+@SessionAttributes("registration")
+public class RewardsController {
+
+	@Autowired
+	RewardsService rewardsService;
+	@GetMapping("/testreward")
+	public String test(){
+		System.out.println("testtttt");
+		return "success";
+	}
+	
+	@PostMapping("/addRewards")
+	public Rewards saveRewards(@RequestBody Rewards rewards,HttpServletRequest request) {
+		System.out.println("===>saveRewards===>");
+		HttpSession session = request.getSession();
+		if(session!=null){
+			Registration reg = (Registration) session.getAttribute("registration");
+			if(reg!=null){
+				System.out.println("===>saveRewards mob no===>"+reg.getMobile());
+				rewards.setMobile(reg.getMobile());	
+			}
+		}
+		return rewardsService.saveReward(rewards);
+	}
+	
+	@GetMapping("/getRewards")
+	public Rewards getRewards(HttpServletRequest request) {
+		System.out.println("===>getRewards===>");
+		HttpSession session = request.getSession();
+		Registration reg = null;
+		String mobile = "";
+		Rewards rewards = null;
+		try{
+			if(session!=null){
+				reg = (Registration) session.getAttribute("registration");
+			}
+			if(reg != null){
+				System.out.println("===>getRewards mob no===>"+reg.getMobile());
+				mobile = reg.getMobile();
+			}
+			rewards = rewardsService.getRewards(mobile);
+			Date todayDate = new Date();
+			if(rewards !=null){
+				Date rewardsEndDate= rewards.getRewardEndDate();
+				if(rewardsEndDate != null && rewardsEndDate.compareTo(todayDate)<0){//disable reward based on dates
+					rewards.setRewardPointEnable(false);
+				}
+				Date bonusEndDate= rewards.getBonusEndDate();
+				if(bonusEndDate != null && bonusEndDate.compareTo(todayDate)<0){//disable bonus based on dates
+					rewards.setBonusPointEnale(false);
+				}
+			}
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return rewards;
+	}
+	
+}
