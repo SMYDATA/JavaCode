@@ -1,11 +1,11 @@
 package com.smydata.registration.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 
-import com.smydata.businessplan.repository.RewardsRepository;
 import com.smydata.registration.model.Registration;
-import com.smydata.registration.model.Rewards;
 import com.smydata.registration.service.RegistrationService;
 
 @RestController
@@ -30,114 +28,120 @@ public class RegistrationController {
 	@Autowired
 	private RegistrationService registrationService;
 	
-	List<Registration> registartion;
-	
 	private static final String API_URL = "http://2factor.in/API/V1/7645e41d-242b-11e8-a895-0200cd936042/SMS/%s/%s";
+	
+	private static final Logger logger = LoggerFactory.getLogger(RegistrationController.class);
 
 	@PostMapping("/saveUser/{userFlag}") //userFlag is to identify registration/add/edit
 	public Registration saveUser(@PathVariable("userFlag") String userFlag,@RequestBody Registration registration,HttpSession session) {
-		System.out.println("saveUser mobile: "+registration.getMobile()+" userFlag: "+userFlag);
+		logger.info("Begin Execution of saveUser method and userFlag::"+userFlag);
 		Registration sessReg = null; 
-		if(session!=null){
-			sessReg = (Registration) session.getAttribute("registration");
+		try{
+			if(session!=null){
+				sessReg = (Registration) session.getAttribute("registration");
+			}
+			long regId = (long) Math.round(Math.random()*100000);
+			if(registration != null){
+				logger.info("saveUser mobile: "+registration.getMobile());
+				if("registration".equalsIgnoreCase(userFlag)){
+					registration.setOwnerRegId(regId);	
+				} else if("add".equalsIgnoreCase(userFlag)){
+					registration.setOwnerRegId(sessReg.getOwnerRegId());
+					registration.setMobile(sessReg.getMobile());
+					registration.setOwnerName(sessReg.getOwnerName());
+				} else if("edit".equalsIgnoreCase(userFlag)){
+//					registration.setOwnerRegId(sessReg.getOwnerRegId());
+				}
+			}
+			registration = registrationService.saveUser(registration);
 		}
-		long regId = (long) Math.round(Math.random()*100000);
-		if("registration".equalsIgnoreCase(userFlag)){
-			registration.setOwnerRegId(regId);	
-		} else if("add".equalsIgnoreCase(userFlag)){
-			registration.setOwnerRegId(sessReg.getOwnerRegId());
-			registration.setMobile(sessReg.getMobile());
-			registration.setOwnerName(sessReg.getOwnerName());
-		} else if("edit".equalsIgnoreCase(userFlag)){
-//			registration.setOwnerRegId(sessReg.getOwnerRegId());
+		catch(Exception e){
+			logger.error("Error occured while saving user data :"+e);
 		}
 		
-		return registrationService.saveUser(registration);
+		return registration;
 	}
-	
-	
-	/*@GetMapping("/getRewards")
-	public Rewards getRewards() {
-		Rewards rewards = new Rewards();
-		rewards.setCashValue(100);
-		rewards.setNoOfRewards(1);
-		rewards.setRewardsStatus("enabled");
-		rewards.setRewardsStartDate(new Date(28/3/2018));
-		rewards.setRewardsEndDate(new Date(30/3/2018));
-		
-		rewards.setBonusPoints(50);
-		rewards.setBonusStatus("enabled");
-		rewards.setBonusStartDate(new Date(29/3/2018));
-		rewards.setBonusEndDate(new Date(31/3/2018));
-		
-		return rewards;
-	}*/
-	
 	
 	@PostMapping("/loginUser")
 	public boolean loginUser(@RequestBody Registration registration,HttpSession session) {
-		System.out.println("loginUser mobile123"+registration.getMobile());
-		if(session!=null){
-			session.removeAttribute("registration");
-		}
-		registartion = new ArrayList<Registration>();
+		logger.info("Begin Execution of loginUser method");
 		
-		registartion= registrationService.findByMobileNumber(registration.getMobile());
-		
-		/*for(Registartion reg :registartion){
-			if(registration.getMobile().equalsIgnoreCase(reg.getMobile())){
-				registration = reg;
-			
-				break;
+		try{
+			if(session!=null){
+				session.removeAttribute("registration");
 			}
-		}*/
-		
-		if(registartion==null || registartion.isEmpty()){
-			return false;
+			if(registration != null){
+				logger.info("loginUser mobile123"+registration.getMobile());
+				List<Registration> registrationList= registrationService.findByMobileNumber(registration.getMobile());
+				
+				if(registrationList==null || registrationList.isEmpty()){
+					return false;
+				}
+				session.setAttribute("registration", registrationList.get(0));
+			}
+			
 		}
-		session.setAttribute("registration", registartion.get(0));
+		catch(Exception e){
+			logger.error("Error occured while user loggingin :"+e);
+		}
+		
 		return true;
 	}
 	
 	@GetMapping("/viewMyBusiness")
 	public List<Registration> getBusinessDetails(HttpSession session){
-		Registration registartion = null; 
-		if(session!=null){
-			registartion = (Registration) session.getAttribute("registration");
+		logger.info("Begin Execution of getBusinessDetails method");
+		Registration registartion = null;
+		List<Registration> registrationList = null;
+		try{
+			if(session!=null){
+				registartion = (Registration) session.getAttribute("registration");
+			}
+			if(registartion != null){
+				logger.info("getBusinessDetails mobile"+registartion.getMobile());
+				registrationList = registrationService.findByMobileNumber(registartion.getMobile());
+			}
 		}
-		System.out.println("getBusinessDetails mobile"+registartion.getMobile());
-		return registrationService.findByMobileNumber(registartion.getMobile());
+		catch(Exception e){
+			logger.error("Error occured while getting business details :"+e);
+		}
+		
+		return registrationList;
 	}
 	
 	@GetMapping("/sendOtp/{mobile}")
 	public int sendOtp(@PathVariable("mobile") String mobile,HttpSession session){
+		logger.info("Begin Execution of sendOtp method");
 		RestTemplate restTemplate = new RestTemplate();
 		int otp = (int) Math.round(Math.random()*100000);
 		String url = String.format(API_URL, mobile,otp);
-		System.out.println("====>>>>>in sendOtp ============>>>>>>>>>>"+url);
+		logger.info("====>>>>>in sendOtp ============>>>>>>>>>>"+url);
 		try{
 			ResponseEntity<String> response =restTemplate.postForEntity(url,null,String.class);
-			
-			System.out.println("response====>"+response.getStatusCode());
+			if(response != null)
+			logger.info("response====>"+response.getStatusCode());
 		}
 		
 		catch(Exception e){
-			System.out.println("Exception occured in sendOtp====>"+e.toString());
-//			e.printStackTrace();
+			logger.error("Exception occured in sendOtp====>"+e);
 		}
 		return otp;
-		
 	}
 	
 	@GetMapping("/resetPwd/{pwd}")
 	public void resetPassword(@PathVariable("pwd") String pwd,HttpSession session) {
-		Registration registration = null; 
-		if(session!=null){
-			registration = (Registration) session.getAttribute("registration");
+		logger.info("Begin Execution of resetPassword method");
+		Registration registration = null;
+		try{
+			if(session!=null){
+				registration = (Registration) session.getAttribute("registration");
+			}
+				registration.setPassword(pwd);
+				registrationService.saveUser(registration);	
 		}
-			registration.setPassword(pwd);
-			registrationService.saveUser(registration);
-		
+		catch(Exception e){
+			logger.error("Exception occured in resetPassword====>"+e);
+		}
 	}
 	
 }

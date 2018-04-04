@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.smydata.businessplan.service.DiscountsService;
+import com.smydata.registration.controller.RegistrationController;
 import com.smydata.registration.model.Discounts;
 import com.smydata.registration.model.Registration;
 
@@ -26,9 +29,11 @@ public class DiscountsController {
 	@Autowired
 	DiscountsService discountsService;
 	
+	private static final Logger logger = LoggerFactory.getLogger(DiscountsController.class);
+	
 	@GetMapping("/getdiscounts")
 	public List<Discounts> getDiscounts(HttpServletRequest request){
-		System.out.println("=====>getdiscounts====>");
+		logger.info("Begin Execution of getDiscounts method::");
 		String mobile = "";
 		List<Discounts> discountsList = null;
 		HttpSession session = request.getSession();
@@ -36,7 +41,7 @@ public class DiscountsController {
 			if(session!=null){
 				Registration reg = (Registration) session.getAttribute("registration");
 				if(reg!=null){
-					System.out.println("===>getDiscounts mob no===>"+reg.getMobile());
+					logger.info("===>getDiscounts mob no===>"+reg.getMobile());
 					mobile = reg.getMobile();
 				}
 			}
@@ -56,7 +61,7 @@ public class DiscountsController {
 			
 		}
 		catch(Exception e){
-			e.printStackTrace();
+			logger.error("Error occured while getting discounts :: "+e);
 		}
 		
 		return discountsList;
@@ -65,26 +70,28 @@ public class DiscountsController {
 	@PostMapping("/savediscounts")
 	public List<Discounts> saveDiscounts(@RequestBody List<Discounts> discounts,HttpServletRequest request){
 		if(discounts != null)
-		System.out.println("=====>saveDiscounts====>"+discounts.size());
+			logger.info("Begin Execution of saveDiscounts method");
 		HttpSession session = request.getSession();
 		List<Discounts> savedDiscounts = null;
 		try{
 			if(session!=null){
 				Registration reg = (Registration) session.getAttribute("registration");
 				if(reg!=null){
-					System.out.println("===>saveDiscounts mob no===>"+reg.getMobile());
+					logger.info("===>saveDiscounts mob no===>"+reg.getMobile());
 					discountsService.deleteDiscounts(reg.getMobile());//delete discounts
-					for(int i=0;i<discounts.size();i++){
-						Discounts discount = discounts.get(i);
-						discount.setMobile(reg.getMobile());
-						discounts.set(i, discount);
+					if(discounts != null){
+						for(int i=0;i<discounts.size();i++){
+							Discounts discount = discounts.get(i);
+							discount.setMobile(reg.getMobile());
+							discounts.set(i, discount);
+						}
+						savedDiscounts = discountsService.saveDiscounts(discounts);
 					}
-					savedDiscounts = discountsService.saveDiscounts(discounts);
 				}
 			}
 		}
 		catch(Exception e){
-			e.printStackTrace();
+			logger.error("Error occured while saving discounts :: "+e);
 		}
 		
 		return savedDiscounts;

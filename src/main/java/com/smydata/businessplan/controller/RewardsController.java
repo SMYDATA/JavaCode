@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,29 +26,34 @@ public class RewardsController {
 
 	@Autowired
 	RewardsService rewardsService;
-	@GetMapping("/testreward")
-	public String test(){
-		System.out.println("testtttt");
-		return "success";
-	}
+	
+	private static final Logger logger = LoggerFactory.getLogger(RewardsController.class);
 	
 	@PostMapping("/addRewards")
 	public Rewards saveRewards(@RequestBody Rewards rewards,HttpServletRequest request) {
-		System.out.println("===>saveRewards===>");
+		logger.info("Begin Execution of saveRewards method");
 		HttpSession session = request.getSession();
-		if(session!=null){
-			Registration reg = (Registration) session.getAttribute("registration");
-			if(reg!=null){
-				System.out.println("===>saveRewards mob no===>"+reg.getMobile());
-				rewards.setMobile(reg.getMobile());	
-			}
+		
+		try{
+			if(session!=null){
+				Registration reg = (Registration) session.getAttribute("registration");
+				if(reg!=null){
+					logger.info("===>saveRewards mob no===>"+reg.getMobile());
+					rewards.setMobile(reg.getMobile());
+					rewards = rewardsService.saveReward(rewards);
+				}
+			}	
 		}
-		return rewardsService.saveReward(rewards);
+		catch(Exception e){
+			logger.error("Error occured while saving rewards : "+e);
+		}
+		
+		return rewards;
 	}
 	
 	@GetMapping("/getRewards")
 	public Rewards getRewards(HttpServletRequest request) {
-		System.out.println("===>getRewards===>");
+		logger.info("Begin Execution of getRewards method:: ");
 		HttpSession session = request.getSession();
 		Registration reg = null;
 		String mobile = "";
@@ -56,7 +63,7 @@ public class RewardsController {
 				reg = (Registration) session.getAttribute("registration");
 			}
 			if(reg != null){
-				System.out.println("===>getRewards mob no===>"+reg.getMobile());
+				logger.info("===>getRewards mob no===>"+reg.getMobile());
 				mobile = reg.getMobile();
 			}
 			rewards = rewardsService.getRewards(mobile);
@@ -74,7 +81,7 @@ public class RewardsController {
 			
 		}
 		catch(Exception e){
-			e.printStackTrace();
+			logger.error("Error occured while getting rewards rewards : "+e);
 		}
 		
 		return rewards;
