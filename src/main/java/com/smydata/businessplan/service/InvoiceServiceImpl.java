@@ -17,4 +17,9 @@ public class InvoiceServiceImpl implements InvoiceService {
 		return invoiceRepository.findByCustomerMobile(mobileNo);
 	}
 
+	@Override
+	public Invoice saveCustomer(Invoice invoice) {
+		return invoiceRepository.save(invoice);
+	}
+
 }
