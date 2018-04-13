@@ -18,7 +18,6 @@ public class InvoiceDetail {
 	private String itemName;
 	private int quantity;
 	private int rate;
-	private int itemTotal;
 	private int discount;
 	private int subTotal;
 	private int total;
@@ -90,14 +89,6 @@ public class InvoiceDetail {
 
 	public void setRate(int rate) {
 		this.rate = rate;
-	}
-
-	public int getItemTotal() {
-		return itemTotal;
-	}
-
-	public void setItemTotal(int itemTotal) {
-		this.itemTotal = itemTotal;
 	}
 
 	public int getDiscount() {
