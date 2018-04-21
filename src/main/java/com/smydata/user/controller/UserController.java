@@ -24,6 +24,11 @@ public class UserController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
+	@GetMapping("/userData")
+	public User getUserData(){
+		return new User();
+	}
+	
 	@GetMapping("/userDetail/{mobile}")
 	public boolean getUserDetail(@PathVariable("mobile") String mobile){
 		

@@ -72,7 +72,7 @@ public class InvoiceDetailController {
 					if(invoiceDetail.getSubTotal()>rewards.getEffectiveAmount()&&rewards.isRewardPointEnable()){
 						rewrdPoints = invoiceDetail.getSubTotal()/rewards.getCashValue();
 					}
-					if(rewards.isRewardPointEnable()){
+					if(rewards.isBonusPointEnale()){
 						rewrdPoints = rewrdPoints + rewards.getBonusPoints();
 					}
 				}
