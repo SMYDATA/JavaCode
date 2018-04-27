@@ -56,8 +56,17 @@ public class PayableController {
 					payable.setMobile(mobile);
 					if("payable".equalsIgnoreCase(flag)){
 						payable.setCode("PAYBL"); //CODE FOR PAYABLE
-					} else {
+					} else if("receivable".equalsIgnoreCase(flag)) {
 						payable.setCode("RCVBL");//CODE FOR RECEIVABLE
+					} else {//for payment/payoff
+						List<Payable> paybleList = payableService.getOwnerPayables(mobile,flag);
+						for(int j=0;j<paybleList.size();j++){
+							Payable payable1 = payables.get(j);
+								if(payable.getInvoiceNumber() == payable1.getInvoiceNumber()){
+									payable.setAmount(payable1.getAmount()-payable.getAmount());
+									break;
+								}
+						}
 					}
 					payables.set(i, payable);
 				}
