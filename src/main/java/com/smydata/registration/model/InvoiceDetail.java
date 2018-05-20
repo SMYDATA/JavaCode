@@ -1,5 +1,6 @@
 package com.smydata.registration.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,69 +11,43 @@ public class InvoiceDetail {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private long invoiceId;
-	private String customerName;
-	private String customerMobile;
-	private String email;
-	private String address;
-	private String itemName;
+	@Column(name="invDetail_id")
+	private long invDetailId;
+	@Column(name="item_name")
+	private String item;
 	private int quantity;
 	private int rate;
 	private int discount;
-	private int subTotal;
-	private int total;
-	private int redeemPoints;
+	private int creditAmount;
+	@Column(name="invoice_id")
+	private Integer invId;
 	
 	public InvoiceDetail() {
 		
 	}
-
-	public long getInvoiceId() {
-		return invoiceId;
+	
+	public long getInvDetailId() {
+		return invDetailId;
+	}
+	public void setInvDetailId(long invDetailId) {
+		this.invDetailId = invDetailId;
 	}
 
-	public void setInvoiceId(long invoiceId) {
-		this.invoiceId = invoiceId;
+
+	public Integer getInvId() {
+		return invId;
 	}
 
-	public String getCustomerName() {
-		return customerName;
+
+	public void setInvId(Integer invId) {
+		this.invId = invId;
+	}
+	public String getItem() {
+		return item;
 	}
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-
-	public String getCustomerMobile() {
-		return customerMobile;
-	}
-
-	public void setCustomerMobile(String customerMobile) {
-		this.customerMobile = customerMobile;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getItemName() {
-		return itemName;
-	}
-
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
+	public void setItem(String item) {
+		this.item = item;
 	}
 
 	public int getQuantity() {
@@ -99,29 +74,15 @@ public class InvoiceDetail {
 		this.discount = discount;
 	}
 
-	public int getSubTotal() {
-		return subTotal;
+	public int getCreditAmount() {
+		return creditAmount;
 	}
 
-	public void setSubTotal(int subTotal) {
-		this.subTotal = subTotal;
+	public void setCreditAmount(int creditAmount) {
+		this.creditAmount = creditAmount;
 	}
 
-	public int getTotal() {
-		return total;
-	}
-
-	public void setTotal(int total) {
-		this.total = total;
-	}
-
-	public int getRedeemPoints() {
-		return redeemPoints;
-	}
-
-	public void setRedeemPoints(int redeemPoints) {
-		this.redeemPoints = redeemPoints;
-	}
+	
 	
 
 }

@@ -4,7 +4,11 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Null;
 
+
+@Table(name="Payable_Receivable")
 @Entity
 public class Payable {
 
@@ -13,6 +17,7 @@ public class Payable {
 	@Id
 	private long invoiceNumber;
 	private double amount;
+	@Null
 	private byte[] invoiceImage;
 	private String code;
 	public Payable() {

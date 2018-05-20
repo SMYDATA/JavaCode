@@ -1,9 +1,12 @@
 package com.smydata.businessplan.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smydata.businessplan.repository.InvoiceDetailRepository;
+import com.smydata.registration.model.Invoice;
 import com.smydata.registration.model.InvoiceDetail;
 
 @Service
@@ -17,9 +20,15 @@ public class InvoiceDetailServiceImpl implements InvoiceDetailService {
 	}
 
 	@Override
-	public InvoiceDetail saveInvoiceDetails(InvoiceDetail invoiceDetail) {
+	public Invoice saveInvoiceDetails(Invoice invoice) {
 		// TODO Auto-generated method stub
-		return invoiceDetailRepository.save(invoiceDetail);
+		return invoiceDetailRepository.save(invoice);
+	}
+
+	@Override
+	public List<Invoice> getInvoice() {
+		// TODO Auto-generated method stub
+		return invoiceDetailRepository.findAll();
 	}
 
 }

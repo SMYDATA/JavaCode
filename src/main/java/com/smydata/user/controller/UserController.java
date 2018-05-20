@@ -1,5 +1,8 @@
 package com.smydata.user.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,24 +32,27 @@ public class UserController {
 		return new User();
 	}
 	
-	@GetMapping("/userDetail/{mobile}")
-	public boolean getUserDetail(@PathVariable("mobile") String mobile){
+	@GetMapping("/getUserDetail/{mobile}")
+	public List<User> getUserDetail(@PathVariable("mobile") String mobile){
 		
 		logger.info("***Begin Execution of getUserDetail***");
-		boolean userExist = false;
+		List<User> userData = new ArrayList<User>();
+		User user = null;
 		try{
 			if(mobile == null)
-				return false;
+				return userData;
 			
-			User user = UserService.findCustomer(mobile);
+			 user = UserService.findCustomer(mobile);
 			if(user != null)
-				userExist = true;
+				user.setName("Ram");
+				user.setAmount("100");
+				userData.add(user);
 		}
 		catch(Exception e){
 			logger.error("Error occured while getting user details:: "+e);
 		}
 		
-		return userExist;
+		return userData;
 	}
 	
 	@PostMapping("/saveUser")
@@ -55,6 +61,7 @@ public class UserController {
 		logger.info("***Begin Execution of saveUser***");
 		try{
 			if(user != null){
+				user.setUserMobile("9440717763");
 				user = UserService.saveCustomer(user);
 			}
 			

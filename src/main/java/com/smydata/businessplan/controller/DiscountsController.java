@@ -1,5 +1,6 @@
 package com.smydata.businessplan.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -47,7 +48,10 @@ public class DiscountsController {
 			}
 			discountsList = discountsService.getDiscountDetails(mobile);
 			if(discountsList !=null){
-				Date todayDate = new Date();
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+				Date date = new Date();
+				String formatDate = format.format(date);
+				Date todayDate =  format.parse(formatDate);
 				for(int i=0;i<discountsList.size();i++){
 					Discounts discount = discountsList.get(i);
 					Date compareDate = discount.getEndDate();

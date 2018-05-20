@@ -1,5 +1,6 @@
 package com.smydata.businessplan.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,7 +68,10 @@ public class RewardsController {
 				mobile = reg.getMobile();
 			}
 			rewards = rewardsService.getRewards(mobile);
-			Date todayDate = new Date();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = new Date();
+			String formatDate = format.format(date);
+			Date todayDate =  format.parse(formatDate);
 			if(rewards !=null){
 				Date rewardsEndDate= rewards.getRewardEndDate();
 				if(rewardsEndDate != null && rewardsEndDate.compareTo(todayDate)<0){//disable reward based on dates

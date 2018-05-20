@@ -17,9 +17,28 @@ public class User {
 	
 	private long rewardPoints;
 	
+	private String name;
+	private String amount;
+	
 
 	public User() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAmount() {
+		return amount;
+	}
+
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
 
 	public long getRewardPoints() {
