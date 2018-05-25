@@ -1,12 +1,14 @@
 package com.smydata.businessplan.controller;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +23,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.smydata.businessplan.service.DiscountsService;
 import com.smydata.businessplan.service.InvoiceDetailService;
 import com.smydata.businessplan.service.RewardsService;
+import com.smydata.model.util.SmydataUtility;
+import com.smydata.payable.service.PayableService;
 import com.smydata.registration.model.Discounts;
 import com.smydata.registration.model.Invoice;
 import com.smydata.registration.model.InvoiceDetail;
+import com.smydata.registration.model.Payable;
 import com.smydata.registration.model.Registration;
 import com.smydata.registration.model.Rewards;
 import com.smydata.registration.model.User;
@@ -46,30 +51,41 @@ public class InvoiceDetailController {
 	@Autowired
 	DiscountsService discountsService;
 	
+	@Autowired
+	PayableService payableService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(InvoiceDetailController.class);
 	
-	@GetMapping("/getInvoice")
-	public List<Invoice> getInvoiceData(){
-		List<Invoice> data = invoiceDetailService.getInvoice();
-		
-		return data;
+	/*@GetMapping("/getInvoice")
+	public Invoice getInvoiceData(){
+		List<Invoice> data = invoiceDetailService.getInvoice("");
+		List<InvoiceDetail> data1 = new ArrayList<InvoiceDetail>();
+		Invoice invoice = new Invoice();
+		InvoiceDetail inv1 = new InvoiceDetail();
+//		inv1.setCreditAmount(10);
+//		inv1.setDiscount(5);
+		inv1.setItem("chair");
+		inv1.setQuantity(1);
+		inv1.setRate(100);
+		data1.add(inv1);
+		invoice.setInvoiceDetail(data1);
+		data.add(invoice);
+		return invoice;
 	}
-	
+	*/
 	
 	@PostMapping("/createInvoice/{gstFlag}")
-	public Invoice saveInvoiceDetails(@RequestBody List<InvoiceDetail> invoiceDetailList,/*@PathVariable("mobile") String Usermobile,*/@PathVariable("gstFlag") String gstFlag,HttpServletRequest request){
+	public List<Invoice> saveInvoiceDetails(@RequestBody Invoice invoice,/*@PathVariable("mobile") String Usermobile,*/@PathVariable("gstFlag") String gstFlag,HttpServletRequest request){
 		
 		logger.info("***Begin Execution of saveInvoiceDetails***");
 		HttpSession session = request.getSession();
+		List<Payable> recievableList = new ArrayList<Payable>();
+		List<Invoice> invoiceData1 = new ArrayList<Invoice>();
 		Registration reg = null;
 		String mobile = "";
-		long rewrdPoints = 0L;
-		int configDiscount= 0;
-		int busOwnDiscount = -1;
-		long total = 0;
-		long subTotal = 0L;
-		float totalDiscount = 0.0f;
-		Invoice invoice = new Invoice();
+		int rewrdPoints = 0;
+		double totalDiscount = 0.0;
+		List<Invoice> invoiceData = null;
 		try{
 			if(session!=null){
 				reg = (Registration) session.getAttribute("registration");
@@ -78,70 +94,62 @@ public class InvoiceDetailController {
 				logger.info("===>getRewards mob no===>"+reg.getMobile());
 				mobile = reg.getMobile();
 			}
-			Rewards rewards = getRewards(mobile);//get rewards configuration
-			List<Discounts> discounts = getDiscounts(mobile); //Get discounts configuration
+			Rewards rewards = SmydataUtility.getRewards(mobile,rewardsService);//get rewards configuration
 			
-			if(invoiceDetailList != null){
-				int discountPositn = 0;
-				for(InvoiceDetail invoiceDetail:invoiceDetailList){
-					subTotal = subTotal + (invoiceDetail.getQuantity() * invoiceDetail.getRate());
-					if(busOwnDiscount < 0){
-						discountPositn = invoiceDetailList.size()-1;
-						busOwnDiscount = invoiceDetailList.get(discountPositn).getDiscount();
-					}
-				}
-				invoiceDetailList.remove(discountPositn);
-				System.out.println("subTotal::"+subTotal);
+			if(invoice != null){
 				if(rewards != null){
-					if(subTotal>rewards.getEffectiveAmount()&&rewards.isRewardPointEnable()){
-						rewrdPoints = subTotal/rewards.getCashValue();
-					}
-					if(rewards.isBonusPointEnale()){
-						rewrdPoints = rewrdPoints + rewards.getBonusPoints();
+					if(invoice.getTotal()>rewards.getEffectiveAmount()&&rewards.isRewardPointEnable()){
+						rewrdPoints = (int) (invoice.getTotal()/rewards.getCashValue());
 					}
 				}
 				
-				User user = UserService.findCustomer("9440717763");//Need to fetch from UI
+				User user = UserService.findCustomer(invoice.getUserMobile());
 				if(user != null){
-					long userRewardPoints = user.getRewardPoints();
+					int userRewardPoints = user.getRewardPoints();
 					rewrdPoints = rewrdPoints + userRewardPoints;
 					if(rewrdPoints>0){
-//						rewrdPoints = rewrdPoints - invoiceDetail.getCreditAmount();
+						rewrdPoints = rewrdPoints - invoice.getRewards();
 						user.setRewardPoints(rewrdPoints);
 						UserService.saveCustomer(user);
 					}
 				}
 				
-				if(discounts != null){
-					 configDiscount = getDiscountToApply(discounts,subTotal);
-				}
-				if(Boolean.valueOf(gstFlag)){
-					totalDiscount = (subTotal * configDiscount * busOwnDiscount *10)/1000000;
+				/*if(discounts != null){
+					 configDiscount = getDiscountToApply(discounts,invoice.getTotal());
+				}*/
+				/*if(Boolean.valueOf(gstFlag)){
+					totalDiscount = (invoice.getTotal() * (configDiscount + 10))/100;
 				}else{
 					int discountToapply = 0;
 					if(configDiscount>0){
 						discountToapply = discountToapply + configDiscount;
 					}
-					if(busOwnDiscount>0){
-						discountToapply = discountToapply + busOwnDiscount;
+					
+					if(invoice.getTotal() > 0){
+						totalDiscount = (invoice.getTotal() * discountToapply)/100;
 					}
-					if(subTotal > 0){
-						totalDiscount = (subTotal * discountToapply)/100;
-					}
-				}
-				total = (long) (subTotal-totalDiscount);
-				invoice.setSubTotal(subTotal);
-				invoice.setDiscount(totalDiscount);
-				invoice.setTotal(total);
-				//Below details need to fetch from GUIs
-				invoice.setAddress("Hyd");
-				invoice.setEmail("ds@gmail.com");
-				invoice.setUserMobile("9440717763");
-				invoice.setUserName("Parthiya");
-				invoice.setInvoiceDetail(invoiceDetailList);
-				invoice.setCreateDate(new Timestamp(System.currentTimeMillis()));
+				}*/
 				
-				invoice = invoiceDetailService.saveInvoiceDetails(invoice);
+				invoice.setCreateDate(new Timestamp(System.currentTimeMillis()));
+				  invoiceDetailService.saveInvoiceDetails(invoice);
+				 invoiceData = invoiceDetailService.getInvoice(invoice.getUserMobile());//Fetch current invoice data
+				 if(invoice.getCredit()>0){
+					 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+//						Date date = new Date();
+//						String formatDate = format.format(date);
+//						Date todayDate =  format.parse(formatDate);
+					 
+					 Invoice inv = invoiceData.get(invoiceData.size()-1);
+					 invoiceData1.add(inv);
+						Payable payable = new Payable();
+						payable.setMobile(invoice.getUserMobile());
+						payable.setCode("RCVBL");
+						payable.setAmount(invoice.getCredit());
+						payable.setInvoiceNumber(inv.getInvId());
+//						payable.setDate();
+						recievableList.add(payable);
+						payableService.saveOwnerPayables(recievableList);
+					}
 			}
 			
 		}
@@ -149,13 +157,13 @@ public class InvoiceDetailController {
 			logger.error("Error occured while saving Invoice details:: "+e);
 		}
 		
-		return invoice;
+		return invoiceData1;
 	}
 	
-	private int getDiscountToApply(List<Discounts> discountsList, long subTotal){
+	private int getDiscountToApply(List<Discounts> discountsList, double total){
 		int discountToApply = 0;
 		for(Discounts discount: discountsList){
-			if(subTotal>=discount.getMinAmount() && subTotal<=discount.getMaxAmount()&&discount.isEnable()){
+			if(total>=discount.getMinAmount() && total<=discount.getMaxAmount()&&discount.isEnable()){
 				discountToApply = discount.getDiscount();
 				break;
 			}
@@ -163,36 +171,6 @@ public class InvoiceDetailController {
 		
 		return discountToApply;
 	}
-	private Rewards getRewards(String mobile){
-		Rewards rewards = rewardsService.getRewards(mobile);
-		Date todayDate = new Date();
-		if(rewards !=null){
-			Date rewardsEndDate= rewards.getRewardEndDate();
-			if(rewardsEndDate != null && rewardsEndDate.compareTo(todayDate)<0){//disable reward based on dates
-				rewards.setRewardPointEnable(false);
-			}
-			Date bonusEndDate= rewards.getBonusEndDate();
-			if(bonusEndDate != null && bonusEndDate.compareTo(todayDate)<0){//disable bonus based on dates
-				rewards.setBonusPointEnale(false);
-			}
-		}
-		return rewards;
-	}
-	
-	private List<Discounts> getDiscounts(String mobile){
-		List<Discounts> discountsList = discountsService.getDiscountDetails(mobile);
-		if(discountsList !=null){
-			Date todayDate = new Date();
-			for(int i=0;i<discountsList.size();i++){
-				Discounts discount = discountsList.get(i);
-				Date compareDate = discount.getEndDate();
-				if(compareDate.compareTo(todayDate)<0){
-					discount.setEnable(false);
-					discountsList.set(i, discount);
-				}
-				
-			}
-		}
-		return discountsList;
-	}
+
+
 }

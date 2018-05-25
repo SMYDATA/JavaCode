@@ -7,5 +7,5 @@ import com.smydata.registration.model.InvoiceDetail;
 
 public interface InvoiceDetailService {
 	Invoice saveInvoiceDetails(Invoice invoice);
-	List<Invoice> getInvoice();
+	List<Invoice> getInvoice(String mobile);
 }

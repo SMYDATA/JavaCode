@@ -21,14 +21,12 @@ public class InvoiceDetailServiceImpl implements InvoiceDetailService {
 
 	@Override
 	public Invoice saveInvoiceDetails(Invoice invoice) {
-		// TODO Auto-generated method stub
 		return invoiceDetailRepository.save(invoice);
 	}
 
 	@Override
-	public List<Invoice> getInvoice() {
-		// TODO Auto-generated method stub
-		return invoiceDetailRepository.findAll();
+	public List<Invoice> getInvoice(String mobile) {
+		return invoiceDetailRepository.findByUserMobile(mobile);
 	}
 
 }

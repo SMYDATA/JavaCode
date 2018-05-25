@@ -108,6 +108,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+// import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -144,6 +146,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClientModule */],
+                // BrowserAnimationsModule,
+                // MatButtonModule, MatCheckboxModule,
                 __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
                 )
             ],
@@ -349,7 +353,7 @@ module.exports = ".discount{\r\n  width: 50px;\r\n}\r\n\r\n.switch {\r\n  positi
 /***/ "./src/app/discounts/discounts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-info\">\n    <div class=\"panel-heading col-md-12\">\n      <h3 class=\"col-md-4\">My Poduct Discounts </h3>\n      <label class=\"switch col-md-2\">\n        <div *ngIf=\"!isDataExist\">\n           <input type=\"checkbox\" [(ngModel)]='discounts.enableDiscount'>\n            <span class=\"slider round\"></span>\n        </div>\n        <div *ngIf=\"isDataExist && discounts?.length > 0\">\n           <input type=\"checkbox\" [(ngModel)]='discounts[0].enableDiscount'>\n            <span class=\"slider round\"></span>\n        </div>\n        \n       </label>\n    </div>\n\n     <div class=\"panel-body\">\n       <div class=\"container\">\n         <table class=\"table table-bordered\">\n           <thead>\n             <tr>\n               <th>Min Amount</th>\n               <th>Max Amount</th>\n               <th>Discount</th>\n               <th>Start Date</th>\n               <th>End Date</th>\n               <th>enable/disable</th>\n             </tr>\n           </thead>\n           <tbody>\n             <tr *ngFor=\"let data of discounts;let i = index; let lastEl = last; let firstEl = first\">\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].minAmount'/>\n               </td>\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].maxAmount'/>\n               </td>\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].discount'/>\n               </td>\n               <td>\n                 <input type=\"date\"  [(ngModel)]='discounts[i].startDate'/>\n               </td>\n               <td>\n                 <input type=\"date\"  [(ngModel)]='discounts[i].endDate'/>\n               </td>\n               <td>\n                 <label class=\"switch\">\n                    <input type=\"checkbox\" [(ngModel)]='discounts[i].enable'>\n                    <span class=\"slider round\"></span>\n                  </label>\n               </td>\n               <td *ngIf='!firstEl'>\n                 <button type=\"button\"  (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n                   <span class=\"glyphicon glyphicon-minus\"></span>\n                 </button>\n               </td>\n               <td *ngIf='lastEl'>\n                 <button type=\"button\" (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n                   <span class=\"glyphicon glyphicon-plus\"></span>\n                 </button>\n               </td>\n             </tr>\n           </tbody>\n         </table>\n       </div>\n        <hr>\n     </div>\n<button class=\"btn btn-primary btn-block\"type=\"button\" (click)='saveDiscount(discounts)' name=\"button\">Save</button>\n</div>\n"
+module.exports = "<div class=\"panel panel-info\">\n    <div class=\"panel-heading col-md-12\">\n      <h3 class=\"col-md-4\">My Poduct Discounts </h3>\n      <label class=\"switch col-md-2\">\n        <div *ngIf=\"!isDataExist\">\n           <input type=\"checkbox\" [(ngModel)]='discounts.enableDiscount'>\n            <span class=\"slider round\"></span>\n        </div>\n        <div *ngIf=\"isDataExist && discounts?.length > 0\">\n           <input type=\"checkbox\" [(ngModel)]='discounts[0].enableDiscount'>\n            <span class=\"slider round\"></span>\n        </div>\n\n       </label>\n    </div>\n\n     <div class=\"panel-body\">\n       <div class=\"container\">\n         <table class=\"table table-bordered\">\n           <thead>\n             <tr>\n               <th>Min Amount</th>\n               <th>Max Amount</th>\n               <th>Discount</th>\n               <th>Start Date</th>\n               <th>End Date</th>\n               <th>enable/disable</th>\n             </tr>\n           </thead>\n           <tbody>\n             <tr *ngFor=\"let data of discounts;let i = index; let lastEl = last; let firstEl = first\">\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].minAmount'/>\n               </td>\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].maxAmount'/>\n               </td>\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].discount'/>\n               </td>\n               <td>\n                 <input type=\"date\"  [(ngModel)]='discounts[i].startDate'/>\n               </td>\n               <td>\n                 <input type=\"date\"  [(ngModel)]='discounts[i].endDate'/>\n               </td>\n               <td>\n                 <label class=\"switch\">\n                    <input type=\"checkbox\" [(ngModel)]='discounts[i].enable'>\n                    <span class=\"slider round\"></span>\n                  </label>\n               </td>\n               <td *ngIf='!firstEl'>\n                 <button type=\"button\"  (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n                   <span class=\"glyphicon glyphicon-minus\">-</span>\n                 </button>\n               </td>\n               <td *ngIf='lastEl'>\n                 <button type=\"button\" (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n                   <span class=\"glyphicon glyphicon-plus\">+</span>\n                 </button>\n               </td>\n             </tr>\n           </tbody>\n         </table>\n       </div>\n        <hr>\n     </div>\n<button class=\"btn btn-primary btn-block\"type=\"button\" (click)='saveDiscount(discounts)' name=\"button\">Save</button>\n</div>\n"
 
 /***/ }),
 
@@ -450,7 +454,7 @@ module.exports = ""
 /***/ "./src/app/invoice/invoice.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"border border-success\"  style=\"padding:20px\">\n\n  <div class=\"top row\">\n    <div class=\"col-md-4\">\n      <h3>{{name}}</h3>\n      <h3>{{mobile}}</h3>\n      <h3>mail@gmail.com</h3>\n    </div>\n    <div class=\"col-md-4\">\n    </div>\n    <div class=\"float-right col-md-4\">\n      <h3>Total BV:123</h3>\n      <h3>Total points:526</h3>\n    </div>\n  </div>\n  <!-- Table -->\n  <div class=\"\">\n    <table class=\"table\">\n      <thead class=\"thead-light\">\n        <tr>\n          <th scope=\"col\">#</th>\n          <th scope=\"col\">Item Name</th>\n          <th scope=\"col\">Quantity</th>\n          <th scope=\"col\">Rate</th>\n          <th scope=\"col\">total Amount</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let data of invoice;let i = index; let lastEl = last; let firstEl = first\">\n          <td>{{i+1}}</td>\n          <td>\n            <select [(ngModel)]='invoice[i].item'>\n                <option *ngFor=\"let item of items\" value={{item}}>\n                    {{item}}\n                </option>\n            </select>\n            <!-- <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].minAmount'/> -->\n          </td>\n          <td>\n            <input class=\"quantity\" type=\"number\" min=\"0\" [(ngModel)]='invoice[i].quantity'/>\n          </td>\n          <td>\n            <input class=\"rate\" type=\"number\" min=\"0\" [(ngModel)]='invoice[i].rate'/>\n          </td>\n          <td>\n            <input (onchange)=\"alert('in')\" value=\"{{invoice[i].rate  * invoice[i].quantity | currency:'RS '}}\" [(ngModel)]='invoice[i].total' >\n          </td>\n          <td *ngIf='!firstEl'>\n            <button type=\"button\"  (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n              <span class=\"glyphicon glyphicon-minus\"></span>\n            </button>\n          </td>\n          <td *ngIf='lastEl'>\n            <button type=\"button\" (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n              <span class=\"glyphicon glyphicon-plus\"></span>\n            </button>\n          </td>\n        </tr>\n      </tbody>\n    </table>\n  </div><hr>\n  <div class=\"discount\">\n    <h4>Discount:<input type=\"number\"min=\"0\" max=\"50\" [(ngModel)]=\"discount\" name=\"discount\" value=\"\">%</h4>\n  </div>\n  <div class=\"\">\n    <button type=\"button\" name=\"button\" class=\"btn btn-block btn-primary\" (click)=\"submitInvoice()\">Submit</button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"border border-success\"  style=\"padding:20px\">\n\n  <div class=\"top row\">\n    <div class=\"col-md-4\">\n      <h5>David</h5>\n      <h5>9671324421</h5>\n      <h5>david@gmail.com</h5>\n    </div>\n    <div class=\"col-md-4\">\n    </div>\n    <div class=\"float-right col-md-4\">\n      <h5>Total BV:55123</h5>\n      <h5>Total points:526</h5>\n    </div>\n  </div>\n  <div class=\"invoice\" *ngIf='!invoiceGenerate'>\n  <!-- Table -->\n  <div class=\"\">\n    <table class=\"table\" >\n      <thead class=\"thead-light\">\n        <tr>\n          <th scope=\"col\">#</th>\n          <th scope=\"col\">Item Name</th>\n          <th scope=\"col\">Quantity</th>\n          <th scope=\"col\">Rate</th>\n          <th scope=\"col\">total Amount</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let data of invoice;let i = index; let lastEl = last; let firstEl = first\">\n          <td>{{i+1}}</td>\n          <td>\n            <select [(ngModel)]='invoice[i].item' disabled>\n                <option *ngFor=\"let item of items\" value={{item}}>\n                    {{item}}\n                </option>\n            </select>\n            <!-- <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].minAmount'/> -->\n          </td>\n          <td>\n            <input class=\"quantity\" readonly type=\"number\" min=\"0\" [(ngModel)]='invoice[i].quantity'/>\n          </td>\n          <td>\n            <input class=\"rate\" readonly type=\"number\" min=\"0\" [(ngModel)]='invoice[i].rate'/>\n          </td>\n          <td>\n            <input readonly value=\"{{invoice[i].rate  * invoice[i].quantity | currency:'RS '}}\">\n          </td>\n          <td *ngIf='!firstEl'>\n            <button type=\"button\" disabled  (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n              <span class=\"glyphicon glyphicon-minus\">-</span>\n            </button>\n          </td>\n          <td *ngIf='lastEl'>\n            <button type=\"button\" disabled (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n              <span class=\"glyphicon glyphicon-plus\">+</span>\n            </button>\n          </td>\n        </tr>\n      </tbody>\n    </table>\n  </div><hr>\n  <div class=\"discount\">\n    <h5>Sub-Total: 7350 </h5>\n    <h5>Discount: <input type=\"number\" readonly min=\"0\" max=\"50\"  name=\"discount\" value=\"20\">%</h5>\n    <h5>Rewards: <input type=\"number\" readonly min=\"0\" max=\"500\" name=\"reward\" value=\"200\"></h5>\n    <h5>Total: 5880 </h5>\n  </div>\n  <div class=\"\">\n    <button type=\"button\" name=\"button\" disabled class=\"btn btn-block btn-primary\" (click)=\"submitInvoice()\">Submit</button>\n  </div>\n</div>\n\n</div>\n"
 
 /***/ }),
 
@@ -479,15 +483,18 @@ var InvoiceComponent = /** @class */ (function () {
         this._billingService = _billingService;
         this.cookieService = cookieService;
         this.invoice = [{
-                item: '', quantity: '', rate: '',
-                total: ''
+                item: 'chair', quantity: '2', rate: '450'
+            }, {
+                item: 'sofa', quantity: '1', rate: '5450'
+            }, {
+                item: 'desk', quantity: '1', rate: '1450'
             }];
     }
     InvoiceComponent.prototype.ngOnInit = function () {
         this.name = "David";
         this.allCookies = this.cookieService.getAll();
         this.mobile = this.allCookies.mobile;
-        this.items = ['one', 'two', 'three'];
+        this.items = ['chair', 'bean', 'desk', 'sofa'];
     };
     InvoiceComponent.prototype.addRow = function () {
         this.invoice.push({
@@ -500,15 +507,6 @@ var InvoiceComponent = /** @class */ (function () {
         this.invoice.splice(index, 1);
     };
     ;
-    InvoiceComponent.prototype.submitInvoice = function () {
-        this.invoice.push({ discount: this.discount });
-        this._billingService.addInvoice(this.invoice).subscribe(function (data) {
-            console.log('success::' + data);
-            alert('saved successfully');
-        }, function (error) {
-            alert('could not create Invoice! try again!!');
-        });
-    };
     InvoiceComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-invoice',
@@ -578,7 +576,7 @@ var OtpAuthenticationComponent = /** @class */ (function () {
         console.log('verifyOtp::' + this.messageSource);
         if (this.messageSource == (this.otpValue + 'Regi')) {
             this.successRegPopUp = true;
-            this.router.navigate(['/', 'userData']);
+            //    this.router.navigate(['/', 'userData']);
         }
         else if (this.messageSource == this.otpValue) {
             this.resetPwd = true;
@@ -660,15 +658,9 @@ var PayablesComponent = /** @class */ (function () {
     PayablesComponent.prototype.verifyUser = function () {
         var _this = this;
         this._demoService.customerExist(this.mobile).subscribe(function (data) {
-            if (data != null && Object.keys(data).length > 0) {
-                _this.name = data[0].name;
-                _this.amount = data[0].amount;
-                alert('success');
-            }
-            else {
-                alert('No Data found');
-                _this.userEntry = true;
-            }
+            _this.name = data[0].name;
+            _this.amount = data[0].amount;
+            alert('success');
         }, function (error) {
             _this.userEntry = true;
         });
@@ -736,15 +728,9 @@ var ReceivablesComponent = /** @class */ (function () {
     ReceivablesComponent.prototype.verifyUser = function () {
         var _this = this;
         this._demoService.customerExist(this.mobile).subscribe(function (data) {
-            if (data != null && Object.keys(data).length > 0) {
-                _this.name = data[0].name;
-                _this.amount = data[0].amount;
-                alert('success');
-            }
-            else {
-                alert('No Data found');
-                _this.userEntry = true;
-            }
+            _this.name = data[0].name;
+            _this.amount = data[0].amount;
+            alert('success');
         }, function (error) {
             _this.userEntry = true;
         });
@@ -870,7 +856,7 @@ module.exports = ""
 /***/ "./src/app/select-invoice/select-invoice.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Invoice</h1>\n<div class=\"col-md-4 container\">\n  <div class=\"input-group\" *ngIf='!userEntry'>\n  <input type=\"text\" class=\"form-control\" [(ngModel)]='mobile' placeholder=\"Enter Mobile Number\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n  <div class=\"input-group-append\">\n    <button class=\"btn btn-outline-secondary\" (click)=\"verifyUser()\" type=\"button\">Submit</button>\n  </div>\n</div>\n\n<form *ngIf='userEntry'>\n  <div class=\"form-group row\">\n    <label  class=\"col-sm-2 col-form-label col-form-label-sm\">Name</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\"  placeholder=\"Name\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Email</label>\n    <div class=\"col-sm-10\">\n      <input type=\"email\" class=\"form-control form-control-sm\"  placeholder=\"Email\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Address</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\"  placeholder=\"Address\">\n    </div>\n  </div>\n  <button class=\"btn btn-success\" type=\"button\" name=\"button\">Submit</button>\n\n</form>\n\n</div>\n"
+module.exports = "<h1>Invoice</h1>\n<div class=\"col-md-4 container\" *ngIf='!invoice'>\n  <div class=\"input-group\" *ngIf='!userEntry'>\n  <input type=\"text\" class=\"form-control\" [(ngModel)]='mobile' placeholder=\"Enter Mobile Number\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n  <div class=\"input-group-append\">\n    <button class=\"btn btn-outline-secondary\" (click)=\"verifyUser()\" type=\"button\">Submit</button>\n  </div>\n</div>\n\n<form *ngIf='userEntry'>\n  <div class=\"form-group row\">\n    <label  class=\"col-sm-2 col-form-label col-form-label-sm\">Name</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='username'  [(ngModel)]=\"userName\" placeholder=\"Name\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Email</label>\n    <div class=\"col-sm-10\">\n      <input type=\"email\" class=\"form-control form-control-sm\" name='mail' [(ngModel)]='email' placeholder=\"Email\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Address</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='addr' [(ngModel)]='address'  placeholder=\"Address\">\n    </div>\n  </div>\n  <button class=\"btn btn-success\" type=\"button\" (click)='userDetails(userName,email,address)' name=\"button\">Submit</button>\n</form>\n</div>\n\n<!--generated invoice  -->\n<div class=\"invoiceCreation container border border-success\" *ngIf='invoice' style=\"padding:20px\">\n  <div class=\"row\">\n    <div class=\"col-sm\" [hidden]='InvGen'>     \n      <h5>{{userName | uppercase}}</h5>\n      <h5>{{mobile}}</h5>\n      <h5>{{email}}</h5>\n      <h5>{{address}}</h5>\n    </div>\n    <div class=\"col-sm\">\n    </div>\n    <div class=\"col-sm\" [hidden]='InvGen'>\n      <h5>Total BV = {{BV}}</h5>\n      <h5>Total Points = {{rewardPoints}}</h5>\n    </div>\n  </div>\n  <table class=\"table\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Item</th>\n      <th scope=\"col\">Quantity</th>\n      <th scope=\"col\">Rate</th>\n      <th scope=\"col\">Total</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of invoiceList;let i = index; let lastEl = last; let firstEl = first\">\n      <td>{{i+1}}</td>\n      <td>\n        <select [(ngModel)]='invoiceList[i].item' [disabled]='InvGen'>\n            <option *ngFor=\"let item of items\" value={{item}}>\n                {{item}}\n            </option>\n        </select>\n      </td>\n      <td>\n        <input class=\"quantity\"  type=\"number\" min=\"0\" (blur)='calcTotal()' [(ngModel)]='invoiceList[i].quantity' [disabled]='InvGen'/>\n      </td>\n      <td>\n        <input class=\"rate\"  type=\"number\" min=\"0\" (blur)='calcTotal()' [(ngModel)]='invoiceList[i].rate' [disabled]='InvGen'/>\n      </td>\n      <td>\n        <input  value=\"{{invoiceList[i].rate  * invoiceList[i].quantity | currency:'RS '}}\"  [disabled]='InvGen'>\n      </td>\n      <td *ngIf='!firstEl'  [hidden]='InvGen'>\n        <button type=\"button\"   (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n          <span class=\"glyphicon glyphicon-minus\">-</span>\n        </button>\n      </td>\n      <td *ngIf='lastEl' [hidden]='InvGen'>\n        <button type=\"button\"  (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n          <span class=\"glyphicon glyphicon-plus\">+</span>\n        </button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n<hr>\n<div class=\"row\">\n  <div class=\"col-sm\">\n    <h5>Discount:<input  type=\"number\" min=\"0\" max=\"1000\" (blur)='calcTotal()' [(ngModel)]='discounts' [disabled]='InvGen' />%</h5>\n    <h5>Rewards:<input  type=\"number\" min=\"0\" max=\"1000\" (blur)='calcTotal()' [(ngModel)]='rewards' [disabled]='InvGen' /></h5>\n      <h5>Credit :<input type=\"number\" min=\"0\" max=\"100000\" [(ngModel)]='credit'  [disabled]='InvGen'/></h5>\n  </div>\n  <div class=\"col-sm\">\n  </div>\n  <div class=\"col-sm\">\n    <h5>SubTotal:{{subTotal}}</h5>\n    <h5>GST:<input  type=\"number\" min=\"0\" max=\"1000\" (blur)='calcTotal()' [(ngModel)]='gst' [disabled]='InvGen' />%</h5>\n    <h5>Total:{{total}}</h5>\n    <h5>PAID : {{total - credit}}</h5>\n  </div>\n</div>\n\n<div class=\"\" [hidden]=\"InvGen\">\n  <button type=\"button\" name=\"button\"  class=\"btn btn-block btn-primary\" (click)=\"submitInvoice()\">Submit</button>\n</div>\n<div class=\"\" [hidden]=\"!InvGen\">\n  <button type=\"button\" name=\"button\"  class=\"btn btn-block btn-primary\">Generate Invoice</button>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -881,6 +867,7 @@ module.exports = "<h1>Invoice</h1>\n<div class=\"col-md-4 container\">\n  <div c
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectInvoiceComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("./src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__billing_service__ = __webpack_require__("./src/app/billing.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -892,18 +879,113 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var SelectInvoiceComponent = /** @class */ (function () {
-    function SelectInvoiceComponent(_demoService) {
+    function SelectInvoiceComponent(_demoService, _billingService) {
         this._demoService = _demoService;
+        this._billingService = _billingService;
     }
     SelectInvoiceComponent.prototype.ngOnInit = function () {
+        this.rewards = this.discounts = 0;
+        this.invoiceList = [{
+                item: '', quantity: '', rate: '', total: ''
+            }];
+        this.items = ['chair', 'bean', 'desk', 'sofa'];
+        this.invoiceData = { name: '', mobile: '', email: '' };
+        this.gst = 8;
+    };
+    SelectInvoiceComponent.prototype.addRow = function () {
+        this.invoiceList.push({
+            item: '', quantity: '', rate: '', total: ''
+        });
+    };
+    ;
+    SelectInvoiceComponent.prototype.deleteRow = function (index) {
+        this.invoiceList.splice(index, 1);
+    };
+    ;
+    SelectInvoiceComponent.prototype.calcTotal = function (r) {
+        var _this = this;
+        console.log('inn');
+        this.total = this.subTotal = 0;
+        this.invoiceList.forEach(function (value) {
+            if (value.rate != null && value.quantity != null) {
+                _this.subTotal += value.rate * value.quantity;
+            }
+            ;
+        });
+        this.total = this.subTotal - this.rewards - (this.subTotal * ((this.discounts) / 100));
+        this.total = this.total + (this.total * (this.gst / 100));
+        this.applyDiscount(this.discountList, this.total);
+    };
+    SelectInvoiceComponent.prototype.applyDiscount = function (data, total) {
+        var _this = this;
+        if (data && data.length > 0) {
+            data.forEach(function (val) {
+                if (total <= val.maxAmount && total >= val.minAmount) {
+                    _this.discounts = val.discount;
+                }
+            });
+        }
     };
     SelectInvoiceComponent.prototype.verifyUser = function () {
         var _this = this;
         this._demoService.customerExist(this.mobile).subscribe(function (data) {
-            alert('success');
+            if (data != null && Object.keys(data).length <= 0) {
+                alert('no data');
+                _this.userEntry = true;
+            }
+            else {
+                alert(' data' + data[0].userName);
+                _this.invoice = true;
+                _this.userName = data[0].userName;
+                _this.email = data[0].email;
+                _this.address = data[0].address;
+                _this.BV = data[0].businessVolume;
+                _this.rewardPoints = data[0].rewardPoints;
+                _this.discountList = data[0].discounts;
+            }
         }, function (error) {
-            _this.userEntry = true;
+            alert("ERROR: Could not connect!!");
+        });
+    };
+    SelectInvoiceComponent.prototype.userDetails = function () {
+        var _this = this;
+        console.log(name);
+        this._demoService.createUser({ userName: this.userName, email: this.email, address: this.address, userMobile: this.mobile }).subscribe(function (data) {
+            alert('success');
+            console.log(data);
+            _this.invoice = true;
+            _this.userName = data[0].userName;
+            _this.email = data[0].email;
+            _this.address = data[0].address;
+            _this.BV = data[0].businessVolume;
+            _this.rewardPoints = data[0].rewardPoints;
+            _this.discountList = data[0].discounts;
+        }, function (error) {
+            alert('failed to add');
+        });
+    };
+    SelectInvoiceComponent.prototype.submitInvoice = function () {
+        var _this = this;
+        var generateInvoice = {
+            userName: this.userName, userMobile: this.mobile, total: this.total,
+            subTotal: this.subTotal, rewards: this.rewards, discount: this.discounts,
+            credit: this.credit, invoiceDetail: this.invoiceList
+        };
+        console.log(generateInvoice);
+        this._billingService.addInvoice(generateInvoice).subscribe(function (data) {
+            console.log(data);
+            if (data != null) {
+                _this.invoiceid = data[0].invId;
+                _this.InvGen = true;
+            }
+            else {
+                _this.invoice = _this.userEntry = false;
+            }
+            alert('added successfully');
+        }, function (error) {
+            alert('could not create Invoice! try again!!');
         });
     };
     SelectInvoiceComponent = __decorate([
@@ -912,7 +994,7 @@ var SelectInvoiceComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/select-invoice/select-invoice.component.html"),
             styles: [__webpack_require__("./src/app/select-invoice/select-invoice.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__billing_service__["a" /* BillingService */]])
     ], SelectInvoiceComponent);
     return SelectInvoiceComponent;
 }());
@@ -1396,6 +1478,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+// import 'hammerjs';
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* enableProdMode */])();
 }

@@ -80,8 +80,8 @@ public class PayableController {
 		return payables;
 	}
 	
-	@GetMapping("/getPayables/{flag}")
-	public List<Payable> getPayables(@PathVariable("flag") String flag,HttpServletRequest request){
+	@GetMapping("/getPayables/{mob}/{flag}")
+	public List<Payable> getPayables(@PathVariable("flag") String flag, @PathVariable("mob") String mob, HttpServletRequest request){
 		
 		logger.info("***Begin Execution of getPayable***");
 		HttpSession session = request.getSession();
@@ -93,16 +93,16 @@ public class PayableController {
 			if(session!=null){
 				reg = (Registration) session.getAttribute("registration");
 			}
-			if(reg != null){
-				logger.info("===>getPayables mob no===>"+reg.getMobile());
-				mobile = reg.getMobile();
+//			if(reg != null){
+//				logger.info("===>getPayables mob no===>"+reg.getMobile());
+//				mobile = reg.getMobile();
 				if("payable".equalsIgnoreCase(flag)){
 					flag = "PAYBL"; //CODE FOR PAYABLE
 				} else {
 					flag = "RCVBL";//CODE FOR RECEIVABLE
 				}
-				payables = payableService.getOwnerPayables(mobile,flag);
-			}
+				payables = payableService.getOwnerPayables(mob,flag);
+//			}
 		}
 		catch(Exception e){
 			logger.error("Error occured while getting Payables for owner mobile::[{}] and error is: {}",mobile,e);

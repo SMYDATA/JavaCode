@@ -3,6 +3,7 @@ package com.smydata.payable.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ public class PayableServiceImpl implements PayableService{
 	@Override
 	public List<Payable> getOwnerPayables(String mobile, String code) {
 		// TODO Auto-generated method stub
-		return JdbcTemplate.queryForList("SELECT INVOICE_NUMBER,AMOUNT,DATE,INVOICE_IMAGE FROM PAYABLE WHERE MOBILE = ? AND CODE = ?",new Object[]{mobile,code},Payable.class);
+		return JdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,DATE,INVOICE_IMAGE FROM PAYABLE_RECEIVABLE WHERE MOBILE = ? AND CODE = ?",new Object[]{mobile,code},new BeanPropertyRowMapper<Payable>(Payable.class));
 //		return payableRepository.findByMobile(mobile);
 	}
 

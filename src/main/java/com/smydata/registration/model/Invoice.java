@@ -20,16 +20,18 @@ public class Invoice {
 	@Column(name="invoice_id")
 	private Integer invId;
 	@Column(name="sub_total")
-	private long subTotal;
+	private double subTotal;
 	@Column(name="total")
-	private long total;
+	private double total;
 	@Column(name="discount")
-	private float discount;
+	private double discount;
 	private Timestamp createDate;
 	private String userName;
 	private String userMobile;
 	private String email;
 	private String address;
+	private int rewards;
+	private int credit;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="invoice_id",referencedColumnName = "invoice_id")
@@ -39,7 +41,41 @@ public class Invoice {
 		super();
 	}
 	
-	
+	public int getCredit() {
+		return credit;
+	}
+
+	public void setCredit(int credit) {
+		this.credit = credit;
+	}
+
+	public int getRewards() {
+		return rewards;
+	}
+
+	public void setRewards(int rewards) {
+		this.rewards = rewards;
+	}
+	public double getSubTotal() {
+		return subTotal;
+	}
+
+
+	public void setSubTotal(double subTotal) {
+		this.subTotal = subTotal;
+	}
+
+
+	public double getDiscount() {
+		return discount;
+	}
+
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+
 	public String getUserName() {
 		return userName;
 	}
@@ -103,23 +139,13 @@ public class Invoice {
 		this.invId = invId;
 	}
 
-	public long getSubTotal() {
-		return subTotal;
-	}
-	public void setSubTotal(long subTotal2) {
-		this.subTotal = subTotal2;
-	}
-	public long getTotal() {
+	public double getTotal() {
 		return total;
 	}
-	public void setTotal(long total) {
+
+	public void setTotal(double total) {
 		this.total = total;
 	}
-	public float getDiscount() {
-		return discount;
-	}
-	public void setDiscount(float discount) {
-		this.discount = discount;
-	}
+
 	
 }

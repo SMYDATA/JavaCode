@@ -1,12 +1,9 @@
 package com.smydata.registration.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.List;
 
-@Entity
-public class User {
-	
-	@Id
+public class UserBean {
+
 	private  String userMobile;
 	
 	private String userName;
@@ -17,8 +14,40 @@ public class User {
 	
 	private int rewardPoints;
 	
-	public User() {
-		// TODO Auto-generated constructor stub
+	private int businessVolume;
+	
+	private List<Discounts> discounts;
+
+	public String getUserMobile() {
+		return userMobile;
+	}
+
+	public void setUserMobile(String userMobile) {
+		this.userMobile = userMobile;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public int getRewardPoints() {
@@ -29,43 +58,20 @@ public class User {
 		this.rewardPoints = rewardPoints;
 	}
 
-	public String getUserMobile() {
-		return userMobile;
+	public int getBusinessVolume() {
+		return businessVolume;
 	}
 
-
-	public void setUserMobile(String userMobile) {
-		this.userMobile = userMobile;
+	public void setBusinessVolume(int businessVolume) {
+		this.businessVolume = businessVolume;
 	}
 
-
-	public String getUserName() {
-		return userName;
+	public List<Discounts> getDiscounts() {
+		return discounts;
 	}
 
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setDiscounts(List<Discounts> discounts) {
+		this.discounts = discounts;
 	}
-
-
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-	public String getAddress() {
-		return address;
-	}
-
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
+	
 }

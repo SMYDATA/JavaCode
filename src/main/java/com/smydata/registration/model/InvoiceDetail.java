@@ -17,8 +17,6 @@ public class InvoiceDetail {
 	private String item;
 	private int quantity;
 	private int rate;
-	private int discount;
-	private int creditAmount;
 	@Column(name="invoice_id")
 	private Integer invId;
 	
@@ -65,24 +63,5 @@ public class InvoiceDetail {
 	public void setRate(int rate) {
 		this.rate = rate;
 	}
-
-	public int getDiscount() {
-		return discount;
-	}
-
-	public void setDiscount(int discount) {
-		this.discount = discount;
-	}
-
-	public int getCreditAmount() {
-		return creditAmount;
-	}
-
-	public void setCreditAmount(int creditAmount) {
-		this.creditAmount = creditAmount;
-	}
-
-	
-	
 
 }

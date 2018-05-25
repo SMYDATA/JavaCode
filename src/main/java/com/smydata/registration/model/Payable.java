@@ -15,7 +15,7 @@ public class Payable {
 	private String mobile;
 	private Date date;
 	@Id
-	private long invoiceNumber;
+	private int invoiceNumber;
 	private double amount;
 	@Null
 	private byte[] invoiceImage;
@@ -47,12 +47,16 @@ public class Payable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public long getInvoiceNumber() {
+	
+	public int getInvoiceNumber() {
 		return invoiceNumber;
 	}
-	public void setInvoiceNumber(long invoiceNumber) {
+
+
+	public void setInvoiceNumber(int invoiceNumber) {
 		this.invoiceNumber = invoiceNumber;
 	}
+
 	public double getAmount() {
 		return amount;
 	}
