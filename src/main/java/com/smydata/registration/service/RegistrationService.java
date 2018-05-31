@@ -7,4 +7,5 @@ import com.smydata.registration.model.Registration;
 public interface RegistrationService {
 	public Registration saveUser(Registration registration);
 	public List<Registration> findByMobileNumber(String mobileNumber);
+	public List<Registration> getAllRegisteredDetails();
 }

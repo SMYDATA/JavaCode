@@ -1,5 +1,6 @@
 package com.smydata.registration.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -33,9 +34,11 @@ public class RegistrationController {
 	private static final Logger logger = LoggerFactory.getLogger(RegistrationController.class);
 
 	@PostMapping("/saveUser/{userFlag}") //userFlag is to identify registration/add/edit
-	public Registration saveUser(@PathVariable("userFlag") String userFlag,@RequestBody Registration registration,HttpSession session) {
+	public List<String> saveUser(@PathVariable("userFlag") String userFlag,@RequestBody Registration registration,HttpSession session) {
 		logger.info("Begin Execution of saveUser method and userFlag::"+userFlag);
-		Registration sessReg = null; 
+		Registration sessReg = null;
+		String message = "";
+		List<String> messages = new ArrayList<>();
 		try{
 			if(session!=null){
 				sessReg = (Registration) session.getAttribute("registration");
@@ -43,29 +46,56 @@ public class RegistrationController {
 			long regId = (long) Math.round(Math.random()*100000);
 			if(registration != null){
 				logger.info("saveUser mobile: "+registration.getMobile());
-				if("registration".equalsIgnoreCase(userFlag)){
-					registration.setOwnerRegId(regId);	
-				} else if("add".equalsIgnoreCase(userFlag)){
-					registration.setOwnerRegId(sessReg.getOwnerRegId());
-					registration.setMobile(sessReg.getMobile());
-					registration.setOwnerName(sessReg.getOwnerName());
-				} else if("edit".equalsIgnoreCase(userFlag)){
-//					registration.setOwnerRegId(sessReg.getOwnerRegId());
-				}
+				 message = validateData(registration);
+				 messages.add(message);
+				 if(message != null && message.equalsIgnoreCase("success")) {
+					 if("registration".equalsIgnoreCase(userFlag)){
+							registration.setOwnerRegId(regId);	
+						} else if("add".equalsIgnoreCase(userFlag)){
+							registration.setOwnerRegId(sessReg.getOwnerRegId());
+							registration.setMobile(sessReg.getMobile());
+							registration.setOwnerName(sessReg.getOwnerName());
+						} else if("edit".equalsIgnoreCase(userFlag)){
+//							registration.setOwnerRegId(sessReg.getOwnerRegId());
+						} 
+					 registration = registrationService.saveUser(registration);
+				 }
+				
 			}
-			registration = registrationService.saveUser(registration);
+			
 		}
 		catch(Exception e){
 			logger.error("Error occured while saving user data :"+e);
 		}
 		
-		return registration;
+		return messages;
+	}
+	
+	private String validateData(Registration registration) {
+		logger.info("Begin validating user details");
+		List<Registration> registrationList = registrationService.getAllRegisteredDetails();
+		if(registrationList != null && registrationList.size() > 0) {
+			for(Registration reg :registrationList){
+				if (reg.getMobile().equalsIgnoreCase(registration.getMobile())
+						&& reg.getEmail().equalsIgnoreCase(registration.getEmail())) {
+					return "Mobile Number and Email already exist";
+				} else if (reg.getMobile().equalsIgnoreCase(registration.getMobile())) {
+					return "Mobile Number already exist";
+				} else if (reg.getEmail().equalsIgnoreCase(registration.getEmail())) {
+					return "Email already exist";
+				}
+			}
+			
+		}
+		logger.info("End validating user details");
+		return "success";
+		
 	}
 	
 	@PostMapping("/loginUser")
 	public boolean loginUser(@RequestBody Registration registration,HttpSession session) {
 		logger.info("Begin Execution of loginUser method");
-		
+		boolean isValidUser = false;
 		try{
 			if(session!=null){
 				session.removeAttribute("registration");
@@ -75,9 +105,16 @@ public class RegistrationController {
 				List<Registration> registrationList= registrationService.findByMobileNumber(registration.getMobile());
 				
 				if(registrationList==null || registrationList.isEmpty()){
-					return false;
+					return isValidUser;
+				} 
+				for(Registration reg: registrationList) {
+					if(registration.getMobile().equalsIgnoreCase(reg.getMobile()) && registration.getPassword().equals(reg.getPassword())) {
+						isValidUser = true;
+						session.setAttribute("registration", reg);
+						break;
+					}
 				}
-				session.setAttribute("registration", registrationList.get(0));
+				
 			}
 			
 		}
@@ -85,7 +122,7 @@ public class RegistrationController {
 			logger.error("Error occured while user loggingin :"+e);
 		}
 		
-		return true;
+		return isValidUser;
 	}
 	
 	@GetMapping("/viewMyBusiness")

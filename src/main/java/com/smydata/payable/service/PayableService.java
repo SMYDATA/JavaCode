@@ -8,4 +8,5 @@ public interface PayableService {
 
 	void saveOwnerPayables(List<Payable> payables);
 	List<Payable> getOwnerPayables(String mobile,String code);
+	void deletePaidInvoice(List<Payable> payables);
 }

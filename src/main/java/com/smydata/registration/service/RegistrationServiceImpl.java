@@ -26,6 +26,11 @@ public class RegistrationServiceImpl implements RegistrationService {
 	public List<Registration> findByMobileNumber(String mobileNumber) {
 		return registrationRepository.findByMobile(mobileNumber);
 	}
+
+	@Override
+	public List<Registration> getAllRegisteredDetails() {
+		return registrationRepository.findAll();
+	}
 	
 
 }

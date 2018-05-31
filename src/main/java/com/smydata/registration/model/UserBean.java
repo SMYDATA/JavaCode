@@ -1,8 +1,14 @@
 package com.smydata.registration.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class UserBean {
+public class UserBean implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private  String userMobile;
 	

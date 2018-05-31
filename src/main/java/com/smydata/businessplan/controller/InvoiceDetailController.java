@@ -1,9 +1,10 @@
 package com.smydata.businessplan.controller;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -142,11 +143,12 @@ public class InvoiceDetailController {
 					 Invoice inv = invoiceData.get(invoiceData.size()-1);
 					 invoiceData1.add(inv);
 						Payable payable = new Payable();
+						Calendar currenttime = Calendar.getInstance();
 						payable.setMobile(invoice.getUserMobile());
 						payable.setCode("RCVBL");
 						payable.setAmount(invoice.getCredit());
 						payable.setInvoiceNumber(inv.getInvId());
-//						payable.setDate();
+						payable.setDate(new Date((currenttime.getTime()).getTime()));
 						recievableList.add(payable);
 						payableService.saveOwnerPayables(recievableList);
 					}
