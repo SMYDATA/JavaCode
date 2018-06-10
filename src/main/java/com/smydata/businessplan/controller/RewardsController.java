@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,35 +32,56 @@ public class RewardsController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(RewardsController.class);
 	
+	/**
+	 * Save rewards configuration of BO
+	 * @param rewards
+	 * @param request
+	 * @return
+	 */
 	@PostMapping("/addRewards")
-	public Rewards saveRewards(@RequestBody Rewards rewards,HttpServletRequest request) {
-		logger.info("Begin Execution of saveRewards method");
+	public ResponseEntity<?> saveRewards(@RequestBody Rewards rewards,HttpServletRequest request) {
+		logger.info("===>Begin Execution of saveRewards method===>");
 		HttpSession session = request.getSession();
-		
+		ResponseEntity<?> results = null;
+		Rewards savedReward = null;
 		try{
 			if(session!=null){
 				Registration reg = (Registration) session.getAttribute("registration");
 				if(reg!=null){
 					logger.info("===>saveRewards mob no===>"+reg.getMobile());
 					rewards.setMobile(reg.getMobile());
-					rewards = rewardsService.saveReward(rewards);
+					savedReward = rewardsService.saveReward(rewards);
+					if(savedReward != null){
+						logger.info("===>Saved Rewards configuration for BO [{}]===>",reg.getMobile());
+						results = new ResponseEntity<>(savedReward, HttpStatus.OK);
+					} else {
+						logger.info("===>Failed to save Rewards configuration for BO [{}]===>",reg.getMobile());
+						results = new ResponseEntity<>(savedReward,HttpStatus.INTERNAL_SERVER_ERROR);
+						return results;
+					}
 				}
 			}	
 		}
 		catch(Exception e){
 			logger.error("Error occured while saving rewards : "+e);
 		}
-		
-		return rewards;
+		logger.info("===>End Execution of saveRewards method===>");
+		return results;
 	}
 	
+	/**
+	 * Get rewards configuration of BO
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/getRewards")
-	public Rewards getRewards(HttpServletRequest request) {
+	public ResponseEntity<?> getRewards(HttpServletRequest request) {
 		logger.info("Begin Execution of getRewards method:: ");
 		HttpSession session = request.getSession();
 		Registration reg = null;
 		String mobile = "";
 		Rewards rewards = null;
+		ResponseEntity<?> results = null;
 		try{
 			if(session!=null){
 				reg = (Registration) session.getAttribute("registration");
@@ -68,19 +91,24 @@ public class RewardsController {
 				mobile = reg.getMobile();
 			}
 			rewards = rewardsService.getRewards(mobile);
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-			Date date = new Date();
-			String formatDate = format.format(date);
-			Date todayDate =  format.parse(formatDate);
+			
 			if(rewards !=null){
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+				Date date = new Date();
+				String formatDate = format.format(date);
+				Date todayDate =  format.parse(formatDate);
 				Date rewardsEndDate= rewards.getRewardEndDate();
-				if(rewardsEndDate != null && rewardsEndDate.compareTo(todayDate)<0){//disable reward based on dates
+				
+				if(rewardsEndDate != null && rewardsEndDate.compareTo(todayDate)<0){//disable reward based on current date
 					rewards.setRewardPointEnable(false);
 				}
 				Date bonusEndDate= rewards.getBonusEndDate();
-				if(bonusEndDate != null && bonusEndDate.compareTo(todayDate)<0){//disable bonus based on dates
+				if(bonusEndDate != null && bonusEndDate.compareTo(todayDate)<0){//disable bonus based on current date
 					rewards.setBonusPointEnale(false);
 				}
+				results = new ResponseEntity<>(rewards, HttpStatus.OK);
+			} else {
+				results = new ResponseEntity<>(rewards,HttpStatus.NOT_FOUND);
 			}
 			
 		}
@@ -88,7 +116,7 @@ public class RewardsController {
 			logger.error("Error occured while getting rewards rewards : "+e);
 		}
 		
-		return rewards;
+		return results;
 	}
 	
 }

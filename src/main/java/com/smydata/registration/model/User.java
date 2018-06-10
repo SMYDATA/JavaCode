@@ -1,6 +1,7 @@
 package com.smydata.registration.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,8 +25,18 @@ public class User implements Serializable{
 	
 	private int rewardPoints;
 	
+	private Date createDate;
+	
 	public User() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 	public int getRewardPoints() {

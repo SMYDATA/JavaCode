@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.smydata.model.util.SmydataConstant;
 import com.smydata.payable.service.PayableService;
 import com.smydata.registration.model.Payable;
 import com.smydata.registration.model.PayableReceivable;
@@ -29,47 +32,46 @@ import com.smydata.registration.model.Registration;
 @RestController
 @RequestMapping("/api")
 @SessionAttributes("registration")
-public class PayableController {
+public class PayableController implements SmydataConstant{
 	
 	@Autowired
 	PayableService payableService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(PayableController.class);
 	
+	/**
+	 * This method is used for both Payable and Receivables to save data
+	 * @param payables
+	 * @param action
+	 * @param paymentFlag
+	 * @param request
+	 * @return
+	 */
 	@PostMapping("/savePayables/{action}/{paymentFlag}")
-	public List<PayableReceivable> savePayables(@RequestBody List<Payable> payables,@PathVariable("action") String action, @PathVariable("paymentFlag") String paymentFlag,HttpServletRequest request){
+	public ResponseEntity<?> savePayables(@RequestBody List<Payable> payables,@PathVariable("action") String action, @PathVariable("paymentFlag") String paymentFlag,HttpServletRequest request){
 		
-		logger.info("***Begin Execution of savePayable***");
-		HttpSession session = request.getSession();
-		Registration reg = null;
+		logger.info("===>Begin Execution of savePayable===>");
 		String mobile = "";
 		String actionVal = "";
-		
+		ResponseEntity<?> results = null;
 		double balanceAmount = 0.0;
 		List<PayableReceivable> payableReceivables = new ArrayList<>();
 		List<Payable> deleteList = new ArrayList<>();
 		
 		try{
-			if(session!=null){
-				reg = (Registration) session.getAttribute("registration");
-			}
-//			if(reg != null){
-//				logger.info("===>savePayables mob no===>"+reg.getMobile());
-//				mobile = reg.getMobile();
 				Calendar currenttime = Calendar.getInstance();
 				for(int i=0;i<payables.size();i++){
 					Payable payable = payables.get(i);
 					if(mobile.isEmpty()){
 						mobile = payable.getMobile();
 					}
-					payable.setDate(new Date((currenttime.getTime()).getTime()));
-//					payable.setMobile(mobile);
-					if("payable".equalsIgnoreCase(action)){
-						payable.setCode("PAYBL"); //CODE FOR PAYABLE
-						actionVal = "PAYBL";
-					} else if("receivable".equalsIgnoreCase(action)) {
-						payable.setCode("RCVBL");//CODE FOR RECEIVABLE
-						actionVal = "RCVBL";
+					payable.setCreateDate(new Date((currenttime.getTime()).getTime()));
+					if(PAYABLE.equalsIgnoreCase(action)){
+						payable.setCode(PAYABLE_CODE); //CODE FOR PAYABLE
+						actionVal = PAYABLE_CODE;
+					} else if(RECEIVABLE.equalsIgnoreCase(action)) {
+						payable.setCode(RECEIVABLE_CODE);//CODE FOR RECEIVABLE
+						actionVal = RECEIVABLE_CODE;
 					} 
 					//for payment/payoff
 					if(Boolean.valueOf(paymentFlag)){
@@ -94,56 +96,66 @@ public class PayableController {
 					payableService.deletePaidInvoice(deleteList);//Delete payable/Receivable which are paid/received completely
 					payables.removeAll(deleteList);//Remove before save from actual list
 				}
-				payableService.saveOwnerPayables(payables);
+				 payableService.saveOwnerPayables(payables);
 				List<Payable> latestPayables = payableService.getOwnerPayables(mobile,actionVal);//get updated data
 				PayableReceivable payableReceivable = new PayableReceivable();
 				balanceAmount = getBalanceAmount(latestPayables);
 				payableReceivable.setBalAmount(balanceAmount);
 				payableReceivable.setPaybleReceivables(latestPayables);
 				payableReceivables.add(payableReceivable);
-	//		}
+				if(payableReceivables != null && payableReceivables.size()>0){
+					results = new ResponseEntity<>(payableReceivables, HttpStatus.OK);
+				} else {
+					results = new ResponseEntity<>(payableReceivables,HttpStatus.NOT_FOUND);
+				}
+				
 		}
 		catch(Exception e){
 			logger.error("Error occured while saving Payables for owner mobile::[{}] and error is: {}",mobile,e);
 		}
-		logger.info("***End Execution of savePayable***");
-		return payableReceivables;
+		logger.info("***End Execution of savePayable()***");
+		return results;
 	}
 	
+	/**
+	 * This method is used for both Payable and Receivables to fetch data
+	 * @param action
+	 * @param mob
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/getPayables/{action}/{mob}")
-	public List<PayableReceivable> getPayables(@PathVariable("action") String action, @PathVariable("mob") String mob, HttpServletRequest request){
+	public ResponseEntity<?> getPayables(@PathVariable("action") String action, @PathVariable("mob") String mob, HttpServletRequest request){
 		
 		logger.info("***Begin Execution of getPayable***");
-		HttpSession session = request.getSession();
-//		Registration reg = null;
 		String mobile = "";
 		double balanceAmount = 0.0;
+		ResponseEntity<?> results = null;
 		List<PayableReceivable> payableReceivables = new ArrayList<>();
 		try{
-			/*if(session!=null){
-				reg = (Registration) session.getAttribute("registration");
-			}*/
-//			if(reg != null){
-//				logger.info("===>getPayables mob no===>"+reg.getMobile());
-//				mobile = reg.getMobile();
-				if("payable".equalsIgnoreCase(action)){
-					action = "PAYBL"; //CODE FOR PAYABLE
+				if(PAYABLE.equalsIgnoreCase(action)){
+					action = PAYABLE_CODE; //CODE FOR PAYABLE
 				} else {
-					action = "RCVBL";//CODE FOR RECEIVABLE
+					action = RECEIVABLE_CODE;//CODE FOR RECEIVABLE
 				}
 				List<Payable> payables = payableService.getOwnerPayables(mob,action);
-				PayableReceivable payableReceivable = new PayableReceivable();
+				if(payables != null && payables.size()>0){
+					PayableReceivable payableReceivable = new PayableReceivable();
 					balanceAmount = getBalanceAmount(payables);
-				payableReceivable.setBalAmount(balanceAmount);
-				payableReceivable.setPaybleReceivables(payables);
-				payableReceivables.add(payableReceivable);
-//			}
+					payableReceivable.setBalAmount(balanceAmount);
+					payableReceivable.setPaybleReceivables(payables);
+					payableReceivables.add(payableReceivable);
+					results = new ResponseEntity<>(payableReceivables, HttpStatus.OK);
+				} else {
+					results = new ResponseEntity<>(payableReceivables,HttpStatus.NOT_FOUND);
+				}
+				
 		}
 		catch(Exception e){
 			logger.error("Error occured while getting Payables for owner mobile::[{}] and error is: {}",mobile,e);
 		}
 		logger.info("***End Execution of getPayable***");
-		return payableReceivables;
+		return results;
 	}
 	
 	private double getBalanceAmount(List<Payable> payables){

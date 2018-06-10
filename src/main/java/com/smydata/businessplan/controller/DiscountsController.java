@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,10 +35,11 @@ public class DiscountsController {
 	private static final Logger logger = LoggerFactory.getLogger(DiscountsController.class);
 	
 	@GetMapping("/getdiscounts")
-	public List<Discounts> getDiscounts(HttpServletRequest request){
-		logger.info("Begin Execution of getDiscounts method::");
+	public ResponseEntity<?> getDiscounts(HttpServletRequest request){
+		logger.info("===>Begin Execution of getDiscounts method ===>");
 		String mobile = "";
 		List<Discounts> discountsList = null;
+		ResponseEntity<?> results = null;
 		HttpSession session = request.getSession();
 		try{
 			if(session!=null){
@@ -55,28 +58,32 @@ public class DiscountsController {
 				for(int i=0;i<discountsList.size();i++){
 					Discounts discount = discountsList.get(i);
 					Date compareDate = discount.getEndDate();
-					if(compareDate.compareTo(todayDate)<0){
+					if(compareDate.compareTo(todayDate)<0){//Update discount Enable flag if end date is less than current date
 						discount.setEnable(false);
 						discountsList.set(i, discount);
 					}
 					
 				}
+				results = new ResponseEntity<>(discountsList, HttpStatus.OK);
+			} else {
+				results = new ResponseEntity<>(discountsList,HttpStatus.NOT_FOUND);
 			}
 			
 		}
 		catch(Exception e){
 			logger.error("Error occured while getting discounts :: "+e);
 		}
-		
-		return discountsList;
+		logger.info("===>End Execution of getDiscounts method ===>");
+		return results;
 	}
 	
 	@PostMapping("/savediscounts")
-	public List<Discounts> saveDiscounts(@RequestBody List<Discounts> discounts,HttpServletRequest request){
+	public ResponseEntity<?> saveDiscounts(@RequestBody List<Discounts> discounts,HttpServletRequest request){
 		if(discounts != null)
 			logger.info("Begin Execution of saveDiscounts method");
 		HttpSession session = request.getSession();
 		List<Discounts> savedDiscounts = null;
+		ResponseEntity<?> results = null;
 		try{
 			if(session!=null){
 				Registration reg = (Registration) session.getAttribute("registration");
@@ -86,10 +93,16 @@ public class DiscountsController {
 					if(discounts != null){
 						for(int i=0;i<discounts.size();i++){
 							Discounts discount = discounts.get(i);
-							discount.setMobile(reg.getMobile());
+							discount.setMobile(reg.getMobile());//set owner mobile who is configuring discounts
 							discounts.set(i, discount);
 						}
 						savedDiscounts = discountsService.saveDiscounts(discounts);
+						if(savedDiscounts != null && savedDiscounts.size()>0){
+							results = new ResponseEntity<>(savedDiscounts, HttpStatus.OK);
+						} else {
+							logger.info("===>Failed to saveDiscounts===>");
+							results = new ResponseEntity<>(savedDiscounts,HttpStatus.INTERNAL_SERVER_ERROR);
+						}
 					}
 				}
 			}
@@ -97,8 +110,8 @@ public class DiscountsController {
 		catch(Exception e){
 			logger.error("Error occured while saving discounts :: "+e);
 		}
-		
-		return savedDiscounts;
+		logger.info("===>End Execution of saveDiscounts method ===>");
+		return results;
 	}
 
 }

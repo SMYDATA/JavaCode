@@ -7,6 +7,7 @@ import java.util.List;
 import com.smydata.businessplan.service.DiscountsService;
 import com.smydata.businessplan.service.RewardsService;
 import com.smydata.registration.model.Discounts;
+import com.smydata.registration.model.Invoice;
 import com.smydata.registration.model.Rewards;
 
 public class SmydataUtility {
@@ -20,11 +21,11 @@ public class SmydataUtility {
 				String formatDate = format.format(date);
 				Date todayDate =  format.parse(formatDate);
 				Date rewardsEndDate= rewards.getRewardEndDate();
-				if(rewardsEndDate != null && rewardsEndDate.compareTo(todayDate)<0){//disable rewards based on dates
+				if(rewardsEndDate != null && rewardsEndDate.compareTo(todayDate)<0){//disable rewards based on current date
 					rewards.setRewardPointEnable(false);
 				}
 				Date bonusEndDate= rewards.getBonusEndDate();
-				if(bonusEndDate != null && bonusEndDate.compareTo(todayDate)<0){//disable bonus based on dates
+				if(bonusEndDate != null && bonusEndDate.compareTo(todayDate)<0){//disable bonus based on current date
 					rewards.setBonusPointEnale(false);
 				}
 			}
@@ -33,6 +34,14 @@ public class SmydataUtility {
 			e.printStackTrace();
 		}
 		return rewards;
+	}
+	
+	public static double getTotalBusVolume(List<Invoice> invoiceDetails){
+		 double total = 0.0;
+		 for(Invoice invoice: invoiceDetails){
+			 total = total + invoice.getTotal();
+		 }
+		return total;
 	}
 	
 	public static List<Discounts> getDiscounts(String mobile, DiscountsService discountsService){

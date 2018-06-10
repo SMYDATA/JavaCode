@@ -1,5 +1,7 @@
 package com.smydata.registration.model;
 
+import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -13,8 +15,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Invoice {
+public class Invoice implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="invoice_id")
@@ -25,13 +31,15 @@ public class Invoice {
 	private double total;
 	@Column(name="discount")
 	private double discount;
-	private Timestamp createDate;
+	private Date createDate;
 	private String userName;
 	private String userMobile;
 	private String email;
 	private String address;
 	private int rewards;
 	private int credit;
+	
+	private int bv;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="invoice_id",referencedColumnName = "invoice_id")
@@ -41,6 +49,14 @@ public class Invoice {
 		super();
 	}
 	
+	public int getBv() {
+		return bv;
+	}
+
+	public void setBv(int bv) {
+		this.bv = bv;
+	}
+
 	public int getCredit() {
 		return credit;
 	}
@@ -116,10 +132,11 @@ public class Invoice {
 	}
 
 
-	public Timestamp getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
-	public void setCreateDate(Timestamp createDate) {
+
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.smydata.businessplan.service.DiscountsService;
 import com.smydata.businessplan.service.InvoiceDetailService;
 import com.smydata.businessplan.service.RewardsService;
+import com.smydata.model.util.SmydataConstant;
 import com.smydata.model.util.SmydataUtility;
 import com.smydata.payable.service.PayableService;
 import com.smydata.registration.model.Discounts;
@@ -38,7 +41,7 @@ import com.smydata.user.service.UserService;
 @RestController
 @RequestMapping("/api")
 @SessionAttributes("registration")
-public class InvoiceDetailController {
+public class InvoiceDetailController implements SmydataConstant {
 
 	@Autowired
 	InvoiceDetailService invoiceDetailService;
@@ -57,36 +60,24 @@ public class InvoiceDetailController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(InvoiceDetailController.class);
 	
-	/*@GetMapping("/getInvoice")
-	public Invoice getInvoiceData(){
-		List<Invoice> data = invoiceDetailService.getInvoice("");
-		List<InvoiceDetail> data1 = new ArrayList<InvoiceDetail>();
-		Invoice invoice = new Invoice();
-		InvoiceDetail inv1 = new InvoiceDetail();
-//		inv1.setCreditAmount(10);
-//		inv1.setDiscount(5);
-		inv1.setItem("chair");
-		inv1.setQuantity(1);
-		inv1.setRate(100);
-		data1.add(inv1);
-		invoice.setInvoiceDetail(data1);
-		data.add(invoice);
-		return invoice;
-	}
-	*/
-	
+	/**
+	 * Saving invoice details and returning invoice details along with invoice ID to generate invoice
+	 * @param invoice
+	 * @param gstFlag
+	 * @param request
+	 * @return
+	 */
 	@PostMapping("/createInvoice/{gstFlag}")
-	public List<Invoice> saveInvoiceDetails(@RequestBody Invoice invoice,/*@PathVariable("mobile") String Usermobile,*/@PathVariable("gstFlag") String gstFlag,HttpServletRequest request){
+	public ResponseEntity<?> saveInvoiceDetails(@RequestBody Invoice invoice,@PathVariable("gstFlag") String gstFlag,HttpServletRequest request){
 		
 		logger.info("***Begin Execution of saveInvoiceDetails***");
 		HttpSession session = request.getSession();
 		List<Payable> recievableList = new ArrayList<Payable>();
-		List<Invoice> invoiceData1 = new ArrayList<Invoice>();
+		List<Invoice> invoiceData = new ArrayList<Invoice>();
 		Registration reg = null;
 		String mobile = "";
 		int rewrdPoints = 0;
-		double totalDiscount = 0.0;
-		List<Invoice> invoiceData = null;
+		ResponseEntity<?> results = null;
 		try{
 			if(session!=null){
 				reg = (Registration) session.getAttribute("registration");
@@ -111,10 +102,11 @@ public class InvoiceDetailController {
 					if(rewrdPoints>0){
 						rewrdPoints = rewrdPoints - invoice.getRewards();
 						user.setRewardPoints(rewrdPoints);
-						UserService.saveCustomer(user);
+						UserService.saveCustomer(user);//Update user rewards
 					}
 				}
 				
+				//May be useful below code in future if GST exist
 				/*if(discounts != null){
 					 configDiscount = getDiscountToApply(discounts,invoice.getTotal());
 				}*/
@@ -130,27 +122,39 @@ public class InvoiceDetailController {
 						totalDiscount = (invoice.getTotal() * discountToapply)/100;
 					}
 				}*/
-				
-				invoice.setCreateDate(new Timestamp(System.currentTimeMillis()));
-				  invoiceDetailService.saveInvoiceDetails(invoice);
-				 invoiceData = invoiceDetailService.getInvoice(invoice.getUserMobile());//Fetch current invoice data
-				 if(invoice.getCredit()>0){
-					 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//						Date date = new Date();
-//						String formatDate = format.format(date);
-//						Date todayDate =  format.parse(formatDate);
+				Calendar currenttime = Calendar.getInstance();
+				invoice.setCreateDate(new Date((currenttime.getTime()).getTime()));
+				  
+				 if(invoice.getCredit()>0){ //If invoice contains credit amount
+					 invoice.setTotal(invoice.getTotal()-invoice.getCredit());
+					 Invoice inv = invoiceDetailService.saveInvoiceDetails(invoice);
 					 
-					 Invoice inv = invoiceData.get(invoiceData.size()-1);
-					 invoiceData1.add(inv);
-						Payable payable = new Payable();
-						Calendar currenttime = Calendar.getInstance();
-						payable.setMobile(invoice.getUserMobile());
-						payable.setCode("RCVBL");
-						payable.setAmount(invoice.getCredit());
-						payable.setInvoiceNumber(inv.getInvId());
-						payable.setDate(new Date((currenttime.getTime()).getTime()));
-						recievableList.add(payable);
-						payableService.saveOwnerPayables(recievableList);
+					 if(inv != null){
+						 	invoiceData.add(inv);
+							Payable payable = new Payable();
+							payable.setMobile(invoice.getUserMobile());
+							payable.setInvoiceNumber(inv.getInvId());
+							payable.setCode(RECEIVABLE_CODE);
+							payable.setAmount(invoice.getCredit());
+							payable.setCreateDate(new Date((currenttime.getTime()).getTime()));
+							recievableList.add(payable);
+							payableService.saveOwnerPayables(recievableList);
+							results = new ResponseEntity<>(invoiceData, HttpStatus.OK);
+						} else {
+							logger.info("===>Failed to saveInvoiceDetails===>");
+							results = new ResponseEntity<>(invoiceData,HttpStatus.INTERNAL_SERVER_ERROR);
+						}
+					 
+					} else { //If invoice doesn't contain credit amount
+						Invoice inv = invoiceDetailService.saveInvoiceDetails(invoice);
+						if(inv != null){
+							 invoiceData.add(inv);
+							 results = new ResponseEntity<>(invoiceData, HttpStatus.OK);
+						} else {
+							logger.info("===>Failed to saveInvoiceDetails===>");
+							results = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+						}
+						
 					}
 			}
 			
@@ -159,10 +163,10 @@ public class InvoiceDetailController {
 			logger.error("Error occured while saving Invoice details:: "+e);
 		}
 		
-		return invoiceData1;
+		return results;
 	}
 	
-	private int getDiscountToApply(List<Discounts> discountsList, double total){
+	private int getDiscountToApply(List<Discounts> discountsList, double total){ //May be useful in future
 		int discountToApply = 0;
 		for(Discounts discount: discountsList){
 			if(total>=discount.getMinAmount() && total<=discount.getMaxAmount()&&discount.isEnable()){

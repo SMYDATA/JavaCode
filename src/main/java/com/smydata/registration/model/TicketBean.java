@@ -1,6 +1,7 @@
 package com.smydata.registration.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.Entity;
@@ -23,13 +24,14 @@ public class TicketBean implements Serializable{
 	private long ticketId;
 	private String subject;
 	private String description;
-	private Timestamp createDate;
+	private Date createDate;
 	
 	
-	public Timestamp getCreateDate() {
+	
+	public Date getCreateDate() {
 		return createDate;
 	}
-	public void setCreateDate(Timestamp createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 	public long getTicketId() {

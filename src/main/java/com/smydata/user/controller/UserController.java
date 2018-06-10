@@ -1,6 +1,8 @@
 package com.smydata.user.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -90,13 +92,6 @@ public class UserController {
 		return userData;
 	}
 	
-	private double getTotalBusVolume(List<Invoice> invoiceDetails){
-		 double total = 0.0;
-		 for(Invoice invoice: invoiceDetails){
-			 total = total + invoice.getTotal();
-		 }
-		return total;
-	}
 	
 	@PostMapping("/saveUser")
 	public List<UserBean> saveUser(@RequestBody User user,HttpServletRequest request){
@@ -115,9 +110,11 @@ public class UserController {
 				mobile = reg.getMobile();
 			}
 			if(user != null){
-				Rewards rewards = SmydataUtility.getRewards(mobile,rewardsService);
+				Rewards rewards = SmydataUtility.getRewards(mobile,rewardsService);//get rewards configuration done by BO
 				if(rewards != null && rewards.isBonusPointEnale())
 					user.setRewardPoints(rewards.getBonusPoints());
+				Calendar currenttime = Calendar.getInstance();
+				user.setCreateDate(new Date((currenttime.getTime()).getTime()));
 				user = UserService.saveCustomer(user);
 				List<Discounts> discounts = SmydataUtility.getDiscounts(mobile,discountsService); //Get discounts configuration
 				UserBean userBean = getUserDetails(user);
@@ -136,7 +133,7 @@ public class UserController {
 	private UserBean getUserDetails(User user){
 		UserBean userBean = new UserBean();
 		List<Invoice> invoiceDetails = invoiceDetailService.getInvoice(user.getUserMobile());
-		int totalBusVolume = (int) getTotalBusVolume(invoiceDetails);
+		int totalBusVolume = (int) SmydataUtility.getTotalBusVolume(invoiceDetails);
 		userBean.setAddress(user.getAddress());
 		userBean.setBusinessVolume(totalBusVolume);
 		userBean.setEmail(user.getEmail());

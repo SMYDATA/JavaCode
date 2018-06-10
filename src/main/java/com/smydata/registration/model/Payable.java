@@ -10,6 +10,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.Null;
 
 
+/**
+ * This entity used for both Payable and Receivables
+ * @author Parthiya.D.S
+ *
+ */
 @Table(name="Payable_Receivable")
 @Entity
 public class Payable implements Serializable {
@@ -19,7 +24,7 @@ public class Payable implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String mobile;
-	private Date date;
+	private Date createDate;
 	@Id
 	private int invoiceNumber;
 	private double amount;
@@ -69,13 +74,15 @@ public class Payable implements Serializable {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
 	
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
 	public int getInvoiceNumber() {
 		return invoiceNumber;
 	}
