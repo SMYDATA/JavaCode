@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +26,7 @@ import com.smydata.registration.model.Rewards;
 @RestController
 @RequestMapping("/api")
 @SessionAttributes("registration")
+@CrossOrigin
 public class RewardsController {
 
 	@Autowired
@@ -48,7 +50,8 @@ public class RewardsController {
 			if(session!=null){
 				Registration reg = (Registration) session.getAttribute("registration");
 				if(reg!=null){
-					logger.info("===>saveRewards mob no===>"+reg.getMobile());
+					logger.info("===>saveRewards mobile no===>"+reg.getMobile());
+					if(rewards != null)
 					rewards.setMobile(reg.getMobile());
 					savedReward = rewardsService.saveReward(rewards);
 					if(savedReward != null){
@@ -56,7 +59,7 @@ public class RewardsController {
 						results = new ResponseEntity<>(savedReward, HttpStatus.OK);
 					} else {
 						logger.info("===>Failed to save Rewards configuration for BO [{}]===>",reg.getMobile());
-						results = new ResponseEntity<>(savedReward,HttpStatus.INTERNAL_SERVER_ERROR);
+						results = new ResponseEntity<>(savedReward,HttpStatus.OK);
 						return results;
 					}
 				}
@@ -108,7 +111,7 @@ public class RewardsController {
 				}
 				results = new ResponseEntity<>(rewards, HttpStatus.OK);
 			} else {
-				results = new ResponseEntity<>(rewards,HttpStatus.NOT_FOUND);
+				results = new ResponseEntity<>(rewards,HttpStatus.OK);
 			}
 			
 		}

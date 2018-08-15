@@ -2,10 +2,13 @@ package com.smydata.registration.service;
 
 import java.util.List;
 
+import com.smydata.registration.model.BusinessDetail;
 import com.smydata.registration.model.Registration;
 
 public interface RegistrationService {
-	public Registration saveUser(Registration registration);
-	public List<Registration> findByMobileNumber(String mobileNumber);
-	public List<Registration> getAllRegisteredDetails();
+	Registration saveUser(Registration registration);
+	Registration findByMobileNumber(String mobileNumber);
+	Registration findBusinessInfoByRegId(Long regstrationId);
+	List<Registration> getAllRegisteredDetails();
+	List<BusinessDetail> saveBusinessDetails(List<BusinessDetail> businessDetails);
 }

@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import com.smydata.report.service.ReportService;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class ReportController implements SmydataConstant{
 	
 	@Autowired
@@ -46,7 +48,7 @@ public class ReportController implements SmydataConstant{
 				results = new ResponseEntity<>(userData, HttpStatus.OK);
 			} else {
 				logger.info("====>Service returned user data size is empty====> ");
-				results = new ResponseEntity<>(userData,HttpStatus.NOT_FOUND);
+				results = new ResponseEntity<>(userData,HttpStatus.OK);
 			}
 		}
 		catch(Exception e){
@@ -79,7 +81,7 @@ public class ReportController implements SmydataConstant{
 			if(payableReceivables != null && payableReceivables.size() >0){
 				results = new ResponseEntity<>(payableReceivables, HttpStatus.OK);
 			} else {
-				results = new ResponseEntity<>(payableReceivables,HttpStatus.NOT_FOUND);
+				results = new ResponseEntity<>(payableReceivables,HttpStatus.OK);
 			}
 			
 		}
@@ -107,7 +109,7 @@ public class ReportController implements SmydataConstant{
 			if(invoiceData != null && invoiceData.size() >0){
 				results = new ResponseEntity<>(invoiceData, HttpStatus.OK);
 			} else {
-				results = new ResponseEntity<>(invoiceData,HttpStatus.NOT_FOUND);
+				results = new ResponseEntity<>(invoiceData,HttpStatus.OK);
 			}
 		}
 		catch(Exception e){
@@ -133,7 +135,7 @@ public class ReportController implements SmydataConstant{
 			if(invoiceData != null && invoiceData.size() >0){
 				results = new ResponseEntity<>(invoiceData, HttpStatus.OK);
 			} else {
-				results = new ResponseEntity<>(invoiceData,HttpStatus.NOT_FOUND);
+				results = new ResponseEntity<>(invoiceData,HttpStatus.OK);
 			}
 		}
 		catch(Exception e){
@@ -160,7 +162,7 @@ public class ReportController implements SmydataConstant{
 			if(ticketsList != null && ticketsList.size() >0){
 				results = new ResponseEntity<>(ticketsList, HttpStatus.OK);
 			} else {
-				results = new ResponseEntity<>(ticketsList,HttpStatus.NOT_FOUND);
+				results = new ResponseEntity<>(ticketsList,HttpStatus.OK);
 			}
 		}
 		catch(Exception e){

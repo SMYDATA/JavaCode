@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,7 @@ import com.smydata.ticket.service.TicketService;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class TicketController {
 
 	@Autowired
@@ -52,11 +54,11 @@ public class TicketController {
 				
 				if(ticketDetails != null){
 					logger.info("====>Ticket created sucessfully for ticket ID [{}] ====> ",ticketDetails.getTicketId());
-					sendMail("parthiyads29@gmail.com", "parthiya2009@gmail.com",ticketDetails);
+					sendMail("parthiyads29@gmail.com", "smydata1@gmail.com",ticketDetails);
 					results = new ResponseEntity<>(ticketDetails, HttpStatus.OK);
 				} else {
 					logger.info("====>Failed to create ticket====> ");
-					results = new ResponseEntity<>(ticketDetails,HttpStatus.NOT_FOUND);
+					results = new ResponseEntity<>(ticketDetails,HttpStatus.OK);
 				}
 			}
 			
@@ -83,7 +85,7 @@ public class TicketController {
 				results = new ResponseEntity<>(tickets, HttpStatus.OK);
 			} else {
 				logger.info("====>tickets not found====> ");
-				results = new ResponseEntity<>(tickets,HttpStatus.NOT_FOUND);
+				results = new ResponseEntity<>(tickets,HttpStatus.OK);
 			}
 			
 		}

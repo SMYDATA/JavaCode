@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +28,7 @@ import com.smydata.registration.model.Registration;
 @RestController
 @RequestMapping("/api")
 @SessionAttributes("registration")
+@CrossOrigin
 public class DiscountsController {
 	
 	@Autowired
@@ -66,7 +68,7 @@ public class DiscountsController {
 				}
 				results = new ResponseEntity<>(discountsList, HttpStatus.OK);
 			} else {
-				results = new ResponseEntity<>(discountsList,HttpStatus.NOT_FOUND);
+				results = new ResponseEntity<>(discountsList,HttpStatus.OK);
 			}
 			
 		}
@@ -80,16 +82,17 @@ public class DiscountsController {
 	@PostMapping("/savediscounts")
 	public ResponseEntity<?> saveDiscounts(@RequestBody List<Discounts> discounts,HttpServletRequest request){
 		if(discounts != null)
-			logger.info("Begin Execution of saveDiscounts method");
+		logger.info("Begin Execution of saveDiscounts method");
 		HttpSession session = request.getSession();
 		List<Discounts> savedDiscounts = null;
 		ResponseEntity<?> results = null;
+		Registration reg = null;
 		try{
 			if(session!=null){
-				Registration reg = (Registration) session.getAttribute("registration");
+				reg = (Registration) session.getAttribute("registration");
 				if(reg!=null){
 					logger.info("===>saveDiscounts mob no===>"+reg.getMobile());
-					discountsService.deleteDiscounts(reg.getMobile());//delete discounts
+					discountsService.deleteDiscounts(reg.getMobile());//delete discounts if exist
 					if(discounts != null){
 						for(int i=0;i<discounts.size();i++){
 							Discounts discount = discounts.get(i);
@@ -97,18 +100,21 @@ public class DiscountsController {
 							discounts.set(i, discount);
 						}
 						savedDiscounts = discountsService.saveDiscounts(discounts);
-						if(savedDiscounts != null && savedDiscounts.size()>0){
+						if(savedDiscounts != null && !savedDiscounts.isEmpty()){
 							results = new ResponseEntity<>(savedDiscounts, HttpStatus.OK);
 						} else {
-							logger.info("===>Failed to saveDiscounts===>");
-							results = new ResponseEntity<>(savedDiscounts,HttpStatus.INTERNAL_SERVER_ERROR);
+							logger.info("===>Failed to saveDiscounts for BO [{}]===>",reg.getMobile());
+							results = new ResponseEntity<>(savedDiscounts,HttpStatus.OK);
 						}
+					} else {
+						logger.info("===>Failed to saveDiscounts for BO [{}]===>",reg.getMobile());
+						results = new ResponseEntity<>(savedDiscounts,HttpStatus.OK);
 					}
 				}
 			}
 		}
 		catch(Exception e){
-			logger.error("Error occured while saving discounts :: "+e);
+			logger.error("Error occured while saving discounts for BO [{}] and error is: {} :: ",reg != null ?reg.getMobile():"UNKNOWN");
 		}
 		logger.info("===>End Execution of saveDiscounts method ===>");
 		return results;

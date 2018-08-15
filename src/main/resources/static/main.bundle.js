@@ -20,14 +20,14 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\r\n.imgBg{\r\n  /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQixAQVHWc72Tcbtk4G4OFbOmQCbHw5dqIMSTzuYbbQoc4TFEzBiQ'); */\r\n  background-image: url('https://i.ytimg.com/vi/9MjVs8XjJoI/maxresdefault.jpg');\r\n  /* background-image: url('http://hdimages.org/wp-content/uploads/2016/11/image-line-HD5.jpg'); */\r\n  background-repeat: no-repeat;\r\n  height: 700px;\r\n}\r\nh2 {\r\n    font-size: 24px;\r\n    text-transform: uppercase;\r\n    color: #303030;\r\n    font-weight: 600;\r\n    margin-bottom: 30px;\r\n}\r\nh4 {\r\n    font-size: 19px;\r\n    line-height: 1.375em;\r\n    color: #303030;\r\n    font-weight: 400;\r\n    margin-bottom: 30px;\r\n}\r\n.jumbotron {\r\n    background-color: #223b56;\r\n    color: #fff;\r\n    padding: 100px 25px;\r\n    font-family: Montserrat, sans-serif;\r\n}\r\n.container-fluid {\r\n    padding: 60px 50px;\r\n}\r\n.bg-grey {\r\n    background-color: #f6f6f6;\r\n}\r\n.logo-small {\r\n    color: #223b56;\r\n    font-size: 50px;\r\n}\r\n.logo {\r\n    color: #223b56;\r\n    font-size: 200px;\r\n}\r\n.thumbnail {\r\n    padding: 0 0 15px 0;\r\n    border: none;\r\n    border-radius: 0;\r\n}\r\n.thumbnail img {\r\n    width: 100%;\r\n    height: 100%;\r\n    margin-bottom: 10px;\r\n}\r\n.carousel-control.right, .carousel-control.left {\r\n    background-image: none;\r\n    color: #223b56;\r\n}\r\n.carousel-indicators li {\r\n    border-color: #223b56;\r\n}\r\n.carousel-indicators li.active {\r\n    background-color: #223b56;\r\n}\r\n.item h4 {\r\n    font-size: 19px;\r\n    line-height: 1.375em;\r\n    font-weight: 400;\r\n    font-style: italic;\r\n    margin: 70px 0;\r\n}\r\n.item span {\r\n    font-style: normal;\r\n}\r\n.panel {\r\n    border: 1px solid #223b56;\r\n    border-radius:0 !important;\r\n    -webkit-transition: -webkit-box-shadow 0.5s;\r\n    transition: -webkit-box-shadow 0.5s;\r\n    transition: box-shadow 0.5s;\r\n    transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;\r\n}\r\n.panel:hover {\r\n    -webkit-box-shadow: 5px 0px 40px rgba(0,0,0, .2);\r\n            box-shadow: 5px 0px 40px rgba(0,0,0, .2);\r\n}\r\n.panel-footer .btn:hover {\r\n    border: 1px solid #223b56;\r\n    background-color: #fff !important;\r\n    color: #223b56;\r\n}\r\n.panel-heading {\r\n    color: #fff !important;\r\n    background-color: #223b56 !important;\r\n    padding: 25px;\r\n    border-bottom: 1px solid transparent;\r\n    border-top-left-radius: 0px;\r\n    border-top-right-radius: 0px;\r\n    border-bottom-left-radius: 0px;\r\n    border-bottom-right-radius: 0px;\r\n}\r\n.panel-footer {\r\n    background-color: white !important;\r\n}\r\n.panel-footer h3 {\r\n    font-size: 32px;\r\n}\r\n.panel-footer h4 {\r\n    color: #aaa;\r\n    font-size: 14px;\r\n}\r\n.panel-footer .btn {\r\n    margin: 15px 0;\r\n    background-color: #223b56;\r\n    color: #fff;\r\n}\r\n.navbar {\r\n    margin-bottom: 0;\r\n    background-color: #1abc9c;\r\n    z-index: 9999;\r\n    border: 0;\r\n    font-size: 12px !important;\r\n    line-height: 1.42857143 !important;\r\n    letter-spacing: 4px;\r\n    border-radius: 0;\r\n    font-family: Montserrat, sans-serif;\r\n}\r\n.navbar li a, .navbar .navbar-brand {\r\n    color: #fff !important;\r\n}\r\n.navbar-nav li a:hover, .navbar-nav li.active a {\r\n    color: #223b56 !important;\r\n    background-color: #fff !important;\r\n}\r\n.navbar-default .navbar-toggle {\r\n    border-color: transparent;\r\n    color: #fff !important;\r\n}\r\nfooter .glyphicon {\r\n    font-size: 20px;\r\n    margin-bottom: 20px;\r\n    color: #223b56;\r\n}\r\n.slideanim {visibility:hidden;}\r\n.slide {\r\n    animation-name: slide;\r\n    -webkit-animation-name: slide;\r\n    animation-duration: 1s;\r\n    -webkit-animation-duration: 1s;\r\n    visibility: visible;\r\n}\r\n@keyframes slide {\r\n  0% {\r\n    opacity: 0;\r\n    -webkit-transform: translateY(70%);\r\n            transform: translateY(70%);\r\n  }\r\n  100% {\r\n    opacity: 1;\r\n    -webkit-transform: translateY(0%);\r\n            transform: translateY(0%);\r\n  }\r\n}\r\n@-webkit-keyframes slide {\r\n  0% {\r\n    opacity: 0;\r\n    -webkit-transform: translateY(70%);\r\n  }\r\n  100% {\r\n    opacity: 1;\r\n    -webkit-transform: translateY(0%);\r\n  }\r\n}\r\n@media screen and (max-width: 768px) {\r\n  .col-sm-4 {\r\n    text-align: center;\r\n    margin: 25px 0;\r\n  }\r\n  .btn-lg {\r\n      width: 100%;\r\n      margin-bottom: 35px;\r\n  }\r\n}\r\n@media screen and (max-width: 480px) {\r\n  .logo {\r\n      font-size: 150px;\r\n  }\r\n}\r\n"
 
 /***/ }),
 
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <toaster-container class=\"fixed-top\"></toaster-container> -->\n\n<router-outlet></router-outlet>\n<!-- Routed views go here -->\n"
+module.exports = "<nav class=\"navbar navbar-expand-sm bg-dark navbar-dark fixed-top\">\n  <!-- Brand/logo -->\n  <a class=\"\" href=\"#\"><img class=\"img-circle\" style=\"height:56px\" src=\"../../assets/images/logo1.png\"></a>\n  <a class=\"navbar-brand\" href=\"#\"><h2 style=\"color:#1abc9c\">SMyData</h2></a>\n  <!-- Links -->\n  <ul class=\"navbar-nav\" style=\"margin-left:65%\">\n    <li class=\"nav-item\" *ngIf=\"!showProfile\">\n      <a class=\"nav-link\" href=\"#\">\n        <span class=\"glyphicon glyphicon-home font-weight-bold font-italic\">Home</span>\n      </a>\n    </li>\n    <li class=\"nav-item\" *ngIf=\"view == 'homePage'\">\n      <a class=\"nav-link\">\n        <span class=\"font-weight-bold font-italic\" (click)=\"signInCall()\">SignIn/Register</span>\n      </a>\n    </li>\n      <!-- Dropdown -->\n  <li class=\"nav-item dropdown\" *ngIf=\"showProfile\">\n  <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbardrop\" data-toggle=\"dropdown\">\n    Profile\n  </a>\n  <div class=\"dropdown-menu\">\n    <li class=\"dropdown-item\" routerLink=\"/userData/addNew\" ><button class=\"btn btn-primary drpBtn\"  type=\"button\" name=\"button\">Add New Business</button> </li>\n    <li class=\"dropdown-item\" routerLink=\"/userData/myInfo\"><button class=\"btn btn-primary drpBtn\" type=\"button\" name=\"button\">My Info</button></li>\n    <li class=\"dropdown-item\" routerLink=\"/userData/businessPlan\"><button class=\"btn btn-primary drpBtn\" type=\"button\" name=\"button\">My Business Plan</button></li>\n    <div class=\"dropdown-divider\"></div>\n    <li class=\"dropdown-item\" (click)=\"logOut()\"><button class=\"btn btn-primary drpBtn\" type=\"button\" name=\"button\">Sign Out</button></li>\n  </div>\n  </li>\n  </ul>\n</nav>\n\n<div class=\"\">\n<div class=\"\" *ngIf=\"view == 'homePage'\">\n<div class=\"jumbotron text-center imgBg\">\n  <h1>SMY DATA</h1>\n</div>\n\n<!-- Container (About Section) -->\n<div id=\"about\" class=\"container-fluid bg-grey\">\n  <div class=\"row\">\n    <div class=\"col-sm-8\">\n      <h2>About Company Page</h2><br>\n      <h4>MYDATA will provide solution to small scale business owners and give them an advantage over track profit and loss, automate digita marketing, capturing customer data.Landscape of business is huge in our country. Everyday day the footprint of different business continue to grow as the economy scales up to meet consumer demands.</h4>\n      <br><button class=\"btn btn-default btn-lg\">Get in Touch</button>\n    </div>\n    <div class=\"col-sm-4\">\n      <img class=\"img-circle\" src=\"https://image.shutterstock.com/z/stock-photo-image-of-happy-cashier-woman-on-workspace-in-supermarket-shop-looking-at-camera-623084897.jpg\" alt=\"\" style=\"width:500px;height:300px\">\n    </div>\n  </div>\n</div>\n\n\n<!-- Container (Services Section) -->\n<div id=\"services\" class=\"container-fluid text-center\">\n  <h2>SERVICES</h2>\n  <h4>What we offer</h4>\n  <br>\n  <div class=\"row\">\n    <div class=\"col-sm-4\">\n      <!-- <span class=\"glyphicon  glyphicon-user logo-small\"></span> -->\n      <img class=\"img-rounded\" src=\"https://thumb7.shutterstock.com/display_pic_with_logo/1166069/1022916361/stock-vector-bills-online-payment-flat-isometric-vector-concept-of-mobile-payment-shoping-banking-1022916361.jpg\" alt=\"\" style=\"width:200px;height:200px\">\n      <h4>CUSTOMER</h4>\n      <p>the recipient of a good, service, product or an idea - obtained from a seller, vendor, or supplier</p>\n    </div>\n    <div class=\"col-sm-4\">\n      <img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCowLouYbdJXiZkQTmp8XqMNxEVYo1sHxnRINs6rAYzjf1Pg6w\" alt=\"\" style=\"width:200px;height:200px\">\n      <h4>INVOICE</h4>\n      <p>A list of things provided or work done together with their cost, for payment at a later time</p>\n    </div>\n    <div class=\"col-sm-4\">\n      <img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrcY4xlb_eDU39gzYcMuK2Cs_LwpdzYxXxmxd8oGx6qzTxKqkkoQ\" alt=\"\" style=\"width:200px;height:200px\">\n      <h4>Receivables</h4>\n      <p>Company's claims to the future collection of cash, other assets, or services</p>\n    </div>\n  </div>\n  <br><br>\n  <div class=\"row \">\n    <div class=\"col-sm-4\">\n      <img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy4jn6Ib2wGsdtYVPq2oorQEQxbl7ytBWnkzThcNsEVhYqIoKF\" alt=\"\" style=\"width:200px;height:200px\">\n      <h4>PAYABLES</h4>\n      <p>To pay off a short-term debt to its creditors or suppliers</p>\n    </div>\n    <div class=\"col-sm-4\">\n      <img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3ts8Ptlq_eVOkRaY7RjS5OJyfPjqfsqeNCfMt4woPoeowgNAyeg\" alt=\"\" style=\"width:200px;height:200px\">\n      <h4>REPORTS</h4>\n      <p>Generate data and reports of your business</p>\n    </div>\n    <div class=\"col-sm-4\">\n      <img src=\"https://thumb1.shutterstock.com/display_pic_with_logo/91282/158522279/stock-photo-image-of-two-young-businessmen-using-touchpad-at-meeting-158522279.jpg\" alt=\"\" style=\"width:200px;height:200px\">\n      <h4 style=\"color:#303030;\">TICKETS</h4>\n      <p>Raise tickets and get solution for your problem</p>\n    </div>\n  </div>\n</div>\n\n<!-- Container (Portfolio Section) -->\n<div id=\"portfolio\" class=\"container-fluid text-center bg-grey\">\n  <h2>Do Better Business With Us.</h2>\n  <div id=\"myCarousel\" class=\"carousel slide text-center\" data-ride=\"carousel\">\n    <!-- Indicators -->\n    <ol class=\"carousel-indicators\">\n      <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n      <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\n      <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\n    </ol>\n\n    <!-- Wrapper for slides -->\n    <div class=\"carousel-inner\" role=\"listbox\">\n      <div class=\"item\">\n        <h4>\"Success usually comes to those who are too busy to be looking for it.\"<br><span>Dilip, Developer</span></h4>\n      </div>\n      <div class=\"item\">\n        <h4>\"The only limit to our realization of tomorrow will be our doubts of today.<br><span>Parthiya, Dev, Inc</span></h4>\n      </div>\n      <div class=\"item active\">\n        <h4>\"In order to succeed, your desire for success should be greater than your fear of failure.\"<br><span>Viswa, BU</span></h4>\n      </div>\n    </div>\n\n    <!-- Left and right controls -->\n    <a class=\"left carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\">\n      <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n      <span class=\"sr-only\">Previous</span>\n    </a>\n    <a class=\"right carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\">\n      <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n      <span class=\"sr-only\">Next</span>\n    </a>\n  </div>\n</div>\n\n\n<!-- Container (Contact Section) -->\n<div id=\"contact\" class=\"container-fluid\">\n  <h2 class=\"text-center\">CONTACT</h2>\n  <div class=\"row\">\n    <div class=\"col-sm-5\">\n      <p>Contact us and we'll get back to you within 24 hours.</p>\n      <p><span class=\"glyphicon glyphicon-map-marker\"></span> Hyderabad, India</p>\n      <p><span class=\"glyphicon glyphicon-phone\"></span> +91 9598945680</p>\n      <p><span class=\"glyphicon glyphicon-envelope\"></span> smydata@gmail.com</p>\n    </div>\n    <div class=\"col-sm-7\">\n      <div class=\"row\">\n        <div class=\"col-sm-6 form-group\">\n          <input class=\"form-control\" id=\"name\" name=\"name\" placeholder=\"Name\" type=\"text\" required>\n        </div>\n        <div class=\"col-sm-6 form-group\">\n          <input class=\"form-control\" id=\"email\" name=\"email\" placeholder=\"Email\" type=\"email\" required>\n        </div>\n      </div>\n      <textarea class=\"form-control\" id=\"comments\" name=\"comments\" placeholder=\"Comment\" rows=\"5\"></textarea><br>\n      <div class=\"row\">\n        <div class=\"col-sm-12 form-group\">\n          <button class=\"btn btn-default pull-right\" type=\"submit\">Send</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n</div>\n<!-- <footer class=\"container-fluid text-center\">\n\n</footer> -->\n</div>\n<hr>\n<div class=\"\" *ngIf=\"view != 'homePage'\" style=\"margin-top:65px;color:black\">\n  <router-outlet></router-outlet>\n</div>\n<!-- Routed views go here -->\n"
 
 /***/ }),
 
@@ -39,6 +39,9 @@ module.exports = "<!-- <toaster-container class=\"fixed-top\"></toaster-containe
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng5_toastr_ng5_toastr__ = __webpack_require__("./node_modules/ng5-toastr/ng5-toastr.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng5_toastr_ng5_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ng5_toastr_ng5_toastr__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ngx_cookie_service__ = __webpack_require__("./node_modules/ngx-cookie-service/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_service__ = __webpack_require__("./src/app/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -50,19 +53,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent(toastr, vcr) {
+    function AppComponent(_demoService, toastr, router, cookieService, vcr) {
+        this._demoService = _demoService;
         this.toastr = toastr;
+        this.router = router;
+        this.cookieService = cookieService;
         this.title = 'SmyData';
+        this.view = 'homePage';
+        this.showProfile = false;
         this.toastr.setRootViewContainerRef(vcr);
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._demoService.profile.subscribe(function (showProfile) { return _this.showProfile = showProfile; });
+        this.allCookies = this.cookieService.getAll();
+        console.log(this.allCookies);
+        if (this.allCookies && this.allCookies.mobile) {
+            this.showProfile = true;
+        }
+        ;
+    };
+    ;
+    AppComponent.prototype.signInCall = function () {
+        this.view = '';
+        this.router.navigate(['/', 'select']);
+    };
+    AppComponent.prototype.logOut = function () {
+        this._demoService.changeProfile(false);
+        this.view = 'homePage';
+        this.showProfile = false;
+    };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ng5_toastr_ng5_toastr__["ToastsManager"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1_ng5_toastr_ng5_toastr__["ToastsManager"], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */], __WEBPACK_IMPORTED_MODULE_2_ngx_cookie_service__["a" /* CookieService */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -85,21 +116,30 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng5_toastr_ng5_toastr__ = __webpack_require__("./node_modules/ng5-toastr/ng5-toastr.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng5_toastr_ng5_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng5_toastr_ng5_toastr__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__ = __webpack_require__("./src/app/signup/signup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__sign_in_sign_in_component__ = __webpack_require__("./src/app/sign-in/sign-in.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__user_data_user_data_component__ = __webpack_require__("./src/app/user-data/user-data.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__data_service__ = __webpack_require__("./src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__billing_service__ = __webpack_require__("./src/app/billing.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__otp_authentication_otp_authentication_component__ = __webpack_require__("./src/app/otp-authentication/otp-authentication.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__rewards_rewards_component__ = __webpack_require__("./src/app/rewards/rewards.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__discounts_discounts_component__ = __webpack_require__("./src/app/discounts/discounts.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__invoice_invoice_component__ = __webpack_require__("./src/app/invoice/invoice.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__select_invoice_select_invoice_component__ = __webpack_require__("./src/app/select-invoice/select-invoice.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__payables_payables_component__ = __webpack_require__("./src/app/payables/payables.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__receivables_receivables_component__ = __webpack_require__("./src/app/receivables/receivables.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__raise_ticket_raise_ticket_component__ = __webpack_require__("./src/app/raise-ticket/raise-ticket.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__sales_report_sales_report_component__ = __webpack_require__("./src/app/sales-report/sales-report.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_cdk_table__ = __webpack_require__("./node_modules/@angular/cdk/esm5/table.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__signup_signup_component__ = __webpack_require__("./src/app/signup/signup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__sign_in_sign_in_component__ = __webpack_require__("./src/app/sign-in/sign-in.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__user_data_user_data_component__ = __webpack_require__("./src/app/user-data/user-data.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__data_service__ = __webpack_require__("./src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__billing_service__ = __webpack_require__("./src/app/billing.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__individual_service__ = __webpack_require__("./src/app/individual.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__otp_authentication_otp_authentication_component__ = __webpack_require__("./src/app/otp-authentication/otp-authentication.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__rewards_rewards_component__ = __webpack_require__("./src/app/rewards/rewards.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__discounts_discounts_component__ = __webpack_require__("./src/app/discounts/discounts.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__invoice_invoice_component__ = __webpack_require__("./src/app/invoice/invoice.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__select_invoice_select_invoice_component__ = __webpack_require__("./src/app/select-invoice/select-invoice.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__payables_payables_component__ = __webpack_require__("./src/app/payables/payables.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__receivables_receivables_component__ = __webpack_require__("./src/app/receivables/receivables.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__raise_ticket_raise_ticket_component__ = __webpack_require__("./src/app/raise-ticket/raise-ticket.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__sales_report_sales_report_component__ = __webpack_require__("./src/app/sales-report/sales-report.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__individual_registration_individual_registration_component__ = __webpack_require__("./src/app/individual-registration/individual-registration.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__select_login_type_select_login_type_component__ = __webpack_require__("./src/app/select-login-type/select-login-type.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__individual_details_individual_details_component__ = __webpack_require__("./src/app/individual-details/individual-details.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__individual_receivables_individual_receivables_component__ = __webpack_require__("./src/app/individual-receivables/individual-receivables.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__individual_payables_individual_payables_component__ = __webpack_require__("./src/app/individual-payables/individual-payables.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__individual_reports_individual_reports_component__ = __webpack_require__("./src/app/individual-reports/individual-reports.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -125,6 +165,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 // import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 // import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -132,24 +175,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
+
+
 var appRoutes = [
-    { path: 'signIn', component: __WEBPACK_IMPORTED_MODULE_10__sign_in_sign_in_component__["a" /* SignInComponent */] },
-    { path: 'signUp', component: __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */] },
-    { path: 'userData', component: __WEBPACK_IMPORTED_MODULE_11__user_data_user_data_component__["a" /* UserDataComponent */],
+    { path: 'select', component: __WEBPACK_IMPORTED_MODULE_27__select_login_type_select_login_type_component__["a" /* SelectLoginTypeComponent */] },
+    { path: 'signIn', component: __WEBPACK_IMPORTED_MODULE_12__sign_in_sign_in_component__["a" /* SignInComponent */] },
+    { path: 'signUp', component: __WEBPACK_IMPORTED_MODULE_11__signup_signup_component__["a" /* SignupComponent */] },
+    { path: 'IndividualReg', component: __WEBPACK_IMPORTED_MODULE_26__individual_registration_individual_registration_component__["a" /* IndividualRegistrationComponent */] },
+    { path: 'individualDetails', component: __WEBPACK_IMPORTED_MODULE_28__individual_details_individual_details_component__["a" /* IndividualDetailsComponent */],
         children: [
-            { path: 'invoice', component: __WEBPACK_IMPORTED_MODULE_18__select_invoice_select_invoice_component__["a" /* SelectInvoiceComponent */] },
-            { path: 'payables', component: __WEBPACK_IMPORTED_MODULE_19__payables_payables_component__["a" /* PayablesComponent */] },
-            { path: 'receivables', component: __WEBPACK_IMPORTED_MODULE_20__receivables_receivables_component__["a" /* ReceivablesComponent */] },
-            { path: 'salesReport', component: __WEBPACK_IMPORTED_MODULE_22__sales_report_sales_report_component__["a" /* SalesReportComponent */] },
-            { path: 'raiseTicket', component: __WEBPACK_IMPORTED_MODULE_21__raise_ticket_raise_ticket_component__["a" /* RaiseTicketComponent */] },
-            { path: 'discounts', component: __WEBPACK_IMPORTED_MODULE_16__discounts_discounts_component__["a" /* DiscountsComponent */] },
-            { path: 'invoiceTemplate', component: __WEBPACK_IMPORTED_MODULE_17__invoice_invoice_component__["a" /* InvoiceComponent */] },
-            { path: 'businessPlan', component: __WEBPACK_IMPORTED_MODULE_15__rewards_rewards_component__["a" /* RewardsComponent */] },
-            { path: 'myInfo', component: __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */] },
-            { path: 'addNew', component: __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */] },
+            { path: 'payables', component: __WEBPACK_IMPORTED_MODULE_30__individual_payables_individual_payables_component__["a" /* IndividualPayablesComponent */] },
+            { path: 'receivables', component: __WEBPACK_IMPORTED_MODULE_29__individual_receivables_individual_receivables_component__["a" /* IndividualReceivablesComponent */] },
+            { path: 'reports', component: __WEBPACK_IMPORTED_MODULE_31__individual_reports_individual_reports_component__["a" /* IndividualReportsComponent */] },
+        ]
+    },
+    { path: 'salesReport', component: __WEBPACK_IMPORTED_MODULE_25__sales_report_sales_report_component__["a" /* SalesReportComponent */] },
+    { path: 'userData', component: __WEBPACK_IMPORTED_MODULE_13__user_data_user_data_component__["a" /* UserDataComponent */],
+        children: [
+            { path: 'invoice', component: __WEBPACK_IMPORTED_MODULE_21__select_invoice_select_invoice_component__["a" /* SelectInvoiceComponent */] },
+            { path: 'payables', component: __WEBPACK_IMPORTED_MODULE_22__payables_payables_component__["a" /* PayablesComponent */] },
+            { path: 'receivables', component: __WEBPACK_IMPORTED_MODULE_23__receivables_receivables_component__["a" /* ReceivablesComponent */] },
+            { path: 'salesReport', component: __WEBPACK_IMPORTED_MODULE_25__sales_report_sales_report_component__["a" /* SalesReportComponent */] },
+            { path: 'raiseTicket', component: __WEBPACK_IMPORTED_MODULE_24__raise_ticket_raise_ticket_component__["a" /* RaiseTicketComponent */] },
+            { path: 'discounts', component: __WEBPACK_IMPORTED_MODULE_19__discounts_discounts_component__["a" /* DiscountsComponent */] },
+            { path: 'invoiceTemplate', component: __WEBPACK_IMPORTED_MODULE_20__invoice_invoice_component__["a" /* InvoiceComponent */] },
+            { path: 'businessPlan', component: __WEBPACK_IMPORTED_MODULE_18__rewards_rewards_component__["a" /* RewardsComponent */] },
+            { path: 'myInfo', component: __WEBPACK_IMPORTED_MODULE_11__signup_signup_component__["a" /* SignupComponent */] },
+            { path: 'addNew', component: __WEBPACK_IMPORTED_MODULE_11__signup_signup_component__["a" /* SignupComponent */] },
         ] },
-    { path: 'otpVerification', component: __WEBPACK_IMPORTED_MODULE_14__otp_authentication_otp_authentication_component__["a" /* OtpAuthenticationComponent */] },
-    { path: 'myRewards', component: __WEBPACK_IMPORTED_MODULE_15__rewards_rewards_component__["a" /* RewardsComponent */] },
+    { path: 'otpVerification', component: __WEBPACK_IMPORTED_MODULE_17__otp_authentication_otp_authentication_component__["a" /* OtpAuthenticationComponent */] },
+    { path: 'myRewards', component: __WEBPACK_IMPORTED_MODULE_18__rewards_rewards_component__["a" /* RewardsComponent */] },
     { path: '',
         redirectTo: '/signIn',
         pathMatch: 'full'
@@ -161,33 +220,42 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__sign_in_sign_in_component__["a" /* SignInComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__user_data_user_data_component__["a" /* UserDataComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__otp_authentication_otp_authentication_component__["a" /* OtpAuthenticationComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__rewards_rewards_component__["a" /* RewardsComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__discounts_discounts_component__["a" /* DiscountsComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__invoice_invoice_component__["a" /* InvoiceComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__select_invoice_select_invoice_component__["a" /* SelectInvoiceComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__payables_payables_component__["a" /* PayablesComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__receivables_receivables_component__["a" /* ReceivablesComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__raise_ticket_raise_ticket_component__["a" /* RaiseTicketComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__sales_report_sales_report_component__["a" /* SalesReportComponent */]
+                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__signup_signup_component__["a" /* SignupComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__sign_in_sign_in_component__["a" /* SignInComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__user_data_user_data_component__["a" /* UserDataComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__otp_authentication_otp_authentication_component__["a" /* OtpAuthenticationComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__rewards_rewards_component__["a" /* RewardsComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__discounts_discounts_component__["a" /* DiscountsComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__invoice_invoice_component__["a" /* InvoiceComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__select_invoice_select_invoice_component__["a" /* SelectInvoiceComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__payables_payables_component__["a" /* PayablesComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__receivables_receivables_component__["a" /* ReceivablesComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__raise_ticket_raise_ticket_component__["a" /* RaiseTicketComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__sales_report_sales_report_component__["a" /* SalesReportComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__individual_registration_individual_registration_component__["a" /* IndividualRegistrationComponent */],
+                __WEBPACK_IMPORTED_MODULE_27__select_login_type_select_login_type_component__["a" /* SelectLoginTypeComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__individual_details_individual_details_component__["a" /* IndividualDetailsComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__individual_receivables_individual_receivables_component__["a" /* IndividualReceivablesComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__individual_payables_individual_payables_component__["a" /* IndividualPayablesComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__individual_reports_individual_reports_component__["a" /* IndividualReportsComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["BrowserModule"],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_8__angular_material__["d" /* MatTableModule */],
+                __WEBPACK_IMPORTED_MODULE_8__angular_material__["b" /* MatPaginatorModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_cdk_table__["m" /* CdkTableModule */],
                 //ToasterModule,
                 __WEBPACK_IMPORTED_MODULE_6_ng5_toastr_ng5_toastr__["ToastModule"].forRoot(),
                 // MatButtonModule, MatCheckboxModule,
                 __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
                 )
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_5_ngx_cookie_service__["a" /* CookieService */], __WEBPACK_IMPORTED_MODULE_12__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_13__billing_service__["a" /* BillingService */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_5_ngx_cookie_service__["a" /* CookieService */], __WEBPACK_IMPORTED_MODULE_14__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_15__billing_service__["a" /* BillingService */], __WEBPACK_IMPORTED_MODULE_16__individual_service__["a" /* IndividualService */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -339,7 +407,19 @@ var DataService = /** @class */ (function () {
         this.newBusinessVal = this.newBusiness.asObservable();
         this.editBusiness = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](false);
         this.editBusinessDetails = this.editBusiness.asObservable();
+        this.showProfile = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](false);
+        this.profile = this.showProfile.asObservable();
+        this.userType = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]('');
+        this.userTypeVal = this.userType.asObservable();
     }
+    DataService.prototype.changeUserType = function (value) {
+        console.log('userType:' + value);
+        this.userType.next(value);
+    };
+    DataService.prototype.changeProfile = function (profile) {
+        console.log('profile:' + profile);
+        this.showProfile.next(profile);
+    };
     DataService.prototype.changeMessage = function (message) {
         console.log('message:servuce:' + message);
         this.messageSource.next(message);
@@ -359,6 +439,13 @@ var DataService = /** @class */ (function () {
         console.log(url);
         return this.http.post(url, body, httpOptions);
     };
+    DataService.prototype.registerIndividual = function (data) {
+        var body = JSON.stringify(data);
+        console.log(data);
+        var url = 'http://localhost:8585/api/saveCustomer';
+        console.log(url);
+        return this.http.post(url, body, httpOptions);
+    };
     DataService.prototype.addingNewBusiness = function (data) {
         var body = JSON.stringify(data);
         console.log(data);
@@ -375,9 +462,9 @@ var DataService = /** @class */ (function () {
         var url = 'http://localhost:8585/api/viewMyBusiness';
         return this.http.get(url);
     };
-    DataService.prototype.logInUser = function (data) {
+    DataService.prototype.logInUser = function (data, type) {
         console.log(data);
-        var url = 'http://localhost:8585/api/loginUser';
+        var url = 'http://localhost:8585/api/loginUser/' + type;
         return this.http.post(url, data);
     };
     DataService.prototype.getLocationDetails = function (place) {
@@ -442,7 +529,7 @@ module.exports = ".discount{\r\n  width: 50px;\r\n}\r\n\r\n.switch {\r\n  positi
 /***/ "./src/app/discounts/discounts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"border border-success\"  style=\"padding:20px\">\n  <h1> My businessPlan </h1>\n<nav>\n  <div class=\"nav nav-tabs\" id=\"nav-tab\" role=\"tablist\">\n  <a class=\"nav-item nav-link\" id=\"nav-home-tab\" data-toggle=\"tab\" routerLink=\"/userData/businessPlan\" role=\"tab\" aria-controls=\"nav-home\" aria-selected=\"true\">Rewards</a>\n  <a class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" routerLink=\"/userData/discounts\" role=\"tab\" aria-controls=\"nav-profile\" aria-selected=\"false\">Discounts</a>\n  <a class=\"nav-item nav-link\" id=\"nav-contact-tab\" data-toggle=\"tab\"routerLink=\"/userData/invoiceTemplate\" role=\"tab\" aria-controls=\"nav-contact\" aria-selected=\"false\">Invoice</a>\n  </div>\n</nav>\n<div class=\"panel panel-info\">\n    <div class=\"panel-heading col-md-12\">\n      <h3 class=\"col-md-4\">My Poduct Discounts </h3>\n      <label class=\"switch col-md-2\">\n        <div *ngIf=\"!isDataExist\">\n           <input type=\"checkbox\" [(ngModel)]='discounts.enableDiscount'>\n            <span class=\"slider round\"></span>\n        </div>\n        <div *ngIf=\"isDataExist && discounts?.length > 0\">\n           <input type=\"checkbox\" [(ngModel)]='discounts[0].enableDiscount'>\n            <span class=\"slider round\"></span>\n        </div>\n\n       </label>\n    </div>\n\n     <div class=\"panel-body\">\n       <div class=\"container\">\n         <table class=\"table table-bordered\">\n           <thead>\n             <tr>\n               <th>Min Amount</th>\n               <th>Max Amount</th>\n               <th>Discount</th>\n               <th>Start Date</th>\n               <th>End Date</th>\n               <th>enable/disable</th>\n             </tr>\n           </thead>\n           <tbody>\n             <tr *ngFor=\"let data of discounts;let i = index; let lastEl = last; let firstEl = first\">\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].minAmount'/>\n               </td>\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].maxAmount'/>\n               </td>\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].discount'/>\n               </td>\n               <td>\n                 <input type=\"date\"  [(ngModel)]='discounts[i].startDate'/>\n               </td>\n               <td>\n                 <input type=\"date\"  [(ngModel)]='discounts[i].endDate'/>\n               </td>\n               <td>\n                 <label class=\"switch\">\n                    <input type=\"checkbox\" [(ngModel)]='discounts[i].enable'>\n                    <span class=\"slider round\"></span>\n                  </label>\n               </td>\n               <td *ngIf='!firstEl'>\n                 <button type=\"button\"  (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n                   <span class=\"glyphicon glyphicon-minus\">-</span>\n                 </button>\n               </td>\n               <td *ngIf='lastEl'>\n                 <button type=\"button\" (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n                   <span class=\"glyphicon glyphicon-plus\">+</span>\n                 </button>\n               </td>\n             </tr>\n           </tbody>\n         </table>\n       </div>\n        <hr>\n     </div>\n<button class=\"btn btn-primary btn-block\"type=\"button\" (click)='saveDiscount(discounts)' name=\"button\">Save</button>\n</div>\n</div>\n"
+module.exports = "<div class=\"border border-success center20\">\n  <h1> My businessPlan </h1>\n<nav>\n  <div class=\"nav nav-tabs\" id=\"nav-tab\" role=\"tablist\" style=\"font-size:20px\">\n  <span class=\"nav-item nav-link\" id=\"nav-home-tab\" data-toggle=\"tab\" routerLink=\"/userData/businessPlan\" role=\"tab\" aria-controls=\"nav-home\" aria-selected=\"true\">Rewards</span>\n  <span class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" routerLink=\"/userData/discounts\" role=\"tab\" aria-controls=\"nav-profile\" aria-selected=\"false\">Discounts</span>\n  <span class=\"nav-item nav-link\" id=\"nav-contact-tab\" data-toggle=\"tab\"routerLink=\"/userData/invoiceTemplate\" role=\"tab\" aria-controls=\"nav-contact\" aria-selected=\"false\">Invoice</span>\n  </div>\n</nav>\n<div class=\"panel panel-info inbxTxt\">\n    <div class=\"panel-heading col-md-12\">\n      <h3 class=\"col-md-4\">My Poduct Discounts </h3>\n      <label class=\"switch col-md-2\">\n        <div *ngIf=\"!isDataExist\">\n           <input type=\"checkbox\" [(ngModel)]='discounts.enableDiscount'>\n            <span class=\"slider round\"></span>\n        </div>\n        <div *ngIf=\"isDataExist && discounts?.length > 0\">\n           <input type=\"checkbox\" [(ngModel)]='discounts[0].enableDiscount'>\n            <span class=\"slider round\"></span>\n        </div>\n\n       </label>\n    </div>\n\n     <div class=\"panel-body\" style=\"overflow:auto;\">\n       <div class=\"container\">\n         <table class=\"table table-bordered\">\n           <thead>\n             <tr>\n               <th>Min Amount</th>\n               <th>Max Amount</th>\n               <th>Discount</th>\n               <th>Start Date</th>\n               <th>End Date</th>\n               <th>enable/disable</th>\n             </tr>\n           </thead>\n           <tbody>\n             <tr *ngFor=\"let data of discounts;let i = index; let lastEl = last; let firstEl = first\">\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].minAmount'/>\n               </td>\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].maxAmount'/>\n               </td>\n               <td>\n                 <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].discount'/>\n               </td>\n               <td>\n                 <input type=\"date\"  [(ngModel)]='discounts[i].startDate'/>\n               </td>\n               <td>\n                 <input type=\"date\"  [(ngModel)]='discounts[i].endDate'/>\n               </td>\n               <td>\n                 <label class=\"switch\">\n                    <input type=\"checkbox\" [(ngModel)]='discounts[i].enable'>\n                    <span class=\"slider round\"></span>\n                  </label>\n               </td>\n               <td *ngIf='!firstEl'>\n                 <button type=\"button\"  (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n                   <span class=\"glyphicon glyphicon-minus\"></span>\n                 </button>\n               </td>\n               <td *ngIf='lastEl'>\n                 <button type=\"button\" (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n                   <span class=\"glyphicon glyphicon-plus\"></span>\n                 </button>\n               </td>\n             </tr>\n           </tbody>\n         </table>\n       </div>\n        <hr>\n     </div>\n<button class=\"btn btn-primary btn-block\"type=\"button\" (click)='saveDiscount(discounts)' name=\"button\">Save</button>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -494,9 +581,7 @@ var DiscountsComponent = /** @class */ (function () {
         //calling addDiscount method which is inside the billing.service to save the discounts data
         this._billingService.addDiscount(discountData).subscribe(function (data) {
             console.log('success::' + data);
-            alert('saved successfully');
         }, function (error) {
-            alert('could not add discounts! try again!!');
         });
     };
     ;
@@ -507,15 +592,15 @@ var DiscountsComponent = /** @class */ (function () {
         this._billingService.getDiscount().subscribe(function (data) {
             console.log('success::' + data);
             if (data != null && Object.keys(data).length > 0) {
-                alert('data::' + Object.keys(data).length);
+                console.log('data::' + Object.keys(data).length);
                 _this.isDataExist = true;
                 _this.discounts = data;
             }
             else {
-                alert('eseeee');
+                console.log('failure');
             }
         }, function (error) {
-            alert('could not fetch discounts! try again!!');
+            console.log('error');
         });
     };
     DiscountsComponent = __decorate([
@@ -533,6 +618,454 @@ var DiscountsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/individual-details/individual-details.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/individual-details/individual-details.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\" style=\"padding-top:10px\">\n  <div class=\"border border-primary col-md-2\" >\n    <nav class=\"nav flex-column\">\n    <h3 class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/individualDetails/payables\">Payables</h3>\n    <h3 class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/individualDetails/receivables\">Receivables</h3>\n    <h3 class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/individualDetails/reports\">Report</h3>\n    <!-- <h3 class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/raiseTicket\">Raise Ticket</h3> -->\n  </nav>\n  </div>\n  <div class=\"col-md-10\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/individual-details/individual-details.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndividualDetailsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var IndividualDetailsComponent = /** @class */ (function () {
+    function IndividualDetailsComponent() {
+    }
+    IndividualDetailsComponent.prototype.ngOnInit = function () {
+    };
+    IndividualDetailsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-individual-details',
+            template: __webpack_require__("./src/app/individual-details/individual-details.component.html"),
+            styles: [__webpack_require__("./src/app/individual-details/individual-details.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], IndividualDetailsComponent);
+    return IndividualDetailsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/individual-payables/individual-payables.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/individual-payables/individual-payables.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<!-- Payables Details -->\n<div class=\"border border-success\"  style=\"padding:30px;margin:30px\">\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <!-- <h5>Name : {{name}}</h5> -->\n    </div>\n    <div class=\"col-sm\"> <h1>PAYABLES</h1></div>\n    <div class=\"col-sm\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <!-- Table -->\n      <table class=\"table table-bordered table-hover\" >\n        <thead class=\"thead-light\">\n          <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">Category</th>\n            <th scope=\"col\">Name</th>\n            <th scope=\"col\">startDate</th>\n            <th scope=\"col\">endDate</th>\n            <th scope=\"col\">Due Date</th>\n            <th scope=\"col\">Repeats</th>\n            <th scope=\"col\">Amount</th>\n            <th scope=\"col\"></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let data of payableDetails;let i = index; let lastEl = last;\">\n            <td>{{i+1}}</td>\n            <td>\n              <select   [(ngModel)]='data.category' >\n                  <option *ngFor=\"let item of categoryList\" value={{item}}>\n                      {{item}}\n                  </option>\n              </select>\n            </td>\n            <td>\n              <input type=\"text\"  [(ngModel)]='data.name' name=\"\" value=\"\" placeholder=\"Name\">\n            </td>\n            <td>\n              <input type=\"date\"  [(ngModel)]='data.startDate'placeholder=\"Start Date\"/>\n            </td>\n            <td>\n              <input type=\"date\"  [(ngModel)]='data.endDate'placeholder=\"End Date\"/>\n            </td>\n            <td>\n              <input type=\"date\"  [(ngModel)]='data.dueDate'placeholder=\"Due Date\"/>\n            </td>\n            <td>\n              <input type=\"text\"  [(ngModel)]='data.repeats' name=\"repeats\" value=\"\" placeholder=\"Monthly/Yearly\">\n            </td>\n            <td>\n              <input type=\"text\"  [(ngModel)]='data.amount' name=\"amount\" value=\"\" placeholder=\"Amount\">\n            </td>\n            <td *ngIf='lastEl'>\n              <button type=\"button\" (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n                <span class=\"glyphicon glyphicon-plus\"></span>\n              </button>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n  </div><hr>\n   <div class=\"row\">\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"addPayData(payableDetails)\" name=\"button\">Submit</button>\n    <hr>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/individual-payables/individual-payables.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndividualPayablesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__individual_service__ = __webpack_require__("./src/app/individual.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var IndividualPayablesComponent = /** @class */ (function () {
+    function IndividualPayablesComponent(service) {
+        this.service = service;
+        this.categoryList = ['Home Loan', 'Home Rent', 'Power Bill', 'Groceries', 'Medical Bill', 'Personal Loan', 'Insurance', 'Others'];
+        this.payableDetails = [{}];
+    }
+    IndividualPayablesComponent.prototype.ngOnInit = function () {
+        this.getPayData();
+    };
+    IndividualPayablesComponent.prototype.addRow = function () {
+        this.payableDetails.push({});
+    };
+    ;
+    IndividualPayablesComponent.prototype.addPayData = function (data) {
+        console.log(data);
+        this.service.addPayData(data).subscribe(function (data) {
+            console.log('success::' + data);
+        }, function (error) {
+            alert('error');
+        });
+    };
+    ;
+    IndividualPayablesComponent.prototype.getPayData = function () {
+        var _this = this;
+        this.service.viewMyData().subscribe(function (data) {
+            console.log('success::' + data);
+            if (data != null && Object.keys(data).length > 0) {
+                console.log('data::' + Object.keys(data).length);
+                var obj = data;
+                _this.payableDetails = obj;
+            }
+            else {
+                alert('failure');
+            }
+        }, function (error) {
+            alert('error');
+        });
+    };
+    IndividualPayablesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-individual-payables',
+            template: __webpack_require__("./src/app/individual-payables/individual-payables.component.html"),
+            styles: [__webpack_require__("./src/app/individual-payables/individual-payables.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__individual_service__["a" /* IndividualService */]])
+    ], IndividualPayablesComponent);
+    return IndividualPayablesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/individual-receivables/individual-receivables.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/individual-receivables/individual-receivables.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<!-- Payables Details -->\n<div class=\"border border-success\"  style=\"padding:30px;margin:30px\">\n  <div class=\"row\">\n    <div class=\"col-sm\">\n    </div>\n    <div class=\"col-sm\"> <h1>RECEIVABLES</h1></div>\n    <div class=\"col-sm\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <!-- Table -->\n      <table class=\"table table-bordered table-hover\" >\n        <thead class=\"thead-light\">\n          <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">Income Source</th>\n            <th scope=\"col\">Name</th>\n            <!-- <th scope=\"col\">Due Date</th> -->\n            <!-- <th scope=\"col\">Repeats</th> -->\n            <th scope=\"col\">Amount</th>\n            <th scope=\"col\"></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let data of receivableDetails;let i = index; let lastEl = last;\">\n          <!-- *ngFor=\"let data of model;\"> -->\n            <td>{{i+1}}</td>\n            <td>\n              <!-- <select   [(ngModel)]='data.category' >\n                  <option *ngFor=\"let item of categoryList\" value={{item}}>\n                      {{item}}\n                  </option>\n              </select> -->\n              <input type=\"text\"  [(ngModel)]='data.category' name=\"\" value=\"\" placeholder=\"Source\">\n            </td>\n            <td>\n              <input type=\"text\"  [(ngModel)]='data.name' name=\"\" value=\"\" placeholder=\"Name\">\n            </td>\n            <!-- <td>\n              <input type=\"text\"  [(ngModel)]='data.repeats' name=\"repeats\" value=\"\" placeholder=\"Monthly/Yearly\">\n            </td> -->\n            <td>\n              <input type=\"text\"  [(ngModel)]='data.amount' name=\"amount\" value=\"\" placeholder=\"Amount\">\n            </td>\n            <td *ngIf='lastEl'>\n              <button type=\"button\" (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n                <span class=\"glyphicon glyphicon-plus\"></span>\n              </button>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n  </div><hr>\n   <div class=\"row\">\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"addReceiveData(receivableDetails)\" name=\"button\">Submit</button>\n    <hr>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/individual-receivables/individual-receivables.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndividualReceivablesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__individual_service__ = __webpack_require__("./src/app/individual.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var IndividualReceivablesComponent = /** @class */ (function () {
+    function IndividualReceivablesComponent(service) {
+        this.service = service;
+        this.receivableDetails = [{}];
+    }
+    IndividualReceivablesComponent.prototype.ngOnInit = function () {
+        this.getReceiveData();
+    };
+    IndividualReceivablesComponent.prototype.addRow = function () {
+        this.receivableDetails.push({});
+    };
+    ;
+    IndividualReceivablesComponent.prototype.addReceiveData = function (data) {
+        console.log(data);
+        this.service.addReceiveData(data).subscribe(function (data) {
+            console.log('success::' + data);
+        }, function (error) {
+            alert('error');
+        });
+    };
+    ;
+    IndividualReceivablesComponent.prototype.getReceiveData = function () {
+        var _this = this;
+        this.service.getReceiveData().subscribe(function (data) {
+            console.log('success::' + data);
+            if (data != null && Object.keys(data).length > 0) {
+                console.log('data::' + Object.keys(data).length);
+                var obj = data;
+                _this.receivableDetails = obj;
+            }
+            else {
+                alert('failure');
+            }
+        }, function (error) {
+            alert('error');
+        });
+    };
+    IndividualReceivablesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-individual-receivables',
+            template: __webpack_require__("./src/app/individual-receivables/individual-receivables.component.html"),
+            styles: [__webpack_require__("./src/app/individual-receivables/individual-receivables.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__individual_service__["a" /* IndividualService */]])
+    ], IndividualReceivablesComponent);
+    return IndividualReceivablesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/individual-registration/individual-registration.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".signUp{\r\n  /* width: auto; */\r\n  /* background: linear-gradient(green, yellow, green); */\r\n  /* background-color: #FFF; */\r\n  border-radius: 10px;\r\n  border: 1px solid;\r\n   -webkit-box-shadow: 5px 10px #888888;\r\n           box-shadow: 5px 10px #888888;\r\n  margin-top: 10px;\r\n\t-webkit-box-shadow: 0 10px 6px -6px #777;\r\n\t box-shadow: 0 10px 6px -6px #777;\r\n }\r\n .signup-form{\r\n   margin: 20px;\r\n }\r\n .flexDiv{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n .flex-item{\r\n  width: 25%\r\n}\r\n .flex-item-middle{\r\n  margin: 0 5px;\r\n}\r\n .dropdown-flex{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n .dropdown-category{\r\n  width: 45%;\r\n}\r\n .dropdown-register{\r\n  margin-left: 10%;\r\n  width: 45%;\r\n}\r\n .flex-item-getAdd{\r\n  margin-top: 25px;\r\n  width:30%\r\n}\r\n .flex-item-buAdd{\r\n  width: 70%\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/individual-registration/individual-registration.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"signUp col-sm-12 col-md-6 col-md-offset-3\">\n   <div [hidden]=\"submitted\">\n      <h1>Individual Registration</h1>\n      <form (ngSubmit)=\"registerUser(model); signup.reset()\" #signup=\"ngForm\" class=\"signup-form\">\n        <div *ngIf='registrationFailed' class=\"alert alert-danger\" (click)=\"registrationFailed = null\">\n  \t\t\t\t<strong>{{registrationFailed}}</strong>\n  \t\t\t</div>\n      <div class=\"form-group\" *ngIf='!addNew'>\n         <label for=\"name\">Name</label>\n         <input type=\"text\" class=\"form-control\" id=\"ownername\"\n         required\n         [(ngModel)]=\"model.userName\" name=\"ownername\"\n         #ownername=\"ngModel\" />\n         <div [hidden]=\"ownername.valid || ownername.pristine\"\n            class=\"alert alert-danger\">\n            Name is required\n         </div>\n      </div>\n      <div class=\"form-group\" >\n         <label for=\"name\">Mobile number</label>\n         <input type=\"text\" class=\"form-control\"\n         required\n         (change)=\"validation('pattern_mobile',mobile.value)\"\n         [(ngModel)]=\"model.userMobile\" name=\"mobile\"\n         #mobile=\"ngModel\"/>\n         <div [hidden]=\"mobile.valid || mobile.pristine\"\n            class=\"alert alert-danger\">\n            <span *ngIf='!mobilecheck'>mobile number is required</span>\n                  <span *ngIf='mobilecheck'>mobile number already exist</span>\n         </div>\n      </div>\n      <div class=\"form-group\" >\n         <label for=\"name\">Location</label>\n         <input type=\"text\" class=\"form-control\"\n         required\n         [(ngModel)]=\"model.location\" name=\"location\"\n         #location=\"ngModel\"/>\n         <div [hidden]=\"location.valid || location.pristine\"\n            class=\"alert alert-danger\">\n            <span>location is required</span>\n         </div>\n      </div>\n      <div class=\"form-group\">\n         <label for=\"name\">Password</label>\n         <input type=\"password\" class=\"form-control\" id=\"password\"\n         required   (change)=\"validation('pattern_password',password.value)\"\n         [(ngModel)]=\"model.password\" name=\"password\" placeholder=\"Min 6 Characters\"\n         #password=\"ngModel\"/>\n         <div [hidden]=\"password.valid || password.pristine\"\n            class=\"alert alert-danger\">\n            password is required\n         </div>\n      </div>\n      <div class=\"form-group\">\n         <label for=\"alterEgo\">Email address</label>\n         <input type=\"text\" class=\"form-control\" id=\"email\"\n         (change)=\"validation('pattern_email',email.value)\" required\n         [(ngModel)]=\"model.email\" #email=\"ngModel\" name=\"alterEgo\">\n         <div [hidden]=\"email.valid || email.pristine\"\n            class=\"alert alert-danger\">\n            Email is required\n         </div>\n      </div>\n      <button type=\"submit\" class=\"btn btn-success btn-block\" [disabled]=\"!signup.form.valid\" >Register</button>\n      </form>\n   </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/individual-registration/individual-registration.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndividualRegistrationComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng5_toastr_ng5_toastr__ = __webpack_require__("./node_modules/ng5-toastr/ng5-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng5_toastr_ng5_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ng5_toastr_ng5_toastr__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("./src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var IndividualRegistrationComponent = /** @class */ (function () {
+    function IndividualRegistrationComponent(toastr, _demoService, router) {
+        this.toastr = toastr;
+        this._demoService = _demoService;
+        this.router = router;
+        this.pattern_email = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        this.pattern_mobile = /([0-9]){10}/g;
+        this.pattern_password = /([0-9a-zA-Z]){6,20}/g;
+        this.model = {
+            "userName": "",
+            "userMobile": "",
+            "password": "",
+            "email": "",
+            "role": "individual"
+        };
+    }
+    IndividualRegistrationComponent.prototype.ngOnInit = function () {
+    };
+    IndividualRegistrationComponent.prototype.validation = function (check, value) {
+        if (!this[check].test(value)) {
+            this.model[check.slice(8)] = '';
+            this.toastr.error("Please enter valid " + check.slice(8), null, { toastLife: '3000' });
+        }
+    };
+    IndividualRegistrationComponent.prototype.registerUser = function (dataJson) {
+        var _this = this;
+        console.log(dataJson);
+        //  this.mobileOTP = dataJson.mobile;
+        this._demoService.registerIndividual(dataJson).subscribe(function (data) {
+            console.log(data);
+            console.log("Data saved successfully!");
+            if (data[0] == 'success') {
+                alert("success");
+                _this.router.navigate(['/', 'signIn']);
+                //this.sendOtp(  this.mobileOTP )
+                return true;
+            }
+            else {
+                _this.toastr.error(data[0], 'Error', { toastLife: '5000' });
+            }
+        }, function (error) {
+            console.error("Error saving data!");
+            //  this.registrationFailed = 'Registration failed';
+            _this.toastr.error('Registration failed', 'Error', { toastLife: '5000' });
+            //  return Observable.throw(error);
+        });
+    };
+    IndividualRegistrationComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-individual-registration',
+            template: __webpack_require__("./src/app/individual-registration/individual-registration.component.html"),
+            styles: [__webpack_require__("./src/app/individual-registration/individual-registration.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ng5_toastr_ng5_toastr__["ToastsManager"], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
+    ], IndividualRegistrationComponent);
+    return IndividualRegistrationComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/individual-reports/individual-reports.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/individual-reports/individual-reports.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<!-- Payables Details -->\n<div class=\"border border-success\"  style=\"padding:30px;margin:30px\">\n  <div class=\"row\">\n    <div class=\"col-sm\">\n    </div>\n    <div class=\"col-sm\"> <h1>REPORTS</h1></div>\n    <div class=\"col-sm\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <!-- Table -->\n      <table class=\"table table-bordered table-hover\" >\n        <thead class=\"thead-light\">\n          <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">DATE</th>\n            <th scope=\"col\">Total Income</th>\n            <th scope=\"col\">Expendeture</th>\n            <th scope=\"col\">Status</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let data of reports;let i = index\">\n            <td>{{i+1}}</td>\n            <td>{{data.date}}</td>\n            <td>{{data.income}}</td>\n            <td>{{data.expendeture}}</td>\n            <td>\n              <button type=\"button\" *ngIf=\"data.income > data.expendeture\" class=\"btn btn-success\" name=\"button\"></button>\n              <button type=\"button\" *ngIf=\"data.income < data.expendeture\" class=\"btn btn-danger\" name=\"button\"></button>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n  </div><hr>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/individual-reports/individual-reports.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndividualReportsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__individual_service__ = __webpack_require__("./src/app/individual.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var IndividualReportsComponent = /** @class */ (function () {
+    function IndividualReportsComponent(service) {
+        this.service = service;
+    }
+    IndividualReportsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getReports().subscribe(function (data) {
+            console.log('success::' + data);
+            if (data != null && Object.keys(data).length > 0) {
+                console.log('data::' + Object.keys(data).length);
+                var obj = data;
+                _this.reports = obj;
+            }
+            else {
+                alert('failure');
+            }
+        }, function (error) {
+            alert('error');
+        });
+    };
+    IndividualReportsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-individual-reports',
+            template: __webpack_require__("./src/app/individual-reports/individual-reports.component.html"),
+            styles: [__webpack_require__("./src/app/individual-reports/individual-reports.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__individual_service__["a" /* IndividualService */]])
+    ], IndividualReportsComponent);
+    return IndividualReportsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/individual.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndividualService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//import {Observable} from 'rxjs/Observable';
+
+var httpOptions = {
+    headers: new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]({ 'Content-Type': 'application/json' })
+};
+var IndividualService = /** @class */ (function () {
+    function IndividualService(http) {
+        this.http = http;
+    }
+    IndividualService.prototype.addPayData = function (data) {
+        var body = JSON.stringify(data);
+        console.log(data);
+        var url = 'http://localhost:8585/api/payable/add';
+        console.log(url);
+        return this.http.post(url, body, httpOptions);
+    };
+    IndividualService.prototype.viewMyData = function () {
+        var url = 'http://localhost:8585/api/viewMyData';
+        return this.http.get(url);
+    };
+    IndividualService.prototype.addReceiveData = function (data) {
+        var body = JSON.stringify(data);
+        console.log(data);
+        var url = 'http://localhost:8585/api/receivable/add';
+        console.log(url);
+        return this.http.post(url, body, httpOptions);
+    };
+    IndividualService.prototype.getReceiveData = function () {
+        var url = 'http://localhost:8585/api/getReceiveData';
+        return this.http.get(url);
+    };
+    IndividualService.prototype.getReports = function () {
+        var url = 'http://localhost:8585/api/getReports';
+        return this.http.get(url);
+    };
+    IndividualService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], IndividualService);
+    return IndividualService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/invoice/invoice.component.css":
 /***/ (function(module, exports) {
 
@@ -543,7 +1076,7 @@ module.exports = ""
 /***/ "./src/app/invoice/invoice.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"border border-success\"  style=\"padding:20px\">\n  <h1> My businessPlan </h1>\n<nav>\n<div class=\"nav nav-tabs\" id=\"nav-tab\" role=\"tablist\">\n<a class=\"nav-item nav-link\" id=\"nav-home-tab\" data-toggle=\"tab\" routerLink=\"/userData/businessPlan\" role=\"tab\" aria-controls=\"nav-home\" aria-selected=\"true\">Rewards</a>\n<a class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" routerLink=\"/userData/discounts\" role=\"tab\" aria-controls=\"nav-profile\" aria-selected=\"false\">Discounts</a>\n<a class=\"nav-item nav-link\" id=\"nav-contact-tab\" data-toggle=\"tab\"routerLink=\"/userData/invoiceTemplate\" role=\"tab\" aria-controls=\"nav-contact\" aria-selected=\"false\">Invoice</a>\n</div>\n</nav>\n  <div class=\"top row\">\n    <div class=\"col-md-4\">\n      <h5>David</h5>\n      <h5>9671324421</h5>\n      <h5>david@gmail.com</h5>\n    </div>\n    <div class=\"col-md-4\">\n    </div>\n    <div class=\"float-right col-md-4\">\n      <h5>Total BV:55123</h5>\n      <h5>Total points:526</h5>\n    </div>\n  </div>\n  <div class=\"invoice\" *ngIf='!invoiceGenerate'>\n  <!-- Table -->\n  <div class=\"\">\n    <table class=\"table\" >\n      <thead class=\"thead-light\">\n        <tr>\n          <th scope=\"col\">#</th>\n          <th scope=\"col\">Item Name</th>\n          <th scope=\"col\">Quantity</th>\n          <th scope=\"col\">Rate</th>\n          <th scope=\"col\">total Amount</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let data of invoice;let i = index; let lastEl = last; let firstEl = first\">\n          <td>{{i+1}}</td>\n          <td>\n            <select [(ngModel)]='invoice[i].item' disabled>\n                <option *ngFor=\"let item of items\" value={{item}}>\n                    {{item}}\n                </option>\n            </select>\n            <!-- <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].minAmount'/> -->\n          </td>\n          <td>\n            <input class=\"quantity\" readonly type=\"number\" min=\"0\" [(ngModel)]='invoice[i].quantity'/>\n          </td>\n          <td>\n            <input class=\"rate\" readonly type=\"number\" min=\"0\" [(ngModel)]='invoice[i].rate'/>\n          </td>\n          <td>\n            <input readonly value=\"{{invoice[i].rate  * invoice[i].quantity | currency:'RS '}}\">\n          </td>\n          <td *ngIf='!firstEl'>\n            <button type=\"button\" disabled  (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n              <span class=\"glyphicon glyphicon-minus\">-</span>\n            </button>\n          </td>\n          <td *ngIf='lastEl'>\n            <button type=\"button\" disabled (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n              <span class=\"glyphicon glyphicon-plus\">+</span>\n            </button>\n          </td>\n        </tr>\n      </tbody>\n    </table>\n  </div><hr>\n  <div class=\"discount\">\n    <h5>Sub-Total: 7350 </h5>\n    <h5>Discount: <input type=\"number\" readonly min=\"0\" max=\"50\"  name=\"discount\" value=\"20\">%</h5>\n    <h5>Rewards: <input type=\"number\" readonly min=\"0\" max=\"500\" name=\"reward\" value=\"200\"></h5>\n    <h5>Total: 5880 </h5>\n  </div>\n  <div class=\"\">\n    <button type=\"button\" name=\"button\" disabled class=\"btn btn-block btn-primary\" (click)=\"submitInvoice()\">Submit</button>\n  </div>\n</div>\n\n</div>\n"
+module.exports = "<div class=\"border border-success center20\">\n  <h1> My businessPlan </h1>\n<nav>\n  <div class=\"nav nav-tabs\" id=\"nav-tab\" role=\"tablist\" style=\"font-size:20px\">\n  <span class=\"nav-item nav-link\" id=\"nav-home-tab\" data-toggle=\"tab\" routerLink=\"/userData/businessPlan\" role=\"tab\" aria-controls=\"nav-home\" aria-selected=\"true\">Rewards</span>\n  <span class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" routerLink=\"/userData/discounts\" role=\"tab\" aria-controls=\"nav-profile\" aria-selected=\"false\">Discounts</span>\n  <span class=\"nav-item nav-link\" id=\"nav-contact-tab\" data-toggle=\"tab\"routerLink=\"/userData/invoiceTemplate\" role=\"tab\" aria-controls=\"nav-contact\" aria-selected=\"false\">Invoice</span>\n  </div>\n</nav>\n<div class=\"\">\n<button type=\"button\" class=\"btn btn-success\" routerLink=\"/userData/invoice\" name=\"button\">Create Invoice</button>\n</div>\n  <div class=\"top row\">\n    <div class=\"col-md-4\">\n      <h5>David</h5>\n      <h5>9671324421</h5>\n      <h5>david@gmail.com</h5>\n    </div>\n    <div class=\"col-md-4\">\n    </div>\n    <div class=\"float-right col-md-4\">\n      <h5>Total BV:55123</h5>\n      <h5>Total points:526</h5>\n    </div>\n  </div>\n  <div class=\"invoice\" *ngIf='!invoiceGenerate'>\n  <!-- Table -->\n  <div class=\"inbxTxt tableFlow\">\n    <table class=\"table\" >\n      <thead class=\"thead-light\">\n        <tr>\n          <th scope=\"col\">#</th>\n          <th scope=\"col\">Item Name</th>\n          <th scope=\"col\">Quantity</th>\n          <th scope=\"col\">Rate</th>\n          <th scope=\"col\">total Amount</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let data of invoice;let i = index; let lastEl = last; let firstEl = first\">\n          <td>{{i+1}}</td>\n          <td>\n            <select [(ngModel)]='invoice[i].item' disabled>\n                <option *ngFor=\"let item of items\" value={{item}}>\n                    {{item}}\n                </option>\n            </select>\n            <!-- <input class=\"discount\" type=\"number\" min=\"0\" [(ngModel)]='discounts[i].minAmount'/> -->\n          </td>\n          <td>\n            <input class=\"quantity\" readonly type=\"number\" min=\"0\" [(ngModel)]='invoice[i].quantity'/>\n          </td>\n          <td>\n            <input class=\"rate\" readonly type=\"number\" min=\"0\" [(ngModel)]='invoice[i].rate'/>\n          </td>\n          <td>\n            <input readonly value=\"{{invoice[i].rate  * invoice[i].quantity | currency:'RS '}}\">\n          </td>\n          <td *ngIf='!firstEl'>\n            <button type=\"button\" disabled  (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n              <span class=\"glyphicon glyphicon-minus\"></span>\n            </button>\n          </td>\n          <td *ngIf='lastEl'>\n            <button type=\"button\" disabled (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n              <span class=\"glyphicon glyphicon-plus\"></span>\n            </button>\n          </td>\n        </tr>\n      </tbody>\n    </table>\n  </div><hr>\n  <div class=\"discount\">\n    <h5>Sub-Total: 7350 </h5>\n    <h5>Discount: <input type=\"number\" readonly min=\"0\" max=\"50\"  name=\"discount\" value=\"20\">%</h5>\n    <h5>Rewards: <input type=\"number\" readonly min=\"0\" max=\"500\" name=\"reward\" value=\"200\"></h5>\n    <h5>Total: 5880 </h5>\n  </div>\n  <div class=\"\">\n    <button type=\"button\" name=\"button\" disabled class=\"btn btn-block btn-primary\" (click)=\"submitInvoice()\">Submit</button>\n  </div>\n</div>\n\n</div>\n"
 
 /***/ }),
 
@@ -621,7 +1154,7 @@ module.exports = ".reset-pswd{\r\n  background-color: #9EEBA1;\r\n  border-radiu
 /***/ "./src/app/otp-authentication/otp-authentication.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div  *ngIf='!resetPwd' class=\"col-md-3 col-md-offset-4 otp-box signIn\" >\n  <form (ngSubmit)=\"verifyOtp(); otpVerify.reset()\" #otpVerify=\"ngForm\" class=\"otp-verify\">\n    <div *ngIf='invalidOtp' class=\"alert alert-danger\" (click)=\"invalidOtp = false\">\n      <strong>Invalid OTP</strong>\n    </div>\n  <div class=\"form-group\">\n    <label for=\"otp\">Enter The One time password (OTP) that was sent to your mobile device:</label>\n    <input type=\"text\" class=\"form-control\" id=\"otp\"\n           required\n           [(ngModel)]=\"otpValue\" name=\"otp\"\n           #otp=\"ngModel\"/>\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary btn-md\" >Submit</button>\n  <!-- <button type=\"submit\" [disabled]='clicked' (click)=\"clicked = true\" class=\"btn btn-primary btn-md\" >Resend OTP</button> -->\n  </form>\n\n</div>\n\n<div *ngIf='resetPwd' class=\"col-md-3 col-md-offset-4 reset-pswd signIn\" id=\"resetPswd\">\n  <form (ngSubmit)=\"resetPswd(); pwdReset.reset()\" #pwdReset=\"ngForm\" class=\"pwd-form\">\n    <div *ngIf='errorDisplay' class=\"alert alert-danger\"  (click)=\"errorDisplay = false\">\n      <strong>{{errMsg}}</strong>\n    </div>\n  <div class=\"form-group\">\n    <label for=\"mobileNum\">New Password:</label>\n    <input type=\"password\" class=\"form-control\" id=\"pwd\"\n           required\n           [(ngModel)]=\"pwdValNew\" name=\"pwd\"\n           #pwd=\"ngModel\"/>\n    <div [hidden]=\"pwd.valid || pwd.pristine\"\n         class=\"alert alert-danger\">\n       Password is required\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"mobileNum\">Confirm Password:</label>\n    <input type=\"password\" class=\"form-control\" id=\"Cpwd\"\n           required\n           [(ngModel)]=\"pwdValCnf\" name=\"Cpwd\"\n           #Cpwd=\"ngModel\"/>\n    <div [hidden]=\"Cpwd.valid || Cpwd.pristine\"\n         class=\"alert alert-danger\">\n       Password is required\n    </div>\n  </div>\n  <button  type=\"submit\" class=\"btn btn-primary btn-md\" [disabled]=\"!pwdReset.form.valid\">Submit</button>\n\n</form>\n</div>\n\n<div class=\"container\" *ngIf='successRegPopUp'>\n  <!-- Modal -->\n    <div class=\"modal show fade\" id=\"myModalRegister\" role=\"dialog\" >\n    <div class=\"modal-dialog\">\n      <!-- Modal content-->\n      <div class=\"modal-content\">\n\t\t\t\t<br><br>\n        <div class=\"modal-body\">\n          <h4>Your sign up was successful click continue to logIn to  your account</h4>\n\t\t\t\t\t<button  type=\"submit\" class=\"btn btn-primary btn-md\" routerLink=\"/signIn\">Continue</button>\n        </div>\n      </div>\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div  *ngIf='!resetPwd' class=\"col-md-3 col-md-offset-4 otp-box signIn inbxTxt\" >\n  <form (ngSubmit)=\"verifyOtp(); otpVerify.reset()\" #otpVerify=\"ngForm\" class=\"otp-verify\">\n    <div *ngIf='invalidOtp' class=\"alert alert-danger\" (click)=\"invalidOtp = false\">\n      <strong>Invalid OTP</strong>\n    </div>\n  <div class=\"form-group\">\n    <label for=\"otp\">Enter The One time password (OTP) that was sent to your mobile device:</label>\n    <input type=\"text\" class=\"form-control\" id=\"otp\"\n           required\n           [(ngModel)]=\"otpValue\" name=\"otp\"\n           #otp=\"ngModel\"/>\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary btn-md\" >Submit</button>\n  <!-- <button type=\"submit\" [disabled]='clicked' (click)=\"clicked = true\" class=\"btn btn-primary btn-md\" >Resend OTP</button> -->\n  </form>\n\n</div>\n\n<div *ngIf='resetPwd' class=\"col-md-3 col-md-offset-4 reset-pswd signIn inbxTxt\" id=\"resetPswd\">\n  <form (ngSubmit)=\"resetPswd(); pwdReset.reset()\" #pwdReset=\"ngForm\" class=\"pwd-form\">\n    <div *ngIf='errorDisplay' class=\"alert alert-danger\"  (click)=\"errorDisplay = false\">\n      <strong>{{errMsg}}</strong>\n    </div>\n  <div class=\"form-group\">\n    <label for=\"mobileNum\">New Password:</label>\n    <input type=\"password\" class=\"form-control\" id=\"pwd\"\n           required\n           [(ngModel)]=\"pwdValNew\" name=\"pwd\"\n           #pwd=\"ngModel\"/>\n    <div [hidden]=\"pwd.valid || pwd.pristine\"\n         class=\"alert alert-danger\">\n       Password is required\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"mobileNum\">Confirm Password:</label>\n    <input type=\"password\" class=\"form-control\" id=\"Cpwd\"\n           required\n           [(ngModel)]=\"pwdValCnf\" name=\"Cpwd\"\n           #Cpwd=\"ngModel\"/>\n    <div [hidden]=\"Cpwd.valid || Cpwd.pristine\"\n         class=\"alert alert-danger\">\n       Password is required\n    </div>\n  </div>\n  <button  type=\"submit\" class=\"btn btn-primary btn-md\" [disabled]=\"!pwdReset.form.valid\">Submit</button>\n\n</form>\n</div>\n\n<div class=\"container\" *ngIf='successRegPopUp'>\n  <!-- Modal -->\n    <div class=\"modal show fade\" id=\"myModalRegister\" role=\"dialog\" >\n    <div class=\"modal-dialog\">\n      <!-- Modal content-->\n      <div class=\"modal-content\">\n\t\t\t\t<br><br>\n        <div class=\"modal-body\">\n          <h4>Your sign up was successful click continue to logIn to  your account</h4>\n\t\t\t\t\t<button  type=\"submit\" class=\"btn btn-primary btn-md\" routerLink=\"/signIn\">Continue</button>\n        </div>\n      </div>\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -665,7 +1198,7 @@ var OtpAuthenticationComponent = /** @class */ (function () {
         console.log('verifyOtp::' + this.messageSource);
         if (this.messageSource == (this.otpValue + 'Regi')) {
             this.successRegPopUp = true;
-            this.router.navigate(['/', 'userData']);
+            this.router.navigate(['/', 'signIn']);
         }
         else if (this.messageSource == this.otpValue) {
             this.resetPwd = true;
@@ -679,7 +1212,7 @@ var OtpAuthenticationComponent = /** @class */ (function () {
         if (this.pwdValNew == this.pwdValCnf) {
             this.mobile = this.cookieService.get('resetPwdMobile');
             this.data.resetpassword(this.pwdValNew, this.mobile).subscribe(function (data) {
-                _this.router.navigate(['/', 'userData']);
+                _this.router.navigate(['/', 'signIn']);
                 return true;
             }, function (error) {
                 _this.errorDisplay = true;
@@ -716,7 +1249,7 @@ module.exports = ""
 /***/ "./src/app/payables/payables.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"border border-success\"  style=\"padding:20px\">\n<h1>\n  Payables\n</h1>\n<div class=\"col-md-4 container\">\n  <div class=\"input-group\" *ngIf='!userEntry'>\n  <input type=\"text\" class=\"form-control\" [(ngModel)]='mobile' placeholder=\"Enter Mobile Number\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n  <div class=\"input-group-append\">\n    <button class=\"btn btn-outline-secondary\" (click)=\"verifyUser()\" type=\"button\">Submit</button>\n  </div>\n</div>\n\n\n<form *ngIf='userEntry'>\n  <div class=\"form-group row\">\n    <label  class=\"col-sm-2 col-form-label col-form-label-sm\">Name</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='username'  [(ngModel)]=\"userName\" placeholder=\"Name\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Email</label>\n    <div class=\"col-sm-10\">\n      <input type=\"email\" class=\"form-control form-control-sm\" name='mail' [(ngModel)]='email' placeholder=\"Email\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Address</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='addr' [(ngModel)]='address'  placeholder=\"Address\">\n    </div>\n  </div>\n  <button class=\"btn btn-success\" type=\"button\" (click)='userDetails(userName,email,address)' name=\"button\">Submit</button>\n</form>\n</div>\n\n<!-- Payables Details -->\n<div class=\"border border-success\"  style=\"padding:30px;margin:30px\" *ngIf = \"model\">\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <h5>Name : {{name}}</h5>\n    </div>\n    <div class=\"col-sm\"></div>\n    <div class=\"col-sm\">\n      <h5>Balance Amount To Pay : {{model.balAmount}}</h5>\n    </div>\n  </div>\n  <div class=\"row\">\n    <!-- Table -->\n      <table class=\"table table-bordered table-hover\" >\n        <thead class=\"thead-light\">\n          <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">Date</th>\n            <th scope=\"col\">Invoice</th>\n            <th scope=\"col\">Amount</th>\n            <th scope=\"col\">PayOff</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let data of model.paybleReceivables;let i = index\">\n          <!-- *ngFor=\"let data of model;\"> -->\n            <td>{{i+1}}</td>\n            <td>\n              {{data.date}}\n            </td>\n            <td>\n              {{data.invoiceNumber}}\n            </td>\n            <td>\n              {{data.amount}}\n            </td>\n            <td style=\"width:250px\">\n              <div class=\"input-group mb-3\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"data.received\">\n                <div class=\"input-group-append\">\n                  <button class=\"btn btn-outline-secondary\" (click)='payAmount(data)' type=\"button\">PayOff</button>\n                </div>\n              </div>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n  </div><hr>\n  <div class=\"row\">\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"addNewFun()\" name=\"button\">Add New Payable</button>\n    <hr>\n    <div class=\"input-group mb-3\" *ngIf=\"addNew\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Invoice\" [(ngModel)]=\"newPayable.invoiceNumber\"><br><br>\n      <input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"newPayable.amount\"><br><br>\n      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" [(ngModel)]=\"newPayable.desc\">\n      <div class=\"input-group-append\">\n        <button class=\"btn btn-outline-secondary\" (click)='addPayable(newPayable)' type=\"button\">Submit</button>\n      </div>\n    </div>\n  </div>\n</div>\n</div>\n"
+module.exports = "<div class=\"container-fluid border border-success center20\">\n<h1>\n  Payables\n</h1>\n<div class=\"col-md-4 col-md-offset-4\">\n  <div class=\"input-group\" *ngIf='!userEntry'>\n  <input type=\"text\" class=\"form-control\" [(ngModel)]='mobile' placeholder=\"Enter Mobile Number\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n  <div class=\"input-group-append\">\n    <button class=\"btn btn-outline-secondary\" (click)=\"verifyUser()\" type=\"button\">Submit</button>\n  </div>\n</div>\n\n\n<form *ngIf='userEntry'>\n  <div class=\"form-group row\">\n    <label  class=\"col-sm-2 col-form-label col-form-label-sm\">Name</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='username'  [(ngModel)]=\"userName\" placeholder=\"Name\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Email</label>\n    <div class=\"col-sm-10\">\n      <input type=\"email\" class=\"form-control form-control-sm\" name='mail' [(ngModel)]='email' placeholder=\"Email\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Address</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='addr' [(ngModel)]='address'  placeholder=\"Address\">\n    </div>\n  </div>\n  <button class=\"btn btn-success\" type=\"button\" (click)='userDetails(userName,email,address)' name=\"button\">Submit</button>\n</form>\n\n<!-- Payables Details -->\n<div class=\"border border-success\"  style=\"padding:30px;margin:30px\" *ngIf = \"model\">\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <h5>Name : {{name}}</h5>\n    </div>\n    <div class=\"col-sm\"></div>\n    <div class=\"col-sm\">\n      <h5>Balance Amount To Pay : {{model.balAmount}}</h5>\n    </div>\n  </div>\n  <div class=\"row\">\n    <!-- Table -->\n      <table class=\"table table-bordered table-hover\" >\n        <thead class=\"thead-light\">\n          <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">Date</th>\n            <th scope=\"col\">Invoice</th>\n            <th scope=\"col\">Amount</th>\n            <th scope=\"col\">PayOff</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let data of model.paybleReceivables;let i = index\">\n          <!-- *ngFor=\"let data of model;\"> -->\n            <td>{{i+1}}</td>\n            <td>\n              {{data.date}}\n            </td>\n            <td>\n              {{data.invoiceNumber}}\n            </td>\n            <td>\n              {{data.amount}}\n            </td>\n            <td style=\"width:250px\">\n              <div class=\"input-group mb-3\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"data.received\">\n                <div class=\"input-group-append\">\n                  <button class=\"btn btn-outline-secondary\" (click)='payAmount(data)' type=\"button\">PayOff</button>\n                </div>\n              </div>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n  </div><hr>\n  <div class=\"row\">\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"addNewFun()\" name=\"button\">Add New Payable</button>\n    <hr>\n    <div class=\"input-group mb-3\" *ngIf=\"addNew\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Invoice\" [(ngModel)]=\"newPayable.invoiceNumber\"><br><br>\n      <input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"newPayable.amount\"><br><br>\n      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" [(ngModel)]=\"newPayable.desc\">\n      <div class=\"input-group-append\">\n        <button class=\"btn btn-outline-secondary\" (click)='addPayable(newPayable)' type=\"button\">Submit</button>\n      </div>\n    </div>\n  </div>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -769,7 +1302,6 @@ var PayablesComponent = /** @class */ (function () {
     PayablesComponent.prototype.userDetails = function (name, mail, address) {
         var _this = this;
         this._demoService.createUser({ userName: this.userName, email: this.email, address: this.address, userMobile: this.mobile }).subscribe(function (data) {
-            alert('success');
             _this.userEntry = false;
             _this.model = true;
         }, function (error) {
@@ -871,7 +1403,7 @@ module.exports = ""
 /***/ "./src/app/raise-ticket/raise-ticket.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container border border-success\" >\n<h1>Raise a Request</h1>\n\n<form style=\"padding:100px\" #ticket=\"ngForm\">\n  <div class=\"form-group\">\n    <label for=\"subject\">Subject:</label>\n    <input type=\"text\" required class=\"form-control\" name=\"subject\" id=\"subject\" [(ngModel)]=\"subject\"  placeholder=\"Enter subject\">\n  </div>\n  <div class=\"form-group\">\n    <label>Description</label>\n    <textarea required class=\"form-control\" name=\"description\" id=\"Description\" [(ngModel)]=\"description\" placeholder=\"Description\"></textarea>\n  </div>\n  <button type=\"submit\" (click)=\"submit()\" [disabled]=\"!ticket.form.valid\" class=\"btn btn-primary\">Submit</button>\n</form>\n"
+module.exports = "\n<div class=\"container border border-success\">\n<h1>Raise a Request</h1>\n\n<form class=\"center20\" #ticket=\"ngForm\">\n  <div class=\"form-group\">\n    <label for=\"subject\">Subject:</label>\n    <input type=\"text\" required class=\"form-control\" name=\"subject\" id=\"subject\" [(ngModel)]=\"subject\"  placeholder=\"Enter subject\">\n  </div>\n  <div class=\"form-group\">\n    <label>Description</label>\n    <textarea required class=\"form-control\" name=\"description\" id=\"Description\" [(ngModel)]=\"description\" placeholder=\"Description\"></textarea>\n  </div>\n  <button type=\"submit\" (click)=\"submit()\" [disabled]=\"!ticket.form.valid\" class=\"btn btn-primary\">Submit</button>\n</form>\n</div>\n"
 
 /***/ }),
 
@@ -938,7 +1470,7 @@ module.exports = ""
 /***/ "./src/app/receivables/receivables.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"border border-success\"  style=\"padding:20px\">\n\n<h1>\n  Receivables\n</h1>\n<div class=\"col-md-4 container\">\n  <div class=\"input-group\" *ngIf='!userEntry'>\n  <input type=\"text\" class=\"form-control\" [(ngModel)]='mobile' placeholder=\"Enter Mobile Number\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n  <div class=\"input-group-append\">\n    <button class=\"btn btn-outline-secondary\" (click)=\"verifyUser()\" type=\"button\">Submit</button>\n  </div>\n</div>\n\n<form *ngIf='userEntry'>\n  <div class=\"form-group row\">\n    <label  class=\"col-sm-2 col-form-label col-form-label-sm\">Name</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='username'  [(ngModel)]=\"userName\" placeholder=\"Name\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Email</label>\n    <div class=\"col-sm-10\">\n      <input type=\"email\" class=\"form-control form-control-sm\" name='mail' [(ngModel)]='email' placeholder=\"Email\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Address</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='addr' [(ngModel)]='address'  placeholder=\"Address\">\n    </div>\n  </div>\n  <button class=\"btn btn-success\" type=\"button\" (click)='userDetails(userName,email,address)' name=\"button\">Submit</button>\n</form>\n</div>\n<!-- Receivables Details -->\n<div class=\"border border-success\"  style=\"padding:30px;margin:30px\" *ngIf = \"model\">\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <h5>Name : {{name}}</h5>\n    </div>\n    <div class=\"col-sm\"></div>\n    <div class=\"col-sm\">\n      <h5>Balance Amount To Receive : {{model.balAmount}}</h5>\n    </div>\n  </div>\n  <div class=\"row\">\n    <!-- Table -->\n      <table class=\"table table-bordered table-hover\" >\n        <thead class=\"thead-light\">\n          <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">Date</th>\n            <th scope=\"col\">Invoice</th>\n            <th scope=\"col\">Amount</th>\n            <th scope=\"col\">Receive</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let data of model.paybleReceivables;let i = index\">\n          <!-- *ngFor=\"let data of model;\"> -->\n            <td>{{i+1}}</td>\n            <td>\n              {{data.date}}\n            </td>\n            <td>\n              {{data.invoiceNumber}}\n            </td>\n            <td>\n              {{data.amount}}\n            </td>\n            <td style=\"width:250px\">\n              <div class=\"input-group mb-3\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"data.received\">\n                <div class=\"input-group-append\">\n                  <button class=\"btn btn-outline-secondary\" (click)='receiveAmount(data)' type=\"button\">Receive</button>\n                </div>\n              </div>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n  </div><hr>\n  <div class=\"row\">\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"addNewFun()\" name=\"button\">Add New Receivable</button>\n    <hr>\n    <div class=\"input-group mb-3\" *ngIf=\"addNew\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Invoice\" [(ngModel)]=\"newReceivable.invoiceNumber\"><br><br>\n      <input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"newReceivable.amount\"><br><br>\n      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" [(ngModel)]=\"newReceivable.desc\">\n      <div class=\"input-group-append\">\n        <button class=\"btn btn-outline-secondary\" (click)='addReceivable(newReceivable)' type=\"button\">Submit</button>\n      </div>\n    </div>\n  </div>\n</div>\n</div>\n"
+module.exports = "<div class=\"container-fluid  border border-success center20\">\n\n<h1>\n  Receivables\n</h1>\n<div class=\"col-md-4 col-md-offset-4\">\n  <div class=\"input-group\" *ngIf='!userEntry'>\n  <input type=\"text\" class=\"form-control\" [(ngModel)]='mobile' placeholder=\"Enter Mobile Number\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n  <div class=\"input-group-append\">\n    <button class=\"btn btn-outline-secondary\" (click)=\"verifyUser()\" type=\"button\">Submit</button>\n  </div>\n</div>\n\n<form *ngIf='userEntry'>\n  <div class=\"form-group row\">\n    <label  class=\"col-sm-2 col-form-label col-form-label-sm\">Name</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='username'  [(ngModel)]=\"userName\" placeholder=\"Name\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Email</label>\n    <div class=\"col-sm-10\">\n      <input type=\"email\" class=\"form-control form-control-sm\" name='mail' [(ngModel)]='email' placeholder=\"Email\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Address</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='addr' [(ngModel)]='address'  placeholder=\"Address\">\n    </div>\n  </div>\n  <button class=\"btn btn-success\" type=\"button\" (click)='userDetails(userName,email,address)' name=\"button\">Submit</button>\n</form>\n</div>\n<!-- Receivables Details -->\n<div class=\"border border-success\"  style=\"padding:30px;margin:30px\" *ngIf = \"model\">\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <h5>Name : {{name}}</h5>\n    </div>\n    <div class=\"col-sm\"></div>\n    <div class=\"col-sm\">\n      <h5>Balance Amount To Receive : {{model.balAmount}}</h5>\n    </div>\n  </div>\n  <div class=\"row\">\n    <!-- Table -->\n      <table class=\"table table-bordered table-hover\" >\n        <thead class=\"thead-light\">\n          <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">Date</th>\n            <th scope=\"col\">Invoice</th>\n            <th scope=\"col\">Amount</th>\n            <th scope=\"col\">Receive</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let data of model.paybleReceivables;let i = index\">\n          <!-- *ngFor=\"let data of model;\"> -->\n            <td>{{i+1}}</td>\n            <td>\n              {{data.date}}\n            </td>\n            <td>\n              {{data.invoiceNumber}}\n            </td>\n            <td>\n              {{data.amount}}\n            </td>\n            <td style=\"width:250px\">\n              <div class=\"input-group mb-3\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"data.received\">\n                <div class=\"input-group-append\">\n                  <button class=\"btn btn-outline-secondary\" (click)='receiveAmount(data)' type=\"button\">Receive</button>\n                </div>\n              </div>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n  </div><hr>\n  <div class=\"row\">\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"addNewFun()\" name=\"button\">Add New Receivable</button>\n    <hr>\n    <div class=\"input-group mb-3\" *ngIf=\"addNew\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"Invoice\" [(ngModel)]=\"newReceivable.invoiceNumber\"><br><br>\n      <input type=\"text\" class=\"form-control\" placeholder=\"Amount\" [(ngModel)]=\"newReceivable.amount\"><br><br>\n      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" [(ngModel)]=\"newReceivable.desc\">\n      <div class=\"input-group-append\">\n        <button class=\"btn btn-outline-secondary\" (click)='addReceivable(newReceivable)' type=\"button\">Submit</button>\n      </div>\n    </div>\n  </div>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -988,14 +1520,12 @@ var ReceivablesComponent = /** @class */ (function () {
             }
         }, function (error) {
             _this.toastr.info("Could Not Fetch Data!! Try Again..", 'Error', { toastLife: '5000' });
-            //this.userEntry = true;
         });
     };
     ReceivablesComponent.prototype.userDetails = function (name, mail, address) {
         var _this = this;
         console.log(name);
         this._demoService.createUser({ userName: this.userName, email: this.email, address: this.address, userMobile: this.mobile }).subscribe(function (data) {
-            alert('success');
             _this.userEntry = false;
             _this.model = true;
         }, function (error) {
@@ -1077,7 +1607,7 @@ module.exports = ".rewardAmount{\r\n  width: 50px;\r\n}\r\n\r\n.switch {\r\n  po
 /***/ "./src/app/rewards/rewards.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"border border-success\"  style=\"padding:20px\">\n  <h1> My businessPlan </h1>\n<nav>\n  <div class=\"nav nav-tabs\" id=\"nav-tab\" role=\"tablist\">\n  <a class=\"nav-item nav-link\" id=\"nav-home-tab\" data-toggle=\"tab\" routerLink=\"/userData/businessPlan\" role=\"tab\" aria-controls=\"nav-home\" aria-selected=\"true\">Rewards</a>\n  <a class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" routerLink=\"/userData/discounts\" role=\"tab\" aria-controls=\"nav-profile\" aria-selected=\"false\">Discounts</a>\n  <a class=\"nav-item nav-link\" id=\"nav-contact-tab\" data-toggle=\"tab\"routerLink=\"/userData/invoiceTemplate\" role=\"tab\" aria-controls=\"nav-contact\" aria-selected=\"false\">Invoice</a>\n  </div>\n</nav>\n<div class=\"panel panel-info\">\n    <div class=\"panel-heading col-md-12\">\n      <h3 class=\"col-md-4\">My Reward System</h3>\n      <label class=\"switch col-md-2\">\n         <input type=\"checkbox\" [(ngModel)]='rewards.enable'>\n         <span class=\"slider round\"></span>\n       </label>\n    </div>\n\n     <div class=\"panel-body\">\n       <div class=\"\">\n       <dl>\n          <dt class=\"\"> <h5>1.Rewards points value</h5> </dt>\n          <dd>\n            <span>\n              Rewards effective amount-<input class=\"rewardAmount\" type=\"number\" min=\"0\" [(ngModel)]='rewards.effectiveAmount' />\n              cash Value of <input class=\"rewardAmount\" type=\"number\" min=\"100\" [(ngModel)]='rewards.cashValue' /> Rupees = <b>1 Reward</b>\n            </span>\n            <label class=\"switch\">\n               <input type=\"checkbox\" [(ngModel)]='rewards.rewardPointEnable'>\n               <span class=\"slider round\"></span>\n             </label>\n            </dd>\n            <br>\n            <dt>\n              Start Date: <input type=\"date\"  [(ngModel)]='rewards.rewardStartDate'/>\n              End Date:  <input type=\"date\"  [(ngModel)]='rewards.rewardEndDate'/>\n            </dt>\n\n        </dl>\n        </div>\n\n        <hr>\n\n        <div class=\"\">\n        <dl>\n           <dt> <h5>2.Sign up Bonus Reward Points</h5> </dt>\n           <dd>\n             <span>\n              New customer welcome points <input class=\"rewardAmount\" type=\"number\" min=\"0\"  [(ngModel)]='rewards.bonusPoints' />\n              </span>\n              Start Date: <input type=\"date\"  [(ngModel)]='rewards.bonusStartDate'/>\n              End Date:  <input type=\"date\"  [(ngModel)]='rewards.bonusEndDate'/>\n              <label class=\"switch\">\n                 <input type=\"checkbox\"  [(ngModel)]='rewards.bonusPointEnale'>\n                 <span class=\"slider round\"></span>\n               </label>\n             </dd>\n\n             <dd>\n\n             </dd>\n         </dl>\n       </div>\n     </div>\n<button class=\"btn btn-primary btn-block\"type=\"button\" (click)='saveReward(rewards)' name=\"button\">Save</button>\n</div>\n</div>\n"
+module.exports = "<div class=\"border border-success center20 inbxTxt\" >\n  <h1> My businessPlan </h1>\n<nav>\n  <div class=\"nav nav-tabs\" id=\"nav-tab\" role=\"tablist\" style=\"font-size:20px\">\n  <span class=\"nav-item nav-link\" id=\"nav-home-tab\" data-toggle=\"tab\" routerLink=\"/userData/businessPlan\" role=\"tab\" aria-controls=\"nav-home\" aria-selected=\"true\">Rewards</span>\n  <span class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" routerLink=\"/userData/discounts\" role=\"tab\" aria-controls=\"nav-profile\" aria-selected=\"false\">Discounts</span>\n  <span class=\"nav-item nav-link\" id=\"nav-contact-tab\" data-toggle=\"tab\"routerLink=\"/userData/invoiceTemplate\" role=\"tab\" aria-controls=\"nav-contact\" aria-selected=\"false\">Invoice</span>\n  </div>\n</nav>\n<div class=\"panel panel-info\">\n    <div class=\"panel-heading col-md-12\">\n      <h3 class=\"col-md-4\">My Reward System</h3>\n      <label class=\"switch col-md-2\">\n         <input type=\"checkbox\" [(ngModel)]='rewards.enable'>\n         <span class=\"slider round\"></span>\n       </label>\n    </div>\n\n     <div class=\"panel-body\">\n       <div class=\"\">\n       <dl>\n          <dt class=\"\"> <h5>1.Rewards points value</h5> </dt>\n          <dd>\n            <span>\n              Rewards effective amount-<input class=\"rewardAmount\" type=\"number\" min=\"0\" [(ngModel)]='rewards.effectiveAmount' />\n              cash Value of <input class=\"rewardAmount\" type=\"number\" min=\"100\" [(ngModel)]='rewards.cashValue' /> Rupees = <b>1 Reward</b>\n            </span>\n            <label class=\"switch\">\n               <input type=\"checkbox\" [(ngModel)]='rewards.rewardPointEnable'>\n               <span class=\"slider round\"></span>\n             </label>\n            </dd>\n            <br>\n            <dt>\n              Start Date: <input type=\"date\"  [(ngModel)]='rewards.rewardStartDate'/>\n              End Date:  <input type=\"date\"  [(ngModel)]='rewards.rewardEndDate'/>\n            </dt>\n\n        </dl>\n        </div>\n\n        <hr>\n\n        <div class=\"\">\n        <dl>\n           <dt> <h5>2.Sign up Bonus Reward Points</h5> </dt>\n           <dd>\n             <span>\n              New customer welcome points <input class=\"rewardAmount\" type=\"number\" min=\"0\"  [(ngModel)]='rewards.bonusPoints' />\n              </span>\n              Start Date: <input type=\"date\"  [(ngModel)]='rewards.bonusStartDate'/>\n              End Date:  <input type=\"date\"  [(ngModel)]='rewards.bonusEndDate'/>\n              <label class=\"switch\">\n                 <input type=\"checkbox\"  [(ngModel)]='rewards.bonusPointEnale'>\n                 <span class=\"slider round\"></span>\n               </label>\n             </dd>\n\n             <dd>\n\n             </dd>\n         </dl>\n       </div>\n     </div>\n<button class=\"btn btn-primary btn-block\"type=\"button\" (click)='saveReward(rewards)' name=\"button\">Save</button>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -1088,6 +1618,8 @@ module.exports = "<div class=\"border border-success\"  style=\"padding:20px\">\
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RewardsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__billing_service__ = __webpack_require__("./src/app/billing.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr__ = __webpack_require__("./node_modules/ng5-toastr/ng5-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1099,9 +1631,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var RewardsComponent = /** @class */ (function () {
-    function RewardsComponent(_billingService) {
+    function RewardsComponent(_billingService, toastr) {
         this._billingService = _billingService;
+        this.toastr = toastr;
         this.rewards = {
             enable: false, rewardPointEnable: false, bonusPointEnale: false,
             effectiveAmount: '', cashValue: '', bonusPoints: '',
@@ -1117,13 +1651,14 @@ var RewardsComponent = /** @class */ (function () {
     };
     // function call to save the data
     RewardsComponent.prototype.addingReward = function (rewardsData) {
+        var _this = this;
         console.log(rewardsData);
         //calling addReward method which is inside the billing.service to save the rewards data
         this._billingService.addReward(rewardsData).subscribe(function (data) {
             console.log('success::' + data);
-            alert('saved successfully');
+            _this.toastr.success("Saved successfully", 'Success', { toastLife: '5000' });
         }, function (error) {
-            alert('could not add rewards! try again!!');
+            _this.toastr.error("Could Not Save Data!! Try Again..", 'Error', { toastLife: '5000' });
         });
     };
     ;
@@ -1137,7 +1672,6 @@ var RewardsComponent = /** @class */ (function () {
                 _this.rewards = data;
             }
         }, function (error) {
-            alert('could not fetch rewards! try again!!');
         });
     };
     RewardsComponent = __decorate([
@@ -1146,7 +1680,7 @@ var RewardsComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/rewards/rewards.component.html"),
             styles: [__webpack_require__("./src/app/rewards/rewards.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__billing_service__["a" /* BillingService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__billing_service__["a" /* BillingService */], __WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr__["ToastsManager"]])
     ], RewardsComponent);
     return RewardsComponent;
 }());
@@ -1165,7 +1699,7 @@ module.exports = ""
 /***/ "./src/app/sales-report/sales-report.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"border border-success\"  style=\"padding:0px\">\n  <h1> Sales-Report </h1>\n  <div class=\"row\">\n    <div class=\"col-md-3\">\n        <label>Start Date:</label>\n       <input type=\"date\"  [(ngModel)]='startDate'/>\n    </div>\n    <div class=\"col-md-3\">\n      <label>End Date:</label>\n     <input type=\"date\"  [(ngModel)]='endDate'/></div>\n  </div>\n<div class=\"row\" style=\"margin-top:15px\">\n  <div class=\"col-md-2\" >\n    <div class=\"list-group\">\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('getUserDetails','report')\">Customer List</button>\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('getTopCustomer','topCustomer')\">Top Customer's</button>\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('payable','payable_receivable')\">Payables List</button>\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('receivable','payable_receivable')\">Receivables List</button>\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('getInvoice','invoiceData')\">Invoice List</button>\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('getTickets','tickets')\">Raised Tickets</button>\n    </div>\n  </div>\n  <div class=\"col-md-10\">\n    <router-outlet></router-outlet>\n  <table class=\"table table-hover\" *ngIf=\"report\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Email</th>\n      <th scope=\"col\">Mobile</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of report;let i = index\">\n      <td>{{i+1}}</td>\n      <td>{{data.userName}}</td>\n      <td>{{data.email}}</td>\n      <td>{{data.usermobile}}</td>\n    </tr>\n  </tbody>\n  </table>\n\n  <table class=\"table table-hover\" *ngIf=\"payable_receivable\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Invoice</th>\n      <th scope=\"col\">Mobile</th>\n      <th scope=\"col\">Amount</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of payable_receivable;let i = index\">\n      <td>{{i+1}}</td>\n      <td>{{data.invoiceNumber}}</td>\n      <td>{{data.mobile}}</td>\n      <td>{{data.amount}}</td>\n    </tr>\n  </tbody>\n  </table>\n\n  <table class=\"table table-hover\" *ngIf=\"tickets\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Ticket Id</th>\n      <th scope=\"col\">Subject</th>\n      <th scope=\"col\">Description</th>\n      <th scope=\"col\">CreatedDate</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of tickets;let i = index\">\n      <td>{{i+1}}</td>\n      <td>{{data.ticketId}}</td>\n      <td>{{data.subject}}</td>\n      <td>{{data.description}}</td>\n      <td>{{data.createDate}}</td>\n    </tr>\n  </tbody>\n  </table>\n\n  <table class=\"table table-hover\" *ngIf=\"invoiceData\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Invoice Id</th>\n      <th scope=\"col\">Total</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Mobile</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of invoiceData;let i = index\">\n      <td>{{i+1}}</td>\n      <td>{{data.invId}}</td>\n      <td>{{data.total}}</td>\n      <td>{{data.userName}}</td>\n      <td>{{data.userMobile}}</td>\n    </tr>\n  </tbody>\n  </table>\n\n  <table class=\"table table-hover\" *ngIf=\"topCustomer\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Mobile</th>\n      <th scope=\"col\">BV</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of topCustomer;let i = index\">\n      <td>{{i+1}}</td>\n      <td>{{data.userName}}</td>\n      <td>{{data.userMobile}}</td>\n      <td>{{data.bv}}</td>\n    </tr>\n  </tbody>\n  </table>\n\n  </div>\n</div>\n</div>\n<!-- routerLink=\"/userData/invoice\" -->\n"
+module.exports = "<div class=\"container-fluid  border border-success inbxTxt\"  style=\"padding:5px\">\n  <h1> Sales-Report </h1>\n  <div class=\"row\">\n    <div class=\"col-md-3\">\n        <label>Start Date:</label>\n       <input type=\"date\"  [(ngModel)]='startDate'/>\n    </div>\n    <div class=\"col-md-3\">\n      <label>End Date:</label>\n     <input type=\"date\"  [(ngModel)]='endDate'/></div>\n  </div>\n<div class=\"row\" style=\"margin-top:15px\">\n  <div class=\"col-md-2\" >\n    <div class=\"list-group\">\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('getUserDetails','report')\">Customer List</button>\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('getTopCustomer','topCustomer')\">Top Customer's\n      </button>\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('payable','payable_receivable')\">Payables List</button>\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('receivable','payable_receivable')\">Receivables List</button>\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('getInvoice','invoiceData')\">Invoice List</button>\n      <button type=\"button\" class=\"list-group-item list-group-item-action font-weight-bold font-italic\" (click)=\"request('getTickets','tickets')\">Raised Tickets</button>\n    </div>\n  </div>\n  <div class=\"col-md-10\">\n    <!-- <router-outlet></router-outlet> -->\n  <table class=\"table table-hover\" *ngIf=\"report\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Email</th>\n      <th scope=\"col\">Mobile</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of report;let i = index\">\n      <td>{{i+1}}</td>\n      <td>{{data.userName}}</td>\n      <td>{{data.email}}</td>\n      <td>{{data.userMobile}}</td>\n    </tr>\n  </tbody>\n  </table>\n\n  <table class=\"table table-hover\" *ngIf=\"payable_receivable\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Invoice</th>\n      <th scope=\"col\">Mobile</th>\n      <th scope=\"col\">Amount</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of payable_receivable;let i = index\">\n      <td>{{i+1}}</td>\n      <td>{{data.invoiceNumber}}</td>\n      <td>{{data.mobile}}</td>\n      <td>{{data.amount}}</td>\n    </tr>\n  </tbody>\n  </table>\n\n  <table class=\"table table-hover\" *ngIf=\"tickets\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Ticket Id</th>\n      <th scope=\"col\">Subject</th>\n      <th scope=\"col\">Description</th>\n      <th scope=\"col\">CreatedDate</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of tickets;let i = index\">\n      <td>{{i+1}}</td>\n      <td>{{data.ticketId}}</td>\n      <td>{{data.subject}}</td>\n      <td>{{data.description}}</td>\n      <td>{{data.createDate}}</td>\n    </tr>\n  </tbody>\n  </table>\n\n  <table class=\"table table-hover\" *ngIf=\"invoiceData\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Invoice Id</th>\n      <th scope=\"col\">Total</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Mobile</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of invoiceData;let i = index\">\n      <td>{{i+1}}</td>\n      <td>{{data.invId}}</td>\n      <td>{{data.total}}</td>\n      <td>{{data.userName}}</td>\n      <td>{{data.userMobile}}</td>\n    </tr>\n  </tbody>\n  </table>\n\n  <input type=\"number\" [(ngModel)]=\"topCustomerRecords\"  placeholder=\"No of records\" *ngIf=\"topCustomer\">\n  <table class=\"table table-hover\" *ngIf=\"topCustomer\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Mobile</th>\n      <th scope=\"col\">BV</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of topCustomer | slice:0:topCustomerRecords;let i = index\">\n      <td>{{i+1}}</td>\n      <td>{{data.userName}}</td>\n      <td>{{data.userMobile}}</td>\n      <td>{{data.bv}}</td>\n    </tr>\n  </tbody>\n  </table>\n  </div>\n</div>\n</div>\n<!-- routerLink=\"/userData/invoice\" -->\n"
 
 /***/ }),
 
@@ -1178,6 +1712,7 @@ module.exports = "<div class=\"border border-success\"  style=\"padding:0px\">\n
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("./src/app/data.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr__ = __webpack_require__("./node_modules/ng5-toastr/ng5-toastr.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1190,12 +1725,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SalesReportComponent = /** @class */ (function () {
     function SalesReportComponent(_demoService, toastr) {
         this._demoService = _demoService;
         this.toastr = toastr;
+        this.topCustomerRecords = 3;
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["c" /* MatTableDataSource */]();
+        this.displayedColumns = ['no', 'name', 'mobile', 'total'];
     }
     SalesReportComponent.prototype.ngOnInit = function () {
+    };
+    SalesReportComponent.prototype.ngAfterViewInit = function () {
+        //this.dataSource.paginator = this.paginator;
     };
     SalesReportComponent.prototype.request = function (type, val) {
         var _this = this;
@@ -1209,6 +1751,10 @@ var SalesReportComponent = /** @class */ (function () {
             _this.toastr.error("Could Not fetch Data!! Try Again..", 'Error', { toastLife: '5000' });
         });
     }; // end of request
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MatPaginator */])
+    ], SalesReportComponent.prototype, "paginator", void 0);
     SalesReportComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-sales-report',
@@ -1234,7 +1780,7 @@ module.exports = ""
 /***/ "./src/app/select-invoice/select-invoice.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Invoice</h1>\n<div class=\"col-md-4 container\" *ngIf='!invoice'>\n  <div class=\"input-group\" *ngIf='!userEntry'>\n  <input type=\"text\" class=\"form-control\" [(ngModel)]='mobile' placeholder=\"Enter Mobile Number\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n  <div class=\"input-group-append\">\n    <button class=\"btn btn-outline-secondary\" (click)=\"verifyUser()\" type=\"button\">Submit</button>\n  </div>\n</div>\n\n<form *ngIf='userEntry'>\n  <div class=\"form-group row\">\n    <label  class=\"col-sm-2 col-form-label col-form-label-sm\">Name</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='username'  [(ngModel)]=\"userName\" placeholder=\"Name\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Email</label>\n    <div class=\"col-sm-10\">\n      <input type=\"email\" class=\"form-control form-control-sm\" name='mail' [(ngModel)]='email' placeholder=\"Email\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Address</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='addr' [(ngModel)]='address'  placeholder=\"Address\">\n    </div>\n  </div>\n  <button class=\"btn btn-success\" type=\"button\" (click)='userDetails(userName,email,address)' name=\"button\">Submit</button>\n</form>\n</div>\n\n<!--generated invoice  -->\n<div class=\"invoiceCreation container border border-success\" *ngIf='invoice' style=\"padding:20px\">\n  <div class=\"row\">\n    <div class=\"col-sm\" [hidden]='InvGen'>\n      <h5>{{userName | uppercase}}</h5>\n      <h5>{{mobile}}</h5>\n      <h5>{{email}}</h5>\n      <h5>{{address}}</h5>\n    </div>\n    <div class=\"col-sm\">\n      <img src={{imageUrl()}}  style=\"width:100px;height:100px\">\n    </div>\n    <div class=\"col-sm\" [hidden]='InvGen'>\n      <h5>Total BV = {{BV}}</h5>\n      <h5>Total Points = {{rewardPoints}}</h5>\n    </div>\n  </div>\n  <table class=\"table\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Item</th>\n      <th scope=\"col\">Quantity</th>\n      <th scope=\"col\">Rate</th>\n      <th scope=\"col\">Total</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of invoiceList;let i = index; let lastEl = last; let firstEl = first\">\n      <td>{{i+1}}</td>\n      <td>\n        <select [(ngModel)]='invoiceList[i].item' [disabled]='InvGen'>\n            <option *ngFor=\"let item of items\" value={{item}}>\n                {{item}}\n            </option>\n        </select>\n      </td>\n      <td>\n        <input class=\"quantity\"  type=\"number\" min=\"0\" (blur)='calcTotal()' [(ngModel)]='invoiceList[i].quantity' [disabled]='InvGen'/>\n      </td>\n      <td>\n        <input class=\"rate\"  type=\"number\" min=\"0\" (blur)='calcTotal()' [(ngModel)]='invoiceList[i].rate' [disabled]='InvGen'/>\n      </td>\n      <td>\n        <input  value=\"{{invoiceList[i].rate  * invoiceList[i].quantity | currency:'RS '}}\"  [disabled]='InvGen'>\n      </td>\n      <td *ngIf='!firstEl'  [hidden]='InvGen'>\n        <button type=\"button\"   (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n          <span class=\"glyphicon glyphicon-minus\">-</span>\n        </button>\n      </td>\n      <td *ngIf='lastEl' [hidden]='InvGen'>\n        <button type=\"button\"  (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n          <span class=\"glyphicon glyphicon-plus\">+</span>\n        </button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n<hr>\n<div class=\"row\">\n  <div class=\"col-sm\">\n    <h5>Discount:<input  type=\"number\" min=\"0\" max=\"1000\" (blur)='calcTotal()' [(ngModel)]='discounts' [disabled]='InvGen' />%</h5>\n    <h5>Rewards:<input  type=\"number\" min=\"0\" max=\"1000\" (blur)='calcTotal()' [(ngModel)]='rewards' [disabled]='InvGen' /></h5>\n      <h5>Credit :<input type=\"number\" min=\"0\" max=\"100000\" [(ngModel)]='credit'  [disabled]='InvGen'/></h5>\n  </div>\n  <div class=\"col-sm\">\n  </div>\n  <div class=\"col-sm\">\n    <h5>SubTotal:{{subTotal}}</h5>\n    <h5>GST:<input  type=\"number\" min=\"0\" max=\"1000\" (blur)='calcTotal()' [(ngModel)]='gst' [disabled]='InvGen' />%</h5>\n    <h5>Total:{{total}}</h5>\n    <h5>PAID : {{total - credit}}</h5>\n  </div>\n</div>\n\n<div class=\"\" [hidden]=\"InvGen\">\n  <button type=\"button\" name=\"button\"  class=\"btn btn-block btn-primary\" (click)=\"submitInvoice()\">Submit</button>\n</div>\n<div class=\"\" [hidden]=\"!InvGen\">\n  <button type=\"button\" name=\"button\"  class=\"btn btn-block btn-primary\">Generate Invoice</button>\n</div>\n</div>\n"
+module.exports = "<div class=\"container-fluid border border-success center20\">\n<h1>Invoice</h1>\n<div class=\"col-md-4 col-md-offset-4\" *ngIf='!invoice'>\n      <div class=\"input-group center\" *ngIf='!userEntry'>\n      <input type=\"text\" class=\"form-control\" [(ngModel)]='mobile' placeholder=\"Enter Mobile Number\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n      <div class=\"input-group-append\">\n        <button class=\"btn btn-outline-secondary\" (click)=\"verifyUser()\" type=\"button\">Submit</button>\n      </div>\n      </div>\n\n<form *ngIf='userEntry'>\n  <div class=\"form-group row\">\n    <label  class=\"col-sm-2 col-form-label col-form-label-sm\">Name</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='username'  [(ngModel)]=\"userName\" placeholder=\"Name\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Email</label>\n    <div class=\"col-sm-10\">\n      <input type=\"email\" class=\"form-control form-control-sm\" name='mail' [(ngModel)]='email' placeholder=\"Email\">\n    </div>\n  </div>\n  <div class=\"form-group row\">\n    <label for=\"colFormLabelSm\" class=\"col-sm-2 col-form-label col-form-label-sm\">Address</label>\n    <div class=\"col-sm-10\">\n      <input type=\"text\" class=\"form-control form-control-sm\" name='addr' [(ngModel)]='address'  placeholder=\"Address\">\n    </div>\n  </div>\n  <button class=\"btn btn-success\" type=\"button\" (click)='userDetails(userName,email,address)' name=\"button\">Submit</button>\n</form>\n</div>\n\n<!--generated invoice  -->\n<div class=\"invoiceCreation container border border-success center20 tableFlow\" *ngIf='invoice' >\n  <div class=\"row\">\n    <div class=\"col-sm\" [hidden]='InvGen'>\n      <h5>{{userName | uppercase}}</h5>\n      <h5>{{mobile}}</h5>\n      <h5>{{email}}</h5>\n      <h5>{{address}}</h5>\n    </div>\n    <div class=\"col-sm\">\n      <img src={{imageUrl()}}  style=\"width:100px;height:100px\">\n    </div>\n    <div class=\"col-sm\" [hidden]='InvGen'>\n      <h5>Total BV = {{BV}}</h5>\n      <h5>Total Points = {{rewardPoints}}</h5>\n    </div>\n  </div>\n  <table class=\"table\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Item</th>\n      <th scope=\"col\">Quantity</th>\n      <th scope=\"col\">Rate</th>\n      <th scope=\"col\">Total</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let data of invoiceList;let i = index; let lastEl = last; let firstEl = first\">\n      <td>{{i+1}}</td>\n      <td>\n        <select [(ngModel)]='invoiceList[i].item' [disabled]='InvGen'>\n            <option *ngFor=\"let item of items\" value={{item}}>\n                {{item}}\n            </option>\n        </select>\n      </td>\n      <td>\n        <input class=\"quantity\"  type=\"number\" min=\"0\" (blur)='calcTotal()' [(ngModel)]='invoiceList[i].quantity' [disabled]='InvGen'/>\n      </td>\n      <td>\n        <input class=\"rate\"  type=\"number\" min=\"0\" (blur)='calcTotal()' [(ngModel)]='invoiceList[i].rate' [disabled]='InvGen'/>\n      </td>\n      <td>\n        <input  value=\"{{invoiceList[i].rate  * invoiceList[i].quantity | currency:'RS '}}\"  [disabled]='InvGen'>\n      </td>\n      <td *ngIf='!firstEl'  [hidden]='InvGen'>\n        <button type=\"button\"   (click)='deleteRow(i)' class=\"btn btn-danger btn-sm\">\n          <span class=\"glyphicon glyphicon-minus\"></span>\n        </button>\n      </td>\n      <td *ngIf='lastEl' [hidden]='InvGen'>\n        <button type=\"button\"  (click)='addRow(i)' class=\"btn btn-success btn-sm\">\n          <span class=\"glyphicon glyphicon-plus\"></span>\n        </button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n<hr>\n<div class=\"row\">\n  <div class=\"col-sm\">\n    <h5>Discount:<input  type=\"number\" min=\"0\" max=\"1000\" (blur)='calcTotal()' [(ngModel)]='discounts' [disabled]='InvGen' />%</h5>\n    <h5>Rewards:<input  type=\"number\" min=\"0\" max=\"1000\" (blur)='calcTotal()' [(ngModel)]='rewards' [disabled]='InvGen' /></h5>\n      <h5>Credit :<input type=\"number\" min=\"0\" max=\"100000\" [(ngModel)]='credit'  [disabled]='InvGen'/></h5>\n  </div>\n  <div class=\"col-sm\">\n  </div>\n  <div class=\"col-sm\">\n    <h5>SubTotal:{{subTotal}}</h5>\n    <h5>GST:<input  type=\"number\" min=\"0\" max=\"1000\" (blur)='calcTotal()' [(ngModel)]='gst' [disabled]='InvGen' />%</h5>\n    <h5>Total:{{total}}</h5>\n    <h5>PAID : {{total - credit}}</h5>\n  </div>\n</div>\n\n<div class=\"\" [hidden]=\"InvGen\">\n  <button type=\"button\" name=\"button\"  class=\"btn btn-block btn-primary\" (click)=\"submitInvoice()\">Submit</button>\n</div>\n<div class=\"\" [hidden]=\"!InvGen\">\n  <button type=\"button\" name=\"button\"  class=\"btn btn-block btn-primary\">Generate Invoice</button>\n</div>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -1246,6 +1792,8 @@ module.exports = "<h1>Invoice</h1>\n<div class=\"col-md-4 container\" *ngIf='!in
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("./src/app/data.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__billing_service__ = __webpack_require__("./src/app/billing.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng5_toastr_ng5_toastr__ = __webpack_require__("./node_modules/ng5-toastr/ng5-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng5_toastr_ng5_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng5_toastr_ng5_toastr__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1258,10 +1806,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SelectInvoiceComponent = /** @class */ (function () {
-    function SelectInvoiceComponent(_demoService, _billingService) {
+    function SelectInvoiceComponent(_demoService, _billingService, toastr) {
         this._demoService = _demoService;
         this._billingService = _billingService;
+        this.toastr = toastr;
     }
     SelectInvoiceComponent.prototype.ngOnInit = function () {
         this.rewards = this.discounts = 0;
@@ -1310,11 +1860,9 @@ var SelectInvoiceComponent = /** @class */ (function () {
         var _this = this;
         this._demoService.customerExist(this.mobile).subscribe(function (data) {
             if (data != null && Object.keys(data).length <= 0) {
-                alert('no data');
                 _this.userEntry = true;
             }
             else {
-                alert(' data' + data[0].userName);
                 _this.invoice = true;
                 _this.userName = data[0].userName;
                 _this.email = data[0].email;
@@ -1324,14 +1872,14 @@ var SelectInvoiceComponent = /** @class */ (function () {
                 _this.discountList = data[0].discounts;
             }
         }, function (error) {
-            alert("ERROR: Could not connect!!");
+            console.log("ERROR: Could not connect!!");
+            _this.toastr.info("Could Not Fetch Data!! Try Again..", 'Error', { toastLife: '5000' });
         });
     };
     SelectInvoiceComponent.prototype.userDetails = function () {
         var _this = this;
         console.log(name);
         this._demoService.createUser({ userName: this.userName, email: this.email, address: this.address, userMobile: this.mobile }).subscribe(function (data) {
-            alert('success');
             console.log(data);
             _this.invoice = true;
             _this.userName = data[0].userName;
@@ -1341,7 +1889,8 @@ var SelectInvoiceComponent = /** @class */ (function () {
             _this.rewardPoints = data[0].rewardPoints;
             _this.discountList = data[0].discounts;
         }, function (error) {
-            alert('failed to add');
+            console.log('failed to add');
+            _this.toastr.error("Could Not Add Data!! Try Again..", 'Error', { toastLife: '5000' });
         });
     };
     SelectInvoiceComponent.prototype.submitInvoice = function () {
@@ -1361,9 +1910,9 @@ var SelectInvoiceComponent = /** @class */ (function () {
             else {
                 _this.invoice = _this.userEntry = false;
             }
-            alert('added successfully');
         }, function (error) {
-            alert('could not create Invoice! try again!!');
+            console.log('could not create Invoice! try again!!');
+            _this.toastr.error("Could Not Generate!! Try Again..", 'Error', { toastLife: '5000' });
         });
     };
     SelectInvoiceComponent.prototype.imageUrl = function () {
@@ -1371,7 +1920,7 @@ var SelectInvoiceComponent = /** @class */ (function () {
             return "../../assets/images/bronze.jpg";
         }
         else if (this.BV > 2000 && this.BV < 6000) {
-            return "../../assets/images/imagebrnz.jpg";
+            return "../../assets/images/silver.jpg";
         }
         else {
             return "../../assets/images/image1.jpg";
@@ -1383,9 +1932,70 @@ var SelectInvoiceComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/select-invoice/select-invoice.component.html"),
             styles: [__webpack_require__("./src/app/select-invoice/select-invoice.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__billing_service__["a" /* BillingService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__billing_service__["a" /* BillingService */], __WEBPACK_IMPORTED_MODULE_3_ng5_toastr_ng5_toastr__["ToastsManager"]])
     ], SelectInvoiceComponent);
     return SelectInvoiceComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/select-login-type/select-login-type.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "/* #circle {\r\n\twidth: 100px;\r\n\theight: 100px;\r\n\tbackground: red;\r\n\t-moz-border-radius: 50px;\r\n\t-webkit-border-radius: 50px;\r\n\tborder-radius: 50px;\r\n} */\r\n#circle {\r\n  width: 200px;\r\n\theight: 100px;\r\n\tbackground: #f8f8;\r\n}\r\n.rad{\r\n  border-radius: 25px;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/select-login-type/select-login-type.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\r\n<div class=\"row align-items-center\" style=\"margin:50px\">\r\n  <div class=\"col\" style=\"margin-top:80px\">\r\n    <button type=\"button\" (click)=\"selectUser('business')\" [routerLink]=\"['/signIn']\" class=\"btn btn-danger btn-lg btn-block rad\"><h1>Business LogIn</h1></button>\r\n  <hr>\r\n    <button type=\"button\" (click)=\"selectUser('individual')\" class=\"btn btn-danger btn-lg btn-block rad\"><h1>Individual LogIn</h1></button>\r\n  </div>\r\n</div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/select-login-type/select-login-type.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectLoginTypeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("./src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SelectLoginTypeComponent = /** @class */ (function () {
+    function SelectLoginTypeComponent(service, router) {
+        this.service = service;
+        this.router = router;
+        this.view = true;
+    }
+    SelectLoginTypeComponent.prototype.ngOnInit = function () {
+    };
+    SelectLoginTypeComponent.prototype.selectUser = function (type) {
+        this.service.changeUserType(type);
+        this.router.navigate(['/', 'signIn']);
+    };
+    SelectLoginTypeComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-select-login-type',
+            template: __webpack_require__("./src/app/select-login-type/select-login-type.component.html"),
+            styles: [__webpack_require__("./src/app/select-login-type/select-login-type.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+    ], SelectLoginTypeComponent);
+    return SelectLoginTypeComponent;
 }());
 
 
@@ -1395,14 +2005,14 @@ var SelectInvoiceComponent = /** @class */ (function () {
 /***/ "./src/app/sign-in/sign-in.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".signIn{\r\n  width: 40%;\r\n  height: auto;\r\n  background-color: #9EEBA1;\r\n  border-radius: 10px;\r\n  border: 1px solid;\r\n   -webkit-box-shadow: 5px 10px #888888;\r\n           box-shadow: 5px 10px #888888;\r\n  margin-top: 10%;\r\n\t-webkit-box-shadow: 0 10px 6px -6px #777;\r\n\t box-shadow: 0 10px 6px -6px #777;\r\n }\r\n\r\n.btnStyle{\r\n  width: 230px;\r\n}\r\n\r\n.login-form{\r\n  margin: 20px;\r\n}\r\n\r\n.forgotPwd:hover{\r\n  cursor: pointer;\r\n  color: #1b69b6;\r\n  text-decoration:underline;\r\n}\r\n"
+module.exports = ".signIn{\r\n  width: 40%;\r\n  height: auto;\r\n  background-color: #1abc9c;\r\n  border-radius: 10px;\r\n  border: 1px solid;\r\n   -webkit-box-shadow: 5px 10px #888888;\r\n           box-shadow: 5px 10px #888888;\r\n  margin-top: 10%;\r\n\t-webkit-box-shadow: 0 10px 6px -6px #777;\r\n\t box-shadow: 0 10px 6px -6px #777;\r\n }\r\n\r\n.btnStyle{\r\n  width: 230px;\r\n}\r\n\r\n.login-form{\r\n  margin: 20px;\r\n}\r\n\r\n.forgotPwd:hover{\r\n  cursor: pointer;\r\n  color: #1b69b6;\r\n  text-decoration:underline;\r\n}\r\n"
 
 /***/ }),
 
 /***/ "./src/app/sign-in/sign-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container signIn\">\n\t<div [hidden]=\"submitted\">\n\t\t<h1>Log In</h1>\n\t\t<form (ngSubmit)=\"onSubmit(); signin.reset()\" #signin=\"ngForm\" class=\"login-form\">\n\t\t\t<div *ngIf='loginFail' class=\"alert alert-danger\" (click)=\"loginFail = false\">\n\t\t\t\t<strong>Invalid mobile or password</strong>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"name\">Mobile</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"mobile\"\n               required (change)=\"validation()\"\n               [(ngModel)]=\"model.mobile\" name=\"mobile\"\n               #mobile=\"ngModel\"/>\n\t\t\t\t<div [hidden]=\"mobile.valid || mobile.pristine\"\n             class=\"alert alert-danger\">\n           Mobile Number is required\n        </div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"name\">Password</label>\n\t\t\t\t<input type=\"password\" class=\"form-control\" id=\"password\"\n               required\n               [(ngModel)]=\"model.password\" name=\"password\"\n               #password=\"ngModel\" />\n\t\t\t\t<div [hidden]=\"password.valid || password.pristine\"\n             class=\"alert alert-danger\">\n          Password is required\n        </div>\n\t\t\t</div>\n\t\t\t<button  type=\"submit\" class=\"btn btn-success btn-md btnStyle\" [disabled]=\"!signin.form.valid\" >Log In</button>\n\t\t\t<button  type=\"button\" class=\"btn btn-primary btn-md btnStyle\"  routerLink=\"/signUp\">Register</button>\n<div>\n\t\t\t<label ><input #rememberVal type=\"checkbox\" name=\"rememberMe\" value=\"true\" [(ngModel)]=\"rememberMe\"> Remember Me</label>\n\t\t\t<div class=\"pull-right forgot-password\">\n\t\t\t\t<label class='forgotPwd' data-toggle=\"modal\" data-target=\"#myModal\">Forgot your password?</label>\n\t\t\t</div>\n</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n<br>\n<div class=\"container\">\n  <!-- Modal -->\n  <div class=\"modal fade\" id=\"myModal\" role=\"dialog\" >\n    <div class=\"modal-dialog\">\n      <!-- Modal content-->\n      <div class=\"modal-content\">\n\t\t\t\t<br><br>\n        <div class=\"modal-header\">\n\t\t\t\t\t  <h3 class=\"modal-title\">Reset Password</h3>\n          <button type=\"button\" class=\"close\" id=\"modalWindow\" data-dismiss=\"modal\" #closeAddExpenseModal >&times;</button>\n        </div>\n        <div class=\"modal-body\">\n\t\t\t\t\t<form (ngSubmit)=\"sendOtp();\" #otp=\"ngForm\" class=\"otp-form\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label for=\"mobileNum\">Enter Mobile Number:</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"mobileNum\"\n\t\t               required\n\t\t               [(ngModel)]=\"mobileNumVal\" name=\"mobileNum\"\n\t\t               #mobileNum=\"ngModel\"/>\n\t\t\t\t\t\t<div [hidden]=\"mobileNum.valid || mobileNum.pristine\"\n\t\t             class=\"alert alert-danger\">\n\t\t           Mobile Number is required\n\t\t        </div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<button  type=\"submit\" class=\"btn btn-primary btn-md\" [disabled]=\"!otp.form.valid\">Send OTP</button>\n\n\t\t\t\t</form>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"container-fluid signIn center20\">\n\t<div [hidden]=\"submitted\">\n\t\t<h1>Log In</h1>\n\t\t<form (ngSubmit)=\"onSubmit(); signin.reset()\" #signin=\"ngForm\" class=\"login-form\">\n\t\t\t<div *ngIf='loginFail' class=\"alert alert-danger\" (click)=\"loginFail = false\">\n\t\t\t\t<strong>Invalid mobile or password</strong>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"name\">Mobile</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"mobile\"\n               required (change)=\"validation()\"\n               [(ngModel)]=\"model.mobile\" name=\"mobile\"\n               #mobile=\"ngModel\"/>\n\t\t\t\t<div [hidden]=\"mobile.valid || mobile.pristine\"\n             class=\"alert alert-danger\">\n           Mobile Number is required\n        </div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"name\">Password</label>\n\t\t\t\t<input type=\"password\" class=\"form-control\" id=\"password\"\n               required\n               [(ngModel)]=\"model.password\" name=\"password\"\n               #password=\"ngModel\" />\n\t\t\t\t<div [hidden]=\"password.valid || password.pristine\"\n             class=\"alert alert-danger\">\n          Password is required\n        </div>\n\t\t\t</div>\n\t\t\t<div class=\"\"row>\n\t\t\t<button  type=\"submit\" class=\"btn btn-success btn-md  col-sm-6\" [disabled]=\"!signin.form.valid\" >Log In</button>\n\t\t\t<button  type=\"button\" class=\"btn btn-primary btn-md col-sm-6\" *ngIf=\"userType == 'business'\" routerLink=\"/signUp\">Register</button>\n\t\t\t<button  type=\"button\" class=\"btn btn-primary btn-md col-sm-6\" *ngIf=\"userType == 'individual'\" routerLink=\"/IndividualReg\">Register</button>\n\t\t</div>\n<div>\n\t\t\t<label ><input #rememberVal type=\"checkbox\" name=\"rememberMe\" value=\"true\" [(ngModel)]=\"rememberMe\"> Remember Me</label>\n\t\t\t<div class=\"pull-right forgot-password\">\n\t\t\t\t<label class='forgotPwd' data-toggle=\"modal\" data-target=\"#myModal\">Forgot your password?</label>\n\t\t\t</div>\n</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n<br>\n<div class=\"container\">\n  <!-- Modal -->\n  <div class=\"modal fade\" id=\"myModal\" role=\"dialog\" >\n    <div class=\"modal-dialog\">\n      <!-- Modal content-->\n      <div class=\"modal-content\">\n\t\t\t\t<br><br>\n        <div class=\"modal-header\">\n\t\t\t\t\t  <h3 class=\"modal-title\">Reset Password</h3>\n          <button type=\"button\" class=\"close\" id=\"modalWindow\" data-dismiss=\"modal\" #closeAddExpenseModal >&times;</button>\n        </div>\n        <div class=\"modal-body\">\n\t\t\t\t\t<form (ngSubmit)=\"sendOtp();\" #otp=\"ngForm\" class=\"otp-form\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label for=\"mobileNum\">Enter Mobile Number:</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"mobileNum\"\n\t\t               required\n\t\t               [(ngModel)]=\"mobileNumVal\" name=\"mobileNum\"\n\t\t               #mobileNum=\"ngModel\"/>\n\t\t\t\t\t\t<div [hidden]=\"mobileNum.valid || mobileNum.pristine\"\n\t\t             class=\"alert alert-danger\">\n\t\t           Mobile Number is required\n\t\t        </div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<button  type=\"submit\" class=\"btn btn-primary btn-md\" [disabled]=\"!otp.form.valid\">Send OTP</button>\n\n\t\t\t\t</form>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1446,10 +2056,12 @@ var SignInComponent = /** @class */ (function () {
         this.loginFail = false;
         this.data = [];
         this.storage = [];
+        this.view = true;
         this.pattern_mobile = /([0-9]){10}/g;
     }
     SignInComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this._demoService.userTypeVal.subscribe(function (userType) { return _this.userType = userType; });
         this._demoService.cast.subscribe(function (messageSource) { return _this.messageSource = messageSource; });
         console.log('message::' + this.messageSource);
         this.allCookies = this.cookieService.getAll();
@@ -1464,7 +2076,7 @@ var SignInComponent = /** @class */ (function () {
     ;
     SignInComponent.prototype.onSubmit = function () {
         console.log(this.model);
-        this.logInUser(this.model);
+        this.logInUser(this.model, this.userType);
         if (this.rememberMe) {
             this.cookieService.set('mobile', this.model.mobile);
             this.cookieService.set('pswd', this.model.password);
@@ -1488,16 +2100,23 @@ var SignInComponent = /** @class */ (function () {
             _this.cookieService.delete('resetPwdMobile');
         });
     };
-    SignInComponent.prototype.logInUser = function (data) {
+    SignInComponent.prototype.logInUser = function (data, type) {
         var _this = this;
         var JsonData = data;
-        this._demoService.logInUser(JsonData).subscribe(function (data) {
+        this._demoService.logInUser(JsonData, type).subscribe(function (data) {
+            console.log(data);
             if (data == true) {
-                console.log(data);
                 console.log("valid user!");
-                _this.submitted = true;
-                _this.router.navigate(['/', 'userData']);
-                return true;
+                if (type == 'business') {
+                    _this.showProfile = true;
+                    _this.submitted = true;
+                    _this._demoService.changeProfile('true');
+                    _this.router.navigate(['/', 'userData']);
+                }
+                else if (type == 'individual') {
+                    _this.router.navigate(['/', 'individualDetails']);
+                    //return true;
+                }
             }
             else {
                 console.error("not registered!");
@@ -1506,6 +2125,7 @@ var SignInComponent = /** @class */ (function () {
         }, function (error) {
             console.error("not registered!");
             _this.loginFail = true;
+            //this._demoService.changeProfile('true')
             return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["a" /* Observable */].throw(error);
         });
     };
@@ -1537,14 +2157,14 @@ var SignInComponent = /** @class */ (function () {
 /***/ "./src/app/signup/signup.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".signUp{\r\n  width: 40%;\r\n  background: -webkit-gradient(linear, left top, left bottom, from(green), color-stop(yellow), to(green));\r\n  background: linear-gradient(green, yellow, green);\r\n  background-color: #FFF;\r\n  border-radius: 10px;\r\n  border: 1px solid;\r\n   -webkit-box-shadow: 5px 10px #888888;\r\n           box-shadow: 5px 10px #888888;\r\n  margin-top: 10px;\r\n\t-webkit-box-shadow: 0 10px 6px -6px #777;\r\n\t box-shadow: 0 10px 6px -6px #777;\r\n }\r\n .signup-form{\r\n   margin: 20px;\r\n }\r\n .flexDiv{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n .flex-item{\r\n  width: 25%\r\n}\r\n .flex-item-middle{\r\n  margin: 0 5px;\r\n}\r\n .dropdown-flex{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n .dropdown-category{\r\n  width: 45%;\r\n}\r\n .dropdown-register{\r\n  margin-left: 10%;\r\n  width: 45%;\r\n}\r\n .flex-item-getAdd{\r\n  margin-top: 25px;\r\n  width:30%\r\n}\r\n .flex-item-buAdd{\r\n  width: 70%\r\n}\r\n"
+module.exports = ".signUp{\r\n  /* width: auto; */\r\n  /* background: linear-gradient(green, yellow, green); */\r\n  /* background-color: #FFF; */\r\n  border-radius: 10px;\r\n  border: 1px solid;\r\n   -webkit-box-shadow: 5px 10px #888888;\r\n           box-shadow: 5px 10px #888888;\r\n  margin-top: 10px;\r\n\t-webkit-box-shadow: 0 10px 6px -6px #777;\r\n\t box-shadow: 0 10px 6px -6px #777;\r\n }\r\n .signup-form{\r\n   margin: 20px;\r\n }\r\n .flexDiv{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n .flex-item{\r\n  width: 25%\r\n}\r\n .flex-item-middle{\r\n  margin: 0 5px;\r\n}\r\n .dropdown-flex{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n .dropdown-category{\r\n  width: 45%;\r\n}\r\n .dropdown-register{\r\n  margin-left: 10%;\r\n  width: 45%;\r\n}\r\n .flex-item-getAdd{\r\n  margin-top: 25px;\r\n  width:30%\r\n}\r\n .flex-item-buAdd{\r\n  width: 70%\r\n}\r\n"
 
 /***/ }),
 
 /***/ "./src/app/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div   style=\"margin-top:75px\" *ngIf ='showbusinessList'>\n  <h2>Business List</h2>\n<ul class=\"list-group\" >\n  <li class=\"list-group-item\" *ngFor=\"let item of businessList\" (click)='viewBusinessDetails(item)'>{{item.companyName}}</li>\n</ul>\n</div>\n<div class=\"container signUp\" *ngIf ='!showbusinessList'>\n  <!-- <div *ngIf='patternErr' class=\"alert alert-danger fixed-top\" role=\"alert\">\n    {{patternErr}}\n  </div> -->\n   <div [hidden]=\"submitted\">\n      <h1>{{formTitle}}</h1>\n      <form (ngSubmit)=\"onSubmit(); signup.reset()\" #signup=\"ngForm\" class=\"signup-form\">\n        <div *ngIf='registrationFailed' class=\"alert alert-danger\" (click)=\"registrationFailed = null\">\n  \t\t\t\t<strong>{{registrationFailed}}</strong>\n  \t\t\t</div>\n      <div class=\"form-group\">\n         <label for=\"name\">Company Name / Business name</label>\n         <input type=\"text\" class=\"form-control\" id=\"name\"\n         required\n         [(ngModel)]=\"model.companyName\" name=\"name\"\n         #name=\"ngModel\"/>\n         <div [hidden]=\"name.valid || name.pristine\"\n            class=\"alert alert-danger\">\n            Company Name / Business name is required\n         </div>\n      </div>\n      <div class=\"form-group\" *ngIf='!addNew'>\n         <label for=\"name\">Owner / Manager name</label>\n         <input type=\"text\" class=\"form-control\" id=\"ownername\"\n         required\n         [(ngModel)]=\"model.ownerName\" name=\"ownername\"\n         #ownername=\"ngModel\" />\n         <div [hidden]=\"ownername.valid || ownername.pristine\"\n            class=\"alert alert-danger\">\n            Owner / Manager name is required\n         </div>\n      </div>\n      <div class=\"form-group\" *ngIf='!addNew'>\n         <label for=\"name\">Mobile number</label>\n         <input type=\"text\" class=\"form-control\"\n         required [readonly]=\"businessEditableForm\"\n         (keyup.enter)=\"doesUserExist(mobile.value);\"\n         (change)=\"doesUserExist(mobile.value);validation('pattern_mobile',mobile.value)\"\n         [(ngModel)]=\"model.mobile\" name=\"mobile\"\n         #mobile=\"ngModel\"/>\n         <div [hidden]=\"mobile.valid || mobile.pristine\"\n            class=\"alert alert-danger\">\n            <span *ngIf='!mobilecheck'>mobile number is required</span>\n                  <span *ngIf='mobilecheck'>mobile number already exist</span>\n         </div>\n      </div>\n      <div class=\"form-group\" *ngIf='!addNew'>\n         <label for=\"name\">Password</label>\n         <input type=\"password\" class=\"form-control\" id=\"password\" [readonly]=\"businessEditableForm\"\n         required   (change)=\"validation('pattern_password',password.value)\"\n         [(ngModel)]=\"model.password\" name=\"password\" placeholder=\"Min 6 Characters\"\n         #password=\"ngModel\"/>\n         <div [hidden]=\"password.valid || password.pristine\"\n            class=\"alert alert-danger\">\n            password is required\n         </div>\n      </div>\n      <div class=\"form-group\" *ngIf='!addNew'>\n         <label for=\"alterEgo\">Email address</label>\n         <input type=\"text\" class=\"form-control\" id=\"email\" [readonly]=\"businessEditableForm\"\n         (change)=\"validation('pattern_email',email.value)\" required\n         [(ngModel)]=\"model.email\" #email=\"ngModel\" name=\"alterEgo\">\n         <div [hidden]=\"email.valid || email.pristine\"\n            class=\"alert alert-danger\">\n            Email is required\n         </div>\n      </div>\n      <div class=\"form-group\">\n         <label for=\"name\">Business address</label>\n         <input type=\"text\" class=\"form-control\" id=\"businessAddr\"\n         required\n         [(ngModel)]=\"model.businessAddress\" name=\"businessAddr\"\n         #businessAddr=\"ngModel\"/>\n         <div [hidden]=\"businessAddr.valid || businessAddr.pristine\"\n            class=\"alert alert-danger\">\n            Business Address is required\n         </div>\n      </div>\n      <div  class=\"flexDiv\">\n      <div class=\"form-group flex-item-buAdd\">\n         <label for=\"name\">PIN Code</label>\n         <input type=\"text\" class=\"form-control\" id=\"pin\"\n         required  (change)=\"validation('pattern_pinCode',pin.value)\"\n         [(ngModel)]=\"model.pinCode\" name=\"pin\"\n         #pin=\"ngModel\"/>\n         <div [hidden]=\"pin.valid || pin.pristine\"\n            class=\"alert alert-danger\">\n            PIN Code is required\n         </div>\n      </div>\n      <div  class=\"form-group flex-item-getAdd\">\n          <button type=\"button\" class=\"btn btn-success btn-block\"\n          [disabled]=\"!model.pinCode\"\n          (click)=\"update(pin.value)\">\n          Get Location\n        </button>\n      </div>\n    </div>\n      <div *ngIf=\"showAddr && model.pinCode\" class=\"flexDiv\">\n         <div class=\"form-group flex-item\">\n            <label for=\"city\">City</label>\n            <input type=\"text\" class=\"form-control\" id=\"city\" required\n            [(ngModel)]=\"model.city\" name=\"city\" #city=\"ngModel\"/>\n            <div [hidden]=\"city.valid || city.pristine\"\n               class=\"alert alert-danger\">\n               City is required\n            </div>\n         </div>\n         <div class=\"form-group flex-item flex-item-middle\">\n            <label for=\"state\">State</label>\n            <input type=\"text\" class=\"form-control\" id=\"state\" required\n            [(ngModel)]=\"model.state\" name=\"state\" #state=\"ngModel\"/>\n            <div [hidden]=\"state.valid || state.pristine\"\n               class=\"alert alert-danger\">\n               State is required\n            </div>\n         </div>\n         <div class=\"form-group flex-item\">\n            <label for=\"country\">Country</label>\n            <input type=\"text\" class=\"form-control\" id=\"country\" required\n            [(ngModel)]=\"model.country\" name=\"country\" #country=\"ngModel\"/>\n            <div [hidden]=\"country.valid || country.pristine\"\n               class=\"alert alert-danger\">\n               Country is required\n            </div>\n         </div>\n      </div>\n      <div class=\"form-group\">\n         <label for=\"name\">Website</label>\n         <input type=\"text\" class=\"form-control\" id=\"website\"\n         required\n         [(ngModel)]=\"model.website\" name=\"website\"\n         #website=\"ngModel\"/>\n         <div [hidden]=\"website.valid || website.pristine\"\n            class=\"alert alert-danger\">\n            Website Address is required\n         </div>\n      </div>\n      <div class=\"dropdown-flex\">\n         <div class=\"form-group dropdown-category\" >\n            <label for=\"name\">Business Category</label>\n            <select name=\"state\" ngModel class=\"form-control\" id=\"category\"\n            required\n            [(ngModel)]=\"model.category\" name=\"category\"\n            #category=\"ngModel\">\n            <option value=\"\" disabled>Select Category</option>\n            <option *ngFor=\"let data of categoryInfo\" [ngValue]=\"data.id\">\n            {{ data.name }}\n            </option>\n            </select>\n         </div>\n         <div class=\"form-group dropdown-register\" >\n            <label for=\"name\">Registration Info</label>\n            <select name=\"reg\" ngModel class=\"form-control\" id=\"reg\"\n            required\n            [(ngModel)]=\"model.reg\" name=\"reg\"\n            #reg=\"ngModel\">\n            <option value=\"\" disabled>Registration Info</option>\n            <option *ngFor=\"let data of registerInfo\" [ngValue]=\"data.id\">\n            {{ data.name }}\n            </option>\n            </select>\n         </div>\n      </div>\n      <div class=\"form-group\" *ngIf='model.reg'>\n         <label for=\"name\">Enter Id Proof Number</label>\n         <input type=\"text\" class=\"form-control\" id=\"regDetails\"\n         required\n         [(ngModel)]=\"model.regProof\" name=\"regDetails\"\n         #regDetails=\"ngModel\"/>\n         <div [hidden]=\"regDetails.valid || regDetails.pristine\"\n            class=\"alert alert-danger\">\n            Proof Id  is required\n         </div>\n      </div>\n      <button type=\"submit\" class=\"btn btn-success btn-block\" [disabled]=\"!signup.form.valid\" >{{formSubmitName}}</button>\n      </form>\n   </div>\n</div>\n<div [hidden]=\"!submitted\" class=\"alert alert-success alert-dismissible\">\n   <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\" routerLink=\"/userData\" routerLinkActive=\"active\">&times;</a>\n   <strong style=\"text-align:center\">Sign Up successful!!\n   <small> <a href=\"#\" routerLink=\"/signIn\" routerLinkActive=\"active\">click here</a></small>to Sign In\n   </strong>\n</div>\n"
+module.exports = "<div class=\"\" *ngIf ='!showbusinessList &&   this.businessEditableForm'>\n  <button type=\"button\"  class=\"btn btn-primary\" name=\"button\" (click)=\"showbusinessList = true\">Show List</button>\n</div>\n<div  *ngIf ='showbusinessList'>\n  <h2>Business List</h2>\n<ul class=\"list-group\" >\n  <li class=\"list-group-item\" *ngFor=\"let item of businessList.businessDetails; let indexVal=index \" (click)='viewBusinessDetails(indexVal)'>{{item.companyName}}</li>\n</ul>\n</div>\n<div class=\"\" *ngIf =\"formTitle == 'Registration Form'\">\n<button class=\"btn btn-primary btn-block\" routerLink=\"/IndividualReg\">Individual Registration</button>\n</div>\n<div class=\"signUp col-sm-12 col-md-6 col-md-offset-3\" *ngIf ='!showbusinessList'>\n   <div [hidden]=\"submitted\">\n      <h1>{{formTitle}}</h1>\n      <form (ngSubmit)=\"onSubmit(); signup.reset()\" #signup=\"ngForm\" class=\"signup-form\">\n        <div *ngIf='registrationFailed' class=\"alert alert-danger\" (click)=\"registrationFailed = null\">\n  \t\t\t\t<strong>{{registrationFailed}}</strong>\n  \t\t\t</div>\n      <div class=\"form-group\">\n         <label for=\"name\">Company Name / Business name</label>\n         <input type=\"text\" class=\"form-control\" id=\"name\"\n         required\n         [(ngModel)]=\"model.businessDetails[0].companyName\" name=\"name\"\n         #name=\"ngModel\"/>\n         <div [hidden]=\"name.valid || name.pristine\"\n            class=\"alert alert-danger\">\n            Company Name / Business name is required\n         </div>\n      </div>\n      <div class=\"form-group\" *ngIf='!addNew'>\n         <label for=\"name\">Owner / Manager name</label>\n         <input type=\"text\" class=\"form-control\" id=\"ownername\"\n         required\n         [(ngModel)]=\"model.ownerName\" name=\"ownername\"\n         #ownername=\"ngModel\" />\n         <div [hidden]=\"ownername.valid || ownername.pristine\"\n            class=\"alert alert-danger\">\n            Owner / Manager name is required\n         </div>\n      </div>\n      <div class=\"form-group\" *ngIf='!addNew'>\n         <label for=\"name\">Mobile number</label>\n         <input type=\"text\" class=\"form-control\"\n         required [readonly]=\"businessEditableForm\"\n         (keyup.enter)=\"doesUserExist(mobile.value);\"\n         (change)=\"doesUserExist(mobile.value);validation('pattern_mobile',mobile.value)\"\n         [(ngModel)]=\"model.mobile\" name=\"mobile\"\n         #mobile=\"ngModel\"/>\n         <div [hidden]=\"mobile.valid || mobile.pristine\"\n            class=\"alert alert-danger\">\n            <span *ngIf='!mobilecheck'>mobile number is required</span>\n                  <span *ngIf='mobilecheck'>mobile number already exist</span>\n         </div>\n      </div>\n      <div class=\"form-group\" *ngIf='!addNew'>\n         <label for=\"name\">Password</label>\n         <input type=\"password\" class=\"form-control\" id=\"password\" [readonly]=\"businessEditableForm\"\n         required   (change)=\"validation('pattern_password',password.value)\"\n         [(ngModel)]=\"model.password\" name=\"password\" placeholder=\"Min 6 Characters\"\n         #password=\"ngModel\"/>\n         <div [hidden]=\"password.valid || password.pristine\"\n            class=\"alert alert-danger\">\n            password is required\n         </div>\n      </div>\n      <div class=\"form-group\" *ngIf='!addNew'>\n         <label for=\"alterEgo\">Email address</label>\n         <input type=\"text\" class=\"form-control\" id=\"email\" [readonly]=\"businessEditableForm\"\n         (change)=\"validation('pattern_email',email.value)\" required\n         [(ngModel)]=\"model.email\" #email=\"ngModel\" name=\"alterEgo\">\n         <div [hidden]=\"email.valid || email.pristine\"\n            class=\"alert alert-danger\">\n            Email is required\n         </div>\n      </div>\n      <div class=\"form-group\">\n         <label for=\"name\">Business address</label>\n         <input type=\"text\" class=\"form-control\" id=\"businessAddr\"\n         required\n         [(ngModel)]=\"model.businessDetails[0].businessAddress\" name=\"businessAddr\"\n         #businessAddr=\"ngModel\"/>\n         <div [hidden]=\"businessAddr.valid || businessAddr.pristine\"\n            class=\"alert alert-danger\">\n            Business Address is required\n         </div>\n      </div>\n      <div  class=\"flexDiv\">\n      <div class=\"form-group flex-item-buAdd\">\n         <label for=\"name\">PIN Code</label>\n         <input type=\"text\" class=\"form-control\" id=\"pin\"\n         required  (change)=\"validation('pattern_pinCode',pin.value)\"\n         [(ngModel)]=\"model.businessDetails[0].pinCode\" name=\"pin\"\n         #pin=\"ngModel\"/>\n         <div [hidden]=\"pin.valid || pin.pristine\"\n            class=\"alert alert-danger\">\n            PIN Code is required\n         </div>\n      </div>\n      <div  class=\"form-group flex-item-getAdd\">\n          <button type=\"button\" class=\"btn btn-success btn-block\"\n          [disabled]=\"!model.businessDetails[0].pinCode\"\n          (click)=\"update(pin.value)\">\n          Get Location\n        </button>\n      </div>\n    </div>\n      <div *ngIf=\"showAddr && model.businessDetails[0].pinCode\" class=\"flexDiv\">\n         <div class=\"form-group flex-item\">\n            <label for=\"city\">City</label>\n            <input type=\"text\" class=\"form-control\" id=\"city\" required\n            [(ngModel)]=\"model.businessDetails[0].city\" name=\"city\" #city=\"ngModel\"/>\n            <div [hidden]=\"city.valid || city.pristine\"\n               class=\"alert alert-danger\">\n               City is required\n            </div>\n         </div>\n         <div class=\"form-group flex-item flex-item-middle\">\n            <label for=\"state\">State</label>\n            <input type=\"text\" class=\"form-control\" id=\"state\" required\n            [(ngModel)]=\"model.businessDetails[0].state\" name=\"state\" #state=\"ngModel\"/>\n            <div [hidden]=\"state.valid || state.pristine\"\n               class=\"alert alert-danger\">\n               State is required\n            </div>\n         </div>\n         <div class=\"form-group flex-item\">\n            <label for=\"country\">Country</label>\n            <input type=\"text\" class=\"form-control\" id=\"country\" required\n            [(ngModel)]=\"model.businessDetails[0].country\" name=\"country\" #country=\"ngModel\"/>\n            <div [hidden]=\"country.valid || country.pristine\"\n               class=\"alert alert-danger\">\n               Country is required\n            </div>\n         </div>\n      </div>\n      <div class=\"form-group\">\n         <label for=\"name\">Website</label>\n         <input type=\"text\" class=\"form-control\" id=\"website\"\n         required\n         [(ngModel)]=\"model.businessDetails[0].website\" name=\"website\"\n         #website=\"ngModel\"/>\n         <div [hidden]=\"website.valid || website.pristine\"\n            class=\"alert alert-danger\">\n            Website Address is required\n         </div>\n      </div>\n      <div class=\"dropdown-flex\">\n         <div class=\"form-group dropdown-category\" >\n            <label for=\"name\">Business Category</label>\n            <select name=\"state\" ngModel class=\"form-control\" id=\"category\"\n            required\n            [(ngModel)]=\"model.businessDetails[0].category\" name=\"category\"\n            #category=\"ngModel\">\n            <option value=\"\" disabled>Select Category</option>\n            <option *ngFor=\"let data of categoryInfo\" [ngValue]=\"data.id\">\n            {{ data.name }}\n            </option>\n            </select>\n         </div>\n         <div class=\"form-group dropdown-register\" >\n            <label for=\"name\">Registration Info</label>\n            <select name=\"reg\" ngModel class=\"form-control\" id=\"reg\"\n            required\n            [(ngModel)]=\"model.businessDetails[0].reg\" name=\"reg\"\n            #reg=\"ngModel\">\n            <option value=\"\" disabled>Registration Info</option>\n            <option *ngFor=\"let data of registerInfo\" [ngValue]=\"data.id\">\n            {{ data.name }}\n            </option>\n            </select>\n         </div>\n      </div>\n      <div class=\"form-group\" *ngIf='model.businessDetails[0].reg'>\n         <label for=\"name\">Enter Id Proof Number</label>\n         <input type=\"text\" class=\"form-control\" id=\"regDetails\"\n         required\n         [(ngModel)]=\"model.businessDetails[0].regProof\" name=\"regDetails\"\n         #regDetails=\"ngModel\"/>\n         <div [hidden]=\"regDetails.valid || regDetails.pristine\"\n            class=\"alert alert-danger\">\n            Proof Id  is required\n         </div>\n      </div>\n      <button type=\"submit\" class=\"btn btn-success btn-block\" [disabled]=\"!signup.form.valid\" >{{formSubmitName}}</button>\n      </form>\n   </div>\n</div>\n<div [hidden]=\"!submitted\" class=\"alert alert-success alert-dismissible\">\n   <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\" routerLink=\"/userData\" routerLinkActive=\"active\">&times;</a>\n   <strong style=\"text-align:center\">Sign Up successful!!\n   <small> <a href=\"#\" routerLink=\"/signIn\" routerLinkActive=\"active\">click here</a></small>to Sign In\n   </strong>\n</div>\n"
 
 /***/ }),
 
@@ -1629,7 +2249,29 @@ var SignupComponent = /** @class */ (function () {
         this.pattern_mobile = /([0-9]){10}/g;
         this.pattern_pinCode = /([0-9]){6}/g;
         this.pattern_password = /([0-9a-zA-Z]){6,20}/g;
-        this.model = { "companyName": "", "ownerName": "", "mobile": "", "password": "", "email": "", "businessAddress": "", "pinCode": "", "city": "", "state": "", "country": "", "website": "", "category": "", "regProof": "", "reg": "" };
+        //public model={"companyName":"","ownerName":"","mobile":"","password":"","email":"","businessAddress":"","pinCode":"","city":"","state":"","country":"","website":"","category":"","regProof":"","reg":""};
+        this.model = {
+            "registrationId": '',
+            "ownerName": "",
+            "mobile": "",
+            "password": "",
+            "email": "",
+            "businessDetails": [
+                {
+                    "companyName": "",
+                    "businessAddress": "",
+                    "pinCode": "",
+                    "city": "",
+                    "state": "",
+                    "country": "",
+                    "website": "",
+                    "category": "",
+                    "regProof": "",
+                    "reg": "",
+                    "businessDetailId": ''
+                }
+            ]
+        };
     }
     SignupComponent.prototype.ngOnInit = function () {
         //alert(this.router.url)
@@ -1683,9 +2325,9 @@ var SignupComponent = /** @class */ (function () {
     SignupComponent.prototype.locDeatils = function (data) {
         if (data) {
             var addrDataArr = data.results[0].formatted_address.split(',');
-            this.model['country'] = addrDataArr[addrDataArr.length - 1].trim();
-            this.model['state'] = addrDataArr[addrDataArr.length - 2].trim();
-            this.model['city'] = addrDataArr[addrDataArr.length - 3].trim();
+            this.model.businessDetails[0].country = addrDataArr[addrDataArr.length - 1].trim();
+            this.model.businessDetails[0].state = addrDataArr[addrDataArr.length - 2].trim();
+            this.model.businessDetails[0].city = addrDataArr[addrDataArr.length - 3].trim();
             this.showAddr = true;
         }
     };
@@ -1728,8 +2370,8 @@ var SignupComponent = /** @class */ (function () {
             console.log('showBuList::');
             console.log(data);
             _this.businessList = data;
-            if (_this.businessList.length == 1) {
-                _this.viewBusinessDetails(_this.businessList[0]);
+            if (_this.businessList.businessDetails.length == 1) {
+                _this.viewBusinessDetails(0);
             }
             else {
                 _this.showbusinessList = true;
@@ -1738,10 +2380,14 @@ var SignupComponent = /** @class */ (function () {
             _this.toastr.error("", "ERROR!!", { toastLife: '3000' });
         });
     };
-    SignupComponent.prototype.viewBusinessDetails = function (data) {
-        this.model = data;
+    SignupComponent.prototype.viewBusinessDetails = function (index) {
+        var obj = this.businessList.businessDetails[index];
+        this.businessList.businessDetails.splice(index, 1);
+        this.businessList.businessDetails.unshift(obj);
+        console.log(this.businessList);
+        this.model = this.businessList;
         this.formSubmitName = 'Submit';
-        this.formTitle = data.companyName;
+        this.formTitle = this.businessList.businessDetails[0].companyName;
         this.showbusinessList = false;
     };
     SignupComponent.prototype.editBusiness = function (dataJson) {
@@ -1749,7 +2395,7 @@ var SignupComponent = /** @class */ (function () {
         this._demoService.editBusinessService(dataJson).subscribe(function (data) {
             console.log("Data saved successfully!");
             _this.toastr.success("successfully added", "Success", { toastLife: '5000' });
-            return true;
+            _this.router.navigate(['/', 'userData']);
         }, function (error) {
             console.error("Error saving data!");
             _this.toastr.error("Error saving data!", "ERROR!!", { toastLife: '5000' });
@@ -1831,7 +2477,7 @@ module.exports = ".dropdown:hover>.dropdown-menu {\r\n  display: block;\r\n}\r\n
 /***/ "./src/app/user-data/user-data.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\">\n\n<nav class=\"navbar fixed-top navbar-expand-lg navbar-light bg-light\">\n\n  <div class=\"navbar-header\">\n        <a class=\"navbar-brand\"><h2>SMyData</h2></a>\n  </div>\n  <div class=\"collapse navbar-collapse profileView\" id=\"navbarSupportedContent \">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item dropdown\">\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n          <button type=\"button\" name=\"button\"> profile</button>\n        </a>\n        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n          <li class=\"dropdown-item\" routerLink=\"/userData/addNew\" ><button class=\"btn btn-primary drpBtn\"  type=\"button\" name=\"button\">Add New Business</button> </li>\n          <li class=\"dropdown-item\" routerLink=\"/userData/myInfo\"><button class=\"btn btn-primary drpBtn\" type=\"button\" name=\"button\">My Info</button></li>\n          <li class=\"dropdown-item\" routerLink=\"/userData/businessPlan\"><button class=\"btn btn-primary drpBtn\" type=\"button\" name=\"button\">My Business Plan</button></li>\n          <div class=\"dropdown-divider\"></div>\n          <li class=\"dropdown-item\" routerLink=\"/signIn\"><button class=\"btn btn-primary drpBtn\" type=\"button\" name=\"button\">Sign Out</button></li>\n        </div>\n      </li>\n    </ul>\n  </div>\n</nav>\n</div>\n<div class=\"row\" style=\"margin-top:75px\">\n  <div class=\"border border-primary col-md-2\" >\n    <nav class=\"nav flex-column\">\n    <span class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/invoice\" >Invoice</span>\n    <span class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/payables\">Payables</span>\n    <span class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/receivables\">Receivables</span>\n    <span class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/salesReport\">Sales Report</span>\n    <span class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/raiseTicket\">Raise Ticket</span>\n  </nav>\n  </div>\n  <div class=\"col-md-10\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
+module.exports = "\n<div class=\"row\" style=\"padding-top:10px\">\n  <div class=\"border border-primary col-md-2\" >\n    <nav class=\"nav flex-column\">\n    <h3 class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/invoice\" >Invoice</h3>\n    <h3 class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/payables\">Payables</h3>\n    <h3 class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/receivables\">Receivables</h3>\n    <h3 class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/salesReport\">Sales Report</h3>\n    <h3 class=\"nav-link active font-weight-bold font-italic\" routerLink=\"/userData/raiseTicket\">Raise Ticket</h3>\n  </nav>\n  </div>\n  <div class=\"col-md-10\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
 
 /***/ }),
 

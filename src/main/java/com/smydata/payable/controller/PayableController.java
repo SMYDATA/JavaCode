@@ -1,20 +1,17 @@
 package com.smydata.payable.controller;
 
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,11 +24,11 @@ import com.smydata.model.util.SmydataConstant;
 import com.smydata.payable.service.PayableService;
 import com.smydata.registration.model.Payable;
 import com.smydata.registration.model.PayableReceivable;
-import com.smydata.registration.model.Registration;
 
 @RestController
 @RequestMapping("/api")
 @SessionAttributes("registration")
+@CrossOrigin
 public class PayableController implements SmydataConstant{
 	
 	@Autowired
@@ -48,7 +45,7 @@ public class PayableController implements SmydataConstant{
 	 * @return
 	 */
 	@PostMapping("/savePayables/{action}/{paymentFlag}")
-	public ResponseEntity<?> savePayables(@RequestBody List<Payable> payables,@PathVariable("action") String action, @PathVariable("paymentFlag") String paymentFlag,HttpServletRequest request){
+	public ResponseEntity<?> savePayables(@RequestBody List<Payable> payables,@PathVariable("action") String action, @PathVariable("paymentFlag") String paymentFlag){
 		
 		logger.info("===>Begin Execution of savePayable===>");
 		String mobile = "";
@@ -98,22 +95,25 @@ public class PayableController implements SmydataConstant{
 				}
 				 payableService.saveOwnerPayables(payables);
 				List<Payable> latestPayables = payableService.getOwnerPayables(mobile,actionVal);//get updated data
-				PayableReceivable payableReceivable = new PayableReceivable();
-				balanceAmount = getBalanceAmount(latestPayables);
-				payableReceivable.setBalAmount(balanceAmount);
-				payableReceivable.setPaybleReceivables(latestPayables);
-				payableReceivables.add(payableReceivable);
+				if(latestPayables != null && !latestPayables.isEmpty()) {
+					PayableReceivable payableReceivable = new PayableReceivable();
+					balanceAmount = getBalanceAmount(latestPayables);
+					payableReceivable.setBalAmount(balanceAmount);
+					payableReceivable.setPaybleReceivables(latestPayables);
+					payableReceivables.add(payableReceivable);	
+				}
+				
 				if(payableReceivables != null && payableReceivables.size()>0){
 					results = new ResponseEntity<>(payableReceivables, HttpStatus.OK);
 				} else {
-					results = new ResponseEntity<>(payableReceivables,HttpStatus.NOT_FOUND);
+					results = new ResponseEntity<>(payableReceivables,HttpStatus.OK);
 				}
 				
 		}
 		catch(Exception e){
 			logger.error("Error occured while saving Payables for owner mobile::[{}] and error is: {}",mobile,e);
 		}
-		logger.info("***End Execution of savePayable()***");
+		logger.info("===>End Execution of savePayable()===>");
 		return results;
 	}
 	
@@ -147,7 +147,7 @@ public class PayableController implements SmydataConstant{
 					payableReceivables.add(payableReceivable);
 					results = new ResponseEntity<>(payableReceivables, HttpStatus.OK);
 				} else {
-					results = new ResponseEntity<>(payableReceivables,HttpStatus.NOT_FOUND);
+					results = new ResponseEntity<>(payableReceivables,HttpStatus.OK);
 				}
 				
 		}

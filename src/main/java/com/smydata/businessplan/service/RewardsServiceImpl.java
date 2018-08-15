@@ -14,13 +14,15 @@ public class RewardsServiceImpl implements RewardsService {
 	
 	@Override
 	public Rewards saveReward(Rewards rewards) {
-		// TODO Auto-generated method stub
-		return rewardsRepository.save(rewards);
+		if(rewards != null) {
+			return rewardsRepository.save(rewards);
+		} else {
+			return null;
+		}
 	}
 
 	@Override
 	public Rewards getRewards(String mobile) {
-		// TODO Auto-generated method stub
 		return rewardsRepository.findByMobile(mobile);
 	}
 

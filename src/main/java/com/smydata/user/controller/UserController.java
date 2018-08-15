@@ -11,6 +11,9 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,10 +37,11 @@ import com.smydata.user.service.UserService;
 @RestController
 @RequestMapping("/api")
 @SessionAttributes("registration")
+@CrossOrigin
 public class UserController {
 
 	@Autowired
-	UserService UserService;
+	UserService userService;
 	
 	@Autowired
 	RewardsService rewardsService;
@@ -50,23 +54,19 @@ public class UserController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
-	@GetMapping("/userData")
-	public User getUserData(){
-		return new User();
-	}
-	
 	@GetMapping("/getUserDetail/{mobile}")
-	public List<UserBean> getUserDetail(@PathVariable("mobile") String mobile,/* @PathVariable("action") String action,*/HttpServletRequest request){
+	public ResponseEntity<?> getUserDetail(@PathVariable("mobile") String mobile,/* @PathVariable("action") String action,*/HttpServletRequest request){
 		
 		logger.info("***Begin Execution of getUserDetail***");
 		List<UserBean> userData = new ArrayList<UserBean>();
+		ResponseEntity<?> results = null;
 		HttpSession session = request.getSession();
 		Registration reg = null;
 		User user = null;
 		String ownerMobile = "";
 		try{
 			if(mobile == null)
-				return userData;
+				return results;
 			
 			if(session!=null){
 				reg = (Registration) session.getAttribute("registration");
@@ -76,29 +76,33 @@ public class UserController {
 				ownerMobile = reg.getMobile();
 			}
 			
-			 user = UserService.findCustomer(mobile);
+			 user = userService.findCustomer(mobile);
 			if(user != null){
 				List<Discounts> discounts = SmydataUtility.getDiscounts(ownerMobile,discountsService); //Get discounts configuration
 				UserBean userBean = getUserDetails(user);
 				userBean.setDiscounts(discounts);
 				userData.add(userBean);
+				results = new ResponseEntity<>(userData, HttpStatus.OK);
+			} else {
+				results = new ResponseEntity<>(userData,HttpStatus.OK);
 			}
 				
 		}
 		catch(Exception e){
-			logger.error("Error occured while getting user details:: "+e);
+			logger.error("Error occured while getting for user [{}] and error is:{} ",mobile,e);
 		}
 		
-		return userData;
+		return results;
 	}
 	
 	
 	@PostMapping("/saveUser")
-	public List<UserBean> saveUser(@RequestBody User user,HttpServletRequest request){
+	public ResponseEntity<?> saveUser(@RequestBody User user,HttpServletRequest request){
 		
 		logger.info("***Begin Execution of saveUser***");
 		HttpSession session = request.getSession();
 		List<UserBean> userData = new ArrayList<UserBean>();
+		ResponseEntity<?> results = null;
 		Registration reg = null;
 		String mobile = "";
 		try{
@@ -115,19 +119,22 @@ public class UserController {
 					user.setRewardPoints(rewards.getBonusPoints());
 				Calendar currenttime = Calendar.getInstance();
 				user.setCreateDate(new Date((currenttime.getTime()).getTime()));
-				user = UserService.saveCustomer(user);
+				User savedUser = userService.saveCustomer(user);
 				List<Discounts> discounts = SmydataUtility.getDiscounts(mobile,discountsService); //Get discounts configuration
-				UserBean userBean = getUserDetails(user);
+				UserBean userBean = getUserDetails(savedUser);
 				userBean.setDiscounts(discounts);
 				userData.add(userBean);
+				results = new ResponseEntity<>(userData, HttpStatus.OK);
+			} else {
+				results = new ResponseEntity<>(userData,HttpStatus.OK);
 			}
 			
 		}
 		catch(Exception e){
-			logger.error("Error occured while saving user details:: "+e);
+			logger.error("Error occured while saving user details for BO [{}] and error is:  ",reg !=null?reg.getMobile():"UNKNOWN",e);
 		}
 		
-		return userData;
+		return results;
 	}
 	
 	private UserBean getUserDetails(User user){

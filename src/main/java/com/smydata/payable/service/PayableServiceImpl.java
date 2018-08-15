@@ -20,14 +20,13 @@ public class PayableServiceImpl implements PayableService{
 	JdbcTemplate JdbcTemplate;
 
 	@Override
-	public void saveOwnerPayables(List<Payable> payables) {
-		payableRepository.saveAll(payables);
+	public List<Payable> saveOwnerPayables(List<Payable> payables) {
+		return payableRepository.saveAll(payables);
 		
 	}
 
 	@Override
 	public List<Payable> getOwnerPayables(String mobile, String code) {
-		// TODO Auto-generated method stub
 		return JdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,CREATE_DATE,INVOICE_IMAGE,MOBILE FROM PAYABLE_RECEIVABLE WHERE MOBILE = ? AND CODE = ?",new Object[]{mobile,code},new BeanPropertyRowMapper<Payable>(Payable.class));
 //		return payableRepository.findByMobile(mobile);
 	}
