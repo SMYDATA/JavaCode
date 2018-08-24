@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.smydata.businessplan.service.DiscountsService;
-import com.smydata.registration.controller.RegistrationController;
 import com.smydata.registration.model.Discounts;
 import com.smydata.registration.model.Registration;
 
@@ -47,7 +46,7 @@ public class DiscountsController {
 			if(session!=null){
 				Registration reg = (Registration) session.getAttribute("registration");
 				if(reg!=null){
-					logger.info("===>getDiscounts mob no===>"+reg.getMobile());
+					logger.info("===>getDiscounts mob no [{}]",reg.getMobile());
 					mobile = reg.getMobile();
 				}
 			}
@@ -73,7 +72,7 @@ public class DiscountsController {
 			
 		}
 		catch(Exception e){
-			logger.error("Error occured while getting discounts :: "+e);
+			logger.error("Error occured while getting discounts :: ",e);
 		}
 		logger.info("===>End Execution of getDiscounts method ===>");
 		return results;
@@ -81,7 +80,6 @@ public class DiscountsController {
 	
 	@PostMapping("/savediscounts")
 	public ResponseEntity<?> saveDiscounts(@RequestBody List<Discounts> discounts,HttpServletRequest request){
-		if(discounts != null)
 		logger.info("Begin Execution of saveDiscounts method");
 		HttpSession session = request.getSession();
 		List<Discounts> savedDiscounts = null;
@@ -114,7 +112,7 @@ public class DiscountsController {
 			}
 		}
 		catch(Exception e){
-			logger.error("Error occured while saving discounts for BO [{}] and error is: {} :: ",reg != null ?reg.getMobile():"UNKNOWN");
+			logger.error("Error occured while saving discounts for BO [{}] and error is: {} :: ",reg != null ?reg.getMobile():"UNKNOWN",e);
 		}
 		logger.info("===>End Execution of saveDiscounts method ===>");
 		return results;

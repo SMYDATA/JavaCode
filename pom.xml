@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.smydata</groupId>
-	<artifactId>registration</artifactId>
+	<artifactId>smydata</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>registration</name>
+	<name>smydata</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -52,6 +52,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-tomcat</artifactId>
+		<scope>provided</scope>
 		</dependency>
 		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>

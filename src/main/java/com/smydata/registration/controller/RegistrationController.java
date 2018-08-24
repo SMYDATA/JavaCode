@@ -26,7 +26,6 @@ import com.smydata.model.util.SmydataConstant;
 import com.smydata.registration.model.BusinessDetail;
 import com.smydata.registration.model.Registration;
 import com.smydata.registration.model.User;
-import com.smydata.registration.repository.BusinessDetailRepository;
 import com.smydata.registration.service.RegistrationService;
 import com.smydata.user.service.UserService;
 
@@ -127,7 +126,7 @@ public class RegistrationController implements SmydataConstant {
 	private String validateData(Registration registration) {
 		logger.info("Begin validating user details");
 		List<Registration> registrationList = registrationService.getAllRegisteredDetails();
-		if(registrationList != null && registrationList.size() > 0) {
+		if(registrationList != null && !registrationList.isEmpty()) {
 			for(Registration reg :registrationList){
 				if (reg.getMobile() != null && reg.getEmail() != null
 						&& reg.getMobile().equalsIgnoreCase(registration.getMobile())
@@ -258,6 +257,7 @@ public class RegistrationController implements SmydataConstant {
 		RestTemplate restTemplate = new RestTemplate();
 		int otp = (int) Math.round(Math.random()*100000);
 		String url = String.format(API_URL, mobile,otp);
+		
 		logger.info("====>>>>>in sendOtp ============>>>>>>>>>>"+url);
 		try{
 			ResponseEntity<String> response =restTemplate.postForEntity(url,null,String.class);
