@@ -23,6 +23,26 @@ public class UserBean implements Serializable {
 	private int businessVolume;
 	
 	private List<Discounts> discounts;
+	
+	private double totalPayable;
+	
+	private double totalReceivable;
+
+	public double getTotalPayable() {
+		return totalPayable;
+	}
+
+	public void setTotalPayable(double totalPayable) {
+		this.totalPayable = totalPayable;
+	}
+
+	public double getTotalReceivable() {
+		return totalReceivable;
+	}
+
+	public void setTotalReceivable(double totalReceivable) {
+		this.totalReceivable = totalReceivable;
+	}
 
 	public String getUserMobile() {
 		return userMobile;

@@ -23,21 +23,38 @@ public class Payable implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String mobile;
+	@Column(name="bo_mobile")
+	private String boMobile;//Business Owner mobile
+	@Column(name="mobile")
+	private String mobile;//user mobile
+	@Column(name="create_date")
 	private Date createDate;
 	@Id
+	@Column(name="invoice_number")
 	private int invoiceNumber;
+	@Column(name="amount")
 	private double amount;
+	@Column(name="received")
 	private double received;
 	@Null
+	@Column(name="invoice_image")
 	private byte[] invoiceImage;
 	@Column(name="description")
 	private String desc;
+	@Column(name="code")
 	private String code;
 	public Payable() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public String getBoMobile() {
+		return boMobile;
+	}
+
+	public void setBoMobile(String boMobile) {
+		this.boMobile = boMobile;
+	}
+
 	public double getReceived() {
 		return received;
 	}

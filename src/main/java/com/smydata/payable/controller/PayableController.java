@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ import com.smydata.model.util.SmydataConstant;
 import com.smydata.payable.service.PayableService;
 import com.smydata.registration.model.Payable;
 import com.smydata.registration.model.PayableReceivable;
+import com.smydata.registration.model.Registration;
 
 @RestController
 @RequestMapping("/api")
@@ -45,23 +48,27 @@ public class PayableController implements SmydataConstant{
 	 * @return
 	 */
 	@PostMapping("/savePayables/{action}/{paymentFlag}")
-	public ResponseEntity<?> savePayables(@RequestBody List<Payable> payables,@PathVariable("action") String action, @PathVariable("paymentFlag") String paymentFlag){
+	public ResponseEntity<?> savePayables(@RequestBody List<Payable> payables,@PathVariable("action") String action, @PathVariable("paymentFlag") String paymentFlag,HttpServletRequest request){
 		
 		logger.info("===>Begin Execution of savePayable===>");
-		String mobile = "";
+		String boMobile = "";
 		String actionVal = "";
 		ResponseEntity<?> results = null;
+		Registration reg = null;
 		double balanceAmount = 0.0;
 		List<PayableReceivable> payableReceivables = new ArrayList<>();
 		List<Payable> deleteList = new ArrayList<>();
-		
 		try{
 				Calendar currenttime = Calendar.getInstance();
+				HttpSession session = request.getSession();
+				if(session!=null){
+					reg = (Registration) session.getAttribute("registration");
+					if(reg != null)
+						boMobile = reg.getMobile();
+				}
 				for(int i=0;i<payables.size();i++){
 					Payable payable = payables.get(i);
-					if(mobile.isEmpty()){
-						mobile = payable.getMobile();
-					}
+					payable.setBoMobile(boMobile);//set BO Mobile number
 					payable.setCreateDate(new Date((currenttime.getTime()).getTime()));
 					if(PAYABLE.equalsIgnoreCase(action)){
 						payable.setCode(PAYABLE_CODE); //CODE FOR PAYABLE
@@ -71,8 +78,8 @@ public class PayableController implements SmydataConstant{
 						actionVal = RECEIVABLE_CODE;
 					} 
 					//for payment/payoff
-					if(Boolean.valueOf(paymentFlag)){
-						List<Payable> paybleList = payableService.getOwnerPayables(mobile,actionVal);
+					if(paymentFlag != null && Boolean.valueOf(paymentFlag)){
+						List<Payable> paybleList = payableService.getPayablesByOwnerMobile(boMobile,actionVal);
 						for(int j=0;j<paybleList.size();j++){
 							Payable payable1 = payables.get(j);
 								if(payable.getInvoiceNumber() == payable1.getInvoiceNumber()){
@@ -94,7 +101,7 @@ public class PayableController implements SmydataConstant{
 					payables.removeAll(deleteList);//Remove before save from actual list
 				}
 				 payableService.saveOwnerPayables(payables);
-				List<Payable> latestPayables = payableService.getOwnerPayables(mobile,actionVal);//get updated data
+				List<Payable> latestPayables = payableService.getPayablesByOwnerMobile(boMobile,actionVal);//get updated data
 				if(latestPayables != null && !latestPayables.isEmpty()) {
 					PayableReceivable payableReceivable = new PayableReceivable();
 					balanceAmount = getBalanceAmount(latestPayables);
@@ -103,15 +110,15 @@ public class PayableController implements SmydataConstant{
 					payableReceivables.add(payableReceivable);	
 				}
 				
-				if(payableReceivables != null && payableReceivables.size()>0){
+				if(payableReceivables != null && !payableReceivables.isEmpty()){
 					results = new ResponseEntity<>(payableReceivables, HttpStatus.OK);
 				} else {
-					results = new ResponseEntity<>(payableReceivables,HttpStatus.OK);
+					results = new ResponseEntity<>(HttpStatus.OK);
 				}
 				
 		}
 		catch(Exception e){
-			logger.error("Error occured while saving Payables for owner mobile::[{}] and error is: {}",mobile,e);
+			logger.error("Error occured while saving Payables for owner mobile::[{}] and error is: {}",boMobile,e);
 		}
 		logger.info("===>End Execution of savePayable()===>");
 		return results;
@@ -124,24 +131,31 @@ public class PayableController implements SmydataConstant{
 	 * @param request
 	 * @return
 	 */
-	@GetMapping("/getPayables/{action}/{mob}")
-	public ResponseEntity<?> getPayables(@PathVariable("action") String action, @PathVariable("mob") String mob, HttpServletRequest request){
+	@GetMapping("/getPayables/{action}")
+	public ResponseEntity<?> getPayables(@PathVariable("action") String action, HttpServletRequest request){
 		
 		logger.info("***Begin Execution of getPayable***");
-		String mobile = "";
+		String boMobile = "";
 		double balanceAmount = 0.0;
 		ResponseEntity<?> results = null;
+		Registration reg = null;
 		List<PayableReceivable> payableReceivables = new ArrayList<>();
 		try{
+			HttpSession session = request.getSession();
+			if(session!=null){
+				reg = (Registration) session.getAttribute("registration");
+				if(reg != null)
+					boMobile = reg.getMobile();
+			}
 				if(PAYABLE.equalsIgnoreCase(action)){
 					action = PAYABLE_CODE; //CODE FOR PAYABLE
 				} else {
 					action = RECEIVABLE_CODE;//CODE FOR RECEIVABLE
 				}
-				List<Payable> payables = payableService.getOwnerPayables(mob,action);
-				if(payables != null && payables.size()>0){
+				List<Payable> payables = payableService.getPayablesByOwnerMobile(boMobile, action);
+				if(payables != null && !payables.isEmpty()){
 					PayableReceivable payableReceivable = new PayableReceivable();
-					balanceAmount = getBalanceAmount(payables);
+					balanceAmount = getBalanceAmount(payables);//Balance amount
 					payableReceivable.setBalAmount(balanceAmount);
 					payableReceivable.setPaybleReceivables(payables);
 					payableReceivables.add(payableReceivable);
@@ -152,7 +166,7 @@ public class PayableController implements SmydataConstant{
 				
 		}
 		catch(Exception e){
-			logger.error("Error occured while getting Payables for owner mobile::[{}] and error is: {}",mobile,e);
+			logger.error("Error occured while getting Payables for owner mobile::[{}] and error is: {}",boMobile,e);
 		}
 		logger.info("***End Execution of getPayable***");
 		return results;

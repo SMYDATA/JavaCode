@@ -6,11 +6,13 @@ import java.util.List;
 
 import com.smydata.businessplan.service.DiscountsService;
 import com.smydata.businessplan.service.RewardsService;
+import com.smydata.payable.service.PayableService;
 import com.smydata.registration.model.Discounts;
 import com.smydata.registration.model.Invoice;
+import com.smydata.registration.model.Payable;
 import com.smydata.registration.model.Rewards;
 
-public class SmydataUtility {
+public class SmydataUtility implements SmydataConstant{
 
 	public static Rewards getRewards(String mobile,RewardsService rewardsService){
 		Rewards rewards = rewardsService.getRewards(mobile);
@@ -70,5 +72,26 @@ public class SmydataUtility {
 		return discountsList;
 	}
 	
+	public static double getUserTotalPayable(PayableService payableService,String userMobile) {
+		double totalPayable = 0.0;
+		List<Payable> payables = payableService.getOwnerPayables(userMobile, PAYABLE_CODE);
+		if(payables != null && !payables.isEmpty()) {
+			for(Payable payable:payables ) {
+				totalPayable = totalPayable + payable.getAmount();
+			}
+		}
+		return totalPayable;
+	}
+
+	public static double getUserTotalReceivable(PayableService payableService,String userMobile) {
+		double totalReceivable = 0.0; 
+		List<Payable> receivables = payableService.getOwnerPayables(userMobile, RECEIVABLE_CODE);
+		if(receivables != null && !receivables.isEmpty()) {
+			for(Payable payable:receivables ) {
+				totalReceivable = totalReceivable + payable.getAmount();
+			}
+		}
+		return totalReceivable;
+	}
 	
 }

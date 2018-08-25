@@ -26,14 +26,18 @@ public class PayableServiceImpl implements PayableService{
 	}
 
 	@Override
-	public List<Payable> getOwnerPayables(String mobile, String code) {
-		return JdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,CREATE_DATE,INVOICE_IMAGE,MOBILE FROM PAYABLE_RECEIVABLE WHERE MOBILE = ? AND CODE = ?",new Object[]{mobile,code},new BeanPropertyRowMapper<Payable>(Payable.class));
-//		return payableRepository.findByMobile(mobile);
+	public List<Payable> getOwnerPayables(String userMobile, String code) {
+		return JdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,CREATE_DATE,INVOICE_IMAGE,MOBILE FROM PAYABLE_RECEIVABLE WHERE MOBILE = ? AND CODE = ?",new Object[]{userMobile,code},new BeanPropertyRowMapper<Payable>(Payable.class));
 	}
 
 	@Override
 	public void deletePaidInvoice(List<Payable> payables) {
 		payableRepository.deleteAll(payables);		
+	}
+
+	@Override
+	public List<Payable> getPayablesByOwnerMobile(String boMobile, String code) {
+		return JdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,CREATE_DATE,DESCRIPTION AS DESC,INVOICE_IMAGE,MOBILE,BO_MOBILE FROM PAYABLE_RECEIVABLE WHERE BO_MOBILE = ? AND CODE = ?",new Object[]{boMobile,code},new BeanPropertyRowMapper<Payable>(Payable.class));
 	}
 
 }

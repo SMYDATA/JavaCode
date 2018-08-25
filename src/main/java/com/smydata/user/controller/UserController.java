@@ -26,6 +26,7 @@ import com.smydata.businessplan.service.DiscountsService;
 import com.smydata.businessplan.service.InvoiceDetailService;
 import com.smydata.businessplan.service.RewardsService;
 import com.smydata.model.util.SmydataUtility;
+import com.smydata.payable.service.PayableService;
 import com.smydata.registration.model.Discounts;
 import com.smydata.registration.model.Invoice;
 import com.smydata.registration.model.Registration;
@@ -52,12 +53,15 @@ public class UserController {
 	@Autowired
 	InvoiceDetailService invoiceDetailService;
 	
+	@Autowired
+	PayableService payableService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@GetMapping("/getUserDetail/{mobile}")
 	public ResponseEntity<?> getUserDetail(@PathVariable("mobile") String mobile,/* @PathVariable("action") String action,*/HttpServletRequest request){
 		
-		logger.info("***Begin Execution of getUserDetail***");
+		logger.info("===>Begin Execution of getUserDetail===>");
 		List<UserBean> userData = new ArrayList<UserBean>();
 		ResponseEntity<?> results = null;
 		HttpSession session = request.getSession();
@@ -65,19 +69,23 @@ public class UserController {
 		User user = null;
 		String ownerMobile = "";
 		try{
-			if(mobile == null)
+			if(mobile == null) {
+				logger.info("===>User mobile is null===> ");
 				return results;
+			}
 			
 			if(session!=null){
 				reg = (Registration) session.getAttribute("registration");
+				if(reg != null){
+					logger.info("===> In getUserDetail() BO mob no===>"+reg.getMobile());
+					ownerMobile = reg.getMobile();
+				}
 			}
-			if(reg != null){
-				logger.info("===>getRewards mob no===>"+reg.getMobile());
-				ownerMobile = reg.getMobile();
-			}
+			
 			
 			 user = userService.findCustomer(mobile);
 			if(user != null){
+				logger.info("===>User details found for mobile [{}]===> ",mobile);
 				List<Discounts> discounts = SmydataUtility.getDiscounts(ownerMobile,discountsService); //Get discounts configuration
 				UserBean userBean = getUserDetails(user);
 				userBean.setDiscounts(discounts);
@@ -91,7 +99,7 @@ public class UserController {
 		catch(Exception e){
 			logger.error("Error occured while getting for user [{}] and error is:{} ",mobile,e);
 		}
-		
+		logger.info("===>End Execution of getUserDetail===>");
 		return results;
 	}
 	
@@ -147,6 +155,8 @@ public class UserController {
 		userBean.setRewardPoints(user.getRewardPoints());
 		userBean.setUserMobile(user.getUserMobile());
 		userBean.setUserName(user.getUserName());
+		userBean.setTotalPayable(SmydataUtility.getUserTotalPayable(payableService, user.getUserMobile()));//Total payable
+		userBean.setTotalReceivable(SmydataUtility.getUserTotalReceivable(payableService, user.getUserMobile()));//Total receivable
 		return userBean;
 	}
 
