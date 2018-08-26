@@ -134,6 +134,7 @@ public class InvoiceDetailController implements SmydataConstant {
 					 if(inv != null){
 						 	invoiceData.add(inv);
 							Payable payable = new Payable();
+							payable.setBoMobile(reg != null?reg.getMobile():"");
 							payable.setMobile(invoice.getUserMobile());
 							payable.setInvoiceNumber(inv.getInvId());
 							payable.setCode(RECEIVABLE_CODE);
