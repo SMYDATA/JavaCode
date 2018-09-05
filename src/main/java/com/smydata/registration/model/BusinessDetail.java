@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -22,8 +23,6 @@ public class BusinessDetail implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="Business_Detail_id")
 	private long BusinessDetailId;
-	/*@Column(name="mobile_number")
-	private String mobile;*/
 	@Column(name="registration_id")
 	private Long registrationId;
 	@Column(name="company_name")
@@ -46,10 +45,48 @@ public class BusinessDetail implements Serializable{
 	private String regProof;
 	@Column(name="reg")
 	private String reg;
+	@Column(name="file_name")
+	private String fileName;
+	@Column(name="file_content")
+	@Lob
+	byte[] fileContent;
+	@Column(name = "mimetype")
+	private String mimetype;
 	
 	public BusinessDetail() {
 		super();
 	}
+	
+	public String getFileName() {
+		return fileName;
+	}
+
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+
+	public byte[] getFileContent() {
+		return fileContent;
+	}
+
+
+	public void setFileContent(byte[] fileContent) {
+		this.fileContent = fileContent;
+	}
+
+
+	public String getMimetype() {
+		return mimetype;
+	}
+
+
+	public void setMimetype(String mimetype) {
+		this.mimetype = mimetype;
+	}
+
+
 	public long getBusinessDetailId() {
 		return BusinessDetailId;
 	}
@@ -63,12 +100,6 @@ public class BusinessDetail implements Serializable{
 	public void setRegistrationId(Long registrationId) {
 		this.registrationId = registrationId;
 	}
-	/*public String getMobile() {
-		return mobile;
-	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}*/
 	public String getCompanyName() {
 		return companyName;
 	}

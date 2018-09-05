@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -30,12 +29,16 @@ public class Registration implements Serializable {
 	private Long registrationId;
 	@Column(name="owner_name")
 	private String ownerName;
+	@Column(name="last_name")
+	private String lastName;
 	@Column(name="mobile_number")
 	private String mobile;
 	@Column(name="password")
 	private String password;
 	@Column(name="email")
 	private String email;
+	@Column(name="role")
+	private String role;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="registration_id",referencedColumnName = "registration_id")
@@ -44,8 +47,27 @@ public class Registration implements Serializable {
 	public Registration() {
 		super();
 	}
-
 	
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public String getRole() {
+		return role;
+	}
+
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+
 	public String getEmail() {
 		return email;
 	}

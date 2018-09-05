@@ -64,7 +64,7 @@ public class RegistrationControllerTest {
 		Registration registration = getRegistrationMetadata();
 		String mobile = "8978446892";
 		when(registrationServiceMock.findByMobileNumber(mobile)).thenReturn(registration);
-		ResponseEntity<?> result = registrationController.loginUser(registration,"business", request);
+		ResponseEntity<?> result = registrationController.loginUser(registration, request);
 		
 		assertEquals(HttpStatus.OK, result.getStatusCode());
 		assertEquals(true,Boolean.valueOf(result.getBody().toString()));
@@ -81,7 +81,7 @@ public class RegistrationControllerTest {
 		String mobile = "8978446892";
 		
 		when(registrationServiceMock.findByMobileNumber(mobile)).thenReturn(reg);
-		ResponseEntity<?> result = registrationController.loginUser(registration,"business", request);
+		ResponseEntity<?> result = registrationController.loginUser(registration, request);
 		
 		assertEquals(HttpStatus.NOT_FOUND, result.getStatusCode());
 		verify(registrationServiceMock).findByMobileNumber(mobile);

@@ -9,6 +9,7 @@ public interface SmydataConstant {
 	public static final String REGISTRATION = "registration";
 	public static final String ADD = "add";
 	public static final String EDIT = "edit";
+	public static final String VALIDATION = "validate";
 	
 	public static final String BUSINESS = "business";
 	public static final String INDIVIDUAL = "individual";

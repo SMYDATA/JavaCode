@@ -1,15 +1,16 @@
 package com.smydata.registration.controller;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,7 +26,6 @@ import org.springframework.web.client.RestTemplate;
 import com.smydata.model.util.SmydataConstant;
 import com.smydata.registration.model.BusinessDetail;
 import com.smydata.registration.model.Registration;
-import com.smydata.registration.model.User;
 import com.smydata.registration.service.RegistrationService;
 import com.smydata.user.service.UserService;
 
@@ -51,8 +51,8 @@ public class RegistrationController implements SmydataConstant {
 	 * @return
 	 */
 	@PostMapping("/saveUser/{action}") //Action is to identify registration/add/edit
-	public ResponseEntity<?> saveUser(@PathVariable("action") String action,@RequestBody Registration registration,HttpServletRequest request) {
-		logger.info("===>Begin Execution of saveUser method and action::"+action);
+	public ResponseEntity<?> saveUser(@PathVariable("action") String action,@RequestBody Registration registration,/*@RequestParam("registration") String registration1, @RequestParam("file") MultipartFile file,*/HttpServletRequest request) {
+		logger.info("===>Begin Execution of saveUser method and action::{}",action);
 		ResponseEntity<?> results = null;
 		String message = "";
 		Registration sessionReg = null;
@@ -60,11 +60,11 @@ public class RegistrationController implements SmydataConstant {
 		try{
 			HttpSession session = request.getSession();
 			if(session!=null){
-				sessionReg = (Registration) session.getAttribute("registration");
+				sessionReg = (Registration) session.getAttribute(REGISTRATION);
 			}
-			
+//			resourceDetails = mapper.readValue(registration, new TypeReference<Registration>() {});
 			if(registration != null){
-				logger.info("saveUser mobile: "+registration.getMobile());
+				logger.info("saveUser mobile: {}",registration.getMobile());
 				if(action != null && action.equalsIgnoreCase(EDIT)) {
 					message = SUCCESS;
 					messages.add(message);
@@ -74,7 +74,7 @@ public class RegistrationController implements SmydataConstant {
 					 messages.add(message);
 				}
 				
-				 if(message != null && message.equalsIgnoreCase(SUCCESS)) {
+				 if(SUCCESS.equalsIgnoreCase(message) && !VALIDATION.equalsIgnoreCase(action) ) {
 						logger.info("==>Validation success===>");
 					 if(ADD.equalsIgnoreCase(action) && sessionReg != null){//Add new business
 							List<BusinessDetail> businessDetails = registration.getBusinessDetails();
@@ -82,6 +82,11 @@ public class RegistrationController implements SmydataConstant {
 								for(int i=0;i<businessDetails.size();i++) {
 									BusinessDetail businessDetail = businessDetails.get(i);
 									businessDetail.setRegistrationId(sessionReg.getRegistrationId());//Setting same registration ID of a BO as a BO will have multiple businesses
+									/*if(file != null) {
+										businessDetail.setFileContent(file.getBytes());
+										businessDetail.setFileName(file.getOriginalFilename());
+										businessDetail.setMimetype(file.getContentType());
+									}*/
 									businessDetails.set(i, businessDetail);
 								}
 								List<BusinessDetail> savedBusinessDetail =  registrationService.saveBusinessDetails(businessDetails);//Add new record into BusinessDetail table under the same registration ID
@@ -94,7 +99,18 @@ public class RegistrationController implements SmydataConstant {
 								}
 								
 								}
-						} else { 
+						} else {
+							/*List<BusinessDetail> businessDetails = registration.getBusinessDetails();
+							for(int i=0;i<businessDetails.size();i++) {
+								BusinessDetail businessDetail = businessDetails.get(i);
+								if(file != null) {
+									businessDetail.setFileContent(file.getBytes());
+									businessDetail.setFileName(file.getOriginalFilename());
+									businessDetail.setMimetype(file.getContentType());
+								}
+								businessDetails.set(i, businessDetail);
+								registration.setBusinessDetails(businessDetails);
+							}*/
 							Registration savedRegistration = registrationService.saveUser(registration);//Create new or update business information
 							if(savedRegistration !=null){
 								 results = new ResponseEntity<>(messages, HttpStatus.OK);
@@ -117,14 +133,14 @@ public class RegistrationController implements SmydataConstant {
 			
 		}
 		catch(Exception e){
-			logger.error("Error occured while saving user data :"+e);
+			logger.error("Error occured while saving user data :{}",e);
 		}
 		
 		return results;
 	}
 	
 	private String validateData(Registration registration) {
-		logger.info("Begin validating user details");
+		logger.info("===>Begin validating user details===>");
 		List<Registration> registrationList = registrationService.getAllRegisteredDetails();
 		if(registrationList != null && !registrationList.isEmpty()) {
 			for(Registration reg :registrationList){
@@ -147,80 +163,84 @@ public class RegistrationController implements SmydataConstant {
 		
 	}
 	
-	@PostMapping("/loginUser/{loginType}")
-	public ResponseEntity<?> loginUser(@RequestBody Registration registration, @PathVariable("loginType") String loginType, HttpServletRequest request) {
+	@PostMapping("/loginUser")
+	public ResponseEntity<?> loginUser(@RequestBody Registration registration, HttpServletRequest request) {
 		logger.info("Begin Execution of loginUser method");
-		boolean isValidUser = false;
 		ResponseEntity<?> results = null;
+		List<String> result = new ArrayList<>();
 		try{
 			HttpSession session = request.getSession();
-			/*if(session!=null){
-				Enumeration sessionAttributes = session.getAttributeNames();
-				while (sessionAttributes.hasMoreElements()) {
-					String key = (String) sessionAttributes.nextElement();
-					System.out.println("Key: "+key +" vaue:"+session.getValue(key));
-				}
-				session.removeAttribute("registration");
-				Enumeration sessionAttributes1 = session.getAttributeNames();
-				while (sessionAttributes1.hasMoreElements()) {
-					String key = (String) sessionAttributes1.nextElement();
-					System.out.println("after Key: "+key +" vaue:"+session.getValue(key));
-				}
-			}*/
-			if(registration != null && loginType !=null){
-				if(BUSINESS.equalsIgnoreCase(loginType)) {
-					logger.info("===>login Business owner mobile::"+registration.getMobile()+" and loginType::"+loginType);
+			
+			if(registration != null){
+					logger.info("===>login Business owner mobile::{}",registration.getMobile());
 					Registration registrationData= registrationService.findByMobileNumber(registration.getMobile());
 					
 					if(registrationData==null){
-						results = new ResponseEntity<>(isValidUser, HttpStatus.OK);
+						result.add("false");
+						results = new ResponseEntity<>(result, HttpStatus.OK);
 						return results;
 					} 
 					if (registration.getMobile() != null && registration.getPassword() != null
 							&& registration.getMobile().equalsIgnoreCase(registrationData.getMobile())
 							&& registration.getPassword().equals(registrationData.getPassword())) {
-							logger.info("===>login Business owner success for [{}]===>",registration.getMobile());
-							isValidUser = true;
-							session.setAttribute("registration", registrationData);
-							results = new ResponseEntity<>(isValidUser, HttpStatus.OK);
+							logger.info("===>login success for [{}]===>",registration.getMobile());
+							result.add("true");
+							result.add(registrationData.getRole());
+							session.setAttribute(REGISTRATION, registrationData);
+							results = new ResponseEntity<>(result, HttpStatus.OK);
 						} else {
-							logger.info("===>login Business owner failed for [{}]===>",registration.getMobile());
-							results = new ResponseEntity<>(isValidUser, HttpStatus.OK);
+							logger.info("===>login failed for [{}]===>",registration.getMobile());
+							result.add("false");
+							results = new ResponseEntity<>(result, HttpStatus.OK);
 						}
-				} else if (INDIVIDUAL.equalsIgnoreCase(loginType)) {
-					logger.info("===>login customer mobile::"+registration.getMobile()+" and loginType::"+loginType);
-					User user = userService.findCustomer(registration.getMobile());
-					if(user != null) {
-						if(user.getUserMobile() != null && user.getPassword() != null 
-								&& user.getUserMobile().equalsIgnoreCase(registration.getMobile()) 
-								&& user.getPassword().equalsIgnoreCase(registration.getPassword())) {
-							logger.info("===>Customer login success for [{}]===>",registration.getMobile());
-							isValidUser = true;
-							results = new ResponseEntity<>(isValidUser, HttpStatus.OK);
-						}else {
-							logger.info("===>Customer login failed for [{}]===>",registration.getMobile());
-							results = new ResponseEntity<>(isValidUser, HttpStatus.OK);
-						}
-					} else {
-						results = new ResponseEntity<>(isValidUser, HttpStatus.OK);
-					}
 				} else {
-					logger.info("===>Invalid request::");
-					results = new ResponseEntity<>(isValidUser, HttpStatus.OK);
+					logger.info("===>Input data is null::");
+					result.add("false");
+					results = new ResponseEntity<>(result, HttpStatus.OK);
 				}
 				
-				
-			} else {
-				results = new ResponseEntity<>(isValidUser, HttpStatus.OK);
-			}
-			
 		}
 		catch(Exception e){
-			logger.error("Error occured while user loggingin :"+e);
+			logger.error("Error occured while user loggingin :{}",e);
+			result.add("false");
+			results = new ResponseEntity<>(result, HttpStatus.OK);
 		}
 		
 		return results;
 	}
+	
+	/*@GetMapping("/downloadFile/{mobile}")
+	public ResponseEntity<?> downloadProfile(@PathVariable String mobile,HttpServletRequest request,HttpServletResponse response){
+		logger.info("===>Begin Execution of fileDownload===>");
+		ResponseEntity<?> results = null;
+		List<Profile> profiles = null;
+		try {
+			profiles = resourceService.getProfilesByResourceNo(mobile);
+			if(profiles != null && !profiles.isEmpty()) {
+				
+				Profile profile = profiles.get(0);
+		        // set headers for the response
+		        String headerKey = "Content-Disposition";
+		        String headerValue = String.format("attachment; filename=\"%s\"",profile.getFileName());
+
+		        // set content attributes for the response
+		        HttpHeaders headers = new HttpHeaders();
+		        headers.add(headerKey, headerValue);
+		        headers.add(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate");
+		        headers.add(HttpHeaders.PRAGMA,"no-cache");
+		        headers.add(HttpHeaders.EXPIRES,"0");
+		        headers.add(HttpHeaders.CONTENT_LENGTH, String.valueOf(profile.getFileContent().length));
+		        headers.add(HttpHeaders.CONTENT_TYPE, profile.getMimetype());
+		        results = new ResponseEntity<>(profile.getFileContent(),headers,HttpStatus.OK);
+		       // results =  ResponseEntity.ok().headers(headers).contentLength(profile.getFileContent().length).contentType(MediaType.parseMediaType(profile.getMimetype())).body(profile.getFileContent());
+			}
+		} catch (Exception e) {
+			results = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			logger.error("Error occured while downloading file and error is:{}  ", e);
+		}
+		logger.info("===>End Execution of fileDownload===>");
+		return results;
+	}*/
 	
 	@GetMapping("/viewMyBusiness")
 	public ResponseEntity<?> getBusinessDetails(HttpServletRequest request){
@@ -234,7 +254,7 @@ public class RegistrationController implements SmydataConstant {
 				registartion = (Registration) session.getAttribute("registration");
 			}
 			if(registartion != null){
-				logger.info("===>getBusinessDetails() of BO mobile===>"+registartion.getMobile());
+				logger.info("===>getBusinessDetails() of BO mobile [{}]===>",registartion.getMobile());
 				registrationDetails = registrationService.findBusinessInfoByRegId(registartion.getRegistrationId());
 				if(registrationDetails != null){
 					results = new ResponseEntity<>(registrationDetails, HttpStatus.OK);
@@ -244,7 +264,7 @@ public class RegistrationController implements SmydataConstant {
 			}
 		}
 		catch(Exception e){
-			logger.error("===>Error occured while getting business details :"+e);
+			logger.error("===>Error occured while getting business details :{}",e);
 		}
 		logger.info("===>End Execution of getBusinessDetails method===>");
 		return results;
@@ -258,11 +278,11 @@ public class RegistrationController implements SmydataConstant {
 		int otp = (int) Math.round(Math.random()*100000);
 		String url = String.format(API_URL, mobile,otp);
 		
-		logger.info("====>>>>>in sendOtp ============>>>>>>>>>>"+url);
+		logger.info("====>>>>>in sendOtp ============>>>>>>>>>>{}",url);
 		try{
 			ResponseEntity<String> response =restTemplate.postForEntity(url,null,String.class);
 			if(response != null && response.getStatusCode().equals(HttpStatus.OK)){
-				logger.info("sendOtp API response====>"+response.getStatusCode());
+				logger.info("sendOtp API response====>[{}]",response.getStatusCode());
 				result = new ResponseEntity<>(otp, HttpStatus.OK);
 			} else {
 				logger.info("Failed to invoke OTP API====>");
@@ -272,28 +292,29 @@ public class RegistrationController implements SmydataConstant {
 		
 		catch(Exception e){
 			result = new ResponseEntity<>(otp,HttpStatus.OK);
-			logger.error("Exception occured while invoking OTP API====>"+e);
+			logger.error("Exception occured while invoking OTP API====>{}",e);
 		}
 		logger.info("==>End Execution of sendOtp method===>");
 		return result;
 	}
 	
-	@GetMapping("/resetPwd/{pwd}")
-	public void resetPassword(@PathVariable("pwd") String pwd,HttpServletRequest request) {
-		logger.info("Begin Execution of resetPassword method");
-		Registration registration = null;
+	@GetMapping("/resetPwd/{pwd}/{mobile}")
+	public void resetPassword(@PathVariable("pwd") String pwd, @PathVariable("mobile") String mobile, HttpServletRequest request) {
+		logger.info("===>Begin Execution of resetPassword method===>");
 		try{
-			HttpSession session = request.getSession();
-			if(session!=null){
-				registration = (Registration) session.getAttribute("registration");
+			if(mobile != null) {
+				Registration registration= registrationService.findByMobileNumber(mobile);
+				if(registration != null) {
+					logger.info("===>Data found for Mobile number[{}] to reset password ===>",mobile);
+					registration.setPassword(pwd);
+					registrationService.saveUser(registration);
+					logger.info("===>Password reset sucess for Mobile number[{}] ===>",mobile);
+				}	
 			}
-			if(registration != null) {
-				registration.setPassword(pwd);
-				registrationService.saveUser(registration);
-			}
+			
 		}
 		catch(Exception e){
-			logger.error("Exception occured in resetPassword====>"+e);
+			logger.error("Exception occured in resetPassword() method====>{}",e);
 		}
 	}
 	
