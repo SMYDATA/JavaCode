@@ -19,10 +19,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smydata.model.util.SmydataConstant;
 import com.smydata.registration.model.BusinessDetail;
 import com.smydata.registration.model.Registration;
@@ -62,7 +66,7 @@ public class RegistrationController implements SmydataConstant {
 			if(session!=null){
 				sessionReg = (Registration) session.getAttribute(REGISTRATION);
 			}
-//			resourceDetails = mapper.readValue(registration, new TypeReference<Registration>() {});
+//			Registration regDetails = mapper.readValue(registration, new TypeReference<Registration>() {});
 			if(registration != null){
 				logger.info("saveUser mobile: {}",registration.getMobile());
 				if(action != null && action.equalsIgnoreCase(EDIT)) {
@@ -101,6 +105,7 @@ public class RegistrationController implements SmydataConstant {
 								}
 						} else {
 							/*List<BusinessDetail> businessDetails = registration.getBusinessDetails();
+							if(businessDetails != null && !businessDetails.isEmpty()) {
 							for(int i=0;i<businessDetails.size();i++) {
 								BusinessDetail businessDetail = businessDetails.get(i);
 								if(file != null) {
@@ -109,7 +114,8 @@ public class RegistrationController implements SmydataConstant {
 									businessDetail.setMimetype(file.getContentType());
 								}
 								businessDetails.set(i, businessDetail);
-								registration.setBusinessDetails(businessDetails);
+							  }
+							  registration.setBusinessDetails(businessDetails);
 							}*/
 							Registration savedRegistration = registrationService.saveUser(registration);//Create new or update business information
 							if(savedRegistration !=null){
@@ -129,6 +135,94 @@ public class RegistrationController implements SmydataConstant {
 			} else {
 				messages.add("BO entered details are empty");
 				results = new ResponseEntity<>(messages, HttpStatus.OK);
+			}
+			
+		}
+		catch(Exception e){
+			logger.error("Error occured while saving user data :{}",e);
+		}
+		
+		return results;
+	}
+	
+	/**
+	 * @param action
+	 * @param  This method is used for business registration
+	 * @param file
+	 * @param request
+	 * @return
+	 */
+	@PostMapping("/saveBusinessUser/{action}") //Action is to identify registration/add/edit
+	public ResponseEntity<?> saveBusinessUser(@PathVariable("action") String action,@RequestParam("businessDetails") String registration, @RequestParam("file") MultipartFile file,HttpServletRequest request) {
+		logger.info("===>Begin Execution of saveUser method and action::{}",action);
+		ResponseEntity<?> results = null;
+		Registration sessionReg = null;
+		List<String> result = new ArrayList<>();
+		try{
+			HttpSession session = request.getSession();
+			if(session!=null){
+				sessionReg = (Registration) session.getAttribute(REGISTRATION);
+			}
+			ObjectMapper mapper = new ObjectMapper();
+//			Registration regDetails = mapper.readValue(registration, new TypeReference<Registration>() {});
+			List<Registration> regData = mapper.readValue(registration, new TypeReference<List<Registration>>() {});
+			if(regData != null){
+				Registration regDetails = regData.get(0);
+				logger.info("saveUser mobile: {}",regDetails.getMobile());
+				
+					 if(ADD.equalsIgnoreCase(action) && sessionReg != null){//Add new business
+							List<BusinessDetail> businessDetails = regDetails.getBusinessDetails();
+								if(businessDetails != null && !businessDetails.isEmpty()) {
+								for(int i=0;i<businessDetails.size();i++) {
+									BusinessDetail businessDetail = businessDetails.get(i);
+									businessDetail.setRegistrationId(sessionReg.getRegistrationId());//Setting same registration ID of a BO as a BO will have multiple businesses
+									if(file != null) {
+										businessDetail.setFileContent(file.getBytes());
+										businessDetail.setFileName(file.getOriginalFilename());
+										businessDetail.setMimetype(file.getContentType());
+									}
+									businessDetails.set(i, businessDetail);
+								}
+								List<BusinessDetail> savedBusinessDetail =  registrationService.saveBusinessDetails(businessDetails);//Add new record into BusinessDetail table under the same registration ID
+								if(savedBusinessDetail != null) {
+									result.add(SUCCESS);
+									results = new ResponseEntity<>(result, HttpStatus.OK);
+								} else {
+									result.clear();
+									result.add("Failed to Add business Details for BO:"+regDetails.getMobile());
+									 results = new ResponseEntity<>(result,HttpStatus.OK);
+								}
+								
+								}
+						} else {
+							List<BusinessDetail> businessDetails = regDetails.getBusinessDetails();
+							if (businessDetails != null && !businessDetails.isEmpty()) {
+								for (int i = 0; i < businessDetails.size(); i++) {
+									BusinessDetail businessDetail = businessDetails.get(i);
+									if (file != null) {
+										businessDetail.setFileContent(file.getBytes());
+										businessDetail.setFileName(file.getOriginalFilename());
+										businessDetail.setMimetype(file.getContentType());
+									}
+									businessDetails.set(i, businessDetail);
+								}
+								regDetails.setBusinessDetails(businessDetails);
+							}
+							Registration savedRegistration = registrationService.saveUser(regDetails);//Create new or update business information
+							if(savedRegistration !=null){
+								 result.add(SUCCESS);
+								 results = new ResponseEntity<>(result, HttpStatus.OK);
+							} else {
+								logger.info("Failed to save registration for mobile:[{}] ",regDetails.getMobile());
+								result.clear();
+								result.add("Failed to save registration for BO:"+regDetails.getMobile());
+								 results = new ResponseEntity<>(result,HttpStatus.OK);
+							}
+						}
+				
+			} else {
+				result.add("BO entered details are empty");
+				results = new ResponseEntity<>(result, HttpStatus.OK);
 			}
 			
 		}
