@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.smydata.customer.service.CustomerService;
 import com.smydata.registration.model.CustomerPayable;
@@ -25,6 +26,7 @@ import com.smydata.user.service.UserService;
 
 @RestController
 @RequestMapping("/api")
+@SessionAttributes({"registration","businessId"})
 @CrossOrigin
 public class CustomerController {
 	

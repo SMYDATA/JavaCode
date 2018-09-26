@@ -2,6 +2,9 @@ package com.smydata.report.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.smydata.model.util.SmydataConstant;
 import com.smydata.registration.model.Invoice;
@@ -22,6 +26,7 @@ import com.smydata.report.service.ReportService;
 
 @RestController
 @RequestMapping("/api")
+@SessionAttributes({"registration","businessId"})
 @CrossOrigin
 public class ReportController implements SmydataConstant{
 	
@@ -67,17 +72,22 @@ public class ReportController implements SmydataConstant{
 	 * @return
 	 */
 	@GetMapping("/{action}/{strtDate}/{endDate}")
-	public ResponseEntity<?> getPayableReceivables(@PathVariable("action") String action,@PathVariable("strtDate") String strtDate,@PathVariable("endDate") String endDate){
+	public ResponseEntity<?> getPayableReceivables(@PathVariable("action") String action,@PathVariable("strtDate") String strtDate,@PathVariable("endDate") String endDate, HttpServletRequest request){
 		logger.info("====>Begin execution of  getPayableReceivables====> ");
 		List<Payable> payableReceivables = null;
 		ResponseEntity<?> results = null;
+		long businessId = 0;
 		try{
+				HttpSession session = request.getSession();
+				if(session!=null){
+					businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
+				}
 			if(PAYABLE.equalsIgnoreCase(action)){
 				action = PAYABLE_CODE;
 			} else{
 				action = RECEIVABLE_CODE;
 			}
-			payableReceivables = reportService.getAllPayablesReceivables(action,strtDate, endDate);
+			payableReceivables = reportService.getAllPayablesReceivables(action, businessId, strtDate, endDate);
 			if(payableReceivables != null && payableReceivables.size() >0){
 				results = new ResponseEntity<>(payableReceivables, HttpStatus.OK);
 			} else {
@@ -99,14 +109,18 @@ public class ReportController implements SmydataConstant{
 	 * @return
 	 */
 	@GetMapping("/getInvoice/{strtDate}/{endDate}")
-	public ResponseEntity<?> getInvoiceDetails(@PathVariable("strtDate") String strtDate,@PathVariable("endDate") String endDate){
+	public ResponseEntity<?> getInvoiceDetails(@PathVariable("strtDate") String strtDate,@PathVariable("endDate") String endDate, HttpServletRequest request){
 		logger.error("====>Begin execution of  getInvoiceDetails====> ");
 		List<Invoice> invoiceData = null;
 		ResponseEntity<?> results = null;
+		long businessId = 0;
 		try{
-			
-			invoiceData = reportService.getInvoiceDetails(strtDate, endDate);
-			if(invoiceData != null && invoiceData.size() >0){
+				HttpSession session = request.getSession();
+				if(session!=null){
+					businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
+				}
+			invoiceData = reportService.getInvoiceDetails(strtDate, endDate, businessId);
+			if(invoiceData != null && !invoiceData.isEmpty()){
 				results = new ResponseEntity<>(invoiceData, HttpStatus.OK);
 			} else {
 				results = new ResponseEntity<>(invoiceData,HttpStatus.OK);
@@ -126,12 +140,17 @@ public class ReportController implements SmydataConstant{
 	 * @return
 	 */
 	@GetMapping("/getTopCustomer/{strtDate}/{endDate}")
-	public ResponseEntity<?> getTopCustomers(@PathVariable("strtDate") String strtDate,@PathVariable("endDate") String endDate){
+	public ResponseEntity<?> getTopCustomers(@PathVariable("strtDate") String strtDate,@PathVariable("endDate") String endDate, HttpServletRequest request){
 		logger.error("====>Begin execution of  getTopCustomers====> ");
 		List<Invoice> invoiceData = null;
 		ResponseEntity<?> results = null;
+		long businessId = 0;
 		try{
-			invoiceData = reportService.getTopCustomers(strtDate, endDate);
+			HttpSession session = request.getSession();
+			if(session!=null){
+				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
+			}
+			invoiceData = reportService.getTopCustomers(businessId,strtDate, endDate);
 			if(invoiceData != null && invoiceData.size() >0){
 				results = new ResponseEntity<>(invoiceData, HttpStatus.OK);
 			} else {
@@ -152,13 +171,17 @@ public class ReportController implements SmydataConstant{
 	 * @return
 	 */
 	@GetMapping("/getTickets/{strtDate}/{endDate}")
-	public ResponseEntity<?> getTicketDetails(@PathVariable("strtDate") String strtDate,@PathVariable("endDate") String endDate){
+	public ResponseEntity<?> getTicketDetails(@PathVariable("strtDate") String strtDate,@PathVariable("endDate") String endDate, HttpServletRequest request){
 		logger.error("====>Begin execution of  getTicketDetails====> ");
 		List<TicketBean> ticketsList = null;
 		ResponseEntity<?> results = null;
+		long businessId = 0;
 		try{
-			
-			ticketsList = reportService.getAllTickets(strtDate, endDate);
+			HttpSession session = request.getSession();
+			if(session!=null){
+				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
+			}
+			ticketsList = reportService.getAllTickets(businessId,strtDate, endDate);
 			if(ticketsList != null && ticketsList.size() >0){
 				results = new ResponseEntity<>(ticketsList, HttpStatus.OK);
 			} else {

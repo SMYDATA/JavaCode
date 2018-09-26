@@ -14,28 +14,30 @@ import com.smydata.registration.model.Rewards;
 
 public class SmydataUtility implements SmydataConstant{
 
-	public static Rewards getRewards(String mobile,RewardsService rewardsService){
-		Rewards rewards = rewardsService.getRewards(mobile);
+	public static Rewards getRewards(String mobile,long businessId,RewardsService rewardsService){
+		Rewards reward = null;
+		List<Rewards> rewards = rewardsService.getRewards(mobile, businessId);
 		try{
-			if(rewards !=null){
+			if(rewards !=null && !rewards.isEmpty()){
+				reward = rewards.get(0);
 				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 				Date date = new Date();
 				String formatDate = format.format(date);
 				Date todayDate =  format.parse(formatDate);
-				Date rewardsEndDate= rewards.getRewardEndDate();
+				Date rewardsEndDate= reward.getRewardEndDate();
 				if(rewardsEndDate != null && rewardsEndDate.compareTo(todayDate)<0){//disable rewards based on current date
-					rewards.setRewardPointEnable(false);
+					reward.setRewardPointEnable(false);
 				}
-				Date bonusEndDate= rewards.getBonusEndDate();
+				Date bonusEndDate= reward.getBonusEndDate();
 				if(bonusEndDate != null && bonusEndDate.compareTo(todayDate)<0){//disable bonus based on current date
-					rewards.setBonusPointEnale(false);
+					reward.setBonusPointEnale(false);
 				}
 			}
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		return rewards;
+		return reward;
 	}
 	
 	public static double getTotalBusVolume(List<Invoice> invoiceDetails){
@@ -46,8 +48,8 @@ public class SmydataUtility implements SmydataConstant{
 		return total;
 	}
 	
-	public static List<Discounts> getDiscounts(String mobile, DiscountsService discountsService){
-		List<Discounts> discountsList = discountsService.getDiscountDetails(mobile);
+	public static List<Discounts> getDiscounts(String mobile, long businessId, DiscountsService discountsService){
+		List<Discounts> discountsList = discountsService.getDiscountDetails(mobile,businessId);
 		if(discountsList !=null){
 			try{
 				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");

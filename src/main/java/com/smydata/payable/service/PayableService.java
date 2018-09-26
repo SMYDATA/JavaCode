@@ -8,6 +8,6 @@ public interface PayableService {
 
 	List<Payable> saveOwnerPayables(List<Payable> payables);
 	List<Payable> getOwnerPayables(String userMobile,String code);
-	List<Payable> getPayablesByOwnerMobile(String boMobile,String code);
+	List<Payable> getPayablesByOwnerMobile(String boMobile,String code, long businessId);
 	void deletePaidInvoice(List<Payable> payables);
 }

@@ -21,14 +21,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.smydata.businessplan.service.DiscountsService;
+import com.smydata.model.util.SmydataConstant;
 import com.smydata.registration.model.Discounts;
 import com.smydata.registration.model.Registration;
 
 @RestController
 @RequestMapping("/api")
-@SessionAttributes("registration")
+@SessionAttributes({"registration","businessId"})
 @CrossOrigin
-public class DiscountsController {
+public class DiscountsController implements SmydataConstant{
 	
 	@Autowired
 	DiscountsService discountsService;
@@ -41,16 +42,18 @@ public class DiscountsController {
 		String mobile = "";
 		List<Discounts> discountsList = null;
 		ResponseEntity<?> results = null;
+		long businessId = 0;
 		HttpSession session = request.getSession();
 		try{
 			if(session!=null){
-				Registration reg = (Registration) session.getAttribute("registration");
+				Registration reg = (Registration) session.getAttribute(REGISTRATION);
+				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 				if(reg!=null){
 					logger.info("===>getDiscounts mob no [{}]",reg.getMobile());
 					mobile = reg.getMobile();
 				}
 			}
-			discountsList = discountsService.getDiscountDetails(mobile);
+			discountsList = discountsService.getDiscountDetails(mobile,businessId);
 			if(discountsList !=null){
 				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 				Date date = new Date();
@@ -87,14 +90,16 @@ public class DiscountsController {
 		Registration reg = null;
 		try{
 			if(session!=null){
-				reg = (Registration) session.getAttribute("registration");
+				reg = (Registration) session.getAttribute(REGISTRATION);
+				long businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 				if(reg!=null){
-					logger.info("===>saveDiscounts mob no===>"+reg.getMobile());
+					logger.info("===>saveDiscounts mob no [{}]===>", reg.getMobile());
 					discountsService.deleteDiscounts(reg.getMobile());//delete discounts if exist
 					if(discounts != null){
 						for(int i=0;i<discounts.size();i++){
 							Discounts discount = discounts.get(i);
 							discount.setMobile(reg.getMobile());//set owner mobile who is configuring discounts
+							discount.setBusinessDetailId(businessId);//Set business Id of selected business type
 							discounts.set(i, discount);
 						}
 						savedDiscounts = discountsService.saveDiscounts(discounts);

@@ -21,8 +21,8 @@ public class BusinessDetail implements Serializable{
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="Business_Detail_id")
-	private long BusinessDetailId;
+	@Column(name="business_detail_id")
+	private long businessDetailId;
 	@Column(name="registration_id")
 	private Long registrationId;
 	@Column(name="company_name")
@@ -86,14 +86,14 @@ public class BusinessDetail implements Serializable{
 		this.mimetype = mimetype;
 	}
 
-
 	public long getBusinessDetailId() {
-		return BusinessDetailId;
+		return businessDetailId;
 	}
+
 	public void setBusinessDetailId(long businessDetailId) {
-		BusinessDetailId = businessDetailId;
+		this.businessDetailId = businessDetailId;
 	}
-	
+
 	public Long getRegistrationId() {
 		return registrationId;
 	}

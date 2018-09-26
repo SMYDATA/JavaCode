@@ -1,5 +1,7 @@
 package com.smydata.registration.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,8 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class InvoiceDetail {
+public class InvoiceDetail implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4894486846934813787L;
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="invDetail_id")

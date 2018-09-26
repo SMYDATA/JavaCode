@@ -16,7 +16,7 @@ import com.smydata.registration.model.User;
 public class ReportServiceImpl implements ReportService {
 
 	@Autowired
-	JdbcTemplate JdbcTemplate;
+	JdbcTemplate jdbcTemplate;
 	
 	private static final Logger logger = LoggerFactory.getLogger(ReportServiceImpl.class);
 	
@@ -25,7 +25,7 @@ public class ReportServiceImpl implements ReportService {
 		List<User> usersList = null;
 		logger.info("====>Begin execution of  getAllCustomers====> ");
 		try{
-			usersList = JdbcTemplate.query("SELECT USER_MOBILE,USER_NAME,EMAIL,ADDRESS FROM USER WHERE CREATE_DATE BETWEEN ? AND ? ",new Object[]{startDate,endDate},new BeanPropertyRowMapper<User>(User.class));
+			usersList = jdbcTemplate.query("SELECT USER_MOBILE,USER_NAME,EMAIL,ADDRESS FROM USER WHERE CREATE_DATE BETWEEN ? AND ? ",new Object[]{startDate,endDate},new BeanPropertyRowMapper<User>(User.class));
 		}
 		catch(Exception e){
 			logger.error("Error occured while getting all customer Details and error is: {}",e);
@@ -34,11 +34,11 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public List<Payable> getAllPayablesReceivables(String action,String startDate, String endDate) {
+	public List<Payable> getAllPayablesReceivables(String action, long businessId , String startDate, String endDate) {
 		List<Payable> payableList = null;
 		logger.info("====>Begin execution of  getAllPayablesReceivables====> ");
 		try{
-			payableList = JdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,DESCRIPTION,MOBILE FROM PAYABLE_RECEIVABLE WHERE CODE = ? AND CREATE_DATE BETWEEN ? AND ? ",new Object[]{action,startDate,endDate},new BeanPropertyRowMapper<Payable>(Payable.class));
+			payableList = jdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,DESCRIPTION,MOBILE FROM PAYABLE_RECEIVABLE WHERE CODE = ? AND BUSINESS_DETAIL_ID = ? AND CREATE_DATE BETWEEN ? AND ? ",new Object[]{action,businessId,startDate,endDate},new BeanPropertyRowMapper<Payable>(Payable.class));
 		}
 		catch(Exception e){
 			logger.error("Error occured while getting Payables/Receivables and error is: {}",e);
@@ -48,11 +48,11 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public List<Invoice> getInvoiceDetails(String startDate, String endDate) {
+	public List<Invoice> getInvoiceDetails(String startDate, String endDate,long businessId) {
 		logger.info("====>Begin execution of  getInvoiceDetails====> ");
 		List<Invoice> invoiceList = null;
 		try{
-			invoiceList = JdbcTemplate.query("SELECT INVOICE_ID AS INVID,TOTAL,DISCOUNT,EMAIL,USER_MOBILE,USER_NAME FROM INVOICE WHERE CREATE_DATE BETWEEN ? AND ? ",new Object[]{startDate,endDate},new BeanPropertyRowMapper<Invoice>(Invoice.class));
+			invoiceList = jdbcTemplate.query("SELECT INVOICE_ID AS INVID,TOTAL,DISCOUNT,EMAIL,USER_MOBILE,USER_NAME FROM INVOICE WHERE BUSINESS_DETAIL_ID = ? AND CREATE_DATE BETWEEN ? AND ? ",new Object[]{businessId,startDate,endDate},new BeanPropertyRowMapper<Invoice>(Invoice.class));
 		}
 		catch(Exception e){
 			logger.error("Error occured while getting Invoice Details and error is: {}",e);
@@ -62,11 +62,11 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public List<TicketBean> getAllTickets(String startDate, String endDate) {
+	public List<TicketBean> getAllTickets(long businessId, String startDate, String endDate) {
 		logger.info("====>Begin execution of  getAllTickets====> ");
 		List<TicketBean> ticketList = null;
 		try{
-			ticketList = JdbcTemplate.query("SELECT TICKET_ID,DESCRIPTION,SUBJECT,CREATE_DATE FROM TICKETS WHERE CREATE_DATE BETWEEN ? AND ? ",new Object[]{startDate,endDate},new BeanPropertyRowMapper<TicketBean>(TicketBean.class));
+			ticketList = jdbcTemplate.query("SELECT TICKET_ID,DESCRIPTION,SUBJECT,CREATE_DATE FROM TICKETS WHERE BUSINESS_DETAIL_ID = ? AND businCREATE_DATE BETWEEN ? AND ? ",new Object[]{businessId,startDate,endDate},new BeanPropertyRowMapper<TicketBean>(TicketBean.class));
 		}
 		catch(Exception e){
 		logger.error("Error occured while getting ticket detailes and error is: {}",e);	
@@ -76,11 +76,11 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public List<Invoice> getTopCustomers(String startDate,String endDate) {
+	public List<Invoice> getTopCustomers(long businessId,String startDate,String endDate) {
 		logger.info("====>Begin execution of  getTopCustomers====> ");
 		List<Invoice> invoiceList = null;
 		try{
-			invoiceList = JdbcTemplate.query("SELECT INVOICE_ID AS INVID,TOTAL AS BV,DISCOUNT,EMAIL,USER_MOBILE,USER_NAME FROM INVOICE WHERE CREATE_DATE BETWEEN ? AND ? ",new Object[]{startDate,endDate},new BeanPropertyRowMapper<Invoice>(Invoice.class));
+			invoiceList = jdbcTemplate.query("SELECT INVOICE_ID AS INVID,TOTAL AS BV,DISCOUNT,EMAIL,USER_MOBILE,USER_NAME FROM INVOICE WHERE BUSINESS_DETAIL_ID = ? AND CREATE_DATE BETWEEN ? AND ? ",new Object[]{businessId, startDate, endDate},new BeanPropertyRowMapper<Invoice>(Invoice.class));
 		}
 		catch(Exception e){
 		logger.error("Error occured while getting Top Customer detailes and error is: {}",e);	

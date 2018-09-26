@@ -30,7 +30,7 @@ import com.smydata.registration.model.Registration;
 
 @RestController
 @RequestMapping("/api")
-@SessionAttributes("registration")
+@SessionAttributes(value={"registration","businessId"})
 @CrossOrigin
 public class PayableController implements SmydataConstant{
 	
@@ -56,6 +56,7 @@ public class PayableController implements SmydataConstant{
 		ResponseEntity<?> results = null;
 		Registration reg = null;
 		double balanceAmount = 0.0;
+		long businessId = 0;
 		List<PayableReceivable> payableReceivables = new ArrayList<>();
 		List<Payable> deleteList = new ArrayList<>();
 		try{
@@ -63,12 +64,14 @@ public class PayableController implements SmydataConstant{
 				HttpSession session = request.getSession();
 				if(session!=null){
 					reg = (Registration) session.getAttribute("registration");
+					businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 					if(reg != null)
 						boMobile = reg.getMobile();
 				}
 				for(int i=0;i<payables.size();i++){
 					Payable payable = payables.get(i);
 					payable.setBoMobile(boMobile);//set BO Mobile number
+					payable.setBusinessDetailId(businessId);//Set business Id of selected business
 					payable.setCreateDate(new Date((currenttime.getTime()).getTime()));
 					if(PAYABLE.equalsIgnoreCase(action)){
 						payable.setCode(PAYABLE_CODE); //CODE FOR PAYABLE
@@ -79,7 +82,7 @@ public class PayableController implements SmydataConstant{
 					} 
 					//for payment/payoff
 					if(paymentFlag != null && Boolean.valueOf(paymentFlag)){
-						List<Payable> paybleList = payableService.getPayablesByOwnerMobile(boMobile,actionVal);
+						List<Payable> paybleList = payableService.getPayablesByOwnerMobile(boMobile,actionVal,businessId);
 						for(int j=0;j<paybleList.size();j++){
 							Payable payable1 = payables.get(j);
 								if(payable.getInvoiceNumber() == payable1.getInvoiceNumber()){
@@ -101,7 +104,7 @@ public class PayableController implements SmydataConstant{
 					payables.removeAll(deleteList);//Remove before save from actual list
 				}
 				 payableService.saveOwnerPayables(payables);
-				List<Payable> latestPayables = payableService.getPayablesByOwnerMobile(boMobile,actionVal);//get updated data
+				List<Payable> latestPayables = payableService.getPayablesByOwnerMobile(boMobile,actionVal, businessId);//get updated data
 				if(latestPayables != null && !latestPayables.isEmpty()) {
 					PayableReceivable payableReceivable = new PayableReceivable();
 					balanceAmount = getBalanceAmount(latestPayables);
@@ -137,6 +140,7 @@ public class PayableController implements SmydataConstant{
 		logger.info("***Begin Execution of getPayable***");
 		String boMobile = "";
 		double balanceAmount = 0.0;
+		long businessId = 0;
 		ResponseEntity<?> results = null;
 		Registration reg = null;
 		List<PayableReceivable> payableReceivables = new ArrayList<>();
@@ -144,15 +148,18 @@ public class PayableController implements SmydataConstant{
 			HttpSession session = request.getSession();
 			if(session!=null){
 				reg = (Registration) session.getAttribute("registration");
-				if(reg != null)
+				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
+				if(reg != null) {
 					boMobile = reg.getMobile();
+					logger.info("===>In getPayables() BO mobile [{}] and business ID[{}]===>",boMobile,businessId);
+				}
 			}
 				if(PAYABLE.equalsIgnoreCase(action)){
 					action = PAYABLE_CODE; //CODE FOR PAYABLE
 				} else {
 					action = RECEIVABLE_CODE;//CODE FOR RECEIVABLE
 				}
-				List<Payable> payables = payableService.getPayablesByOwnerMobile(boMobile, action);
+				List<Payable> payables = payableService.getPayablesByOwnerMobile(boMobile, action, businessId);
 				if(payables != null && !payables.isEmpty()){
 					PayableReceivable payableReceivable = new PayableReceivable();
 					balanceAmount = getBalanceAmount(payables);//Balance amount

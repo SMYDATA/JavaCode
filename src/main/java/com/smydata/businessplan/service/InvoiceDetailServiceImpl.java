@@ -29,4 +29,9 @@ public class InvoiceDetailServiceImpl implements InvoiceDetailService {
 		return invoiceDetailRepository.findByUserMobile(mobile);
 	}
 
+	@Override
+	public Invoice getInvoiceDetails(Integer invId) {
+		return invoiceDetailRepository.findByInvId(invId);
+	}
+
 }

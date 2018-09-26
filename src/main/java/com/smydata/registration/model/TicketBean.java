@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,11 +26,17 @@ public class TicketBean implements Serializable{
 	private String subject;
 	private String description;
 	private Date createDate;
-	
-	
-	
+	private long businessDetailId;
+	@Column(name="registration_id")
+
 	public Date getCreateDate() {
 		return createDate;
+	}
+	public long getBusinessDetailId() {
+		return businessDetailId;
+	}
+	public void setBusinessDetailId(long businessDetailId) {
+		this.businessDetailId = businessDetailId;
 	}
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;

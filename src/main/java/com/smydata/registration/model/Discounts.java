@@ -4,6 +4,7 @@ package com.smydata.registration.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,9 +29,27 @@ public class Discounts implements Serializable{
 	private Date startDate;
 	private Date endDate;
 	private boolean enable;
+	@Column(name="business_detail_id")
+	private long businessDetailId;
 	
 	public Discounts() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public long getDiscountId() {
+		return discountId;
+	}
+
+	public void setDiscountId(long discountId) {
+		this.discountId = discountId;
+	}
+
+	public long getBusinessDetailId() {
+		return businessDetailId;
+	}
+
+	public void setBusinessDetailId(long businessDetailId) {
+		this.businessDetailId = businessDetailId;
 	}
 
 	public String getMobile() {

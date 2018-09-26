@@ -38,6 +38,8 @@ public class Invoice implements Serializable {
 	private String address;
 	private int rewards;
 	private int credit;
+	@Column(name="business_detail_id")
+	private long businessDetailId;
 	
 	private int bv;
 
@@ -49,6 +51,14 @@ public class Invoice implements Serializable {
 		super();
 	}
 	
+	public long getBusinessDetailId() {
+		return businessDetailId;
+	}
+
+	public void setBusinessDetailId(long businessDetailId) {
+		this.businessDetailId = businessDetailId;
+	}
+
 	public int getBv() {
 		return bv;
 	}

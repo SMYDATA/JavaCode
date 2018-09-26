@@ -8,5 +8,6 @@ import com.smydata.registration.model.Invoice;
 
 public interface InvoiceDetailRepository extends JpaRepository<Invoice,Integer> {
 	public List<Invoice> findByUserMobile(String userMobile);
+	public Invoice findByInvId(Integer invId);
 
 }

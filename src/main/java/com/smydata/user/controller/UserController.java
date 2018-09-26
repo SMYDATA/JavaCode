@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.smydata.businessplan.service.DiscountsService;
 import com.smydata.businessplan.service.InvoiceDetailService;
 import com.smydata.businessplan.service.RewardsService;
+import com.smydata.model.util.SmydataConstant;
 import com.smydata.model.util.SmydataUtility;
 import com.smydata.payable.service.PayableService;
 import com.smydata.registration.model.Discounts;
@@ -37,9 +38,9 @@ import com.smydata.user.service.UserService;
 
 @RestController
 @RequestMapping("/api")
-@SessionAttributes("registration")
+@SessionAttributes({"registration","businessId"})
 @CrossOrigin
-public class UserController {
+public class UserController implements SmydataConstant {
 
 	@Autowired
 	UserService userService;
@@ -59,7 +60,7 @@ public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@GetMapping("/getUserDetail/{mobile}")
-	public ResponseEntity<?> getUserDetail(@PathVariable("mobile") String mobile,/* @PathVariable("action") String action,*/HttpServletRequest request){
+	public ResponseEntity<?> getUserDetail(@PathVariable("mobile") String mobile, HttpServletRequest request){
 		
 		logger.info("===>Begin Execution of getUserDetail===>");
 		List<UserBean> userData = new ArrayList<UserBean>();
@@ -68,6 +69,7 @@ public class UserController {
 		Registration reg = null;
 		User user = null;
 		String ownerMobile = "";
+		long businessId = 0;
 		try{
 			if(mobile == null) {
 				logger.info("===>User mobile is null===> ");
@@ -75,18 +77,17 @@ public class UserController {
 			}
 			
 			if(session!=null){
-				reg = (Registration) session.getAttribute("registration");
+				reg = (Registration) session.getAttribute(REGISTRATION);
+				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 				if(reg != null){
 					logger.info("===> In getUserDetail() BO mob no===>"+reg.getMobile());
 					ownerMobile = reg.getMobile();
 				}
 			}
-			
-			
 			 user = userService.findCustomer(mobile);
 			if(user != null){
 				logger.info("===>User details found for mobile [{}]===> ",mobile);
-				List<Discounts> discounts = SmydataUtility.getDiscounts(ownerMobile,discountsService); //Get discounts configuration
+				List<Discounts> discounts = SmydataUtility.getDiscounts(ownerMobile,businessId,discountsService); //Get discounts configuration
 				UserBean userBean = getUserDetails(user);
 				userBean.setDiscounts(discounts);
 				userData.add(userBean);
@@ -113,22 +114,24 @@ public class UserController {
 		ResponseEntity<?> results = null;
 		Registration reg = null;
 		String mobile = "";
+		long businessId = 0;
 		try{
 			if(session!=null){
-				reg = (Registration) session.getAttribute("registration");
+				reg = (Registration) session.getAttribute(REGISTRATION);
+				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 			}
 			if(reg != null){
 				logger.info("===>saveUser mob no===>"+reg.getMobile());
 				mobile = reg.getMobile();
 			}
 			if(user != null){
-				Rewards rewards = SmydataUtility.getRewards(mobile,rewardsService);//get rewards configuration done by BO
+				Rewards rewards = SmydataUtility.getRewards(mobile,businessId,rewardsService);//get rewards configuration done by BO
 				if(rewards != null && rewards.isBonusPointEnale())
 					user.setRewardPoints(rewards.getBonusPoints());
 				Calendar currenttime = Calendar.getInstance();
 				user.setCreateDate(new Date((currenttime.getTime()).getTime()));
 				User savedUser = userService.saveCustomer(user);
-				List<Discounts> discounts = SmydataUtility.getDiscounts(mobile,discountsService); //Get discounts configuration
+				List<Discounts> discounts = SmydataUtility.getDiscounts(mobile, businessId, discountsService); //Get discounts configuration
 				UserBean userBean = getUserDetails(savedUser);
 				userBean.setDiscounts(discounts);
 				userData.add(userBean);

@@ -35,7 +35,7 @@ import com.smydata.user.service.UserService;
 
 @RestController
 @RequestMapping("/api")
-@SessionAttributes("registration")
+@SessionAttributes({"registration","businessId"})
 @CrossOrigin
 public class RegistrationController implements SmydataConstant {
 
@@ -139,7 +139,7 @@ public class RegistrationController implements SmydataConstant {
 			
 		}
 		catch(Exception e){
-			logger.error("Error occured while saving user data :{}",e);
+			logger.error("===>Error occured while saving user data and error is:===>",e);
 		}
 		
 		return results;
@@ -336,6 +336,18 @@ public class RegistrationController implements SmydataConstant {
 		return results;
 	}*/
 	
+	@PostMapping("/changeMyBusiness")
+	public void getChangedBusinessId(@RequestBody BusinessDetail businessDetail, HttpServletRequest request){
+		logger.info("===>Begin execution of getChangedBusinessId method ===>");
+		if(businessDetail != null) {
+			HttpSession session = request.getSession();
+			session.removeAttribute(SESSION_BUSINESS_ID);
+			logger.info("===>Business Id of changed business is [{}] ===>",businessDetail.getBusinessDetailId());
+			session.setAttribute(SESSION_BUSINESS_ID, businessDetail.getBusinessDetailId());//save latest businessId in session of selected Business
+		}
+		logger.info("===>End execution of getChangedBusinessId method ===>");
+	}
+	
 	@GetMapping("/viewMyBusiness")
 	public ResponseEntity<?> getBusinessDetails(HttpServletRequest request){
 		logger.info("===>Begin Execution of getBusinessDetails method===>");
@@ -345,14 +357,22 @@ public class RegistrationController implements SmydataConstant {
 		try{
 			HttpSession session = request.getSession();
 			if(session!=null){
-				registartion = (Registration) session.getAttribute("registration");
+				registartion = (Registration) session.getAttribute(REGISTRATION);
 			}
 			if(registartion != null){
 				logger.info("===>getBusinessDetails() of BO mobile [{}]===>",registartion.getMobile());
 				registrationDetails = registrationService.findBusinessInfoByRegId(registartion.getRegistrationId());
 				if(registrationDetails != null){
+					logger.info("===>BusinessDetails() found for BO mobile [{}]===>",registartion.getMobile());
+					if(registrationDetails.getBusinessDetails() != null && !registrationDetails.getBusinessDetails().isEmpty()) {
+						BusinessDetail businessDetail = registrationDetails.getBusinessDetails().get(0);
+						logger.info("===>Business ID [{}] of respective BO[{}]===>",businessDetail.getBusinessDetailId(),registrationDetails.getMobile());
+						session.removeAttribute(SESSION_BUSINESS_ID);
+						session.setAttribute(SESSION_BUSINESS_ID, businessDetail.getBusinessDetailId());
+					}
 					results = new ResponseEntity<>(registrationDetails, HttpStatus.OK);
 				} else {
+					logger.info("===>BusinessDetails() not found for BO mobile [{}]===>",registartion.getMobile());
 					results = new ResponseEntity<>(registrationDetails,HttpStatus.OK);
 				}
 			}
@@ -410,6 +430,23 @@ public class RegistrationController implements SmydataConstant {
 		catch(Exception e){
 			logger.error("Exception occured in resetPassword() method====>{}",e);
 		}
+	}
+	
+	@GetMapping("/logOut")
+	public void logOut( HttpServletRequest request) {
+		logger.info("===>In logOut method===>");
+		try {
+			HttpSession session = request.getSession();
+			if(session!=null){
+				session.removeAttribute(REGISTRATION);
+				session.removeAttribute(SESSION_BUSINESS_ID);
+			}
+		}
+		catch(Exception e){
+			logger.error("Exception occured in logOut() method====>{}",e);
+		}
+		
+		
 	}
 	
 }

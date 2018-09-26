@@ -43,10 +43,20 @@ public class Payable implements Serializable {
 	private String desc;
 	@Column(name="code")
 	private String code;
+	@Column(name="business_detail_id")
+	private long businessDetailId;
+	
 	public Payable() {
-		// TODO Auto-generated constructor stub
 	}
 	
+	public long getBusinessDetailId() {
+		return businessDetailId;
+	}
+
+	public void setBusinessDetailId(long businessDetailId) {
+		this.businessDetailId = businessDetailId;
+	}
+
 	public String getBoMobile() {
 		return boMobile;
 	}

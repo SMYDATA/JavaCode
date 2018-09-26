@@ -13,6 +13,7 @@ public interface SmydataConstant {
 	
 	public static final String BUSINESS = "business";
 	public static final String INDIVIDUAL = "individual";
+	public static final String SESSION_BUSINESS_ID = "businessId";
 	
 	public static final String SUCCESS = "success";
 	public static final String MOBILE_EMAIL_VALIDATION_ERROR = "Mobile Number and Email already exist";

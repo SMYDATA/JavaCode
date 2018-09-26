@@ -3,6 +3,7 @@ package com.smydata.registration.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -15,22 +16,44 @@ public class Rewards implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@Column(name="mobile")
 	private String mobile;
+	@Column(name="enable")
 	private boolean enable;
+	@Column(name="reward_point_enable")
 	private boolean rewardPointEnable;
+	@Column(name="bonus_point_enale")
 	private boolean bonusPointEnale;
+	@Column(name="effective_amount")
 	private int effectiveAmount;
+	@Column(name="cash_value")
 	private int cashValue;
+	@Column(name="bonus_points")
 	private int bonusPoints;
+	@Column(name="reward_start_date")
 	private Date rewardStartDate;
+	@Column(name="reward_end_date")
 	private Date rewardEndDate;
+	@Column(name="bonus_start_date")
 	private Date bonusStartDate;
+	@Column(name="bonus_end_date")
 	private Date bonusEndDate;
+	@Column(name="business_detail_id")
+	private long businessDetailId;
 	
 	public Rewards() {
 		super();
 	}
-	
+
+	public long getBusinessDetailId() {
+		return businessDetailId;
+	}
+
+
+	public void setBusinessDetailId(long businessDetailId) {
+		this.businessDetailId = businessDetailId;
+	}
+
 
 	public int getBonusPoints() {
 		return bonusPoints;

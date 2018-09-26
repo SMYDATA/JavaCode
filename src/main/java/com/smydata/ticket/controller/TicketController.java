@@ -5,6 +5,9 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,14 +22,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.smydata.model.util.SmydataConstant;
 import com.smydata.registration.model.TicketBean;
 import com.smydata.ticket.service.TicketService;
 
 @RestController
 @RequestMapping("/api")
+@SessionAttributes({"registration","businessId"})
 @CrossOrigin
-public class TicketController {
+public class TicketController implements SmydataConstant {
 
 	@Autowired
 	TicketService tikcetService;
@@ -42,19 +48,25 @@ public class TicketController {
 	 * @return
 	 */
 	@PostMapping("/createTicket")
-	public ResponseEntity<?> createTicket(@RequestBody TicketBean ticket){
+	public ResponseEntity<?> createTicket(@RequestBody TicketBean ticket, HttpServletRequest request){
 		TicketBean ticketDetails = null;
 		ResponseEntity<?> results = null;
+		long businessId = 0;
 		try{
-			logger.info("***Begin Execution of createTicket()***");
+			logger.info("===>Begin Execution of createTicket()===>");
+			HttpSession session = request.getSession();
+			if(session!=null){
+				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
+			}
 			if(ticket != null){
 				Calendar currenttime = Calendar.getInstance();
 				ticket.setCreateDate(new Date((currenttime.getTime()).getTime()));
+				ticket.setBusinessDetailId(businessId);
 				 ticketDetails = tikcetService.saveTicket(ticket);
 				
 				if(ticketDetails != null){
 					logger.info("====>Ticket created sucessfully for ticket ID [{}] ====> ",ticketDetails.getTicketId());
-					sendMail("parthiyads29@gmail.com", "smydata1@gmail.com",ticketDetails);
+					sendMail("parthiyads29@gmail.com",ticketDetails);
 					results = new ResponseEntity<>(ticketDetails, HttpStatus.OK);
 				} else {
 					logger.info("====>Failed to create ticket====> ");
@@ -96,7 +108,7 @@ public class TicketController {
 		return results;
 	}
 	
-private void sendMail(String from, String to,TicketBean ticketDetails) {
+private void sendMail(String to,TicketBean ticketDetails) {
 		
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);

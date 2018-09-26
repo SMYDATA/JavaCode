@@ -43,7 +43,10 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__individual_reports_individual_reports_component__ = __webpack_require__("./src/app/individual-reports/individual-reports.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__landing_page_landing_page_component__ = __webpack_require__("./src/app/landing-page/landing-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__register_register_component__ = __webpack_require__("./src/app/register/register.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__ = __webpack_require__("./src/app/auth-guard/auth-guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__business_users_business_users_component__ = __webpack_require__("./src/app/business-users/business-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__individual_users_individual_users_component__ = __webpack_require__("./src/app/individual-users/individual-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__invoice_generation_invoice_generation_component__ = __webpack_require__("./src/app/invoice-generation/invoice-generation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__ = __webpack_require__("./src/app/auth-guard/auth-guard.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -72,32 +75,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var appRoutes = [
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_19__landing_page_landing_page_component__["a" /* LandingPageComponent */] },
     // { path: 'select', component: SelectLoginTypeComponent },
+    { path: 'businessData', component: __WEBPACK_IMPORTED_MODULE_21__business_users_business_users_component__["a" /* BusinessUsersComponent */] },
+    { path: 'individualData', component: __WEBPACK_IMPORTED_MODULE_22__individual_users_individual_users_component__["a" /* IndividualUsersComponent */] },
     { path: 'signIn', component: __WEBPACK_IMPORTED_MODULE_3__sign_in_sign_in_component__["a" /* SignInComponent */] },
     { path: 'signUp', component: __WEBPACK_IMPORTED_MODULE_20__register_register_component__["a" /* RegisterComponent */] },
     { path: 'IndividualReg', component: __WEBPACK_IMPORTED_MODULE_14__individual_registration_individual_registration_component__["a" /* IndividualRegistrationComponent */] },
-    { path: 'individualDetails', component: __WEBPACK_IMPORTED_MODULE_15__individual_details_individual_details_component__["a" /* IndividualDetailsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]],
+    { path: 'individualDetails', component: __WEBPACK_IMPORTED_MODULE_15__individual_details_individual_details_component__["a" /* IndividualDetailsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]],
         children: [
             { path: 'payables', component: __WEBPACK_IMPORTED_MODULE_17__individual_payables_individual_payables_component__["a" /* IndividualPayablesComponent */] },
             { path: 'receivables', component: __WEBPACK_IMPORTED_MODULE_16__individual_receivables_individual_receivables_component__["a" /* IndividualReceivablesComponent */] },
-            { path: 'reports', component: __WEBPACK_IMPORTED_MODULE_18__individual_reports_individual_reports_component__["a" /* IndividualReportsComponent */] },
+            { path: 'reports', component: __WEBPACK_IMPORTED_MODULE_18__individual_reports_individual_reports_component__["a" /* IndividualReportsComponent */] }
         ]
     },
-    { path: 'salesReport', component: __WEBPACK_IMPORTED_MODULE_13__sales_report_sales_report_component__["a" /* SalesReportComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'userData', component: __WEBPACK_IMPORTED_MODULE_4__user_data_user_data_component__["a" /* UserDataComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]],
+    { path: 'salesReport', component: __WEBPACK_IMPORTED_MODULE_13__sales_report_sales_report_component__["a" /* SalesReportComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'userData', component: __WEBPACK_IMPORTED_MODULE_4__user_data_user_data_component__["a" /* UserDataComponent */],
         children: [
-            { path: 'invoice', component: __WEBPACK_IMPORTED_MODULE_9__select_invoice_select_invoice_component__["a" /* SelectInvoiceComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'payables', component: __WEBPACK_IMPORTED_MODULE_10__payables_payables_component__["a" /* PayablesComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'receivables', component: __WEBPACK_IMPORTED_MODULE_11__receivables_receivables_component__["a" /* ReceivablesComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'salesReport', component: __WEBPACK_IMPORTED_MODULE_13__sales_report_sales_report_component__["a" /* SalesReportComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'raiseTicket', component: __WEBPACK_IMPORTED_MODULE_12__raise_ticket_raise_ticket_component__["a" /* RaiseTicketComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'discounts', component: __WEBPACK_IMPORTED_MODULE_7__discounts_discounts_component__["a" /* DiscountsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'invoiceTemplate', component: __WEBPACK_IMPORTED_MODULE_8__invoice_invoice_component__["a" /* InvoiceComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'businessPlan', component: __WEBPACK_IMPORTED_MODULE_6__rewards_rewards_component__["a" /* RewardsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'myInfo', component: __WEBPACK_IMPORTED_MODULE_2__signup_signup_component__["a" /* SignupComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'addNew', component: __WEBPACK_IMPORTED_MODULE_2__signup_signup_component__["a" /* SignupComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'invoice', component: __WEBPACK_IMPORTED_MODULE_9__select_invoice_select_invoice_component__["a" /* SelectInvoiceComponent */] },
+            { path: 'payables', component: __WEBPACK_IMPORTED_MODULE_10__payables_payables_component__["a" /* PayablesComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'receivables', component: __WEBPACK_IMPORTED_MODULE_11__receivables_receivables_component__["a" /* ReceivablesComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'salesReport', component: __WEBPACK_IMPORTED_MODULE_13__sales_report_sales_report_component__["a" /* SalesReportComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'raiseTicket', component: __WEBPACK_IMPORTED_MODULE_12__raise_ticket_raise_ticket_component__["a" /* RaiseTicketComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'discounts', component: __WEBPACK_IMPORTED_MODULE_7__discounts_discounts_component__["a" /* DiscountsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'invoiceTemplate', component: __WEBPACK_IMPORTED_MODULE_8__invoice_invoice_component__["a" /* InvoiceComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'generateInvoice', component: __WEBPACK_IMPORTED_MODULE_23__invoice_generation_invoice_generation_component__["a" /* InvoiceGenerationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'businessPlan', component: __WEBPACK_IMPORTED_MODULE_6__rewards_rewards_component__["a" /* RewardsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'myInfo', component: __WEBPACK_IMPORTED_MODULE_2__signup_signup_component__["a" /* SignupComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'addNew', component: __WEBPACK_IMPORTED_MODULE_2__signup_signup_component__["a" /* SignupComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__auth_guard_auth_guard__["a" /* AuthGuard */]] }
         ] },
     { path: 'otpVerification', component: __WEBPACK_IMPORTED_MODULE_5__otp_authentication_otp_authentication_component__["a" /* OtpAuthenticationComponent */] },
     { path: '',
@@ -110,7 +119,7 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(appRoutes)],
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { onSameUrlNavigation: 'reload' })],
             exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
         })
     ], AppRoutingModule);
@@ -124,14 +133,14 @@ var AppRoutingModule = /** @class */ (function () {
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".bgColor{\n  background-color: #563d7c !important;\n}\n.logoStyle{\n  cursor: pointer;\n  font-size: 2rem;\n}\n.loginsp{\n/* color: #563D7C;\nborder: 1px solid white;\nbackground-color: white; */\nletter-spacing: normal;\n}\n.login{\n  padding: 18px;\n  cursor: pointer;\n  /* letter-spacing: normal; */\n}\n.login:hover{\n  font-size: 1.1rem;\n  text-decoration: underline;\n  -webkit-transition: 0.2s;\n  transition: 0.2s;\n}\n.navRight{\n  font-size: 1rem;\n}\n.renderPage{\n  margin-top: 80px;\n}\nh2 {\n    font-size: 24px;\n    text-transform: uppercase;\n    color: #303030;\n    font-weight: 600;\n    margin-bottom: 30px;\n}\nh4 {\n    font-size: 19px;\n    line-height: 1.375em;\n    color: #303030;\n    font-weight: 400;\n    margin-bottom: 30px;\n}\n.jumbotron {\n    background-color: #223b56;\n    color: #fff;\n    padding: 100px 25px;\n    font-family: Montserrat, sans-serif;\n}\n.container-fluid {\n    padding: 60px 50px;\n}\n.bg-grey {\n    background-color: #f6f6f6;\n}\n.logo-small {\n    color: #223b56;\n    font-size: 50px;\n}\n.logo {\n    color: #223b56;\n    font-size: 200px;\n}\n.thumbnail {\n    padding: 0 0 15px 0;\n    border: none;\n    border-radius: 0;\n}\n.thumbnail img {\n    width: 100%;\n    height: 100%;\n    margin-bottom: 10px;\n}\n.carousel-control.right, .carousel-control.left {\n    background-image: none;\n    color: #223b56;\n}\n.carousel-indicators li {\n    border-color: #223b56;\n}\n.carousel-indicators li.active {\n    background-color: #223b56;\n}\n.item h4 {\n    font-size: 19px;\n    line-height: 1.375em;\n    font-weight: 400;\n    font-style: italic;\n    margin: 70px 0;\n}\n.item span {\n    font-style: normal;\n}\n.panel {\n    border: 1px solid #223b56;\n    border-radius:0 !important;\n    -webkit-transition: -webkit-box-shadow 0.5s;\n    transition: -webkit-box-shadow 0.5s;\n    transition: box-shadow 0.5s;\n    transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;\n}\n.panel:hover {\n    -webkit-box-shadow: 5px 0px 40px rgba(0,0,0, .2);\n            box-shadow: 5px 0px 40px rgba(0,0,0, .2);\n}\n.panel-footer .btn:hover {\n    border: 1px solid #223b56;\n    background-color: #fff !important;\n    color: #223b56;\n}\n.panel-heading {\n    color: #fff !important;\n    background-color: #223b56 !important;\n    padding: 25px;\n    border-bottom: 1px solid transparent;\n    border-top-left-radius: 0px;\n    border-top-right-radius: 0px;\n    border-bottom-left-radius: 0px;\n    border-bottom-right-radius: 0px;\n}\n.panel-footer {\n    background-color: white !important;\n}\n.panel-footer h3 {\n    font-size: 32px;\n}\n.panel-footer h4 {\n    color: #aaa;\n    font-size: 14px;\n}\n.panel-footer .btn {\n    margin: 15px 0;\n    background-color: #223b56;\n    color: #fff;\n}\n.navbar {\n    margin-bottom: 0;\n    background-color: #1abc9c;\n    z-index: 9999;\n    border: 0;\n    color: white;\n    font-size: 12px !important;\n    line-height: 1.42857143 !important;\n    letter-spacing: 4px;\n    border-radius: 0;\n    font-family: serif;\n}\n.navbar li a, .navbar .navbar-brand {\n    color: #fff !important;\n}\n.navbar-nav li a:hover, .navbar-nav li.active a {\n    color: #223b56 !important;\n    background-color: #fff !important;\n}\n.navbar-default .navbar-toggle {\n    border-color: transparent;\n    color: #fff !important;\n}\nfooter .glyphicon {\n    font-size: 20px;\n    margin-bottom: 20px;\n    color: #223b56;\n}\n.slideanim {visibility:hidden;}\n.slide {\n    animation-name: slide;\n    -webkit-animation-name: slide;\n    animation-duration: 1s;\n    -webkit-animation-duration: 1s;\n    visibility: visible;\n}\n@keyframes slide {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateY(70%);\n            transform: translateY(70%);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: translateY(0%);\n            transform: translateY(0%);\n  }\n}\n@-webkit-keyframes slide {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateY(70%);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: translateY(0%);\n  }\n}\n@media screen and (max-width: 768px) {\n  .col-sm-4 {\n    text-align: center;\n    margin: 25px 0;\n  }\n  .btn-lg {\n      width: 100%;\n      margin-bottom: 35px;\n  }\n}\n@media screen and (max-width: 480px) {\n  .logo {\n      font-size: 150px;\n  }\n}\n"
+module.exports = ".bgColor{\n  background-color: #563d7c !important;\n}\n.logoStyle{\n  cursor: pointer;\n  font-size: 2rem;\n}\n.loginsp{\n/* color: #563D7C;\nborder: 1px solid white;\nbackground-color: white; */\nletter-spacing: normal;\n}\n.login{\n  padding: 18px;\n  cursor: pointer;\n  /* letter-spacing: normal; */\n}\n.login:hover{\n  font-size: 1.1rem;\n  text-decoration: underline;\n  -webkit-transition: 0.2s;\n  transition: 0.2s;\n}\n.navRight{\n  font-size: 1rem;\n}\n.renderPage{\n  margin-top: 80px;\n}\nh2 {\n    font-size: 24px;\n    text-transform: uppercase;\n    color: #303030;\n    font-weight: 600;\n    margin-bottom: 30px;\n}\nh4 {\n    font-size: 19px;\n    line-height: 1.375em;\n    color: #303030;\n    font-weight: 400;\n    margin-bottom: 30px;\n}\n.jumbotron {\n    background-color: #223b56;\n    color: #fff;\n    padding: 100px 25px;\n    font-family: Montserrat, sans-serif;\n}\n.container-fluid {\n    padding: 60px 50px;\n}\n.bg-grey {\n    background-color: #f6f6f6;\n}\n.logo-small {\n    color: #223b56;\n    font-size: 50px;\n}\n.logo {\n    color: #223b56;\n    font-size: 200px;\n}\n.thumbnail {\n    padding: 0 0 15px 0;\n    border: none;\n    border-radius: 0;\n}\n.thumbnail img {\n    width: 100%;\n    height: 100%;\n    margin-bottom: 10px;\n}\n.carousel-control.right, .carousel-control.left {\n    background-image: none;\n    color: #223b56;\n}\n.carousel-indicators li {\n    border-color: #223b56;\n}\n.carousel-indicators li.active {\n    background-color: #223b56;\n}\n.item h4 {\n    font-size: 19px;\n    line-height: 1.375em;\n    font-weight: 400;\n    font-style: italic;\n    margin: 70px 0;\n}\n.item span {\n    font-style: normal;\n}\n.panel {\n    border: 1px solid #223b56;\n    border-radius:0 !important;\n    -webkit-transition: -webkit-box-shadow 0.5s;\n    transition: -webkit-box-shadow 0.5s;\n    transition: box-shadow 0.5s;\n    transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;\n}\n.panel:hover {\n    -webkit-box-shadow: 5px 0px 40px rgba(0,0,0, .2);\n            box-shadow: 5px 0px 40px rgba(0,0,0, .2);\n}\n.panel-footer .btn:hover {\n    border: 1px solid #223b56;\n    background-color: #fff !important;\n    color: #223b56;\n}\n.panel-heading {\n    color: #fff !important;\n    background-color: #223b56 !important;\n    padding: 25px;\n    border-bottom: 1px solid transparent;\n    border-top-left-radius: 0px;\n    border-top-right-radius: 0px;\n    border-bottom-left-radius: 0px;\n    border-bottom-right-radius: 0px;\n}\n.panel-footer {\n    background-color: white !important;\n}\n.panel-footer h3 {\n    font-size: 32px;\n}\n.panel-footer h4 {\n    color: #aaa;\n    font-size: 14px;\n}\n.panel-footer .btn {\n    margin: 15px 0;\n    background-color: #223b56;\n    color: #fff;\n}\n.navbar {\n    margin-bottom: 0;\n    background-color: #1abc9c;\n    z-index: 9999;\n    border: 0;\n    color: white;\n    font-size: 12px !important;\n    line-height: 1.42857143 !important;\n    letter-spacing: 4px;\n    border-radius: 0;\n    font-family: serif;\n}\n.navbar li a, .navbar .navbar-brand {\n    color: #fff !important;\n}\n.navbar-nav li a:hover, .navbar-nav li.active a {\n    color: #223b56 !important;\n    background-color: #fff !important;\n}\n.navbar-default .navbar-toggle {\n    border-color: transparent;\n    color: #fff !important;\n}\nfooter .glyphicon {\n    font-size: 20px;\n    margin-bottom: 20px;\n    color: #223b56;\n}\n.slideanim {visibility:hidden;}\n.slide {\n    animation-name: slide;\n    -webkit-animation-name: slide;\n    animation-duration: 1s;\n    -webkit-animation-duration: 1s;\n    visibility: visible;\n}\n@keyframes slide {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateY(70%);\n            transform: translateY(70%);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: translateY(0%);\n            transform: translateY(0%);\n  }\n}\n@-webkit-keyframes slide {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateY(70%);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: translateY(0%);\n  }\n}\n@media screen and (max-width: 768px) {\n  .col-sm-4 {\n    text-align: center;\n    margin: 25px 0;\n  }\n  .btn-lg {\n      width: 100%;\n      margin-bottom: 35px;\n  }\n}\n@media screen and (max-width: 480px) {\n  .logo {\n      font-size: 150px;\n  }\n}\n.dropdown-item:hover{\n  color: red;\n  cursor: pointer;\n}\n"
 
 /***/ }),
 
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar fixed-top bgColor\">\n  <a class=\"navbar-brand logoStyle\" routerLink=\"/home\" >SMyData</a>\n  <span class=\"navbar-text navRight loginsp\" >\n    <!-- <span *ngIf=\"showProfile\">Welcome </span> -->\n   <a class=\"nav-link\" *ngIf=\"!showProfile && !indProfile\" class=\"login\">\n     <span class=\"login\" routerLink=\"/signIn\">LOG IN</span>\n   </a>\n   <a class=\"nav-link\" *ngIf=\"indProfile\">\n     <span class=\"\" (click)=\"logOut()\"><a>Logout</a></span>\n   </a>\n    <li class=\"nav-item dropdown pr-4\" *ngIf=\"showProfile && !indProfile\" style=\"list-style:none;left:-35px;\">\n       <a class=\"nav-link dropdown-toggle\"   style=\"cursor:pointer\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\">\n         Profile\n       </a>\n       <div class=\"dropdown-menu\" style=\"left:-80px;text-color:black;cursor:pointer\" aria-labelledby=\"navbarDropdownMenuLink\">\n         <span class=\"dropdown-item\" routerLink=\"/userData/myInfo\">View Business</span>\n         <span class=\"dropdown-item\" routerLink=\"/userData/addNew\">Add Business</span>\n         <span class=\"dropdown-item\" routerLink=\"/userData/businessPlan\">BusinessPlan</span><hr>\n         <span class=\"dropdown-item\" (click)=\"logOut()\">Logout</span>\n       </div>\n     </li>\n    </span>\n</nav>\n\n<div class=\"renderPage\">\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<nav class=\"navbar fixed-top bgColor\">\n  <a class=\"navbar-brand logoStyle\" routerLink=\"/home\" >SMyData</a>\n  <span *ngIf=\"showProfile && !indProfile\" style=\"margin-left: 600px;\">Welcome to</span>\n  <span *ngIf=\"showProfile && !indProfile\" class=\"nav\" style=\"margin-left: -110px;font-size:15px\">\n    <li class=\"nav-item dropdown\">\n   <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">{{selectedBU | uppercase}}</a>\n   <div class=\"dropdown-menu\">\n     <span class=\"dropdown-item\" *ngFor=\"let bu of businessList.businessDetails\" (click)=\"changeBU(bu)\">{{bu.companyName | uppercase}}</span>\n   </div>\n </li>\n  </span>\n  <span class=\"navbar-text navRight loginsp\" >\n   <a class=\"nav-link\" *ngIf=\"!showProfile && !indProfile\" class=\"login\">\n     <span class=\"login\" routerLink=\"/signIn\">LOG IN</span>\n   </a>\n   <a class=\"nav-link\" *ngIf=\"indProfile\">\n     <span class=\"\" (click)=\"logOut()\"><a>Logout</a></span>\n   </a>\n    <li class=\"nav-item dropdown pr-4\" *ngIf=\"showProfile && !indProfile\" style=\"list-style:none;left:-35px;\">\n       <a class=\"nav-link dropdown-toggle\"   style=\"cursor:pointer\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\">\n         Profile\n       </a>\n       <div class=\"dropdown-menu\" style=\"left:-80px;text-color:black;cursor:pointer\" aria-labelledby=\"navbarDropdownMenuLink\">\n         <span class=\"dropdown-item\" routerLink=\"/userData/myInfo\">View Business</span>\n         <span class=\"dropdown-item\" routerLink=\"/userData/addNew\">Add Business</span>\n         <span class=\"dropdown-item\" routerLink=\"/userData/businessPlan\">BusinessPlan</span><hr>\n         <span class=\"dropdown-item\" (click)=\"logOut()\">Logout</span>\n       </div>\n     </li>\n    </span>\n</nav>\n\n<div class=\"renderPage\">\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -161,8 +170,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(_demoService, toastr, router, cookieService, vcr) {
-        this._demoService = _demoService;
+    function AppComponent(_dataService, toastr, router, cookieService, vcr) {
+        this._dataService = _dataService;
         this.toastr = toastr;
         this.router = router;
         this.cookieService = cookieService;
@@ -170,29 +179,53 @@ var AppComponent = /** @class */ (function () {
         this.view = 'homePage';
         this.showProfile = false;
         this.indProfile = false;
+        this.selectedBU = "";
         this.toastr.setRootViewContainerRef(vcr);
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._demoService.profile.subscribe(function (showProfile) { return _this.showProfile = showProfile; });
-        this._demoService.indprofile.subscribe(function (indProfile) { return _this.indProfile = indProfile; });
+        this._dataService.profile.subscribe(function (showProfile) {
+            return _this.showProfile = showProfile;
+        });
+        this._dataService.indprofile.subscribe(function (indProfile) {
+            return _this.indProfile = indProfile;
+        });
+        this._dataService.buListData.subscribe(function (buList) {
+            return _this.businessList = buList;
+        });
         this.allCookies = this.cookieService.getAll();
         if (this.allCookies && this.allCookies.mobile) {
             // this.showProfile = true;
         }
         ;
+        if (this.businessList) {
+            this.selectedBU = this.businessList.businessDetails[0].companyName;
+        }
     };
     ;
     AppComponent.prototype.signInCall = function () {
         this.view = '';
         this.router.navigate(['/', 'select']);
     };
+    AppComponent.prototype.changeBU = function (obj) {
+        var _this = this;
+        this._dataService.changeMyBusiness(obj).subscribe(function (data) {
+            _this.selectedBU = obj.companyName;
+            _this.toastr.success("", "Business Changed", { toastLife: '3000' });
+        }, function (error) {
+            _this.toastr.error("", "ERROR!!", { toastLife: '3000' });
+        });
+    };
     AppComponent.prototype.logOut = function () {
-        this._demoService.changeProfile(false);
-        this._demoService.changeindProfile(false);
+        this._dataService.changeProfile(false);
+        this._dataService.changeindProfile(false);
         this.showProfile = false;
         this.indProfile = false;
-        // this.cookieService.deleteAll();
+        this._dataService.logout().subscribe(function (data) {
+            console.log("logged out..");
+        }, function (error) {
+            console.log("logged out failed..");
+        });
         this.router.navigate(['']);
     };
     AppComponent = __decorate([
@@ -252,12 +285,18 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__landing_page_landing_page_component__ = __webpack_require__("./src/app/landing-page/landing-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__auth_guard_auth_guard__ = __webpack_require__("./src/app/auth-guard/auth-guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__register_register_component__ = __webpack_require__("./src/app/register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__business_users_business_users_component__ = __webpack_require__("./src/app/business-users/business-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__individual_users_individual_users_component__ = __webpack_require__("./src/app/individual-users/individual-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__invoice_generation_invoice_generation_component__ = __webpack_require__("./src/app/invoice-generation/invoice-generation.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -321,15 +360,19 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_31__individual_payables_individual_payables_component__["a" /* IndividualPayablesComponent */],
                 __WEBPACK_IMPORTED_MODULE_32__individual_reports_individual_reports_component__["a" /* IndividualReportsComponent */],
                 __WEBPACK_IMPORTED_MODULE_33__landing_page_landing_page_component__["a" /* LandingPageComponent */],
-                __WEBPACK_IMPORTED_MODULE_35__register_register_component__["a" /* RegisterComponent */]
+                __WEBPACK_IMPORTED_MODULE_35__register_register_component__["a" /* RegisterComponent */],
+                __WEBPACK_IMPORTED_MODULE_36__business_users_business_users_component__["a" /* BusinessUsersComponent */],
+                __WEBPACK_IMPORTED_MODULE_37__individual_users_individual_users_component__["a" /* IndividualUsersComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__invoice_generation_invoice_generation_component__["a" /* InvoiceGenerationComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["BrowserModule"],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_material__["f" /* MatTableModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_material__["g" /* MatTableModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_material__["c" /* MatPaginatorModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_material__["e" /* MatSortModule */],
                 __WEBPACK_IMPORTED_MODULE_8__angular_cdk_table__["m" /* CdkTableModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_material__["a" /* MatInputModule */],
                 __WEBPACK_IMPORTED_MODULE_9__angular_material_tooltip__["a" /* MatTooltipModule */],
@@ -485,6 +528,104 @@ var BillingService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/business-users/business-users.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".example-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  min-width: 300px;\n}\n\n.example-header {\n  min-height: 64px;\n  padding: 8px 24px 0;\n}\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%;\n}\n\n.mat-table {\n  overflow: auto;\n  max-height: 320px;\n}\n"
+
+/***/ }),
+
+/***/ "./src/app/business-users/business-users.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"p-3\">\n<div class=\"text-center\">\n  <h2>Welcome To SMYDATA</h2>\n</div>\n<div class=\"row textfamily\">\n  <div class=\"col-md-2 col-sm-4 textStyle mt-5\">\n    <div class=\"list-group mt-4\" id=\"list-tab\" role=\"tablist\" [style.margin-top.px]=\"buPlanCss\">\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" routerLink=\"/individualData\">Individual</a>\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" routerLink=\"/businessData\">Business</a>\n    </div>\n  </div>\n  <div class=\"col-md-10 col-sm-8\">\n<div class=\"example-header\" style=\"margin-top:8px; width:20%\">\n  <mat-form-field>\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n  </mat-form-field>\n</div>\n\n<div class=\"example-container mat-elevation-z8\">\n\n  <mat-table [dataSource]=\"dataSource\" matSort>\n\n    <!-- ID Column -->\n    <ng-container matColumnDef=\"reg_id\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.reg_id}} </mat-cell>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\n    </ng-container>\n\n    <!--category  Column -->\n    <ng-container matColumnDef=\"category\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Category </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.category}} </mat-cell>\n    </ng-container>\n\n    <!-- Mobile Column -->\n    <ng-container matColumnDef=\"mobile\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.mobile}} </mat-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container matColumnDef=\"state\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.state}} </mat-cell>\n    </ng-container>\n\n    <!-- City Column -->\n    <ng-container matColumnDef=\"city\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.city}} </mat-cell>\n    </ng-container>\n\n    <!-- Country Column -->\n    <ng-container matColumnDef=\"country\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.country}} </mat-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </mat-row>\n  </mat-table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>\n</div>\n</div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/business-users/business-users.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BusinessUsersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var BusinessUsersComponent = /** @class */ (function () {
+    function BusinessUsersComponent() {
+        this.displayedColumns = ['reg_id', 'name', 'category', 'mobile', 'state', 'city', 'country'];
+        // Create 100 users
+        var users = [];
+        for (var i = 1; i <= 100; i++) {
+            users.push(createNewUser(i));
+        }
+        // Assign the data to the data source for the table to render
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatTableDataSource */](users);
+    }
+    /**
+     * Set the paginator and sort after the view init since this component will
+     * be able to query its view for the initialized paginator and sort.
+     */
+    BusinessUsersComponent.prototype.ngAfterViewInit = function () {
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+    };
+    BusinessUsersComponent.prototype.applyFilter = function (filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatPaginator */])
+    ], BusinessUsersComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatSort */])
+    ], BusinessUsersComponent.prototype, "sort", void 0);
+    BusinessUsersComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-business-users',
+            template: __webpack_require__("./src/app/business-users/business-users.component.html"),
+            styles: [__webpack_require__("./src/app/business-users/business-users.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], BusinessUsersComponent);
+    return BusinessUsersComponent;
+}());
+
+/** Builds and returns a new User. */
+function createNewUser(id) {
+    var name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
+        NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+    return {
+        reg_id: id,
+        name: name,
+        category: CATEGORY[Math.round(Math.random() * (CATEGORY.length - 1))],
+        mobile: Math.round(Math.random() * 10000000000),
+        state: 'Telangana',
+        city: 'Hyderabad',
+        country: 'India'
+    };
+}
+/** Constants used to fill up our data base. */
+var NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
+    'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
+    'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
+var CATEGORY = ["Furniture", "Hardware", "Clothing", "Fashion Jewellery", "Valves", "Plywood"];
+
+
+/***/ }),
+
 /***/ "./src/app/data.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -535,6 +676,13 @@ var DataService = /** @class */ (function () {
         this.tempCustomerMobile = this.customerMobile.asObservable();
         this.buPlanCss = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]('0');
         this.buPlanCssVal = this.buPlanCss.asObservable();
+        this.buList = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]('');
+        this.buListData = this.buList.asObservable();
+        this.invoiceData = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]('');
+        this.invData = this.invoiceData.asObservable();
+        //holds registeration form data
+        this.registrationData = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]('');
+        this.regData = this.registrationData.asObservable();
     }
     DataService.prototype.changeindProfile = function (indprofile) {
         console.log('indprofile:' + indprofile);
@@ -554,6 +702,16 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.changebuPlanCss = function (value) {
         this.buPlanCss.next(value);
+    };
+    DataService.prototype.changeBusinessList = function (data) {
+        this.buList.next(data);
+    };
+    DataService.prototype.changeInvoiceData = function (data) {
+        console.log("invoiceDataChange:" + data);
+        this.invoiceData.next(data);
+    };
+    DataService.prototype.changeRegData = function (data) {
+        this.registrationData.next(data);
     };
     DataService.prototype.changeProfile = function (profile) {
         console.log('profile:' + profile);
@@ -579,7 +737,6 @@ var DataService = /** @class */ (function () {
         return this.http.post(url, body, httpOptions);
     };
     DataService.prototype.registerUser = function (data) {
-        //  let body = JSON.stringify(data);
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]();
         headers.append('Content-Type', 'application/form-data');
         var url = urlProvider + '/api/saveBusinessUser/registration';
@@ -607,6 +764,10 @@ var DataService = /** @class */ (function () {
     DataService.prototype.viewMyBusiness = function () {
         var url = urlProvider + '/api/viewMyBusiness';
         return this.http.get(url);
+    };
+    DataService.prototype.changeMyBusiness = function (obj) {
+        var url = urlProvider + '/api/changeMyBusiness';
+        return this.http.post(url, obj, httpOptions);
     };
     DataService.prototype.logInUser = function (data, type) {
         console.log(data);
@@ -657,6 +818,14 @@ var DataService = /** @class */ (function () {
         var url = urlProvider + '/api/' + type + '/' + data.startDate + '/' + data.endDate;
         console.log(url);
         return this.http.get(url, data);
+    };
+    DataService.prototype.emailInvoice = function (id) {
+        var url = urlProvider + '/api/emailInvoice/' + id;
+        return this.http.get(url);
+    };
+    DataService.prototype.logout = function () {
+        var url = urlProvider + '/api/logOut/';
+        return this.http.get(url);
     };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
@@ -1158,6 +1327,102 @@ var IndividualReportsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/individual-users/individual-users.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".example-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  min-width: 300px;\n}\n\n.example-header {\n  min-height: 64px;\n  padding: 8px 24px 0;\n}\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%;\n}\n\n.mat-table {\n  overflow: auto;\n  max-height: 320px;\n}\n"
+
+/***/ }),
+
+/***/ "./src/app/individual-users/individual-users.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"p-3\">\n<div class=\"text-center\">\n  <h2>Welcome To SMYDATA</h2>\n</div>\n<div class=\"row textfamily\">\n  <div class=\"col-md-2 col-sm-4 textStyle mt-5\">\n    <div class=\"list-group mt-4\" id=\"list-tab\" role=\"tablist\" [style.margin-top.px]=\"buPlanCss\">\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" routerLink=\"/individualData\">Individual</a>\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" routerLink=\"/businessData\">Business</a>\n    </div>\n  </div>\n  <div class=\"col-md-10 col-sm-8\">\n<div class=\"example-header\" style=\"margin-top:8px; width:20%\">\n  <mat-form-field>\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n  </mat-form-field>\n</div>\n\n<div class=\"example-container mat-elevation-z8\">\n\n  <mat-table [dataSource]=\"dataSource\" matSort>\n\n    <!-- ID Column -->\n    <ng-container matColumnDef=\"reg_id\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.reg_id}} </mat-cell>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\n    </ng-container>\n\n      <!-- Mobile Column -->\n    <ng-container matColumnDef=\"mobile\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.mobile}} </mat-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container matColumnDef=\"state\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.state}} </mat-cell>\n    </ng-container>\n\n    <!-- City Column -->\n    <ng-container matColumnDef=\"city\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.city}} </mat-cell>\n    </ng-container>\n\n    <!-- Country Column -->\n    <ng-container matColumnDef=\"country\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.country}} </mat-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </mat-row>\n  </mat-table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>\n\n</div>\n</div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/individual-users/individual-users.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndividualUsersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var IndividualUsersComponent = /** @class */ (function () {
+    function IndividualUsersComponent() {
+        this.displayedColumns = ['reg_id', 'name', 'mobile', 'state', 'city', 'country'];
+        // Create 100 users
+        var users = [];
+        for (var i = 1; i <= 100; i++) {
+            users.push(createNewUser(i));
+        }
+        // Assign the data to the data source for the table to render
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatTableDataSource */](users);
+    }
+    /**
+     * Set the paginator and sort after the view init since this component will
+     * be able to query its view for the initialized paginator and sort.
+     */
+    IndividualUsersComponent.prototype.ngAfterViewInit = function () {
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+    };
+    IndividualUsersComponent.prototype.applyFilter = function (filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatPaginator */])
+    ], IndividualUsersComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatSort */])
+    ], IndividualUsersComponent.prototype, "sort", void 0);
+    IndividualUsersComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-individual-users',
+            template: __webpack_require__("./src/app/individual-users/individual-users.component.html"),
+            styles: [__webpack_require__("./src/app/individual-users/individual-users.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], IndividualUsersComponent);
+    return IndividualUsersComponent;
+}());
+
+/** Builds and returns a new User. */
+function createNewUser(id) {
+    var name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
+        NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+    return {
+        reg_id: id,
+        name: name,
+        mobile: Math.round(Math.random() * 10000000000),
+        state: 'Karnataka',
+        city: 'bengaluru',
+        country: 'India'
+    };
+}
+/** Constants used to fill up our data base. */
+var NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
+    'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
+    'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
+
+
+/***/ }),
+
 /***/ "./src/app/individual.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1218,6 +1483,111 @@ var IndividualService = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], IndividualService);
     return IndividualService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/invoice-generation/invoice-generation.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "h5{\n  font-weight: bold;\n}\n.fontIcn{\n  border: 1px solid;\n  padding: 5px;\n  border-radius: 50%;\n  cursor: pointer;\n  margin: 2px;\n}\n.fontIcn:hover{\n  border: 1px solid blue;\n}\n"
+
+/***/ }),
+
+/***/ "./src/app/invoice-generation/invoice-generation.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row cstyle dataBox\" style=\"font-family: Rokkitt, serif;\" id=\"inv\">\n<!--generated invoice  -->\n<div class=\"invoiceCreation container\" >\n  <div class=\"row\">\n    <div class=\"col-md-2\">\n      <h1 style=\"font-weight:900\">INVOICE</h1>\n    </div>\n    <div class=\"col-md-10 text-right\">\n      <span matTooltipPosition=\"below\" matTooltip=\"Download\" (click)=\"download()\"><i class=\"fas fa-download fontIcn\"></i></span>\n      <span matTooltipPosition=\"below\" matTooltip=\"Print\" (click)=\"printData()\"><i class=\"fas fa-print fontIcn\"></i></span>\n      <span matTooltipPosition=\"below\" matTooltip=\"Email\" (click)=\"emailInv()\"><i class=\"fas fa-envelope-square fontIcn\"></i></span>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <h6><span>{{invData.userName | uppercase}}Dilip</span> | <span>{{invData.mobile}}7799663951</span></h6>\n      <h6><span>{{invData.email}}Dilip@gmail.com</span> | <span>{{invData.address}}Hyderabad</span></h6>\n    </div>\n    <div class=\"col-sm\" >\n      <!-- <img src={{imageUrl()}}  style=\"width:50px;height:50px;border-radius:50px\"> -->\n    </div>\n    <div class=\"col-sm\" >\n      <h6>Invoice # {{invData.invId}} </h6><h6> Invoice Date {{invData.createDate|date}}</h6>\n    </div>\n  </div><br>\n  <div class=\"row\">\n    <div class=\"col-md-12\" style=\"overflow:auto;max-height:200px\">\n    <table class=\"table table-bordered\">\n    <thead class=\"fntcss\" style=\"background-color:#4fd64f\">\n      <tr>\n        <th>#</th>\n        <th>Item Name</th>\n        <th>Quantity</th>\n        <th>Rate</th>\n        <th>Total Amount</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let data of invData.invoiceDetail;let i = index; let lastEl = last; let firstEl = first\">\n        <td class=\"indx\">{{i+1}}</td>\n        <td>{{data.item}}</td>\n        <td>{{data.quantity}}</td>\n        <td>{{data.rate}}</td>\n        <td>{{data.rate * data.quantity | number}}</td>\n      </tr>\n      <!-- <hr> -->\n      <!-- <tr style=\"background-color:#c1bfbb\">\n        <td><h5><span>Discount </span>{{invData.discount}}%</h5></td>\n        <td><h5><span>Rewards </span>{{invData.rewards}}</h5></td>\n        <td><h5><span>Credit </span>{{invData.credit}}</h5></td>\n        <td>\n          <h4>SubTotal</h4>\n          <h4>GST</h4>\n          <h4 class=\"py-3\" style=\"background-color:#4fd64f;margin-right:-26px\">Invoice Total</h4>\n          <h4>Paid</h4>\n        </td>\n        <td>\n          <h4>{{invData.subTotal | number}}</h4>\n          <h4>8%</h4>\n          <h4 class=\"py-3\" style=\"background-color:#4fd64f;\">{{invData.total | number}}</h4>\n          <h4>{{invData.total - invData.credit | number}}</h4>\n        </td>\n      </tr> -->\n    </tbody>\n  </table>\n  </div>\n</div>\n<hr>\n<div class=\"row\">\n  <div class=\"col-md-4 col-sm-6\">\n    <div class=\"row\">\n      <div class=\"col-md-4\"><h5>Discount</h5></div>\n      <div class=\"col-md-4\"><h5>{{invData.discount}}%</h5></div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-4\"><h5>Rewards</h5></div>\n      <div class=\"col-md-4\"><h5>{{invData.rewards}}</h5></div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-4\"><h5>Credit</h5></div>\n      <div class=\"col-md-4\"><h5>{{invData.credit}}</h5></div>\n    </div>\n  </div>\n  <div class=\"col-md-4\">\n  </div>\n  <div class=\"col-md-4 col-sm-6\">\n    <div class=\"row\">\n      <div class=\"col-md-5\"><h5>SubTotal</h5></div>\n      <div class=\"col-md-5\"><h5>{{invData.subTotal | number}}</h5></div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-5\"><h5>GST</h5></div>\n      <div class=\"col-md-5\"><h5>8%</h5></div>\n    </div>\n    <div class=\"row\" style=\"background-color:#4fd64f\">\n      <div class=\"col-md-5\"><h5>Invoice Total</h5></div>\n      <div class=\"col-md-5\"><h5>{{invData.total | number}}</h5></div>\n    </div>\n    <div class=\"row\"  style=\"background-color:#4fd64f\">\n      <div class=\"col-md-5\"><h5>Paid</h5></div>\n      <div class=\"col-md-5\"><h5>{{invData.total - invData.credit | number}}</h5></div>\n    </div>\n  </div>\n</div>\n</div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/invoice-generation/invoice-generation.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvoiceGenerationComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("./src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr__ = __webpack_require__("./node_modules/ng5-toastr/ng5-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jspdf__ = __webpack_require__("./node_modules/jspdf/dist/jspdf.min.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jspdf___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jspdf__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var InvoiceGenerationComponent = /** @class */ (function () {
+    function InvoiceGenerationComponent(_dataService, toastr) {
+        this._dataService = _dataService;
+        this.toastr = toastr;
+    }
+    InvoiceGenerationComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._dataService.invData.subscribe(function (data) {
+            return _this.invData = data[0];
+        });
+        console.log(JSON.stringify(this.invData));
+    };
+    InvoiceGenerationComponent.prototype.emailInv = function () {
+        var _this = this;
+        this._dataService.emailInvoice(this.invData.invId).subscribe(function (data) {
+            _this.toastr.success("Email sent", '', { toastLife: '3000' });
+        }, function (error) {
+            _this.toastr.error('Sending failed', 'Error', { toastLife: '3000' });
+        });
+    };
+    InvoiceGenerationComponent.prototype.printData = function () {
+        var divToPrint = document.getElementById("inv");
+        var newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+    };
+    InvoiceGenerationComponent.prototype.download = function () {
+        var pdf = new __WEBPACK_IMPORTED_MODULE_3_jspdf__('p', 'pt', 'letter');
+        pdf.setFontSize(30);
+        pdf.text(180, 35, 'INVOICE');
+        var source = window.document.getElementById("inv");
+        var specialElementHandlers = {
+            '#bypassme': function (element, renderer) {
+                return true;
+            }
+        };
+        var margins = {
+            top: 80,
+            bottom: 60,
+            left: 10,
+            width: 700
+        };
+        pdf.fromHTML(source, // HTML string or DOM elem ref.
+        margins.left, // x coord
+        margins.top, {
+            'width': margins.width,
+            'elementHandlers': specialElementHandlers
+        }, function (dispose) {
+            pdf.save('Test.pdf');
+        }, margins);
+    };
+    InvoiceGenerationComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-invoice-generation',
+            template: __webpack_require__("./src/app/invoice-generation/invoice-generation.component.html"),
+            styles: [__webpack_require__("./src/app/invoice-generation/invoice-generation.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2_ng5_toastr_ng5_toastr__["ToastsManager"]])
+    ], InvoiceGenerationComponent);
+    return InvoiceGenerationComponent;
 }());
 
 
@@ -1369,6 +1739,8 @@ module.exports = "<div class=\"row justify-content-center \" *ngIf='!resetPwd &&
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_cookie_service__ = __webpack_require__("./node_modules/ngx-cookie-service/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng5_toastr_ng5_toastr__ = __webpack_require__("./node_modules/ng5-toastr/ng5-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng5_toastr_ng5_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_ng5_toastr_ng5_toastr__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1383,11 +1755,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var OtpAuthenticationComponent = /** @class */ (function () {
-    function OtpAuthenticationComponent(dataService, router, cookieService) {
+    function OtpAuthenticationComponent(dataService, router, cookieService, toastr) {
         this.dataService = dataService;
         this.router = router;
         this.cookieService = cookieService;
+        this.toastr = toastr;
         this.positionOptions = ['after', 'before', 'above', 'below', 'left', 'right'];
         this.position = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormControl */](this.positionOptions[0]);
     }
@@ -1408,8 +1782,9 @@ var OtpAuthenticationComponent = /** @class */ (function () {
     OtpAuthenticationComponent.prototype.verifyOtp = function () {
         var _this = this;
         this.dataService.cast.subscribe(function (messageSource) { return _this.messageSource = messageSource; });
+        this.dataService.cast.subscribe(function (regData) { return _this.regDataObj = regData; });
         if (this.messageSource == (this.otpValue + 'Regi')) {
-            this.regSuccess = true;
+            this.userRegistration(this.regDataObj);
         }
         else if (this.messageSource == this.otpValue) {
             this.resetPwd = true;
@@ -1417,6 +1792,23 @@ var OtpAuthenticationComponent = /** @class */ (function () {
         else {
             this.invalidOtp = true;
         }
+    };
+    OtpAuthenticationComponent.prototype.userRegistration = function (dataJson) {
+        var _this = this;
+        this.dataService.registerUserIndividual(dataJson).subscribe(function (data) {
+            console.log(data);
+            if (data != null && data[0] == 'success') {
+                _this.regSuccess = true;
+                return true;
+            }
+            else {
+                _this.router.navigate(['/', 'signIn']);
+                _this.toastr.error("Registration failed. Could not save the details", 'Error', { toastLife: '3000' });
+            }
+        }, function (error) {
+            _this.toastr.error('Registration failed. Please try again', 'Error', { toastLife: '3000' });
+            _this.router.navigate(['/', 'signIn']);
+        });
     };
     OtpAuthenticationComponent.prototype.resetPswd = function () {
         var _this = this;
@@ -1449,7 +1841,7 @@ var OtpAuthenticationComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/otp-authentication/otp-authentication.component.html"),
             styles: [__webpack_require__("./src/app/otp-authentication/otp-authentication.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */], __WEBPACK_IMPORTED_MODULE_3_ngx_cookie_service__["a" /* CookieService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */], __WEBPACK_IMPORTED_MODULE_3_ngx_cookie_service__["a" /* CookieService */], __WEBPACK_IMPORTED_MODULE_5_ng5_toastr_ng5_toastr__["ToastsManager"]])
     ], OtpAuthenticationComponent);
     return OtpAuthenticationComponent;
 }());
@@ -1523,17 +1915,17 @@ var PayablesComponent = /** @class */ (function () {
             if (data != null) {
                 if (data[0] && data[0]['paybleReceivables'].length > 0) {
                     var dataObj = data[0]['paybleReceivables'];
-                    _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["e" /* MatTableDataSource */](dataObj);
+                    _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["f" /* MatTableDataSource */](dataObj);
                     _this.dataSource.paginator = _this.paginator;
                     _this.dataSource.sort = _this.sort;
                     _this.applyFilter(_this.customerMobile);
                 }
                 else {
-                    _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["e" /* MatTableDataSource */]([]);
+                    _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["f" /* MatTableDataSource */]([]);
                 }
             }
             else {
-                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["e" /* MatTableDataSource */]([]);
+                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["f" /* MatTableDataSource */]([]);
                 _this.toastr.info("No Records Found", 'Info', { toastLife: '3000' });
             }
         }, function (error) {
@@ -1740,17 +2132,17 @@ var ReceivablesComponent = /** @class */ (function () {
             if (data != null && Object.keys(data).length >= 0) {
                 if (data[0] && data[0]['paybleReceivables'].length > 0) {
                     var dataObj = data[0]['paybleReceivables'];
-                    _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["e" /* MatTableDataSource */](dataObj);
+                    _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["f" /* MatTableDataSource */](dataObj);
                     _this.dataSource.paginator = _this.paginator;
                     _this.dataSource.sort = _this.sort;
                     _this.applyFilter(_this.customerMobile);
                 }
                 else {
-                    _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["e" /* MatTableDataSource */]([]);
+                    _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["f" /* MatTableDataSource */]([]);
                 }
             }
             else {
-                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["e" /* MatTableDataSource */]([]);
+                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_4__angular_material__["f" /* MatTableDataSource */]([]);
                 _this.toastr.info("No Records Found", 'Info', { toastLife: '3000' });
             }
         }, function (error) {
@@ -1823,14 +2215,14 @@ var ReceivablesComponent = /** @class */ (function () {
 /***/ "./src/app/register/register.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".box{\n-webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);\n        box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);\nbackground-color: #ffffff;\npadding: 25px;\n}\n.inputBx{\n  border: solid 1px #e3e3e3;\n  padding: 3px;\n}\n.grpTxt{\n  border: none;\n  background-color: #ffff;\n}\n.errMsg{\n  color: red;\n}\ninput:focus{\n    outline: none;\n}\n.isDisabled{\n  border: solid 1px #e3e3e3 !important;\n}\n.focusGreen{\n  border: 1px solid green;\n}\n.focusRed{\n  border: 1px solid red;\n}\ninput{\n  border: none;\nwidth: 90%;\n}\n.flexDiv{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.flex-item{\n  width: 30%\n}\n.flex-item-middle{\n  margin: 0 5px;\n}\n.dropdown-flex{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dropdown-category{\n  width: 45%;\n}\n.dropdown-register{\n  margin-left: 10%;\n  width: 45%;\n}\n.flex-item-getAdd{\n  margin-top: 25px;\n  width:30%\n}\n.flex-item-buAdd{\n  width: 70%\n}\n.locationBtn{\n  margin-top: 31px;\n}\n.locDeatils{\n  width: inherit;\n}\n.tNc{\n  width: inherit;\n}\n.regLink{\n  display: inline-block;\n  width: 49%;\n  text-align:center;\n  padding: 4px;\n  margin: 1px;\n  color:#69a644;\n  font-weight: 400;\n  cursor: pointer;\n}\n.registeropt{\n  border:1px solid #69a644;\n  border-radius: 1px;\n  background-color: #FFFFFF;\n}\n.selected{\nbackground-color: #69a644;\ncolor: white;\n}\n.getloc{\n  margin-left:18px;\n}\n"
+module.exports = ".box{\n-webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);\n        box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);\nbackground-color: #ffffff;\npadding: 25px;\n}\n.inputBx{\n  border: solid 1px #e3e3e3;\n  padding: 3px;\n}\n.grpTxt{\n  border: none;\n  background-color: #ffff;\n}\n.errMsg{\n  color: red;\n}\ninput:focus{\n    outline: none;\n}\n.isDisabled{\n  border: solid 1px #e3e3e3 !important;\n}\n.focusGreen{\n  border: 1px solid green;\n}\n.focusRed{\n  border: 1px solid red;\n}\ninput{\n  border: none;\nwidth: 90%;\n}\n.flexDiv{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.flex-item{\n  width: 30%\n}\n.flex-item-middle{\n  margin: 0 5px;\n}\n.dropdown-flex{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.dropdown-category{\n  width: 45%;\n}\n.dropdown-register{\n  margin-left: 10%;\n  width: 45%;\n}\n.flex-item-getAdd{\n  margin-top: 25px;\n  width:30%\n}\n.flex-item-buAdd{\n  width: 70%\n}\n.locationBtn{\n  margin-top: 31px;\n}\n.locDeatils{\n  width: inherit;\n}\n.tNc{\n  width: inherit;\n}\n.regLink{\n  display: inline-block;\n  width: 49%;\n  text-align:center;\n  padding: 4px;\n  margin: 1px;\n  color:#69a644;\n  font-weight: 400;\n  cursor: pointer;\n}\n.registeropt{\n  border:1px solid #69a644;\n  border-radius: 1px;\n  background-color: #FFFFFF;\n}\n.selected{\nbackground-color: #69a644;\ncolor: white;\n}\n.getloc{\n  margin-left:18px;\n}\n/deep/ .tooltipCss{\n  color: black !important;\n  font-size: 12px;\n  background-color: #ffffff;\n  border: 1px solid black;\n  display: block !important;\n}\n"
 
 /***/ }),
 
 /***/ "./src/app/register/register.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row justify-content-center\">\n      <div class=\"col-5 box\">\n      <div class=\"registeropt my-3\" >\n        <div class=\"regLink\" [ngClass]=\"{'selected':business}\" (click)=\"regForm(true)\">\n        Business\n        </div>\n        <div class=\"regLink\" [ngClass]=\"{'selected':!business}\" (click)=\"regForm(false)\">\n          Individual\n        </div>\n      </div>\n\t\t\t<div class=\"business\" *ngIf=\"business\">\n\t\t\t\t<form  (ngSubmit)=\"onSubmit(model);\" #signup=\"ngForm\" id=\"register\">\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusBuName,focusRed:focusBuName == 'red' ? true : flase,isDisabled:isDisabled}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t <i class=\"fa  fa-id-card\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input name=\"name\"\n                     required placeholder=\"Company Name / Business Name *\"\n                     (focus)=\"focusFunction(name.pristine,name.valid,'focus','focusBuName')\"\n                     (focusout)=\"focusFunction(name.pristine,name.valid,'outfocus','focusBuName')\"\n                     [(ngModel)]=\"model.businessDetails[0].companyName\" #name=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                    <div class=\"errMsg\" *ngIf=\"!model.businessDetails[0].companyName\" [hidden]=\"name.pristine || name.valid\">\n                      <span>Company Name / Business Name is required</span>\n                    </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusOwnerName == 'green' ? true : flase,focusRed:focusOwnerName == 'red' ? true : flase,isDisabled:isDisabled}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input type=\"text\"\n                     required placeholder=\"Owner Name / Manager Name *\"\n                     (focus)=\"focusFunction(ownername.pristine,ownername.valid,'focus','focusOwnerName')\"\n                     (focusout)=\"focusFunction(ownername.pristine,ownername.valid,'outfocus','focusOwnerName')\"\n                     [(ngModel)]=\"model.ownerName\" name=\"ownername\"\n                     #ownername=\"ngModel\" />\n\t\t\t\t\t\t\t\t\t </div>\n                    <div class=\"errMsg\"  *ngIf=\"!model.businessDetails[0].ownerName\" [hidden]=\"ownername.pristine || ownername.valid\">\n                      <span> Owner Name / Manager Name is required</span>\n                    </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusMobile == 'green' ? true : flase,focusRed:focusMobile == 'red' ? true : flase,isDisabled:isDisabled}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t <i class=\"fa fa-phone-square\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input type=\"text\" name=\"mobile\"\n                      required placeholder=\"Mobile Number *\" autocomplete=\"off\"\n                      (focus)=\"focusFunction(mobile.pristine,mobile.valid,'focus','focusMobile');mobileValidCheck = false\"\n                      (focusout)=\"focusFunction(mobile.pristine,mobile.valid,'outfocus','focusMobile');mobileValidCheck = true;\"\n                      (keyup)=\"doesUserExist(model)\"\n                      pattern=\"[0-9]{10}\" maxlength=\"10\"\n                      [(ngModel)]=\"model.mobile\"\n                      #mobile=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                    <div class=\"errMsg\" *ngIf=\"!model.mobile && !userExistCheck\" [hidden]=\"mobile.pristine\">\n                      <span>Mobile number is required</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"model.mobile && mobileValidCheck\" [hidden]=\"mobile.valid\">\n                      <span>Please provide valid mobile number</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"!mobile.pristine && userExistCheck\">\n                      <strong>{{userExistCheck}}</strong>\n                    </div>\n\t\t\t\t\t\t\t\t</div>\n                <div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusEmail == 'green' ? true : flase,focusRed:focusEmail== 'red' ? true : flase,isDisabled:isDisabled}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t <i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input type=\"email\" name=\"email\"\n                     required placeholder=\"Email Address *\" autocomplete=\"off\"\n                     pattern=\"^[\\w\\.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$\"\n\n                     (focus)=\"focusFunction(email.pristine,email.valid,'focus','focusEmail');emailValidCheck = false\"\n                     (focusout)=\"focusFunction(email.pristine,email.valid,'outfocus','focusEmail');emailValidCheck = true\"\n                     (keyup)=\"doesUserExist(model)\"\n                     [(ngModel)]=\"model.email\" #email=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                    <div class=\"errMsg\" *ngIf=\"!model.email && !emailExistCheck\" [hidden]=\"email.pristine\">\n                      <span>Email id is required</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"model.email && emailValidCheck\" [hidden]=\"email.valid\">\n                      <span>Please provide valid email id</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"!email.pristine && emailExistCheck\">\n                      <strong>{{emailExistCheck}}</strong>\n                    </div>\n\t\t\t\t\t\t\t\t</div>\n                <div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusPassword == 'green' ? true : flase,focusRed:focusPassword== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-key\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input type=\"password\" name=\"password\"\n                      [matTooltipPosition]=\"position.value\"\n                       matTooltip=\"Requires minimum 6 characters,at least 1 Uppercase, 1 Number and 1 of these special characters(!@#$%)\"\n                     required placeholder=\"Password *\" autocomplete=\"off\"\n                     pattern=\"^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%]).{6,15}$\" maxlength=\"15\"\n                     (focus)=\"focusFunction(password.pristine,password.valid,'focus','focusPassword');pswdValidCheck=false\"\n                     (focusout)=\"focusFunction(password.pristine,password.valid,'outfocus','focusPassword');pswdValidCheck=true\"\n                     [(ngModel)]=\"model.password\"\n                     #password=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                   <div class=\"errMsg\" *ngIf=\"!model.password\" [hidden]=\"password.pristine\">\n                     <span>Password is required </span>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"model.password && pswdValidCheck\" [hidden]=\"password.valid\">\n                     <span>Password requirment does not match</span>\n                   </div>\n\t\t\t\t\t\t\t\t</div>\n                <div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusCnfPassword == 'green' ? true : flase,focusRed:focusCnfPassword== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-key\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input type=\"password\" name=\"passwordCnf\"\n                    [matTooltipPosition]=\"position.value\"matTooltip=\"Requires minimum 6 characters,at least 1 Uppercase, 1 Number and 1 of these special characters(!@#$%)\"\n                     pattern=\"^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%]).{6,15}$\"\n                     (focus)=\"focusFunction(passwordCnf.pristine,passwordCnf.valid,'focus','focusCnfPassword');pswdCnfValidCheck =false\"\n                     (focusout)=\"focusFunction(passwordCnf.pristine,passwordCnf.valid,'outfocus','focusCnfPassword');pswdCnfValidCheck =true\"\n                      required placeholder=\"Confirm Password *\" autocomplete=\"off\"\n                      [(ngModel)]=\"model.passwordCnf\" #passwordCnf=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                   <div class=\"errMsg\" *ngIf=\"!model.passwordCnf\" [hidden]=\"passwordCnf.pristine\">\n                     <span>Password (Confirm) is required</span>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"model.passwordCnf != model.password && pswdCnfValidCheck\" [hidden]=\"!model.passwordCnf || passwordCnf.valid\">\n                     <span> Passwords did not match.</span>\n                   </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusBuAddr == 'green' ? true : flase,focusRed:focusBuAddr== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t <i class=\"fa fa-university\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input name=\"businessAddr\"\n                     required placeholder=\"Business Address *\"\n                     (focus)=\"focusFunction(businessAddr.pristine,businessAddr.valid,'focus','focusBuAddr')\"\n                     (focusout)=\"focusFunction(businessAddr.pristine,businessAddr.valid,'outfocus','focusBuAddr')\"\n                     [(ngModel)]=\"model.businessDetails[0].businessAddress\" #businessAddr=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                    <div class=\"errMsg\" *ngIf=\"!model.businessDetails[0].businessAddress\" [hidden]=\"businessAddr.pristine\">\n                      <span>Business Address is required</span>\n                    </div>\n\t\t\t\t\t\t\t\t</div>\n\n\n          <div class=\"form-group\">\n            <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusPin == 'green' ? true : flase,focusRed:focusPin =='red'? true : flase,isDisabled:isDisabled ? true : flase}\">\n               <div class=\"input-group-prepend\">\n                 <div class=\"input-group-text grpTxt\">\n                   <i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>\n                 </div>\n               </div>\n               <input name=\"pin\" style=\"width:60%\"\n               required placeholder=\"Pin Code *\" maxlength=\"6\" pattern=\"[0-9]{6}\"\n               (focus)=\"focusFunction(pin.pristine,pin.valid,'focus','focusPin');pinValidCheck = false\"\n               (focusout)=\"focusFunction(pin.pristine,pin.valid,'outfocus','focusPin');pinValidCheck = true\"\n               [(ngModel)]=\"model.businessDetails[0].pinCode\" #pin=\"ngModel\"/>\n               <div class=\"input-group-append\">\n                 <button type=\"button\" class=\"btn btn-success btn-md getloc\"\n                 [disabled]=\"!model.businessDetails[0].pinCode || !pin.valid\"\n                 (click)=\"addressDetails(pin.value)\">\n                 Get Location\n               </button>\n               </div>\n             </div>\n              <div class=\"errMsg\" *ngIf=\"!model.businessDetails[0].pinCode\" [hidden]=\"pin.pristine\">\n                <span>Pin code is required</span>\n              </div>\n              <div class=\"errMsg\" *ngIf=\"model.businessDetails[0].pinCode && pinValidCheck\" [hidden]=\"pin.valid\">\n                <span>Please provide valid pin code</span>\n              </div>\n              <div class=\"errMsg\" *ngIf=\"showAddrMsg &&(!model.businessDetails[0].city || !model.businessDetails[0].state || !model.businessDetails[0].country)\">\n                <span>Could not fetch the location details.Please provide the following details</span>\n              </div>\n          </div>\n          <div  class=\"flexDiv\" *ngIf=\"showAddr\">\n         <div class=\"form-group flex-item\">\n             <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusCity == 'green' ? true : flase,focusRed:focusCity == 'red',isDisabled:isDisabled ? true : flase}\">\n                <input  name=\"city\" class=\"locDeatils\"\n                required placeholder=\"City *\"\n                (focus)=\"focusFunction(city.pristine,city.valid,'focus','focusCity')\"\n                (focusout)=\"focusFunction(city.pristine,city.valid,'outfocus','focusCity')\"\n                [(ngModel)]=\"model.businessDetails[0].city\" #city=\"ngModel\"/>\n              </div>\n               <div class=\"errMsg\" [hidden]=\"city.pristine || city.valid\">\n                 <span>City is required</span>\n               </div>\n         </div>\n         <div class=\"form-group flex-item flex-item-middle\">\n           <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusState == 'green' ? true : flase,focusRed:focusBuAddr== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n              <input  name=\"state\" class=\"locDeatils\"\n              required placeholder=\"State *\"\n              (focus)=\"focusFunction(state.pristine,state.valid,'focus','focusState')\"\n              (focusout)=\"focusFunction(state.pristine,state.valid,'outfocus','focusState')\"\n              [(ngModel)]=\"model.businessDetails[0].state\" #state=\"ngModel\"/>\n            </div>\n             <div class=\"errMsg\" [hidden]=\"state.pristine || state.valid\">\n               <span>State is required</span>\n             </div>\n         </div>\n         <div class=\"form-group flex-item flex-item-last\">\n           <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusCountry == 'green' ? true : flase,focusRed:focusCountry== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n              <input  name=\"country\" class=\"locDeatils\"\n              required placeholder=\"Country *\"\n              (focus)=\"focusFunction(country.pristine,country.valid,'focus','focusCountry')\"\n              (focusout)=\"focusFunction(country.pristine,country.valid,'outfocus','focusCountry')\"\n              [(ngModel)]=\"model.businessDetails[0].country\" #country=\"ngModel\"/>\n            </div>\n             <div class=\"errMsg\" [hidden]=\"country.pristine || country.valid\">\n               <span>Country is required</span>\n             </div>\n         </div>\n      </div>\n      <!-- website -->\n      <div class=\"form-group\">\n        <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusWebsite == 'green' ? true : flase,focusRed:focusWebsite== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n           <div class=\"input-group-prepend\">\n             <div class=\"input-group-text grpTxt\">\n               <i class=\"\" aria-hidden=\"true\"></i>\n             </div>\n           </div>\n           <input  name=\"website\"\n           placeholder=\"Website\"\n           [(ngModel)]=\"model.businessDetails[0].website\" #website=\"ngModel\"/>\n         </div>\n          <div class=\"errMsg\" [hidden]=\"website.pristine || website.valid\">\n            <span>Website is required</span>\n          </div>\n      </div>\n      <!--  -->\n      <div class=\"dropdown-flex\">\n         <div class=\"form-group dropdown-category\" >\n            <select name=\"category\" ngModel class=\"form-control\" id=\"category\"\n            required\n            [(ngModel)]=\"model.businessDetails[0].category\" name=\"category\"\n            #category=\"ngModel\">\n            <option value=\"\" disabled>Business Category *</option>\n            <option *ngFor=\"let data of categoryInfo\" [ngValue]=\"data.id\">\n            {{ data.name }}\n            </option>\n            </select>\n         </div>\n         <div class=\"form-group dropdown-register\" >\n            <select name=\"reg\" ngModel class=\"form-control\"\n            required (change)=\"idProofValidate(model.businessDetails[0].reg)\"\n            [(ngModel)]=\"model.businessDetails[0].reg\" name=\"reg\"\n            #reg=\"ngModel\">\n            <option value=\"\" disabled>Registration Info *</option>\n            <option *ngFor=\"let data of registerInfo\" [ngValue]=\"data.id\">\n            {{ data.name }}\n            </option>\n            </select>\n         </div>\n      </div>\n      <!--  -->\n      <div class=\"form-group\" *ngIf='model.businessDetails[0].reg'>\n        <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusregDetails == 'green' ? true : flase,focusRed:focusregDetails== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n           <div class=\"input-group-prepend\">\n             <div class=\"input-group-text grpTxt\">\n               <i class=\"\" aria-hidden=\"true\"></i>\n             </div>\n           </div>\n           <input name=\"regDetails\"\n           required placeholder=\"Enter Id Proof Number *\" [maxlength]=\"maxLn\"\n           (focus)=\"focusFunction(regDetails.pristine,regDetails.valid,'focus','focusregDetails')\"\n           (focusout)=\"focusFunction(regDetails.pristine,regDetails.valid,'outfocus','focusregDetails')\"\n           (blur)=\"idProofValidate(model.businessDetails[0].reg,regDetails.value);\"\n            [(ngModel)]=\"model.businessDetails[0].regProof\"\n            #regDetails=\"ngModel\"/>\n          </div>\n          <div class=\"errMsg\" [hidden]=\"regDetails.valid || regDetails.pristine\">\n            <span>{{idProofErrMsg}}</span>\n          </div>\n      </div>\n        <div class=\"form-group\">\n      <div class=\"input-group inputBx\" >\n        <input type=\"file\" [(ngModel)]=\"filedata1\" name ='file' #file='ngModel' (change)=\"selectFile($event)\" placeholder=\"Upload Id Proof Doc\" accept=\".png,.jpg,.jpeg\" required>\n      </div>\n      <div class=\"errMsg\" [hidden]=\"file.valid || file.pristine\">\n        <span>Invalid file upload format.Only JPEG and PNG files are allowed.</span>\n      </div>\n      </div>\n      <!-- Terms and conditions -->\n      <div class=\"form-group\">\n        <span class=\"input-group-append\">\n        <input class=\"tNc input-group\" required name=\"tnc\" id=\"tnc\"\n        [(ngModel)]=\"model.tnc\"\n        #tnc=\"ngModel\" type=\"checkbox\"/>  I read and accept terms and conditions *</span>\n      </div>\n     <!-- Sign Up button -->\n        <div class=\"row justify-content-center\">\n          <div class=\"col-8\">\n            <button type=\"submit\" [className]=\"signup.form.valid ? 'btn btn-block btn-success' : 'btn btn-block btn-default'\"  [disabled]=\"!signup.form.valid || userExistCheck || emailExistCheck\" name=\"button\">SIGN UP</button>\n          </div>\n        </div>\n\t\t\t\t</form>\n\t\t\t</div>\n\n      <!-- Individual Form -->\n      <div class=\"business\" *ngIf=\"!business\">\n        <form  (ngSubmit)=\"onSubmit(individual);\" #signup=\"ngForm\" id=\"register\">\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusFname == 'green' ? true : flase,focusRed:focusFname== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                         <i class=\"fa  fa-user\" aria-hidden=\"true\"></i>\n                       </div>\n                     </div>\n                     <input name=\"fname\"\n                     required placeholder=\"First Name *\"\n                     (focus)=\"focusFunction(fname.pristine,fname.valid,'focus','focusFname')\"\n                     (focusout)=\"focusFunction(fname.pristine,fname.valid,'outfocus','focusFname')\"\n                     [(ngModel)]=\"individual.ownerName\" #fname=\"ngModel\"/>\n                   </div>\n                    <div class=\"errMsg\" *ngIf=\"!individual.fName\" [hidden]=\"fname.pristine || fname.valid\">\n                      <span>First Name is required</span>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                         <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\n                       </div>\n                     </div>\n                     <input\n                   placeholder=\"Last Name\"\n                     [(ngModel)]=\"individual.lastName\" name=\"ownername\"\n                     #ownername=\"ngModel\" />\n                   </div>\n                </div>\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusMobile == 'green' ? true : flase,focusRed:focusMobile== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                         <i class=\"fa fa-phone-square\" aria-hidden=\"true\"></i>\n                       </div>\n                     </div>\n                     <input name=\"mobile\"\n                      required placeholder=\"Mobile Number *\" autocomplete=\"off\"\n                      (focus)=\"focusFunction(mobile.pristine,mobile.valid,'focus','focusMobile');mobileValidCheck = false\"\n                      (focusout)=\"focusFunction(mobile.pristine,mobile.valid,'outfocus','focusMobile');mobileValidCheck = true\"\n                      (keyup)=\"doesUserExist(individual);\"\n                      pattern=\"[0-9]{10}\" maxlength=\"10\"\n                      [(ngModel)]=\"individual.mobile\"\n                      #mobile=\"ngModel\"/>\n                   </div>\n                    <div class=\"errMsg\" *ngIf=\"!individual.mobile && !userExistCheck\" [hidden]=\"mobile.pristine\">\n                      <span>Mobile number is required</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"individual.mobile && mobileValidCheck\" [hidden]=\"mobile.valid\">\n                      <span>Please provide valid mobile number</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"mobilecheck\">\n                      <span>Mobile number already exist</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"individual.mobile && userExistCheck\">\n                      <strong>{{userExistCheck}}</strong>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusEmail == 'green' ? true : flase,focusRed:focusEmail== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                         <i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>\n                       </div>\n                     </div>\n                     <input type=\"email\" name=\"email\"\n                     required placeholder=\"Email Address *\" autocomplete=\"off\"\n                     pattern=\"^[\\w\\.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$\"\n                     (focus)=\"focusFunction(email.pristine,email.valid,'focus','focusEmail');emailValidCheck = false\"\n                     (focusout)=\"focusFunction(email.pristine,email.valid,'outfocus','focusEmail');emailValidCheck = true\"\n                     (keyup)=\"doesUserExist(individual)\"\n                     [(ngModel)]=\"individual.email\" #email=\"ngModel\"/>\n                   </div>\n                    <div class=\"errMsg\" *ngIf=\"!individual.email && !emailExistCheck\" [hidden]=\"email.pristine\">\n                      <span>Email id is required</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"individual.email && emailValidCheck\" [hidden]=\"email.valid\">\n                      <span>Please provide valid email id</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"individual.email && emailExistCheck\">\n                      <strong>{{emailExistCheck}}</strong>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusPassword == 'green' ? true : flase,focusRed:focusPassword== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                        <i class=\"fa fa-key\"></i>\n                       </div>\n                     </div>\n                     <input type=\"password\" name=\"password\"\n                    [matTooltipPosition]=\"position.value\"matTooltip=\"Requires minimum 6 characters,at least 1 Uppercase, 1 Number and 1 of these special characters(!@#$%)\"\n                     required placeholder=\"Password *\" autocomplete=\"off\"\n                     pattern=\"^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%]).{6,15}$\" maxlength=\"15\"\n                     (focus)=\"focusFunction(password.pristine,password.valid,'focus','focusPassword');pswdValidCheck= false\"\n                     (focusout)=\"focusFunction(password.pristine,password.valid,'outfocus','focusPassword');pswdValidCheck= true\"\n                     [(ngModel)]=\"individual.password\"\n                     #password=\"ngModel\"/>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"!individual.password\" [hidden]=\"password.pristine\">\n                     <span>Password is required </span>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"individual.password && pswdValidCheck\" [hidden]=\"password.valid\">\n                     <span>Password requirment does not match</span>\n                   </div>\n                </div>\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusCnfPassword == 'green' ? true : flase,focusRed:focusCnfPassword== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                        <i class=\"fa fa-key\"></i>\n                       </div>\n                     </div>\n                     <input type=\"password\" name=\"passwordCnf\"\n                    [matTooltipPosition]=\"position.value\"matTooltip=\"Requires minimum 6 characters,at least 1 Uppercase, 1 Number and 1 of these special characters(!@#$%)\"\n                     pattern=\"^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%]).{6,15}$\"\n                     (focus)=\"focusFunction(passwordCnf.pristine,passwordCnf.valid,'focus','focusCnfPassword');pswdCnfValidCheck =false\"\n                     (focusout)=\"focusFunction(passwordCnf.pristine,passwordCnf.valid,'outfocus','focusCnfPassword');pswdCnfValidCheck =true\"\n                      required placeholder=\"Confirm Password *\" autocomplete=\"off\"\n                      [(ngModel)]=\"individual.passwordCnf\" #passwordCnf=\"ngModel\"/>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"!individual.passwordCnf\" [hidden]=\"passwordCnf.pristine\">\n                     <span>Password (Confirm) is required</span>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"individual.passwordCnf != individual.password && pswdCnfValidCheck\" [hidden]=\"!individual.passwordCnf || passwordCnf.valid\">\n                     <span> Passwords did not match.</span>\n                   </div>\n                </div>\n      <!-- Terms and conditions -->\n      <div class=\"form-group\">\n        <span class=\"input-group-append\">\n        <input type=\"checkbox\" class=\"tNc input-group\" required name=\"tnc\"\n          [(ngModel)]=\"individual.tnc\" #tnc=\"ngModel\"/> I read and accept terms and conditions * </span>\n      </div>\n     <!-- Sign Up button -->\n        <div class=\"row justify-content-center\">\n          <div class=\"col-8\">\n            <button type=\"submit\" [className]=\"signup.form.valid ? 'btn btn-block btn-success' : 'btn btn-block btn-default'\"  [disabled]=\"!signup.form.valid || userExistCheck || emailExistCheck\" name=\"button\">SIGN UP</button>\n          </div>\n        </div>\n        </form>\n      </div>\n\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row justify-content-center\">\n      <div class=\"col-5 box\">\n      <div class=\"registeropt my-3\" >\n        <div class=\"regLink\" [ngClass]=\"{'selected':business}\" (click)=\"regForm(true)\">\n        Business\n        </div>\n        <div class=\"regLink\" [ngClass]=\"{'selected':!business}\" (click)=\"regForm(false)\">\n          Individual\n        </div>\n      </div>\n\t\t\t<div class=\"business\" *ngIf=\"business\">\n\t\t\t\t<form  (ngSubmit)=\"onSubmit(model);\" #signup=\"ngForm\" id=\"register\">\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusBuName,focusRed:focusBuName == 'red' ? true : flase,isDisabled:isDisabled}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t <i class=\"fa  fa-id-card\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input name=\"name\" autocomplete=\"off\"\n                     required placeholder=\"Company Name / Business Name *\"\n                     (focus)=\"focusFunction(name.pristine,name.valid,'focus','focusBuName')\"\n                     (focusout)=\"focusFunction(name.pristine,name.valid,'outfocus','focusBuName')\"\n                     [(ngModel)]=\"model.businessDetails[0].companyName\" #name=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                    <div class=\"errMsg\" *ngIf=\"!model.businessDetails[0].companyName\" [hidden]=\"name.pristine || name.valid\">\n                      <span>Company Name / Business Name is required</span>\n                    </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusOwnerName == 'green' ? true : flase,focusRed:focusOwnerName == 'red' ? true : flase,isDisabled:isDisabled}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input type=\"text\"  autocomplete=\"off\"\n                     required placeholder=\"Owner Name / Manager Name *\"\n                     (focus)=\"focusFunction(ownername.pristine,ownername.valid,'focus','focusOwnerName')\"\n                     (focusout)=\"focusFunction(ownername.pristine,ownername.valid,'outfocus','focusOwnerName')\"\n                     [(ngModel)]=\"model.ownerName\" name=\"ownername\"\n                     #ownername=\"ngModel\" />\n\t\t\t\t\t\t\t\t\t </div>\n                    <div class=\"errMsg\"  *ngIf=\"!model.businessDetails[0].ownerName\" [hidden]=\"ownername.pristine || ownername.valid\">\n                      <span> Owner Name / Manager Name is required</span>\n                    </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusMobile == 'green' ? true : flase,focusRed:focusMobile == 'red' ? true : flase,isDisabled:isDisabled}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t <i class=\"fa fa-phone-square\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input type=\"text\" name=\"mobile\"  autocomplete=\"off\"\n                      required placeholder=\"Mobile Number *\" autocomplete=\"off\"\n                      (focus)=\"focusFunction(mobile.pristine,mobile.valid,'focus','focusMobile');mobileValidCheck = false\"\n                      (focusout)=\"focusFunction(mobile.pristine,mobile.valid,'outfocus','focusMobile');mobileValidCheck = true;\"\n                      (keyup)=\"doesUserExist(model)\"\n                      pattern=\"[0-9]{10}\" maxlength=\"10\"\n                      [(ngModel)]=\"model.mobile\"\n                      #mobile=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                    <div class=\"errMsg\" *ngIf=\"!model.mobile && !userExistCheck\" [hidden]=\"mobile.pristine\">\n                      <span>Mobile number is required</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"model.mobile && mobileValidCheck\" [hidden]=\"mobile.valid\">\n                      <span>Please provide valid mobile number</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"!mobile.pristine && userExistCheck\">\n                      <strong>{{userExistCheck}}</strong>\n                    </div>\n\t\t\t\t\t\t\t\t</div>\n                <div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusEmail == 'green' ? true : flase,focusRed:focusEmail== 'red' ? true : flase,isDisabled:isDisabled}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t <i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input type=\"email\" name=\"email\"  autocomplete=\"off\"\n                     required placeholder=\"Email Address *\" autocomplete=\"off\"\n                     pattern=\"^[\\w\\.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$\"\n\n                     (focus)=\"focusFunction(email.pristine,email.valid,'focus','focusEmail');emailValidCheck = false\"\n                     (focusout)=\"focusFunction(email.pristine,email.valid,'outfocus','focusEmail');emailValidCheck = true\"\n                     (keyup)=\"doesUserExist(model)\"\n                     [(ngModel)]=\"model.email\" #email=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                    <div class=\"errMsg\" *ngIf=\"!model.email && !emailExistCheck\" [hidden]=\"email.pristine\">\n                      <span>Email id is required</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"model.email && emailValidCheck\" [hidden]=\"email.valid\">\n                      <span>Please provide valid email id</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"!email.pristine && emailExistCheck\">\n                      <strong>{{emailExistCheck}}</strong>\n                    </div>\n\t\t\t\t\t\t\t\t</div>\n                <div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusPassword == 'green' ? true : flase,focusRed:focusPassword== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-key\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input type=\"password\" name=\"password\"  autocomplete=\"off\"\n                     matTooltipPosition=\"right\" matTooltipClass=\"tooltipCss\"\n                     matTooltip=\"Requires minimum 6 characters,at least 1 Uppercase, 1 Number and 1 of these special characters(!@#$%)\"\n                     required placeholder=\"Password *\" autocomplete=\"off\"\n                     pattern=\"^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%]).{6,15}$\" maxlength=\"15\"\n                     (focus)=\"focusFunction(password.pristine,password.valid,'focus','focusPassword');pswdValidCheck=false\"\n                     (focusout)=\"focusFunction(password.pristine,password.valid,'outfocus','focusPassword');pswdValidCheck=true\"\n                     [(ngModel)]=\"model.password\"\n                     #password=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                   <div class=\"errMsg\" *ngIf=\"!model.password\" [hidden]=\"password.pristine\">\n                     <span>Password is required </span>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"model.password && pswdValidCheck\" [hidden]=\"password.valid\">\n                     <span>Password requirment does not match</span>\n                   </div>\n\t\t\t\t\t\t\t\t</div>\n                <div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusCnfPassword == 'green' ? true : flase,focusRed:focusCnfPassword== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-key\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input type=\"password\" name=\"passwordCnf\"  autocomplete=\"off\"\n                    [matTooltipPosition]=\"position.value\" matTooltipClass=\"tooltipCss\"\n                    matTooltip=\"Requires minimum 6 characters,at least 1 Uppercase, 1 Number and 1 of these special characters(!@#$%)\"\n                     pattern=\"^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%]).{6,15}$\"\n                     (focus)=\"focusFunction(passwordCnf.pristine,passwordCnf.valid,'focus','focusCnfPassword');pswdCnfValidCheck =false\"\n                     (focusout)=\"focusFunction(passwordCnf.pristine,passwordCnf.valid,'outfocus','focusCnfPassword');pswdCnfValidCheck =true\"\n                      required placeholder=\"Confirm Password *\" autocomplete=\"off\"\n                      [(ngModel)]=\"model.passwordCnf\" #passwordCnf=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                   <div class=\"errMsg\" *ngIf=\"!model.passwordCnf\" [hidden]=\"passwordCnf.pristine\">\n                     <span>Password (Confirm) is required</span>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"model.passwordCnf != model.password && pswdCnfValidCheck\" [hidden]=\"!model.passwordCnf || passwordCnf.valid\">\n                     <span> Passwords did not match.</span>\n                   </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusBuAddr == 'green' ? true : flase,focusRed:focusBuAddr== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-prepend\">\n\t\t\t\t\t\t\t\t\t\t\t <div class=\"input-group-text grpTxt\">\n\t\t\t\t\t\t\t\t\t\t\t\t <i class=\"fa fa-university\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t\t\t </div>\n                     <input name=\"businessAddr\"  autocomplete=\"off\"\n                     required placeholder=\"Business Address *\"\n                     (focus)=\"focusFunction(businessAddr.pristine,businessAddr.valid,'focus','focusBuAddr')\"\n                     (focusout)=\"focusFunction(businessAddr.pristine,businessAddr.valid,'outfocus','focusBuAddr')\"\n                     [(ngModel)]=\"model.businessDetails[0].businessAddress\" #businessAddr=\"ngModel\"/>\n\t\t\t\t\t\t\t\t\t </div>\n                    <div class=\"errMsg\" *ngIf=\"!model.businessDetails[0].businessAddress\" [hidden]=\"businessAddr.pristine\">\n                      <span>Business Address is required</span>\n                    </div>\n\t\t\t\t\t\t\t\t</div>\n\n\n          <div class=\"form-group\">\n            <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusPin == 'green' ? true : flase,focusRed:focusPin =='red'? true : flase,isDisabled:isDisabled ? true : flase}\">\n               <div class=\"input-group-prepend\">\n                 <div class=\"input-group-text grpTxt\">\n                   <i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>\n                 </div>\n               </div>\n               <input name=\"pin\" style=\"width:60%\"  autocomplete=\"off\"\n               required placeholder=\"Pin Code *\" maxlength=\"6\" pattern=\"[0-9]{6}\"\n               (focus)=\"focusFunction(pin.pristine,pin.valid,'focus','focusPin');pinValidCheck = false\"\n               (focusout)=\"focusFunction(pin.pristine,pin.valid,'outfocus','focusPin');pinValidCheck = true\"\n               [(ngModel)]=\"model.businessDetails[0].pinCode\" #pin=\"ngModel\"/>\n               <div class=\"input-group-append\">\n                 <button type=\"button\" class=\"btn btn-success btn-md getloc\"\n                 [disabled]=\"!model.businessDetails[0].pinCode || !pin.valid\"\n                 (click)=\"addressDetails(pin.value)\">\n                 Get Location\n               </button>\n               </div>\n             </div>\n              <div class=\"errMsg\" *ngIf=\"!model.businessDetails[0].pinCode\" [hidden]=\"pin.pristine\">\n                <span>Pin code is required</span>\n              </div>\n              <div class=\"errMsg\" *ngIf=\"model.businessDetails[0].pinCode && pinValidCheck\" [hidden]=\"pin.valid\">\n                <span>Please provide valid pin code</span>\n              </div>\n              <div class=\"errMsg\" *ngIf=\"showAddrMsg && (!model.businessDetails[0].city || !model.businessDetails[0].state || !model.businessDetails[0].country)\">\n                <span>Could not fetch the location details.Please provide the following details</span>\n              </div>\n          </div>\n          <div  class=\"flexDiv\" *ngIf=\"showAddr\">\n         <div class=\"form-group flex-item\">\n             <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusCity == 'green' ? true : flase,focusRed:focusCity == 'red',isDisabled:isDisabled ? true : flase}\">\n                <input  name=\"city\" class=\"locDeatils\"  autocomplete=\"off\"\n                required placeholder=\"City *\"\n                (focus)=\"focusFunction(city.pristine,city.valid,'focus','focusCity')\"\n                (focusout)=\"focusFunction(city.pristine,city.valid,'outfocus','focusCity')\"\n                [(ngModel)]=\"model.businessDetails[0].city\" #city=\"ngModel\"/>\n              </div>\n               <div class=\"errMsg\" [hidden]=\"city.pristine || city.valid\">\n                 <span>City is required</span>\n               </div>\n         </div>\n         <div class=\"form-group flex-item flex-item-middle\">\n           <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusState == 'green' ? true : flase,focusRed:focusBuAddr== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n              <input  name=\"state\" class=\"locDeatils\"  autocomplete=\"off\"\n              required placeholder=\"State *\"\n              (focus)=\"focusFunction(state.pristine,state.valid,'focus','focusState')\"\n              (focusout)=\"focusFunction(state.pristine,state.valid,'outfocus','focusState')\"\n              [(ngModel)]=\"model.businessDetails[0].state\" #state=\"ngModel\"/>\n            </div>\n             <div class=\"errMsg\" [hidden]=\"state.pristine || state.valid\">\n               <span>State is required</span>\n             </div>\n         </div>\n         <div class=\"form-group flex-item flex-item-last\">\n           <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusCountry == 'green' ? true : flase,focusRed:focusCountry== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n              <input  name=\"country\" class=\"locDeatils\"  autocomplete=\"off\"\n              required placeholder=\"Country *\"\n              (focus)=\"focusFunction(country.pristine,country.valid,'focus','focusCountry')\"\n              (focusout)=\"focusFunction(country.pristine,country.valid,'outfocus','focusCountry')\"\n              [(ngModel)]=\"model.businessDetails[0].country\" #country=\"ngModel\"/>\n            </div>\n             <div class=\"errMsg\" [hidden]=\"country.pristine || country.valid\">\n               <span>Country is required</span>\n             </div>\n         </div>\n      </div>\n      <!-- website -->\n      <div class=\"form-group\">\n        <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusWebsite == 'green' ? true : flase,focusRed:focusWebsite== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n           <div class=\"input-group-prepend\">\n             <div class=\"input-group-text grpTxt\">\n               <i class=\"\" aria-hidden=\"true\"></i>\n             </div>\n           </div>\n           <input  name=\"website\"  autocomplete=\"off\"\n           placeholder=\"Website\"\n           [(ngModel)]=\"model.businessDetails[0].website\" #website=\"ngModel\"/>\n         </div>\n          <div class=\"errMsg\" [hidden]=\"website.pristine || website.valid\">\n            <span>Website is required</span>\n          </div>\n      </div>\n      <!--  -->\n      <div class=\"dropdown-flex\">\n         <div class=\"form-group dropdown-category\" >\n            <select name=\"category\" ngModel class=\"form-control\" id=\"category\"\n            required\n            [(ngModel)]=\"model.businessDetails[0].category\" name=\"category\"\n            #category=\"ngModel\">\n            <option value=\"\" disabled>Business Category *</option>\n            <option *ngFor=\"let data of categoryInfo\" [ngValue]=\"data.id\">\n            {{ data.name }}\n            </option>\n            </select>\n         </div>\n         <div class=\"form-group dropdown-register\" >\n            <select name=\"reg\" ngModel class=\"form-control\"\n            required (change)=\"idProofValidate(model.businessDetails[0].reg)\"\n            [(ngModel)]=\"model.businessDetails[0].reg\" name=\"reg\"\n            #reg=\"ngModel\">\n            <option value=\"\" disabled>Registration Info *</option>\n            <option *ngFor=\"let data of registerInfo\" [ngValue]=\"data.id\">\n            {{ data.name }}\n            </option>\n            </select>\n         </div>\n      </div>\n      <!--  -->\n      <div class=\"form-group\" *ngIf='model.businessDetails[0].reg'>\n        <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusregDetails == 'green' ? true : flase,focusRed:focusregDetails== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n           <div class=\"input-group-prepend\">\n             <div class=\"input-group-text grpTxt\">\n               <i class=\"\" aria-hidden=\"true\"></i>\n             </div>\n           </div>\n           <input name=\"regDetails\"  autocomplete=\"off\"\n           required placeholder=\"Enter Id Proof Number *\" [maxlength]=\"maxLn\"\n           (focus)=\"focusFunction(regDetails.pristine,regDetails.valid,'focus','focusregDetails')\"\n           (focusout)=\"focusFunction(regDetails.pristine,regDetails.valid,'outfocus','focusregDetails')\"\n           (blur)=\"idProofValidate(model.businessDetails[0].reg,regDetails.value);\"\n            [(ngModel)]=\"model.businessDetails[0].regProof\"\n            #regDetails=\"ngModel\"/>\n          </div>\n          <div class=\"errMsg\" [hidden]=\"regDetails.valid || regDetails.pristine\">\n            <span>{{idProofErrMsg}}</span>\n          </div>\n      </div>\n        <div class=\"form-group\">\n      <div class=\"input-group inputBx\" >\n        <input type=\"file\" [(ngModel)]=\"filedata1\" name ='file' #file='ngModel' (change)=\"selectFile($event)\" placeholder=\"Upload Id Proof Doc\" accept=\".png,.jpg,.jpeg\" required>\n      </div>\n      <div class=\"errMsg\" [hidden]=\"file.valid || file.pristine\">\n        <span>invalid file upload format.Only JPG and PNG files are allowed.</span>\n      </div>\n      </div>\n      <!-- Terms and conditions -->\n      <!-- <div class=\"form-group\">\n        <span class=\"input-group-append\">\n        <input class=\"tNc input-group\" required name=\"tnc\" id=\"tnc\"\n        [(ngModel)]=\"model.tnc\"\n        #tnc=\"ngModel\" type=\"checkbox\"/>  I read and accept terms and conditions *</span>\n      </div> -->\n     <!-- Sign Up button -->\n        <div class=\"row justify-content-center\">\n          <div class=\"col-8\">\n            <button type=\"submit\" [className]=\"signup.form.valid ? 'btn btn-block btn-success' : 'btn btn-block btn-default'\"  [disabled]=\"!signup.form.valid || userExistCheck || emailExistCheck\" name=\"button\">SIGN UP</button>\n          </div>\n        </div>\n\t\t\t\t</form>\n\t\t\t</div>\n\n      <!-- Individual Form -->\n      <div class=\"business\" *ngIf=\"!business\">\n        <form  (ngSubmit)=\"onSubmit(individual);\" #signup=\"ngForm\" id=\"register\">\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusFname == 'green' ? true : flase,focusRed:focusFname== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                         <i class=\"fa  fa-user\" aria-hidden=\"true\"></i>\n                       </div>\n                     </div>\n                     <input name=\"fname\"  autocomplete=\"off\"\n                     required placeholder=\"First Name *\"\n                     (focus)=\"focusFunction(fname.pristine,fname.valid,'focus','focusFname')\"\n                     (focusout)=\"focusFunction(fname.pristine,fname.valid,'outfocus','focusFname')\"\n                     [(ngModel)]=\"individual.ownerName\" #fname=\"ngModel\"/>\n                   </div>\n                    <div class=\"errMsg\" *ngIf=\"!individual.fName\" [hidden]=\"fname.pristine || fname.valid\">\n                      <span>First Name is required</span>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                         <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\n                       </div>\n                     </div>\n                     <input  autocomplete=\"off\"\n                   placeholder=\"Last Name\"\n                     [(ngModel)]=\"individual.lastName\" name=\"ownername\"\n                     #ownername=\"ngModel\" />\n                   </div>\n                </div>\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusMobile == 'green' ? true : flase,focusRed:focusMobile== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                         <i class=\"fa fa-phone-square\" aria-hidden=\"true\"></i>\n                       </div>\n                     </div>\n                     <input name=\"mobile\"  autocomplete=\"off\"\n                      required placeholder=\"Mobile Number *\" autocomplete=\"off\"\n                      (focus)=\"focusFunction(mobile.pristine,mobile.valid,'focus','focusMobile');mobileValidCheck = false\"\n                      (focusout)=\"focusFunction(mobile.pristine,mobile.valid,'outfocus','focusMobile');mobileValidCheck = true\"\n                      (keyup)=\"doesUserExist(individual);\"\n                      pattern=\"[0-9]{10}\" maxlength=\"10\"\n                      [(ngModel)]=\"individual.mobile\"\n                      #mobile=\"ngModel\"/>\n                   </div>\n                    <div class=\"errMsg\" *ngIf=\"!individual.mobile && !userExistCheck\" [hidden]=\"mobile.pristine\">\n                      <span>Mobile number is required</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"individual.mobile && mobileValidCheck\" [hidden]=\"mobile.valid\">\n                      <span>Please provide valid mobile number</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"mobilecheck\">\n                      <span>Mobile number already exist</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"individual.mobile && userExistCheck\">\n                      <strong>{{userExistCheck}}</strong>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusEmail == 'green' ? true : flase,focusRed:focusEmail== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                         <i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>\n                       </div>\n                     </div>\n                     <input type=\"email\" name=\"email\"  autocomplete=\"off\"\n                     required placeholder=\"Email Address *\" autocomplete=\"off\"\n                     pattern=\"^[\\w\\.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$\"\n                     (focus)=\"focusFunction(email.pristine,email.valid,'focus','focusEmail');emailValidCheck = false\"\n                     (focusout)=\"focusFunction(email.pristine,email.valid,'outfocus','focusEmail');emailValidCheck = true\"\n                     (keyup)=\"doesUserExist(individual)\"\n                     [(ngModel)]=\"individual.email\" #email=\"ngModel\"/>\n                   </div>\n                    <div class=\"errMsg\" *ngIf=\"!individual.email && !emailExistCheck\" [hidden]=\"email.pristine\">\n                      <span>Email id is required</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"individual.email && emailValidCheck\" [hidden]=\"email.valid\">\n                      <span>Please provide valid email id</span>\n                    </div>\n                    <div class=\"errMsg\" *ngIf=\"individual.email && emailExistCheck\">\n                      <strong>{{emailExistCheck}}</strong>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusPassword == 'green' ? true : flase,focusRed:focusPassword== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                        <i class=\"fa fa-key\"></i>\n                       </div>\n                     </div>\n                     <input type=\"password\" name=\"password\"  autocomplete=\"off\"\n                     matTooltipPosition=\"right\" matTooltipClass=\"tooltipCss\"\n                    matTooltip=\"Requires minimum 6 characters,at least 1 Uppercase, 1 Number and 1 of these special characters(!@#$%)\"                     required placeholder=\"Password *\" autocomplete=\"off\"\n                     pattern=\"^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%]).{6,15}$\" maxlength=\"15\"\n                     (focus)=\"focusFunction(password.pristine,password.valid,'focus','focusPassword');pswdValidCheck= false\"\n                     (focusout)=\"focusFunction(password.pristine,password.valid,'outfocus','focusPassword');pswdValidCheck= true\"\n                     [(ngModel)]=\"individual.password\"\n                     #password=\"ngModel\"/>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"!individual.password\" [hidden]=\"password.pristine\">\n                     <span>Password is required </span>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"individual.password && pswdValidCheck\" [hidden]=\"password.valid\">\n                     <span>Password requirment does not match</span>\n                   </div>\n                </div>\n                <div class=\"form-group\">\n                  <div class=\"input-group inputBx\" [ngClass]= \"{focusGreen:focusCnfPassword == 'green' ? true : flase,focusRed:focusCnfPassword== 'red' ? true : flase,isDisabled:isDisabled ? true : flase}\">\n                     <div class=\"input-group-prepend\">\n                       <div class=\"input-group-text grpTxt\">\n                        <i class=\"fa fa-key\"></i>\n                       </div>\n                     </div>\n                     <input type=\"password\" name=\"passwordCnf\"  autocomplete=\"off\"\n                     matTooltipPosition=\"right\" matTooltipClass=\"tooltipCss\"\n                      matTooltip=\"Requires minimum 6 characters,at least 1 Uppercase, 1 Number and 1 of these special characters(!@#$%)\"                     pattern=\"^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%]).{6,15}$\"\n                     (focus)=\"focusFunction(passwordCnf.pristine,passwordCnf.valid,'focus','focusCnfPassword');pswdCnfValidCheck =false\"\n                     (focusout)=\"focusFunction(passwordCnf.pristine,passwordCnf.valid,'outfocus','focusCnfPassword');pswdCnfValidCheck =true\"\n                      required placeholder=\"Confirm Password *\" autocomplete=\"off\"\n                      [(ngModel)]=\"individual.passwordCnf\" #passwordCnf=\"ngModel\"/>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"!individual.passwordCnf\" [hidden]=\"passwordCnf.pristine\">\n                     <span>Password (Confirm) is required</span>\n                   </div>\n                   <div class=\"errMsg\" *ngIf=\"individual.passwordCnf != individual.password && pswdCnfValidCheck\" [hidden]=\"!individual.passwordCnf || passwordCnf.valid\">\n                     <span> Passwords did not match.</span>\n                   </div>\n                </div>\n      <!-- Terms and conditions -->\n      <!-- <div class=\"form-group\">\n        <span class=\"input-group-append\">\n        <input type=\"checkbox\" class=\"tNc input-group\" required name=\"tnc\"\n          [(ngModel)]=\"individual.tnc\" #tnc=\"ngModel\"/> I read and accept terms and conditions * </span>\n      </div> -->\n     <!-- Sign Up button -->\n        <div class=\"row justify-content-center\">\n          <div class=\"col-8\">\n            <button type=\"submit\" [className]=\"signup.form.valid ? 'btn btn-block btn-success' : 'btn btn-block btn-default'\"  [disabled]=\"!signup.form.valid || userExistCheck || emailExistCheck\" name=\"button\">SIGN UP</button>\n          </div>\n        </div>\n        </form>\n      </div>\n\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1957,25 +2349,28 @@ var RegisterComponent = /** @class */ (function () {
         }
     };
     RegisterComponent.prototype.onSubmit = function (dataJson) {
-        var _this = this;
         this.getLocation();
         this.mobileOTP = dataJson.mobile;
         this._demoService.changeMobile(this.mobileOTP);
-        this._demoService.registerUserIndividual(dataJson).subscribe(function (data) {
-            console.log(data);
-            if (data != null && data[0] == 'success') {
-                _this.sendOtp(_this.mobileOTP);
-                return true;
-            }
-            else {
-                _this.toastr.error("Registration failed. Could not save the details", 'Error', { toastLife: '5000' });
-            }
-        }, function (error) {
-            console.error("Error saving data!");
-            _this.registrationFailed = 'Registration failed';
-            _this.toastr.error('Registration failed', 'Error', { toastLife: '5000' });
-            return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["a" /* Observable */].throw(error);
-        });
+        this.sendOtp(this.mobileOTP);
+        this._demoService.changeRegData(dataJson);
+        // this._demoService.registerUserIndividual
+        // (dataJson).subscribe(
+        //     data => {
+        //       console.log(data)
+        //           if (data!= null && data[0] == 'success') {
+        //             return true;
+        //           }else{
+        //             this.toastr.error("Registration failed. Could not save the details", 'Error',{toastLife: '5000'});
+        //           }
+        //     },
+        //     error => {
+        //         console.error("Error saving data!");
+        //         this.registrationFailed = 'Registration failed';
+        //         this.toastr.error('Registration failed', 'Error',{toastLife: '5000'});
+        //         return Observable.throw(error);
+        //     }
+        // );
     };
     RegisterComponent.prototype.onSubmitBu = function (dataJson) {
         var _this = this;
@@ -2303,7 +2698,7 @@ var SalesReportComponent = /** @class */ (function () {
         this.report = this.payable_receivable = this.tickets = this.topCustomer = this.invoiceData = "";
         this._demoService.requestReport(obj, type).subscribe(function (data) {
             _this[val] = data;
-            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MatTableDataSource */](_this[val]);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["f" /* MatTableDataSource */](_this[val]);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
             // this.toastr.success("",'success',{toastLife: '5000'});
@@ -2351,7 +2746,7 @@ module.exports = ".inputStyle{\n  width: 100px;\n}\n.fixWidth{\n  width: 50px;\n
 /***/ "./src/app/select-invoice/select-invoice.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "  <div class=\"row cstyle justify-content-center\">\n   <div class=\"\">\n     <h2>Invoice</h2>\n    </div>\n  </div>\n<div class=\"row cstyle dataBox\" *ngIf='!invoice'>\n  <div class=\"col\"> </div>\n  <div class=\"col-md-5 col-sm-12\">\n    <div class=\"input-group col align-self-center\" style=\"margin-top:50px\" *ngIf='!userEntry'>\n      <input type=\"text\" class=\"form-control\" [(ngModel)]='mobile' placeholder=\"Enter Mobile Number\" style=\"height:50px\">\n      <div class=\"input-group-append\">\n        <button class=\"btn btn-success fntcss\" (click)=\"verifyUser()\" type=\"button\">Submit</button>\n      </div>\n    </div>\n    <form *ngIf='userEntry' #userForm=\"ngForm\">\n      <div class=\"form-group\">\n        <label  class=\"col-form-label\">Name</label>\n        <div class=\"\">\n          <input type=\"text\" required class=\"form-control form-control-sm usrInpt\" name='username'  [(ngModel)]=\"userName\" placeholder=\"Name\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"colFormLabelSm\" class=\"col-form-label\">Email</label>\n        <div class=\"\">\n          <input type=\"email\" required class=\"form-control form-control-sm usrInpt\" name='mail' [(ngModel)]='email' placeholder=\"Email\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"colFormLabelSm\" class=\"col-form-label col-form-label-sm\">Address</label>\n        <div class=\"\">\n          <input type=\"text\" class=\"form-control form-control-sm usrInpt\" name='addr' [(ngModel)]='address'  placeholder=\"Address\">\n        </div>\n      </div>\n      <button class=\"btn btn-success btn-block fntcss\" [disabled]=\"!userForm.form.valid\" type=\"button\" (click)='userDetails(userName,email,address)' name=\"button\">Submit</button>\n    </form>\n  </div>\n  <div class=\"col\"></div>\n</div>\n\n<div class=\"row cstyle dataBox\"  *ngIf='invoice'>\n<!--generated invoice  -->\n<div class=\"invoiceCreation container\" >\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <h5>{{userName | uppercase}}</h5>\n      <h5>{{mobile}}</h5>\n      <h5>{{email}}</h5>\n      <h5>{{address}}</h5>\n    </div>\n    <div class=\"col-sm\" >\n      <img src={{imageUrl()}}  style=\"width:100px;height:100px;border-radius:50px\">\n    </div>\n    <div class=\"col-sm\" >\n      <h5>Total BV = {{BV}}</h5>\n      <h5>Total RewardPoints = {{rewardPoints}}</h5>\n      <h5>Total Payables = {{totalPayable}}</h5>\n      <h5>Total Receivables = {{totalReceivable}}</h5>\n    </div>\n  </div><br>\n  <div class=\"row\">\n    <div class=\" col-md-12\" style=\"overflow:auto;max-height:300px\">\n    <table class=\"table\">\n    <thead class=\"thead-light fntcss\">\n      <tr>\n        <th>#</th>\n        <th>Item Name</th>\n        <th>Quantity</th>\n        <th>Rate</th>\n        <th>Total Amount</th>\n        <th [hidden]='InvGen'>\n          <button type=\"button\"  (click)='addRow(0)' class=\"btn btn-success btn-sm\">\n          <span>+</span>\n          </button>\n      </th>\n        <th></th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let data of invoiceList;let i = index; let lastEl = last; let firstEl = first\">\n        <td class=\"indx\">{{i+1}}</td>\n        <td class=\"tablecss\">\n          <select [(ngModel)]='invoiceList[i].item' [disabled]='InvGen' class=\"tablecss\" style=\"width:200px;\">\n              <option *ngFor=\"let item of items\" value={{item}}>\n                  {{item}}\n              </option>\n          </select>\n        </td>\n        <td class=\"tablecss\">\n          <input class=\"tablecss\"  type=\"number\" min=\"0\" (blur)='calcTotal()' [(ngModel)]='invoiceList[i].quantity' [disabled]='InvGen'/>\n        </td>\n        <td class=\"tablecss\">\n          <input class=\"tablecss\"  type=\"number\" min=\"0\" (blur)='calcTotal()' [(ngModel)]='invoiceList[i].rate' [disabled]='InvGen'/>\n        </td>\n        <td class=\"tablecss\">\n          <input class=\"tablecss\" readonly value=\"{{invoiceList[i].rate  * invoiceList[i].quantity | currency:'RS '}}\"  [disabled]='InvGen'>\n        </td>\n        <td *ngIf='!firstEl'  [hidden]='InvGen'>\n          <button type=\"button\"   (click)='deleteRow(i);calcTotal()' class=\"btn btn-danger btn-sm\">\n            <span>-</span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n  </div>\n</div>\n<hr>\n<div class=\"row\">\n  <div class=\"col-md-4 col-sm-6\">\n    <h5>Discount : <input  class=\"fixWidth\"  (blur)='calcTotal()' [(ngModel)]='discounts' [disabled]='InvGen' />%</h5>\n    <h5>Rewards : <input   class=\"fixWidth\"  (blur)='calcTotal()' [(ngModel)]='rewards' [disabled]='InvGen' /></h5>\n    <h5>Credit : <input  class=\"fixWidth\" (blur)='calcTotal()' [(ngModel)]='credit'   [disabled]='InvGen' style=\"margin-left:19px;\"/></h5>\n  </div>\n  <div class=\"col-md-4\">\n  </div>\n  <div class=\"col-md-4 col-sm-6\">\n    <h5>SubTotal :<span class=\"mrglv\" style=\"margin-left:0px\"> {{subTotal | number}}</span></h5>\n    <h5>GST :<span class=\"mrglv\" style=\"margin-left:34px\"> <input class=\"fixWidth\"  (blur)='calcTotal()' [(ngModel)]='gst' [disabled]='InvGen' />%</span></h5>\n    <h5>Total :<span class=\"mrglv\" style=\"margin-left:32px\"> {{total | number}}</span></h5>\n    <h5>Paid :<span class=\"mrglv\" style=\"margin-left:37px\"> {{total - credit | number}}</span></h5>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col align-self-center\" [hidden]=\"InvGen\">\n    <button type=\"button\" name=\"button\"  class=\"btn btn-block btn-success fntcss\" (click)=\"submitInvoice()\">Submit</button>\n  </div>\n  <div class=\"col align-self-center\" [hidden]=\"!InvGen\">\n    <button type=\"button\" name=\"button\"  class=\"btn btn-block btn-primary fntcss\">Generate Invoice</button>\n  </div>\n</div>\n</div>\n</div>\n"
+module.exports = "  <div class=\"row cstyle justify-content-center\">\n   <div class=\"\">\n     <h2>Invoice</h2>\n    </div>\n  </div>\n<div class=\"row cstyle dataBox\" *ngIf='!invoice'>\n  <div class=\"col\"> </div>\n  <div class=\"col-md-5 col-sm-12\">\n    <div class=\"input-group col align-self-center\" style=\"margin-top:50px\" *ngIf='!userEntry'>\n      <input type=\"text\" class=\"form-control\" [(ngModel)]='mobile'  maxlength=\"10\" placeholder=\"Enter Mobile Number\" style=\"height:50px\">\n      <div class=\"input-group-append\">\n        <button class=\"btn btn-success fntcss\" (click)=\"verifyUser()\" type=\"button\">Submit</button>\n      </div>\n    </div>\n    <form *ngIf='userEntry' #userForm=\"ngForm\">\n      <div class=\"form-group\">\n        <label  class=\"col-form-label\">Name</label>\n        <div class=\"\">\n          <input type=\"text\" required class=\"form-control form-control-sm usrInpt\" name='username'  [(ngModel)]=\"userName\" placeholder=\"Name\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"colFormLabelSm\" class=\"col-form-label\">Email</label>\n        <div class=\"\">\n          <input type=\"email\" required class=\"form-control form-control-sm usrInpt\" name='mail' [(ngModel)]='email' placeholder=\"Email\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"colFormLabelSm\" class=\"col-form-label col-form-label-sm\">Address</label>\n        <div class=\"\">\n          <input type=\"text\" class=\"form-control form-control-sm usrInpt\" name='addr' [(ngModel)]='address'  placeholder=\"Address\">\n        </div>\n      </div>\n      <button class=\"btn btn-success btn-block fntcss\" [disabled]=\"!userForm.form.valid\" type=\"button\" (click)='userDetails(userName,email,address)' name=\"button\">Submit</button>\n    </form>\n  </div>\n  <div class=\"col\"></div>\n</div>\n\n<div class=\"row cstyle dataBox\"   *ngIf='invoice' style=\"font-family: Rokkitt, serif;\">\n<!--generated invoice  -->\n<div class=\"invoiceCreation container\" >\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <h6><span>{{userName | uppercase}}</span> | <span>{{mobile}}</span></h6>\n      <h6><span>{{email}}</span> | <span>{{address}}</span></h6>\n    </div>\n    <div class=\"col-sm\" >\n      <img src={{imageUrl()}}  style=\"width:50px;height:50px;border-radius:50px\">\n    </div>\n    <div class=\"col-sm\" >\n      <h6>Total BV={{BV}} | RewardPoints={{rewardPoints}}</h6>\n      <h6>Payables={{totalPayable}} | Receivables={{totalReceivable}}</h6>\n    </div>\n  </div><br>\n  <div class=\"row\">\n    <div class=\" col-md-12\" style=\"overflow:auto;max-height:300px\">\n    <table class=\"table\">\n    <thead class=\"thead-light fntcss\">\n      <tr>\n        <th>#</th>\n        <th>Item Name</th>\n        <th>Quantity</th>\n        <th>Rate</th>\n        <th>Total Amount</th>\n        <th [hidden]='InvGen'>\n          <button type=\"button\"  (click)='addRow(0)' class=\"btn btn-success btn-sm\">\n          <span>+</span>\n          </button>\n      </th>\n        <th></th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let data of invoiceList;let i = index; let lastEl = last; let firstEl = first\">\n        <td class=\"indx\">{{i+1}}</td>\n        <td class=\"tablecss\">\n          <select [(ngModel)]='invoiceList[i].item' [disabled]='InvGen' class=\"tablecss\" style=\"width:200px;\">\n              <option *ngFor=\"let item of items\" value={{item}}>\n                  {{item}}\n              </option>\n          </select>\n        </td>\n        <td class=\"tablecss\">\n          <input class=\"tablecss\"  type=\"number\" min=\"0\" (blur)='calcTotal()' [(ngModel)]='invoiceList[i].quantity' [disabled]='InvGen'/>\n        </td>\n        <td class=\"tablecss\">\n          <input class=\"tablecss\"  type=\"number\" min=\"0\" (blur)='calcTotal()' [(ngModel)]='invoiceList[i].rate' [disabled]='InvGen'/>\n        </td>\n        <td class=\"tablecss\">\n          <input class=\"tablecss\" readonly value=\"{{invoiceList[i].rate  * invoiceList[i].quantity | currency:'RS '}}\"  [disabled]='InvGen'>\n        </td>\n        <td *ngIf='!firstEl'  [hidden]='InvGen'>\n          <button type=\"button\"   (click)='deleteRow(i);calcTotal()' class=\"btn btn-danger btn-sm\">\n            <span>-</span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n  </div>\n</div>\n<hr>\n<div class=\"row\">\n  <div class=\"col-md-4 col-sm-6\">\n    <h6><span>Discount </span><input  class=\"fixWidth\"  (blur)='calcTotal()' [(ngModel)]='discounts' [disabled]='InvGen' />%</h6>\n    <h6><span>Rewards </span>  <input   class=\"fixWidth\"  (blur)='calcTotal()' [(ngModel)]='rewards' [disabled]='InvGen' /></h6>\n    <h6><span>Credit  </span> <input  class=\"fixWidth\" (blur)='calcTotal()' [(ngModel)]='credit'   [disabled]='InvGen' style=\"margin-left:16px;width:80px\"/></h6>\n  </div>\n  <div class=\"col-md-4\">\n  </div>\n  <div class=\"col-md-4 col-sm-6\">\n    <h6>SubTotal <span class=\"mrglv\" style=\"margin-left:0px\"> {{subTotal | number}}</span></h6>\n    <h6>GST <span class=\"mrglv\" style=\"margin-left:32px\"> <input class=\"fixWidth\"  (blur)='calcTotal()' [(ngModel)]='gst' [disabled]='InvGen' />%</span></h6>\n    <h6>Total <span class=\"mrglv\" style=\"margin-left:32px\"> {{total | number}}</span></h6>\n    <h6>Paid <span class=\"mrglv\" style=\"margin-left:37px\"> {{total - credit | number}}</span></h6>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col align-self-center\" [hidden]=\"InvGen\">\n    <button type=\"button\" name=\"button\"  class=\"btn btn-block btn-success fntcss\" (click)=\"submitInvoice()\">Submit</button>\n  </div>\n  <div class=\"col align-self-center\" [hidden]=\"!InvGen\">\n    <button type=\"button\" name=\"button\" routerLink=\"/userData/generateInvoice\"  class=\"btn btn-block btn-primary fntcss\">Generate Invoice</button>\n  </div>\n</div>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -2379,14 +2774,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var SelectInvoiceComponent = /** @class */ (function () {
-    function SelectInvoiceComponent(_demoService, _billingService, toastr) {
-        this._demoService = _demoService;
+    function SelectInvoiceComponent(_dataService, _billingService, toastr) {
+        this._dataService = _dataService;
         this._billingService = _billingService;
         this.toastr = toastr;
+        this.credit = 0;
         this.pattern_mobile = /^\d{10}$/;
     }
     SelectInvoiceComponent.prototype.ngOnInit = function () {
-        this._demoService.changebuPlanCss("0");
+        this._dataService.changebuPlanCss("0");
         this.rewards = this.discounts = 0;
         this.invoiceList = [{
                 item: '', quantity: '', rate: '', total: ''
@@ -2435,14 +2831,14 @@ var SelectInvoiceComponent = /** @class */ (function () {
     };
     SelectInvoiceComponent.prototype.verifyUser = function () {
         var _this = this;
-        this._demoService.changeCustomerMobile(this.mobile);
+        this._dataService.changeCustomerMobile(this.mobile);
         if (!this.pattern_mobile.test(this.mobile)) {
             this.toastr.error("Please enter valid mobile number", 'Error', [{ toastLife: '2000' }, { dismiss: 'click' }, { maxShown: '1' }]);
             this.mobile = '';
         }
         else {
             this.toastr.clearAllToasts();
-            this._demoService.customerExist(this.mobile).subscribe(function (data) {
+            this._dataService.customerExist(this.mobile).subscribe(function (data) {
                 if (data != null && Object.keys(data).length <= 0) {
                     _this.userEntry = true;
                 }
@@ -2464,7 +2860,7 @@ var SelectInvoiceComponent = /** @class */ (function () {
     };
     SelectInvoiceComponent.prototype.userDetails = function () {
         var _this = this;
-        this._demoService.createUser({ userName: this.userName, email: this.email, address: this.address, userMobile: this.mobile }).subscribe(function (data) {
+        this._dataService.createUser({ userName: this.userName, email: this.email, address: this.address, userMobile: this.mobile }).subscribe(function (data) {
             _this.invoice = true;
             _this.userName = data[0].userName;
             _this.email = data[0].email;
@@ -2480,15 +2876,18 @@ var SelectInvoiceComponent = /** @class */ (function () {
     };
     SelectInvoiceComponent.prototype.submitInvoice = function () {
         var _this = this;
-        var generateInvoice = {
+        var invoice = {
             userName: this.userName, userMobile: this.mobile, total: this.total,
             subTotal: this.subTotal, rewards: this.rewards, discount: this.discounts,
             credit: this.credit, invoiceDetail: this.invoiceList
         };
-        this._billingService.addInvoice(generateInvoice).subscribe(function (data) {
+        this._billingService.addInvoice(invoice).subscribe(function (data) {
             if (data != null) {
+                console.log(data);
+                console.log(JSON.stringify(data));
                 _this.invoiceid = data[0].invId;
                 _this.InvGen = true;
+                _this._dataService.changeInvoiceData(data);
             }
             else {
                 _this.invoice = _this.userEntry = false;
@@ -2848,7 +3247,6 @@ var SignupComponent = /** @class */ (function () {
         this.pattern_email = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
         this.pattern_mobile = /^\d{10}$/;
         this.pattern_pinCode = /^\d{3,7}$/;
-        // public pattern_password = /([0-9a-zA-Z]){6,15}/;
         this.pattern_password = /^(?=.*?[A-Z])(?=.*?[0-9]).{6,}$/;
         this.model = {
             "registrationId": '',
@@ -3089,7 +3487,7 @@ module.exports = ".dropdown:hover>.dropdown-menu {\n  display: block;\n}\n.profi
 /***/ "./src/app/user-data/user-data.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row textfamily\">\n  <div class=\"col-md-2 col-sm-4 textStyle\">\n    <div class=\"list-group\" id=\"list-tab\" role=\"tablist\" [style.margin-top.px]=\"buPlanCss\">\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" routerLink=\"/userData/invoice\">Invoice</a>\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" routerLink=\"/userData/payables\">Payables</a>\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" routerLink=\"/userData/receivables\">Receivables</a>\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" routerLink=\"/userData/salesReport\">Sales Report</a>\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" routerLink=\"/userData/raiseTicket\">Raise Ticket</a>\n    </div>\n  </div>\n  <div class=\"col-md-10 col-sm-8\">\n      <router-outlet class=\"tab-pane fade\"></router-outlet>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row textfamily\">\n  <div class=\"col-md-2 col-sm-4 textStyle\">\n    <div class=\"list-group\" id=\"list-tab\" role=\"tablist\" [style.margin-top.px]=\"buPlanCss\">\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" (click)=\"routeTo('/userData/invoice')\" >Invoice</a>\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" (click)=\"routeTo('/userData/payables')\">Payables</a>\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" (click)=\"routeTo('/userData/receivables')\">Receivables</a>\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" (click)=\"routeTo('/userData/salesReport')\">Sales Report</a>\n      <a class=\"list-group-item list-group-item-action listcss\"  data-toggle=\"list\" role=\"tab\" (click)=\"routeTo('/userData/raiseTicket')\">Raise Ticket</a>\n    </div>\n  </div>\n  <div class=\"col-md-10 col-sm-8\">\n      <router-outlet class=\"tab-pane fade\"></router-outlet>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3126,6 +3524,7 @@ var UserDataComponent = /** @class */ (function () {
         this._demoService.newBusinessVal.subscribe(function (newBusinessVal) { return _this.addNewBusinessForm = newBusinessVal; });
         this._demoService.buPlanCssVal.subscribe(function (value) { return _this.buPlanCss = value; });
         this.showRegForm = this.addNewBusinessForm;
+        this.showBuList();
     };
     UserDataComponent.prototype.addNewBusiness = function () {
         this.showeditForm = false;
@@ -3143,15 +3542,22 @@ var UserDataComponent = /** @class */ (function () {
     };
     UserDataComponent.prototype.showBuList = function () {
         var _this = this;
-        this.showbusinessList = true;
         this._demoService.viewMyBusiness().subscribe(function (data) {
             _this.businessList = data;
+            _this._demoService.changeBusinessList(_this.businessList);
         }, function (error) {
+            alert("could not fetch BU data");
         });
     };
     UserDataComponent.prototype.sideNav = function (value) {
         this[value] = true;
         this.profile = false;
+    };
+    UserDataComponent.prototype.routeTo = function (url) {
+        var _this = this;
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(function () {
+            return _this.router.navigate([url]);
+        });
     };
     UserDataComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({

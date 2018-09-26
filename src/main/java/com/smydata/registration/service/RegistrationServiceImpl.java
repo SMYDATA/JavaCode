@@ -23,8 +23,9 @@ public class RegistrationServiceImpl implements RegistrationService {
 	@Override
 	public Registration saveUser(Registration registration) {
 		
-		if(registration != null)
-		return registrationRepository.save(registration);
+		if(registration != null) {
+			return registrationRepository.save(registration);
+		}
 		else return null;
 		
 	}
@@ -48,6 +49,10 @@ public class RegistrationServiceImpl implements RegistrationService {
 	public Registration findBusinessInfoByRegId(Long regstrationId) {
 		return registrationRepository.findByRegistrationId(regstrationId);
 	}
-	
+
+	@Override
+	public List<Registration> getAllBusinessUsers(String roleType) {
+		return registrationRepository.findByRole(roleType);
+	}
 
 }

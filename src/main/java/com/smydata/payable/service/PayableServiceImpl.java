@@ -36,8 +36,8 @@ public class PayableServiceImpl implements PayableService{
 	}
 
 	@Override
-	public List<Payable> getPayablesByOwnerMobile(String boMobile, String code) {
-		return JdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,CREATE_DATE,DESCRIPTION AS DESC,INVOICE_IMAGE,MOBILE,BO_MOBILE FROM PAYABLE_RECEIVABLE WHERE BO_MOBILE = ? AND CODE = ?",new Object[]{boMobile,code},new BeanPropertyRowMapper<Payable>(Payable.class));
+	public List<Payable> getPayablesByOwnerMobile(String boMobile, String code,long businessId) {
+		return JdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,CREATE_DATE,DESCRIPTION AS DESC,INVOICE_IMAGE,MOBILE,BO_MOBILE FROM PAYABLE_RECEIVABLE WHERE BO_MOBILE = ? AND CODE = ? AND BUSINESS_DETAIL_ID = ?",new Object[]{boMobile,code, businessId},new BeanPropertyRowMapper<Payable>(Payable.class));
 	}
 
 }

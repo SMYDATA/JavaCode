@@ -82,8 +82,9 @@ public class UserControllerTest {
 		List<Invoice> invoiceList = getInvoiceMetadata();
 		User user = getUserMetadata();
 		String mobile = "8978446892";
-		when(rewardsServiceMock.getRewards(mobile)).thenReturn(reward);
-		when(discountsServiceMock.getDiscountDetails(mobile)).thenReturn(discounts);
+		long businessId = 112;
+//		when(rewardsServiceMock.getRewards(mobile,businessId)).thenReturn(reward);
+		when(discountsServiceMock.getDiscountDetails(mobile, businessId)).thenReturn(discounts);
 		when(invoiceDetailServiceMock.getInvoice(mobile)).thenReturn(invoiceList);
 		when(userServiceMock.saveCustomer(Mockito.any(User.class))).thenReturn(user);
 		
@@ -91,10 +92,10 @@ public class UserControllerTest {
 		
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
-		verify(discountsServiceMock).getDiscountDetails(mobile);
-		verify(discountsServiceMock, times(1)).getDiscountDetails(mobile);
-		verify(rewardsServiceMock).getRewards(mobile);
-		verify(rewardsServiceMock, times(1)).getRewards(mobile);
+		verify(discountsServiceMock).getDiscountDetails(mobile, businessId);
+		verify(discountsServiceMock, times(1)).getDiscountDetails(mobile, businessId);
+		verify(rewardsServiceMock).getRewards(mobile,businessId);
+		verify(rewardsServiceMock, times(1)).getRewards(mobile,businessId);
 		verify(invoiceDetailServiceMock).getInvoice(mobile);
 		verify(invoiceDetailServiceMock, times(1)).getInvoice(mobile);
 		verify(userServiceMock).saveCustomer(user);
@@ -115,8 +116,9 @@ public class UserControllerTest {
 		User user = getUserMetadata();
 		List<Discounts> discounts = getDiscountsMetadata();
 		String mobile = "8978446892";
+		long businessId = 112;
 		when(userServiceMock.findCustomer(mobile)).thenReturn(user);
-		when(discountsServiceMock.getDiscountDetails(mobile)).thenReturn(discounts);
+		when(discountsServiceMock.getDiscountDetails(mobile,businessId)).thenReturn(discounts);
 		
 		ResponseEntity<?> response = userController.getUserDetail(mobile, request);
 		
@@ -125,8 +127,8 @@ public class UserControllerTest {
 		
 		verify(userServiceMock).findCustomer(mobile);
 		verify(userServiceMock, times(1)).findCustomer(mobile);
-		verify(discountsServiceMock).getDiscountDetails(mobile);
-		verify(discountsServiceMock, times(1)).getDiscountDetails(mobile);
+		verify(discountsServiceMock).getDiscountDetails(mobile, businessId);
+		verify(discountsServiceMock, times(1)).getDiscountDetails(mobile, businessId);
 	}
 	
 	@Ignore

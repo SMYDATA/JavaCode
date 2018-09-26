@@ -11,4 +11,5 @@ public interface RegistrationService {
 	Registration findBusinessInfoByRegId(Long regstrationId);
 	List<Registration> getAllRegisteredDetails();
 	List<BusinessDetail> saveBusinessDetails(List<BusinessDetail> businessDetails);
+	List<Registration> getAllBusinessUsers(String roleType);
 }
