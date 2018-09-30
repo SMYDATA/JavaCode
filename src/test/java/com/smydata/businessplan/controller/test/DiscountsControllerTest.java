@@ -61,14 +61,14 @@ public class DiscountsControllerTest {
 	public void testSuccessSaveDiscounts(){
 		
 		List<Discounts> discounts = getDiscountsMetadata();
-		doNothing().when(discountsServiceMock).deleteDiscounts("8978446892");
+		doNothing().when(discountsServiceMock).deleteDiscounts(123);
 		when(discountsServiceMock.saveDiscounts((List<Discounts>) Mockito.anyCollectionOf(Discounts.class))).thenReturn(discounts);
-		ResponseEntity<?> result = discountsController.saveDiscounts(discounts, request);
+		ResponseEntity<?> result = discountsController.saveDiscounts(discounts,123, request);
 		
 		assertEquals(HttpStatus.OK, result.getStatusCode());
 		assertNotNull(result.getBody());
 		
-		verify(discountsServiceMock).deleteDiscounts("8978446892");
+		verify(discountsServiceMock).deleteDiscounts(1234);
 		verify(discountsServiceMock).saveDiscounts(discounts);
 		verify(discountsServiceMock, times(1)).saveDiscounts(discounts);
 	}
@@ -78,12 +78,12 @@ public class DiscountsControllerTest {
 	public void testFailureSaveDiscounts(){
 		
 		List<Discounts> discounts = null;
-		doNothing().when(discountsServiceMock).deleteDiscounts("8978446892");
-		ResponseEntity<?> result = discountsController.saveDiscounts(discounts, request);
+		doNothing().when(discountsServiceMock).deleteDiscounts(1234);
+		ResponseEntity<?> result = discountsController.saveDiscounts(discounts,123, request);
 		
 		assertEquals(HttpStatus.NOT_FOUND, result.getStatusCode());
 		
-		verify(discountsServiceMock, times(1)).deleteDiscounts("8978446892");
+		verify(discountsServiceMock, times(1)).deleteDiscounts(1234);
 	}
 	
 	@Ignore
@@ -93,13 +93,13 @@ public class DiscountsControllerTest {
 		List<Discounts> discounts = getDiscountsMetadata();
 		String mobile = "8978446892";
 		long businessId = 113;
-		when(discountsServiceMock.getDiscountDetails(mobile, businessId)).thenReturn(discounts);
-		ResponseEntity<?> result = discountsController.getDiscounts(request);
+		when(discountsServiceMock.getDiscountDetails(businessId)).thenReturn(discounts);
+		ResponseEntity<?> result = discountsController.getDiscounts(123,request);
 		
 		assertEquals(HttpStatus.OK, result.getStatusCode());
 		assertNotNull(result.getBody());
-		verify(discountsServiceMock).getDiscountDetails(mobile, businessId);
-		verify(discountsServiceMock, times(1)).getDiscountDetails(mobile, businessId);
+		verify(discountsServiceMock).getDiscountDetails(businessId);
+		verify(discountsServiceMock, times(1)).getDiscountDetails(businessId);
 	}
 	
 	@Ignore
@@ -109,12 +109,12 @@ public class DiscountsControllerTest {
 		List<Discounts> discounts = null;
 		String mobile = "8978446892";
 		long businessId = 113;
-		when(discountsServiceMock.getDiscountDetails(mobile, businessId)).thenReturn(discounts);
-		ResponseEntity<?> result = discountsController.getDiscounts(request);
+		when(discountsServiceMock.getDiscountDetails(businessId)).thenReturn(discounts);
+		ResponseEntity<?> result = discountsController.getDiscounts(123,request);
 		
 		assertEquals(HttpStatus.NOT_FOUND, result.getStatusCode());
-		verify(discountsServiceMock).getDiscountDetails(mobile, businessId);
-		verify(discountsServiceMock, times(1)).getDiscountDetails(mobile, businessId);
+		verify(discountsServiceMock).getDiscountDetails(businessId);
+		verify(discountsServiceMock, times(1)).getDiscountDetails(businessId);
 	}
 	
 	private List<Discounts> getDiscountsMetadata() {

@@ -15,7 +15,7 @@ import javax.validation.constraints.Null;
  * @author Parthiya.D.S
  *
  */
-@Table(name="Payable_Receivable")
+@Table(name="payable")
 @Entity
 public class Payable implements Serializable {
 
@@ -36,13 +36,8 @@ public class Payable implements Serializable {
 	private double amount;
 	@Column(name="received")
 	private double received;
-	@Null
-	@Column(name="invoice_image")
-	private byte[] invoiceImage;
 	@Column(name="description")
 	private String desc;
-	@Column(name="code")
-	private String code;
 	@Column(name="business_detail_id")
 	private long businessDetailId;
 	
@@ -84,17 +79,6 @@ public class Payable implements Serializable {
 		this.desc = desc;
 	}
 
-
-	public String getCode() {
-		return code;
-	}
-
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-
 	public String getMobile() {
 		return mobile;
 	}
@@ -125,13 +109,4 @@ public class Payable implements Serializable {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	public byte[] getInvoiceImage() {
-		return invoiceImage;
-	}
-	public void setInvoiceImage(byte[] invoiceImage) {
-		this.invoiceImage = invoiceImage;
-	}
-	
-	
-
 }

@@ -1,14 +1,17 @@
 package com.smydata.report.service;
 
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
 import com.smydata.registration.model.Invoice;
 import com.smydata.registration.model.Payable;
+import com.smydata.registration.model.Receivable;
 import com.smydata.registration.model.TicketBean;
 import com.smydata.registration.model.User;
 
@@ -34,16 +37,30 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public List<Payable> getAllPayablesReceivables(String action, long businessId , String startDate, String endDate) {
+	public List<Payable> getAllPayables(long businessId , String startDate, String endDate) {
 		List<Payable> payableList = null;
 		logger.info("====>Begin execution of  getAllPayablesReceivables====> ");
 		try{
-			payableList = jdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,DESCRIPTION,MOBILE FROM PAYABLE_RECEIVABLE WHERE CODE = ? AND BUSINESS_DETAIL_ID = ? AND CREATE_DATE BETWEEN ? AND ? ",new Object[]{action,businessId,startDate,endDate},new BeanPropertyRowMapper<Payable>(Payable.class));
+			payableList = jdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,DESCRIPTION,MOBILE FROM PAYABLE WHERE BUSINESS_DETAIL_ID = ? AND CREATE_DATE BETWEEN ? AND ? ",new Object[]{businessId,startDate,endDate},new BeanPropertyRowMapper<Payable>(Payable.class));
 		}
 		catch(Exception e){
 			logger.error("Error occured while getting Payables/Receivables and error is: {}",e);
 		}
 		logger.info("====>End execution of  getAllPayablesReceivables====> ");
+		return payableList;
+	}
+	
+	@Override
+	public List<Receivable> getAllReceivables(long businessId, String startDate, String endDate) {
+		List<Receivable> payableList = null;
+		logger.info("====>Begin execution of  getAllReceivables====> ");
+		try{
+			payableList = jdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,DESCRIPTION,MOBILE FROM RECEIVABLE WHERE BUSINESS_DETAIL_ID = ? AND CREATE_DATE BETWEEN ? AND ? ",new Object[]{businessId,startDate,endDate},new BeanPropertyRowMapper<Receivable>(Receivable.class));
+		}
+		catch(Exception e){
+			logger.error("Error occured while getting Receivables report and error is: {}",e);
+		}
+		logger.info("====>End execution of  getAllReceivables====> ");
 		return payableList;
 	}
 

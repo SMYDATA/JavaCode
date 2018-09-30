@@ -15,7 +15,6 @@ public class Rewards implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Id
 	@Column(name="mobile")
 	private String mobile;
 	@Column(name="enable")
@@ -38,6 +37,7 @@ public class Rewards implements Serializable {
 	private Date bonusStartDate;
 	@Column(name="bonus_end_date")
 	private Date bonusEndDate;
+	@Id
 	@Column(name="business_detail_id")
 	private long businessDetailId;
 	

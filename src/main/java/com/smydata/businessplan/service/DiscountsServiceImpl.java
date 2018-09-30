@@ -28,14 +28,13 @@ public class DiscountsServiceImpl implements DiscountsService {
 	}
 
 	@Override
-	public List<Discounts> getDiscountDetails(String mobile, long businessId) {
-//		return discountsRepository.findByMobile(mobile);
-		return JdbcTemplate.query("SELECT DISCOUNT_ID ,DISCOUNT,ENABLE ,ENABLE_DISCOUNT ,END_DATE ,MAX_AMOUNT ,MIN_AMOUNT ,MOBILE ,START_DATE FROM DISCOUNTS WHERE MOBILE = ? AND BUSINESS_DETAIL_ID = ?",new Object[]{mobile,businessId},new BeanPropertyRowMapper<Discounts>(Discounts.class));
+	public List<Discounts> getDiscountDetails(long businessId) {
+		return discountsRepository.findByBusinessDetailId(businessId);
 	}
 
 	@Override
-	public void deleteDiscounts(String mobile) {
-		discountsRepository.deleteByMobile(mobile);
+	public void deleteDiscounts(long businessId) {
+		discountsRepository.deleteByBusinessDetailId(businessId);
 	}
 
 }

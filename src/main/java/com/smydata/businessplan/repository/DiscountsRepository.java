@@ -8,6 +8,7 @@ import com.smydata.registration.model.Discounts;
 
 public interface DiscountsRepository extends JpaRepository<Discounts,String> {
 	List<Discounts> findByMobile(String mobileNumber);
-	void deleteByMobile(String mobile);
+	List<Discounts> findByBusinessDetailId(long businessId);
+	void deleteByBusinessDetailId(long businessId);
 
 }

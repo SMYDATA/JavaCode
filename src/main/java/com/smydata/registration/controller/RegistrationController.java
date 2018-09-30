@@ -35,7 +35,7 @@ import com.smydata.user.service.UserService;
 
 @RestController
 @RequestMapping("/api")
-@SessionAttributes({"registration","businessId"})
+@SessionAttributes({"registration"})
 @CrossOrigin
 public class RegistrationController implements SmydataConstant {
 
@@ -44,6 +44,8 @@ public class RegistrationController implements SmydataConstant {
 	
 	@Autowired
 	UserService userService;
+	
+	private HttpSession session = null;
 	
 	private static final Logger logger = LoggerFactory.getLogger(RegistrationController.class);
 	
@@ -62,7 +64,7 @@ public class RegistrationController implements SmydataConstant {
 		Registration sessionReg = null;
 		List<String> messages = new ArrayList<>();
 		try{
-			HttpSession session = request.getSession();
+			session = request.getSession();
 			if(session!=null){
 				sessionReg = (Registration) session.getAttribute(REGISTRATION);
 			}
@@ -159,7 +161,7 @@ public class RegistrationController implements SmydataConstant {
 		Registration sessionReg = null;
 		List<String> result = new ArrayList<>();
 		try{
-			HttpSession session = request.getSession();
+			session = request.getSession();
 			if(session!=null){
 				sessionReg = (Registration) session.getAttribute(REGISTRATION);
 			}
@@ -263,7 +265,7 @@ public class RegistrationController implements SmydataConstant {
 		ResponseEntity<?> results = null;
 		List<String> result = new ArrayList<>();
 		try{
-			HttpSession session = request.getSession();
+			session = request.getSession();
 			
 			if(registration != null){
 					logger.info("===>login Business owner mobile::{}",registration.getMobile());
@@ -303,51 +305,6 @@ public class RegistrationController implements SmydataConstant {
 		return results;
 	}
 	
-	/*@GetMapping("/downloadFile/{mobile}")
-	public ResponseEntity<?> downloadProfile(@PathVariable String mobile,HttpServletRequest request,HttpServletResponse response){
-		logger.info("===>Begin Execution of fileDownload===>");
-		ResponseEntity<?> results = null;
-		List<Profile> profiles = null;
-		try {
-			profiles = resourceService.getProfilesByResourceNo(mobile);
-			if(profiles != null && !profiles.isEmpty()) {
-				
-				Profile profile = profiles.get(0);
-		        // set headers for the response
-		        String headerKey = "Content-Disposition";
-		        String headerValue = String.format("attachment; filename=\"%s\"",profile.getFileName());
-
-		        // set content attributes for the response
-		        HttpHeaders headers = new HttpHeaders();
-		        headers.add(headerKey, headerValue);
-		        headers.add(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate");
-		        headers.add(HttpHeaders.PRAGMA,"no-cache");
-		        headers.add(HttpHeaders.EXPIRES,"0");
-		        headers.add(HttpHeaders.CONTENT_LENGTH, String.valueOf(profile.getFileContent().length));
-		        headers.add(HttpHeaders.CONTENT_TYPE, profile.getMimetype());
-		        results = new ResponseEntity<>(profile.getFileContent(),headers,HttpStatus.OK);
-		       // results =  ResponseEntity.ok().headers(headers).contentLength(profile.getFileContent().length).contentType(MediaType.parseMediaType(profile.getMimetype())).body(profile.getFileContent());
-			}
-		} catch (Exception e) {
-			results = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			logger.error("Error occured while downloading file and error is:{}  ", e);
-		}
-		logger.info("===>End Execution of fileDownload===>");
-		return results;
-	}*/
-	
-	@PostMapping("/changeMyBusiness")
-	public void getChangedBusinessId(@RequestBody BusinessDetail businessDetail, HttpServletRequest request){
-		logger.info("===>Begin execution of getChangedBusinessId method ===>");
-		if(businessDetail != null) {
-			HttpSession session = request.getSession();
-			session.removeAttribute(SESSION_BUSINESS_ID);
-			logger.info("===>Business Id of changed business is [{}] ===>",businessDetail.getBusinessDetailId());
-			session.setAttribute(SESSION_BUSINESS_ID, businessDetail.getBusinessDetailId());//save latest businessId in session of selected Business
-		}
-		logger.info("===>End execution of getChangedBusinessId method ===>");
-	}
-	
 	@GetMapping("/viewMyBusiness")
 	public ResponseEntity<?> getBusinessDetails(HttpServletRequest request){
 		logger.info("===>Begin Execution of getBusinessDetails method===>");
@@ -355,7 +312,7 @@ public class RegistrationController implements SmydataConstant {
 		ResponseEntity<?> results = null;
 		Registration registrationDetails = null;
 		try{
-			HttpSession session = request.getSession();
+			session = request.getSession();
 			if(session!=null){
 				registartion = (Registration) session.getAttribute(REGISTRATION);
 			}
@@ -384,6 +341,9 @@ public class RegistrationController implements SmydataConstant {
 		return results;
 	}
 	
+	public Object getBusinessId() {
+		return session.getAttribute(SESSION_BUSINESS_ID);
+	}
 	@GetMapping("/sendOtp/{mobile}")
 	public ResponseEntity<?> sendOtp(@PathVariable("mobile") String mobile){
 		logger.info("==>Begin Execution of sendOtp method===>");
@@ -432,14 +392,38 @@ public class RegistrationController implements SmydataConstant {
 		}
 	}
 	
+	@GetMapping("/changePassword/{oldPwd}/{newPwd}")
+	public void resetPasswordInPortal(@PathVariable("oldPwd") String oldPwd, @PathVariable("newPwd") String newPwd, HttpServletRequest request) {
+		logger.info("===>Begin Execution of resetPasswordInPortal method===>");
+		Registration registartion = null;
+		try{
+			session = request.getSession();
+			if(session!=null){
+				registartion = (Registration) session.getAttribute(REGISTRATION);
+			}
+			if(registartion != null && registartion.getMobile() != null) {
+				Registration registration= registrationService.findByMobileNumber(registartion.getMobile());
+				if(registration != null) {
+					logger.info("===>Data found for Mobile number[{}] to change password ===>",registartion.getMobile());
+					registration.setPassword(newPwd);
+					registrationService.saveUser(registration);
+					logger.info("===>Password changes sucess for Mobile number[{}] ===>",registartion.getMobile());
+				}	
+			}
+			
+		}
+		catch(Exception e){
+			logger.error("Exception occured in resetPasswordInPortal() method====>{}",e);
+		}
+	}
+	
 	@GetMapping("/logOut")
 	public void logOut( HttpServletRequest request) {
 		logger.info("===>In logOut method===>");
 		try {
-			HttpSession session = request.getSession();
+			session = request.getSession();
 			if(session!=null){
 				session.removeAttribute(REGISTRATION);
-				session.removeAttribute(SESSION_BUSINESS_ID);
 			}
 		}
 		catch(Exception e){

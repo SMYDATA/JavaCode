@@ -17,7 +17,7 @@ public class PayableServiceImpl implements PayableService{
 	PayableRepository payableRepository;
 	
 	@Autowired
-	JdbcTemplate JdbcTemplate;
+	JdbcTemplate jdbcTemplate;
 
 	@Override
 	public List<Payable> saveOwnerPayables(List<Payable> payables) {
@@ -26,8 +26,8 @@ public class PayableServiceImpl implements PayableService{
 	}
 
 	@Override
-	public List<Payable> getOwnerPayables(String userMobile, String code) {
-		return JdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,CREATE_DATE,INVOICE_IMAGE,MOBILE FROM PAYABLE_RECEIVABLE WHERE MOBILE = ? AND CODE = ?",new Object[]{userMobile,code},new BeanPropertyRowMapper<Payable>(Payable.class));
+	public List<Payable> getUserPayables(String userMobile, long businessId) {
+		return jdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,CREATE_DATE,MOBILE FROM PAYABLE WHERE MOBILE = ? AND BUSINESS_DETAIL_ID = ?",new Object[]{userMobile,businessId},new BeanPropertyRowMapper<Payable>(Payable.class));
 	}
 
 	@Override
@@ -36,8 +36,7 @@ public class PayableServiceImpl implements PayableService{
 	}
 
 	@Override
-	public List<Payable> getPayablesByOwnerMobile(String boMobile, String code,long businessId) {
-		return JdbcTemplate.query("SELECT INVOICE_NUMBER,AMOUNT,CREATE_DATE,DESCRIPTION AS DESC,INVOICE_IMAGE,MOBILE,BO_MOBILE FROM PAYABLE_RECEIVABLE WHERE BO_MOBILE = ? AND CODE = ? AND BUSINESS_DETAIL_ID = ?",new Object[]{boMobile,code, businessId},new BeanPropertyRowMapper<Payable>(Payable.class));
+	public List<Payable> getPayables(long businessId) {
+		return payableRepository.findByBusinessDetailId(businessId);
 	}
-
 }

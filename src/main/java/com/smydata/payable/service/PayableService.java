@@ -7,7 +7,7 @@ import com.smydata.registration.model.Payable;
 public interface PayableService {
 
 	List<Payable> saveOwnerPayables(List<Payable> payables);
-	List<Payable> getOwnerPayables(String userMobile,String code);
-	List<Payable> getPayablesByOwnerMobile(String boMobile,String code, long businessId);
+	List<Payable> getUserPayables(String userMobile,long businessId);
+	List<Payable> getPayables(long businessId);
 	void deletePaidInvoice(List<Payable> payables);
 }

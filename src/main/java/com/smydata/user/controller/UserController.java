@@ -28,6 +28,7 @@ import com.smydata.businessplan.service.RewardsService;
 import com.smydata.model.util.SmydataConstant;
 import com.smydata.model.util.SmydataUtility;
 import com.smydata.payable.service.PayableService;
+import com.smydata.receivable.service.ReceivableService;
 import com.smydata.registration.model.Discounts;
 import com.smydata.registration.model.Invoice;
 import com.smydata.registration.model.Registration;
@@ -38,7 +39,7 @@ import com.smydata.user.service.UserService;
 
 @RestController
 @RequestMapping("/api")
-@SessionAttributes({"registration","businessId"})
+@SessionAttributes({"registration"})
 @CrossOrigin
 public class UserController implements SmydataConstant {
 
@@ -57,10 +58,13 @@ public class UserController implements SmydataConstant {
 	@Autowired
 	PayableService payableService;
 	
+	@Autowired
+	ReceivableService receivableService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
-	@GetMapping("/getUserDetail/{mobile}")
-	public ResponseEntity<?> getUserDetail(@PathVariable("mobile") String mobile, HttpServletRequest request){
+	@GetMapping("/getUserDetail/{mobile}/{businessId}")
+	public ResponseEntity<?> getUserDetail(@PathVariable("mobile") String mobile, @PathVariable("businessId") long businessId, HttpServletRequest request){
 		
 		logger.info("===>Begin Execution of getUserDetail===>");
 		List<UserBean> userData = new ArrayList<UserBean>();
@@ -69,7 +73,6 @@ public class UserController implements SmydataConstant {
 		Registration reg = null;
 		User user = null;
 		String ownerMobile = "";
-		long businessId = 0;
 		try{
 			if(mobile == null) {
 				logger.info("===>User mobile is null===> ");
@@ -78,9 +81,8 @@ public class UserController implements SmydataConstant {
 			
 			if(session!=null){
 				reg = (Registration) session.getAttribute(REGISTRATION);
-				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 				if(reg != null){
-					logger.info("===> In getUserDetail() BO mob no===>"+reg.getMobile());
+					logger.info("===> In getUserDetail() BO mob no[{}]===>",reg.getMobile());
 					ownerMobile = reg.getMobile();
 				}
 			}
@@ -88,7 +90,7 @@ public class UserController implements SmydataConstant {
 			if(user != null){
 				logger.info("===>User details found for mobile [{}]===> ",mobile);
 				List<Discounts> discounts = SmydataUtility.getDiscounts(ownerMobile,businessId,discountsService); //Get discounts configuration
-				UserBean userBean = getUserDetails(user);
+				UserBean userBean = getUserDetails(user, businessId);
 				userBean.setDiscounts(discounts);
 				userData.add(userBean);
 				results = new ResponseEntity<>(userData, HttpStatus.OK);
@@ -105,23 +107,21 @@ public class UserController implements SmydataConstant {
 	}
 	
 	
-	@PostMapping("/saveUser")
-	public ResponseEntity<?> saveUser(@RequestBody User user,HttpServletRequest request){
+	@PostMapping("/saveUser/{businessId}")
+	public ResponseEntity<?> saveUser(@RequestBody User user,@PathVariable("businessId") long businessId,HttpServletRequest request){
 		
-		logger.info("***Begin Execution of saveUser***");
+		logger.info("===>Begin Execution of saveUser===>");
 		HttpSession session = request.getSession();
 		List<UserBean> userData = new ArrayList<UserBean>();
 		ResponseEntity<?> results = null;
 		Registration reg = null;
 		String mobile = "";
-		long businessId = 0;
 		try{
 			if(session!=null){
 				reg = (Registration) session.getAttribute(REGISTRATION);
-				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 			}
 			if(reg != null){
-				logger.info("===>saveUser mob no===>"+reg.getMobile());
+				logger.info("===>saveUser mob no[{}]===>",reg.getMobile());
 				mobile = reg.getMobile();
 			}
 			if(user != null){
@@ -132,7 +132,7 @@ public class UserController implements SmydataConstant {
 				user.setCreateDate(new Date((currenttime.getTime()).getTime()));
 				User savedUser = userService.saveCustomer(user);
 				List<Discounts> discounts = SmydataUtility.getDiscounts(mobile, businessId, discountsService); //Get discounts configuration
-				UserBean userBean = getUserDetails(savedUser);
+				UserBean userBean = getUserDetails(savedUser, businessId);
 				userBean.setDiscounts(discounts);
 				userData.add(userBean);
 				results = new ResponseEntity<>(userData, HttpStatus.OK);
@@ -148,7 +148,7 @@ public class UserController implements SmydataConstant {
 		return results;
 	}
 	
-	private UserBean getUserDetails(User user){
+	private UserBean getUserDetails(User user, long businessId){
 		UserBean userBean = new UserBean();
 		List<Invoice> invoiceDetails = invoiceDetailService.getInvoice(user.getUserMobile());
 		int totalBusVolume = (int) SmydataUtility.getTotalBusVolume(invoiceDetails);
@@ -158,8 +158,8 @@ public class UserController implements SmydataConstant {
 		userBean.setRewardPoints(user.getRewardPoints());
 		userBean.setUserMobile(user.getUserMobile());
 		userBean.setUserName(user.getUserName());
-		userBean.setTotalPayable(SmydataUtility.getUserTotalPayable(payableService, user.getUserMobile()));//Total payable
-		userBean.setTotalReceivable(SmydataUtility.getUserTotalReceivable(payableService, user.getUserMobile()));//Total receivable
+		userBean.setTotalPayable(SmydataUtility.getUserTotalPayable(payableService, user.getUserMobile(), businessId));//Total payable
+		userBean.setTotalReceivable(SmydataUtility.getUserTotalReceivable(receivableService, user.getUserMobile(), businessId));//Total receivable
 		return userBean;
 	}
 

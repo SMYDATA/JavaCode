@@ -1,8 +1,6 @@
 package com.smydata.businessplan.controller;
 
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -32,14 +30,13 @@ import com.smydata.businessplan.service.InvoiceDetailService;
 import com.smydata.businessplan.service.RewardsService;
 import com.smydata.model.util.SmydataConstant;
 import com.smydata.model.util.SmydataUtility;
-import com.smydata.payable.service.PayableService;
+import com.smydata.receivable.service.ReceivableService;
 import com.smydata.registration.model.Discounts;
 import com.smydata.registration.model.Invoice;
 import com.smydata.registration.model.InvoiceDetail;
-import com.smydata.registration.model.Payable;
+import com.smydata.registration.model.Receivable;
 import com.smydata.registration.model.Registration;
 import com.smydata.registration.model.Rewards;
-import com.smydata.registration.model.TicketBean;
 import com.smydata.registration.model.User;
 import com.smydata.user.service.UserService;
 
@@ -62,7 +59,7 @@ public class InvoiceDetailController implements SmydataConstant {
 	DiscountsService discountsService;
 	
 	@Autowired
-	PayableService payableService;
+	ReceivableService receivableService;
 	
 	@Autowired
 	JavaMailSender javaMailSender;
@@ -76,30 +73,26 @@ public class InvoiceDetailController implements SmydataConstant {
 	 * @param request
 	 * @return
 	 */
-	@PostMapping("/createInvoice/{gstFlag}")
-	public ResponseEntity<?> saveInvoiceDetails(@RequestBody Invoice invoice,@PathVariable("gstFlag") String gstFlag,HttpServletRequest request){
+	@PostMapping("/createInvoice/{businessId}")
+	public ResponseEntity<?> saveInvoiceDetails(@RequestBody Invoice invoice,@PathVariable("businessId") long businessId,HttpServletRequest request){
 		
 		logger.info("***Begin Execution of saveInvoiceDetails***");
 		HttpSession session = request.getSession();
-		List<Payable> recievableList = new ArrayList<>();
-		List<Invoice> invoiceData = new ArrayList<Invoice>();
+		List<Receivable> recievableList = new ArrayList<>();
+		List<Invoice> invoiceData = new ArrayList<>();
 		Registration reg = null;
 		String mobile = "";
 		int rewrdPoints = 0;
-		long businessId = 0;
 		ResponseEntity<?> results = null;
 		try{
 			if(session!=null){
 				reg = (Registration) session.getAttribute(REGISTRATION);
-				Object object = session.getAttribute(SESSION_BUSINESS_ID);
-				if(object != null) {
-					businessId = (long) object;
+				if(reg != null){
+					logger.info("===>In saveInvoiceDetails() mob no [{}]===>", reg.getMobile());
+					mobile = reg.getMobile();
 				}
 			}
-			if(reg != null){
-				logger.info("===>In saveInvoiceDetails() mob no [{}]===>", reg.getMobile());
-				mobile = reg.getMobile();
-			}
+			
 			Rewards rewards = SmydataUtility.getRewards(mobile,businessId,rewardsService);//get rewards configuration
 			
 			if(invoice != null){
@@ -148,15 +141,15 @@ public class InvoiceDetailController implements SmydataConstant {
 					 
 					 if(inv != null){
 						 	invoiceData.add(inv);
-							Payable payable = new Payable();
-							payable.setBoMobile(reg != null?reg.getMobile():"");
-							payable.setMobile(invoice.getUserMobile());
-							payable.setInvoiceNumber(inv.getInvId());
-							payable.setCode(RECEIVABLE_CODE);
-							payable.setAmount(invoice.getCredit());
-							payable.setCreateDate(new Date((currenttime.getTime()).getTime()));
-							recievableList.add(payable);
-							payableService.saveOwnerPayables(recievableList);
+							Receivable receivable = new Receivable();
+							receivable.setBoMobile(reg != null?reg.getMobile():"");
+							receivable.setMobile(invoice.getUserMobile());
+							receivable.setInvoiceNumber(inv.getInvId());
+							receivable.setBusinessDetailId(businessId);
+							receivable.setAmount(invoice.getCredit());
+							receivable.setCreateDate(new Date((currenttime.getTime()).getTime()));
+							recievableList.add(receivable);
+							receivableService.saveReceivables(recievableList);
 							results = new ResponseEntity<>(invoiceData, HttpStatus.OK);
 						} else {
 							logger.info("===>Failed to saveInvoiceDetails===>");
@@ -184,15 +177,14 @@ public class InvoiceDetailController implements SmydataConstant {
 		return results;
 	}
 	
-	@GetMapping("/emailInvoice/{invoiceId}/{userMobile}/{userEmail}")
-	public ResponseEntity<?> sendEmailInvoice(@PathVariable("invoiceId") Integer invoiceId, @PathVariable("userMobile") String userMobile, @PathVariable("userEmail") String userEmail){
-		boolean userEmailExist = false;
+	@GetMapping("/emailInvoice/{invoiceId}/{email}")
+	public ResponseEntity<?> emailInvoice(@PathVariable("invoiceId") Integer invoiceId, @PathVariable("email") String email){
+//		boolean userEmailExist = false;
 		ResponseEntity<?> results = null;
-		User user = null;
-		String email = null;
+//		User user = null;
 		try {
 			logger.info("===>Begin execution of sendEmailInvoice() method ===>");
-			if (userEmail == null || userEmail.trim().isEmpty()) {
+			/*if (userEmail == null || userEmail.trim().isEmpty()) {
 				user = userService.findCustomer(userMobile);
 				if (user != null && user.getEmail() != null) {
 					logger.info("===>User [{}] Email is exist ===>", userMobile);
@@ -205,7 +197,7 @@ public class InvoiceDetailController implements SmydataConstant {
 				}
 			} else {
 				email = userEmail;
-			}
+			}*/
 			Invoice inv = invoiceDetailService.getInvoiceDetails(invoiceId);
 			if (inv != null) {
 				sendMail(email,inv);

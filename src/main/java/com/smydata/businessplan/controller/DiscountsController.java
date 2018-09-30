@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ import com.smydata.registration.model.Registration;
 
 @RestController
 @RequestMapping("/api")
-@SessionAttributes({"registration","businessId"})
+@SessionAttributes({"registration"})
 @CrossOrigin
 public class DiscountsController implements SmydataConstant{
 	
@@ -36,24 +37,22 @@ public class DiscountsController implements SmydataConstant{
 	
 	private static final Logger logger = LoggerFactory.getLogger(DiscountsController.class);
 	
-	@GetMapping("/getdiscounts")
-	public ResponseEntity<?> getDiscounts(HttpServletRequest request){
+	@GetMapping("/getdiscounts/{businessId}")
+	public ResponseEntity<?> getDiscounts(@PathVariable("businessId") long businessId, HttpServletRequest request){
 		logger.info("===>Begin Execution of getDiscounts method ===>");
 		String mobile = "";
 		List<Discounts> discountsList = null;
 		ResponseEntity<?> results = null;
-		long businessId = 0;
 		HttpSession session = request.getSession();
 		try{
 			if(session!=null){
 				Registration reg = (Registration) session.getAttribute(REGISTRATION);
-				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 				if(reg!=null){
 					logger.info("===>getDiscounts mob no [{}]",reg.getMobile());
 					mobile = reg.getMobile();
 				}
 			}
-			discountsList = discountsService.getDiscountDetails(mobile,businessId);
+			discountsList = discountsService.getDiscountDetails(businessId);
 			if(discountsList !=null){
 				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 				Date date = new Date();
@@ -81,8 +80,8 @@ public class DiscountsController implements SmydataConstant{
 		return results;
 	}
 	
-	@PostMapping("/savediscounts")
-	public ResponseEntity<?> saveDiscounts(@RequestBody List<Discounts> discounts,HttpServletRequest request){
+	@PostMapping("/savediscounts/{businessId}")
+	public ResponseEntity<?> saveDiscounts(@RequestBody List<Discounts> discounts,@PathVariable("businessId") long businessId,HttpServletRequest request){
 		logger.info("Begin Execution of saveDiscounts method");
 		HttpSession session = request.getSession();
 		List<Discounts> savedDiscounts = null;
@@ -91,10 +90,9 @@ public class DiscountsController implements SmydataConstant{
 		try{
 			if(session!=null){
 				reg = (Registration) session.getAttribute(REGISTRATION);
-				long businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 				if(reg!=null){
 					logger.info("===>saveDiscounts mob no [{}]===>", reg.getMobile());
-					discountsService.deleteDiscounts(reg.getMobile());//delete discounts if exist
+					discountsService.deleteDiscounts(businessId);//delete discounts if exist
 					if(discounts != null){
 						for(int i=0;i<discounts.size();i++){
 							Discounts discount = discounts.get(i);

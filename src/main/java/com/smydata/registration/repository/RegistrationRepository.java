@@ -12,8 +12,6 @@ public interface RegistrationRepository extends JpaRepository<Registration, Long
 	
 	public Registration findByMobile(String mobileNumber);
 	public Registration findByRegistrationId(Long regstrationId);
-	
-	
 	public List<Registration> findByRole(String role);
 
 }

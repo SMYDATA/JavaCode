@@ -64,7 +64,7 @@ public class PayableControllerTest {
 //		assertNotNull(response.getBody());
 		verify(payableServiceMock).saveOwnerPayables(payables);;
 		verify(payableServiceMock, times(1)).saveOwnerPayables(payables);
-		verify(payableServiceMock).getOwnerPayables("9440717764", "PAYBL");
+//		verify(payableServiceMock).getOwnerPayables("9440717764", "PAYBL");
 	}
 	
 	private List<Payable> getPayableMetada() {
@@ -73,7 +73,6 @@ public class PayableControllerTest {
 
 		Payable payable = new Payable();
 		payable.setAmount(200);
-		payable.setCode("PAYBL");
 		payable.setCreateDate(new Date((currenttime.getTime()).getTime()));
 		payable.setDesc("inv1");
 		payable.setInvoiceNumber(22);

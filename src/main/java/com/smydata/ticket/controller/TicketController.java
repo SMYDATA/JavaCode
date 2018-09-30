@@ -5,10 +5,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +14,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,17 +44,12 @@ public class TicketController implements SmydataConstant {
 	 * @param ticket
 	 * @return
 	 */
-	@PostMapping("/createTicket")
-	public ResponseEntity<?> createTicket(@RequestBody TicketBean ticket, HttpServletRequest request){
+	@PostMapping("/createTicket/{businessId}")
+	public ResponseEntity<?> createTicket(@RequestBody TicketBean ticket, @PathVariable("businessId") long businessId){
 		TicketBean ticketDetails = null;
 		ResponseEntity<?> results = null;
-		long businessId = 0;
 		try{
 			logger.info("===>Begin Execution of createTicket()===>");
-			HttpSession session = request.getSession();
-			if(session!=null){
-				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
-			}
 			if(ticket != null){
 				Calendar currenttime = Calendar.getInstance();
 				ticket.setCreateDate(new Date((currenttime.getTime()).getTime()));

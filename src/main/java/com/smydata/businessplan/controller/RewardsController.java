@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,8 +43,8 @@ public class RewardsController implements SmydataConstant {
 	 * @param request
 	 * @return
 	 */
-	@PostMapping("/addRewards")
-	public ResponseEntity<?> saveRewards(@RequestBody Rewards rewards,HttpServletRequest request) {
+	@PostMapping("/addRewards/{businessId}")
+	public ResponseEntity<?> saveRewards(@RequestBody Rewards rewards, @PathVariable("businessId") long businessId, HttpServletRequest request) {
 		logger.info("===>Begin Execution of saveRewards method===>");
 		HttpSession session = request.getSession();
 		ResponseEntity<?> results = null;
@@ -51,7 +52,6 @@ public class RewardsController implements SmydataConstant {
 		try{
 			if(session!=null){
 				Registration reg = (Registration) session.getAttribute(REGISTRATION);
-				long businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 				if(reg!=null){
 					logger.info("===>saveRewards mobile no [{}]===>",reg.getMobile());
 					if(rewards != null) {
@@ -82,25 +82,23 @@ public class RewardsController implements SmydataConstant {
 	 * @param request
 	 * @return
 	 */
-	@GetMapping("/getRewards")
-	public ResponseEntity<?> getRewards(HttpServletRequest request) {
+	@GetMapping("/getRewards/{businessId}")
+	public ResponseEntity<?> getRewards(@PathVariable("businessId") long businessId,HttpServletRequest request) {
 		logger.info("Begin Execution of getRewards method:: ");
 		HttpSession session = request.getSession();
 		Registration reg = null;
 		String mobile = "";
 		Rewards reward = null;
 		ResponseEntity<?> results = null;
-		long businessId = 0;
 		try{
 			if(session!=null){
 				reg = (Registration) session.getAttribute("registration");
-				businessId = (long) session.getAttribute(SESSION_BUSINESS_ID);
 			}
 			if(reg != null){
 				logger.info("===>getRewards mob no [{}]===>", reg.getMobile());
 				mobile = reg.getMobile();
 			}
-			List<Rewards> rewards = rewardsService.getRewards(mobile,businessId);
+			List<Rewards> rewards = rewardsService.getRewards(businessId);
 			
 			if(rewards !=null && !rewards.isEmpty()){
 				reward = rewards.get(0);
@@ -124,7 +122,7 @@ public class RewardsController implements SmydataConstant {
 			
 		}
 		catch(Exception e){
-			logger.error("Error occured while getting rewards : "+e);
+			logger.error("Error occured while getting rewards : ",e);
 		}
 		
 		return results;

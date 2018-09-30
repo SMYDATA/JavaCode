@@ -7,16 +7,18 @@ import java.util.List;
 import com.smydata.businessplan.service.DiscountsService;
 import com.smydata.businessplan.service.RewardsService;
 import com.smydata.payable.service.PayableService;
+import com.smydata.receivable.service.ReceivableService;
 import com.smydata.registration.model.Discounts;
 import com.smydata.registration.model.Invoice;
 import com.smydata.registration.model.Payable;
+import com.smydata.registration.model.Receivable;
 import com.smydata.registration.model.Rewards;
 
 public class SmydataUtility implements SmydataConstant{
 
 	public static Rewards getRewards(String mobile,long businessId,RewardsService rewardsService){
 		Rewards reward = null;
-		List<Rewards> rewards = rewardsService.getRewards(mobile, businessId);
+		List<Rewards> rewards = rewardsService.getRewards(businessId);
 		try{
 			if(rewards !=null && !rewards.isEmpty()){
 				reward = rewards.get(0);
@@ -49,7 +51,7 @@ public class SmydataUtility implements SmydataConstant{
 	}
 	
 	public static List<Discounts> getDiscounts(String mobile, long businessId, DiscountsService discountsService){
-		List<Discounts> discountsList = discountsService.getDiscountDetails(mobile,businessId);
+		List<Discounts> discountsList = discountsService.getDiscountDetails(businessId);
 		if(discountsList !=null){
 			try{
 				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -74,9 +76,9 @@ public class SmydataUtility implements SmydataConstant{
 		return discountsList;
 	}
 	
-	public static double getUserTotalPayable(PayableService payableService,String userMobile) {
+	public static double getUserTotalPayable(PayableService payableService,String userMobile,long businessId) {
 		double totalPayable = 0.0;
-		List<Payable> payables = payableService.getOwnerPayables(userMobile, PAYABLE_CODE);
+		List<Payable> payables = payableService.getUserPayables(userMobile, businessId);
 		if(payables != null && !payables.isEmpty()) {
 			for(Payable payable:payables ) {
 				totalPayable = totalPayable + payable.getAmount();
@@ -84,13 +86,24 @@ public class SmydataUtility implements SmydataConstant{
 		}
 		return totalPayable;
 	}
-
-	public static double getUserTotalReceivable(PayableService payableService,String userMobile) {
-		double totalReceivable = 0.0; 
-		List<Payable> receivables = payableService.getOwnerPayables(userMobile, RECEIVABLE_CODE);
+	
+	/*public static double getUserTotalPayable(ReceivableService receivableService,String userMobile,long businessId) {
+		double totalReceivable = 0.0;
+		List<Receivable> receivables = receivableService.getUserReceivables(userMobile, businessId);
 		if(receivables != null && !receivables.isEmpty()) {
-			for(Payable payable:receivables ) {
-				totalReceivable = totalReceivable + payable.getAmount();
+			for(Receivable receivable:receivables ) {
+				totalReceivable = totalReceivable + receivable.getAmount();
+			}
+		}
+		return totalReceivable;
+	}*/
+
+	public static double getUserTotalReceivable(ReceivableService receivableService,String userMobile,long businessId) {
+		double totalReceivable = 0.0; 
+		List<Receivable> receivables = receivableService.getUserReceivables(userMobile, businessId);
+		if(receivables != null && !receivables.isEmpty()) {
+			for(Receivable receivable:receivables ) {
+				totalReceivable = totalReceivable + receivable.getAmount();
 			}
 		}
 		return totalReceivable;

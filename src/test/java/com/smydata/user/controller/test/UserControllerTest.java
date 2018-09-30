@@ -84,18 +84,18 @@ public class UserControllerTest {
 		String mobile = "8978446892";
 		long businessId = 112;
 //		when(rewardsServiceMock.getRewards(mobile,businessId)).thenReturn(reward);
-		when(discountsServiceMock.getDiscountDetails(mobile, businessId)).thenReturn(discounts);
+		when(discountsServiceMock.getDiscountDetails(businessId)).thenReturn(discounts);
 		when(invoiceDetailServiceMock.getInvoice(mobile)).thenReturn(invoiceList);
 		when(userServiceMock.saveCustomer(Mockito.any(User.class))).thenReturn(user);
 		
-		ResponseEntity<?> response = userController.saveUser(user, request);
+		ResponseEntity<?> response = userController.saveUser(user,123, request);
 		
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
-		verify(discountsServiceMock).getDiscountDetails(mobile, businessId);
-		verify(discountsServiceMock, times(1)).getDiscountDetails(mobile, businessId);
-		verify(rewardsServiceMock).getRewards(mobile,businessId);
-		verify(rewardsServiceMock, times(1)).getRewards(mobile,businessId);
+		verify(discountsServiceMock).getDiscountDetails(businessId);
+		verify(discountsServiceMock, times(1)).getDiscountDetails(businessId);
+		verify(rewardsServiceMock).getRewards(businessId);
+		verify(rewardsServiceMock, times(1)).getRewards(businessId);
 		verify(invoiceDetailServiceMock).getInvoice(mobile);
 		verify(invoiceDetailServiceMock, times(1)).getInvoice(mobile);
 		verify(userServiceMock).saveCustomer(user);
@@ -106,7 +106,7 @@ public class UserControllerTest {
 	@Test
 	public void testSaveUserFailure() {
 		User user = null;
-		ResponseEntity<?> response = userController.saveUser(user, request);
+		ResponseEntity<?> response = userController.saveUser(user,123, request);
 		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 	}
 	
@@ -118,17 +118,17 @@ public class UserControllerTest {
 		String mobile = "8978446892";
 		long businessId = 112;
 		when(userServiceMock.findCustomer(mobile)).thenReturn(user);
-		when(discountsServiceMock.getDiscountDetails(mobile,businessId)).thenReturn(discounts);
+		when(discountsServiceMock.getDiscountDetails(businessId)).thenReturn(discounts);
 		
-		ResponseEntity<?> response = userController.getUserDetail(mobile, request);
+		ResponseEntity<?> response = userController.getUserDetail(mobile,123, request);
 		
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
 		
 		verify(userServiceMock).findCustomer(mobile);
 		verify(userServiceMock, times(1)).findCustomer(mobile);
-		verify(discountsServiceMock).getDiscountDetails(mobile, businessId);
-		verify(discountsServiceMock, times(1)).getDiscountDetails(mobile, businessId);
+		verify(discountsServiceMock).getDiscountDetails(businessId);
+		verify(discountsServiceMock, times(1)).getDiscountDetails(businessId);
 	}
 	
 	@Ignore
@@ -138,7 +138,7 @@ public class UserControllerTest {
 		String mobile = "8978446892";
 		when(userServiceMock.findCustomer(mobile)).thenReturn(user);
 		
-		ResponseEntity<?> response = userController.getUserDetail(mobile, request);
+		ResponseEntity<?> response = userController.getUserDetail(mobile,123, request);
 		
 		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 		

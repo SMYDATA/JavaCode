@@ -29,11 +29,11 @@ public class RewardsServiceImpl implements RewardsService {
 	}
 
 	@Override
-	public List<Rewards> getRewards(String mobile, long businessId) {
-		// return rewardsRepository.findByMobile(mobile);
-		return JdbcTemplate.query(
+	public List<Rewards> getRewards(long businessId) {
+		return rewardsRepository.findByBusinessDetailId(businessId);
+		/*return JdbcTemplate.query(
 				"SELECT MOBILE ,BONUS_END_DATE ,BONUS_POINT_ENALE ,BONUS_POINTS ,BONUS_START_DATE ,CASH_VALUE ,EFFECTIVE_AMOUNT ,ENABLE ,REWARD_END_DATE ,REWARD_POINT_ENABLE ,REWARD_START_DATE ,REWARD_END_DATE FROM REWARDS WHERE MOBILE = ? AND BUSINESS_DETAIL_ID = ?",
-				new Object[] { mobile, businessId }, new BeanPropertyRowMapper<Rewards>(Rewards.class));
+				new Object[] { mobile, businessId }, new BeanPropertyRowMapper<Rewards>(Rewards.class));*/
 	}
 
 }

@@ -9,4 +9,5 @@ import com.smydata.registration.model.Payable;
 
 public interface PayableRepository extends JpaRepository<Payable,Long> {
 	List<Payable> findByMobile(String mobileNumber);
+	List<Payable> findByBusinessDetailId(long businessId);
 }
