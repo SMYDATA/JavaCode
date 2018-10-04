@@ -855,7 +855,7 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.createUser = function (data) {
         console.log(data);
-        var url = urlProvider + '/api/saveUser/' + this.businessId;
+        var url = urlProvider + '/api/createUser/' + this.businessId;
         return this.http.post(url, data);
     };
     DataService.prototype.createTicket = function (data) {
@@ -866,7 +866,7 @@ var DataService = /** @class */ (function () {
     DataService.prototype.requestReport = function (data, type) {
         console.log('Innn service strtDate: ' + data.startDate + ' endDate:' + data.endDate);
         console.log(data);
-        var url = urlProvider + '/api/' + type + '/' + data.startDate + '/' + data.endDate / this.businessId;
+        var url = urlProvider + '/api/' + type + '/' + data.startDate + '/' + data.endDate + '/' + this.businessId;
         console.log(url);
         return this.http.get(url, data);
     };
@@ -2440,7 +2440,7 @@ var RegisterComponent = /** @class */ (function () {
         console.log(type[type.length - 1]);
         if (type.length > 0 && type[type.length - 1] != undefined) {
             var docType = type[type.length - 1];
-            if (docType == 'JPG' || docType == 'PNG') {
+            if (docType == 'jpeg' || docType == 'JPEG' || docType == 'png' || docType == 'PNG') {
                 console.log('file saved');
             }
             else {

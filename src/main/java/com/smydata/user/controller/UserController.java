@@ -107,10 +107,10 @@ public class UserController implements SmydataConstant {
 	}
 	
 	
-	@PostMapping("/saveUser/{businessId}")
-	public ResponseEntity<?> saveUser(@RequestBody User user,@PathVariable("businessId") long businessId,HttpServletRequest request){
+	@PostMapping("/createUser/{businessId}")
+	public ResponseEntity<?> createUser(@RequestBody User user,@PathVariable("businessId") long businessId,HttpServletRequest request){
 		
-		logger.info("===>Begin Execution of saveUser===>");
+		logger.info("===>Begin Execution of createUser===>");
 		HttpSession session = request.getSession();
 		List<UserBean> userData = new ArrayList<UserBean>();
 		ResponseEntity<?> results = null;
@@ -144,7 +144,7 @@ public class UserController implements SmydataConstant {
 		catch(Exception e){
 			logger.error("Error occured while saving user details for BO [{}] and error is:  ",reg !=null?reg.getMobile():"UNKNOWN",e);
 		}
-		
+		logger.info("===>End Execution of createUser===>");
 		return results;
 	}
 	

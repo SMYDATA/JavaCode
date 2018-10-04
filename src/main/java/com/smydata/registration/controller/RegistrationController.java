@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -68,7 +66,6 @@ public class RegistrationController implements SmydataConstant {
 			if(session!=null){
 				sessionReg = (Registration) session.getAttribute(REGISTRATION);
 			}
-//			Registration regDetails = mapper.readValue(registration, new TypeReference<Registration>() {});
 			if(registration != null){
 				logger.info("saveUser mobile: {}",registration.getMobile());
 				if(action != null && action.equalsIgnoreCase(EDIT)) {
@@ -88,11 +85,6 @@ public class RegistrationController implements SmydataConstant {
 								for(int i=0;i<businessDetails.size();i++) {
 									BusinessDetail businessDetail = businessDetails.get(i);
 									businessDetail.setRegistrationId(sessionReg.getRegistrationId());//Setting same registration ID of a BO as a BO will have multiple businesses
-									/*if(file != null) {
-										businessDetail.setFileContent(file.getBytes());
-										businessDetail.setFileName(file.getOriginalFilename());
-										businessDetail.setMimetype(file.getContentType());
-									}*/
 									businessDetails.set(i, businessDetail);
 								}
 								List<BusinessDetail> savedBusinessDetail =  registrationService.saveBusinessDetails(businessDetails);//Add new record into BusinessDetail table under the same registration ID
@@ -105,30 +97,22 @@ public class RegistrationController implements SmydataConstant {
 								}
 								
 								}
-						} else {
-							/*List<BusinessDetail> businessDetails = registration.getBusinessDetails();
-							if(businessDetails != null && !businessDetails.isEmpty()) {
-							for(int i=0;i<businessDetails.size();i++) {
-								BusinessDetail businessDetail = businessDetails.get(i);
-								if(file != null) {
-									businessDetail.setFileContent(file.getBytes());
-									businessDetail.setFileName(file.getOriginalFilename());
-									businessDetail.setMimetype(file.getContentType());
-								}
-								businessDetails.set(i, businessDetail);
-							  }
-							  registration.setBusinessDetails(businessDetails);
-							}*/
-							Registration savedRegistration = registrationService.saveUser(registration);//Create new or update business information
-							if(savedRegistration !=null){
-								 results = new ResponseEntity<>(messages, HttpStatus.OK);
-							} else {
-								logger.info("Failed to save registration for mobile:[{}] ",registration.getMobile());
-								messages.clear();
-								messages.add("Failed to save registration for BO:"+registration.getMobile());
-								 results = new ResponseEntity<>(messages,HttpStatus.OK);
-							}
+					} else {
+						if ("9440717763".equalsIgnoreCase(registration.getMobile())
+								|| "9440717764".equalsIgnoreCase(registration.getMobile())
+								|| "7093402616".equalsIgnoreCase(registration.getMobile())) {
+							registration.setRole("admin");//Currently role configuration not done at UI side so hard coded as of now
 						}
+						Registration savedRegistration = registrationService.saveUser(registration);// Create new or update business information
+						if (savedRegistration != null) {
+							results = new ResponseEntity<>(messages, HttpStatus.OK);
+						} else {
+							logger.info("Failed to save registration for mobile:[{}] ", registration.getMobile());
+							messages.clear();
+							messages.add("Failed to save registration for BO:" + registration.getMobile());
+							results = new ResponseEntity<>(messages, HttpStatus.OK);
+						}
+					}
 					
 				 } else {
 					 results = new ResponseEntity<>(messages, HttpStatus.OK);
@@ -141,7 +125,7 @@ public class RegistrationController implements SmydataConstant {
 			
 		}
 		catch(Exception e){
-			logger.error("===>Error occured while saving user data and error is:===>",e);
+			logger.error("===>Error occured while saving user data and error is:===>",e.getMessage());
 		}
 		
 		return results;
@@ -229,7 +213,7 @@ public class RegistrationController implements SmydataConstant {
 			
 		}
 		catch(Exception e){
-			logger.error("Error occured while saving user data :{}",e);
+			logger.error("Error occured while saving user data :{}",e.getMessage());
 		}
 		
 		return results;
@@ -297,7 +281,7 @@ public class RegistrationController implements SmydataConstant {
 				
 		}
 		catch(Exception e){
-			logger.error("Error occured while user loggingin :{}",e);
+			logger.error("Error occured while user loggingin :{}",e.getMessage());
 			result.add("false");
 			results = new ResponseEntity<>(result, HttpStatus.OK);
 		}
@@ -335,7 +319,7 @@ public class RegistrationController implements SmydataConstant {
 			}
 		}
 		catch(Exception e){
-			logger.error("===>Error occured while getting business details :{}",e);
+			logger.error("===>Error occured while getting business details :{}",e.getMessage());
 		}
 		logger.info("===>End Execution of getBusinessDetails method===>");
 		return results;
@@ -366,7 +350,7 @@ public class RegistrationController implements SmydataConstant {
 		
 		catch(Exception e){
 			result = new ResponseEntity<>(otp,HttpStatus.OK);
-			logger.error("Exception occured while invoking OTP API====>{}",e);
+			logger.error("Exception occured while invoking OTP API====>{}",e.getMessage());
 		}
 		logger.info("==>End Execution of sendOtp method===>");
 		return result;
@@ -388,7 +372,7 @@ public class RegistrationController implements SmydataConstant {
 			
 		}
 		catch(Exception e){
-			logger.error("Exception occured in resetPassword() method====>{}",e);
+			logger.error("Exception occured in resetPassword() method====>{}",e.getMessage());
 		}
 	}
 	
@@ -413,7 +397,7 @@ public class RegistrationController implements SmydataConstant {
 			
 		}
 		catch(Exception e){
-			logger.error("Exception occured in resetPasswordInPortal() method====>{}",e);
+			logger.error("Exception occured in resetPasswordInPortal() method====>{}",e.getMessage());
 		}
 	}
 	
@@ -427,7 +411,7 @@ public class RegistrationController implements SmydataConstant {
 			}
 		}
 		catch(Exception e){
-			logger.error("Exception occured in logOut() method====>{}",e);
+			logger.error("Exception occured in logOut() method====>{}",e.getMessage());
 		}
 		
 		

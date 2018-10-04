@@ -88,7 +88,7 @@ public class UserControllerTest {
 		when(invoiceDetailServiceMock.getInvoice(mobile)).thenReturn(invoiceList);
 		when(userServiceMock.saveCustomer(Mockito.any(User.class))).thenReturn(user);
 		
-		ResponseEntity<?> response = userController.saveUser(user,123, request);
+		ResponseEntity<?> response = userController.createUser(user,123, request);
 		
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
@@ -106,7 +106,7 @@ public class UserControllerTest {
 	@Test
 	public void testSaveUserFailure() {
 		User user = null;
-		ResponseEntity<?> response = userController.saveUser(user,123, request);
+		ResponseEntity<?> response = userController.createUser(user,123, request);
 		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 	}
 	
