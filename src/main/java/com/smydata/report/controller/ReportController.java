@@ -48,7 +48,7 @@ public class ReportController implements SmydataConstant{
 		try{
 			userData = reportService.getAllCustomers(strtDate, endDate);
 			if(userData != null){
-				logger.info("====>Service returned user data size ====> "+userData.size());
+				logger.info("====>Service returned user data size[{}] ====> ",userData.size());
 				results = new ResponseEntity<>(userData, HttpStatus.OK);
 			} else {
 				logger.info("====>Service returned user data size is empty====> ");

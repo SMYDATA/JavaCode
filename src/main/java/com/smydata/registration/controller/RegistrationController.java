@@ -98,11 +98,6 @@ public class RegistrationController implements SmydataConstant {
 								
 								}
 					} else {
-						if ("9440717763".equalsIgnoreCase(registration.getMobile())
-								|| "9440717764".equalsIgnoreCase(registration.getMobile())
-								|| "7093402616".equalsIgnoreCase(registration.getMobile())) {
-							registration.setRole("admin");//Currently role configuration not done at UI side so hard coded as of now
-						}
 						Registration savedRegistration = registrationService.saveUser(registration);// Create new or update business information
 						if (savedRegistration != null) {
 							results = new ResponseEntity<>(messages, HttpStatus.OK);
